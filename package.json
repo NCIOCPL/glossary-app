@@ -1,0 +1,19 @@
+{
+  "name": "glossary-app",
+  "version": "0.0.1",
+  "description": "Glossary React Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"I Would Run Tests\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nciocpl/glossary-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nciocpl/glossary-app/issues"
+  },
+  "homepage": "https://github.com/nciocpl/glossary-app#readme"
+}

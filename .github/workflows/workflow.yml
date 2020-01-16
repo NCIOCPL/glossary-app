@@ -1,0 +1,38 @@
+name: Main workflow
+on:
+  ## This tries to avoid unessesary pushes to forked repo
+  ## development branches. No sense in a dev building every
+  ## time they push for a PR and no one should be working on
+  ## common branches in their fork.
+  push:
+    branches:
+      - master
+      - develop
+      - 'hotfix/**'
+      - 'release/**'
+      - 'feature/**'
+  ## Any pull request. Yes the syntax looks weird
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+    steps:
+      ## This clones and checks out.
+      - name: Checkout branch
+        uses: actions/checkout@v1
+      ## This installs the correct node version
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      ## This runs multiple commands to run.
+      - name: npm ci, build, and test
+        run: |
+          npm ci
+          npm run build
+          npm test
+        env:
+          CI: true
