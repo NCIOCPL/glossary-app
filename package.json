@@ -4,6 +4,7 @@
   "description": "Glossary React Application",
   "main": "index.js",
   "scripts": {
+    "build": "echo \"I Would Build \" && exit 0",
     "test": "echo \"I Would Run Tests\" && exit 0"
   },
   "repository": {
