@@ -1,0 +1,30 @@
+{
+  "termId": 44178,
+  "language": "es",
+  "dictionary": "Cancer.gov",
+  "audience": "Patient",
+  "termName": "cáncer terminal",
+  "firstLetter": "c",
+  "prettyUrlName": "cancer-terminal",
+  "pronunciation": {
+    "key": null,
+    "audio": "https://nci-media-dev.cancer.gov/audio/pdq/703943.mp3"
+  },
+  "definition": {
+    "html": "Cáncer que no se puede curar y que es mortal. También se llama cáncer en estadio terminal.",
+    "text": "Cáncer que no se puede curar y que es mortal. También se llama cáncer en estadio terminal."
+  },
+  "relatedResources": [
+    {
+      "Url": "https://www.cancer.gov/espanol/cancer/cancer-avanzado/opciones-de-cuidado/hoja-informativa-cuidado",
+      "Type": "External",
+      "Text": "Los cuidados al final de la vida de personas con cáncer"
+    },
+    {
+      "Url": "https://www.cancer.gov/espanol/cancer/cancer-avanzado/planes/etapa-final-pdq",
+      "Type": "Summary",
+      "Text": "Planificar la transición para la atención del cáncer avanzado en la etapa final de la vida"
+    }
+  ],
+  "media": []
+}
