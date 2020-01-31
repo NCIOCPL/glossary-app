@@ -1,0 +1,27 @@
+{
+  "termId": 44386,
+  "language": "es",
+  "dictionary": "Cancer.gov",
+  "audience": "Patient",
+  "termName": "VPH",
+  "firstLetter": "v",
+  "prettyUrlName": "vph",
+  "pronunciation": null,
+  "definition": {
+    "html": "Tipo de virus que causa la formación de tejido anormal (por ejemplo, verrugas) y otros cambios en las células. La infección durante largo tiempo por ciertos tipos de VPH a veces causa cáncer de cuello uterino. Es posible que el VPH también desempeñe una función en otros tipos de cáncer, como los cánceres de ano, vagina, vulva, pene y orofaringe. También se llama virus del papiloma humano.",
+    "text": "Tipo de virus que causa la formación de tejido anormal (por ejemplo, verrugas) y otros cambios en las células. La infección durante largo tiempo por ciertos tipos de VPH a veces causa cáncer de cuello uterino. Es posible que el VPH también desempeñe una función en otros tipos de cáncer, como los cánceres de ano, vagina, vulva, pene y orofaringe. También se llama virus del papiloma humano."
+  },
+  "relatedResources": [
+    {
+      "Url": "https://www.cancer.gov/espanol/cancer/causas-prevencion/riesgo/germenes-infecciosos/vph-y-cancer?redirect=true",
+      "Type": "External",
+      "Text": "VPH y el cáncer"
+    },
+    {
+      "Url": "https://www.cancer.gov/espanol/cancer/causas-prevencion/riesgo/germenes-infecciosos/hoja-informativa-vacuna-vph",
+      "Type": "External",
+      "Text": "Vacunas contra VPH (virus del papiloma humano)"
+    }
+  ],
+  "media": []
+}
