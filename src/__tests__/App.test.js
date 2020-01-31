@@ -1,9 +1,9 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import App from "./App";
-import { useStateValue } from "./store/store.js";
-jest.mock("./store/store.js");
+import App from "../App";
+import { useStateValue } from "../store/store.js";
+jest.mock("../store/store.js");
 
 describe("App component", () => {
   useStateValue.mockReturnValue([

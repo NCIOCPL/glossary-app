@@ -107,10 +107,12 @@ _UpgradeReport_Files/
 /*.tap
 /*.xml
 /node_trace.*.log
+/cypress/video
 # coverage related
 /gcovr
 /build
 /coverage
+/.nyc_output
 
 # === Rules for XCode artifacts ===
 *.xcodeproj

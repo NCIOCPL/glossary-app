@@ -16,23 +16,34 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x]
     steps:
       ## This clones and checks out.
       - name: Checkout branch
         uses: actions/checkout@v1
       ## This installs the correct node version
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
-      ## This runs multiple commands to run.
-      - name: npm ci, build, and test
-        run: |
-          npm ci
-          npm run build
-          npm test
+          node-version: 12.x
+      ## Restore cache
+      - name: Restore npm cache
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: cache-${{ hashFiles('package-lock.json') }}
+      ## Install using CI
+      - name: Install Dependencies
+        run: npm ci
         env:
           CI: true
+      ## Build the app in prep for publishing
+      - name: Build App
+        run: npm run build
+        env:
+          CI: true
+      ## Runs jest unit and cypress e2e testing and merges coverage reports
+      - name: Run Tests 
+        run: npm test
+        env:
+          CI: true
+      
