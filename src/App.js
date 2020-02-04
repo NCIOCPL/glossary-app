@@ -1,11 +1,17 @@
 import React, { useEffect } from "react";
-import { useStateValue } from "./store/store";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useAppPaths } from "./hooks/routing";
 import track from "react-tracking";
+
+
+import Home from './views/Home';
+import Definition from './views/Definition';
+
 import "./styles/dictionaries.scss";
 
 const App = ({ tracking }) => {
   // this should be a DUMB component that just displays our display(group) components
-  const [{ dictionaryName }] = useStateValue();
+  const { HomePath, DefinitionPath } = useAppPaths();
 
   //example tracking setup for pageload
   useEffect(() => {
@@ -13,19 +19,12 @@ const App = ({ tracking }) => {
   }, [tracking]);
 
   return (
-    <div className="App">
-      <h1>{dictionaryName}</h1>
-
-      <div>
-        <p>Intro text which will be passed in</p>
-      </div>
-
-      <form aria-label={`Search the ${dictionaryName}`}>
-        Form/input will appear here
-      </form>
-
-      <div style={{ border: "1px dotted #aaa" }}>Results component here</div>
-    </div>
+    <Router>
+      <Routes >
+        <Route path={ HomePath() } element={<Home />} />
+        <Route path={ DefinitionPath() } element={<Definition />} />
+      </Routes>
+    </Router>
   );
 };
 

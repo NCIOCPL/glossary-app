@@ -11,6 +11,7 @@ import * as serviceWorker from "./serviceWorker";
 const initialize = ({
   appId = "@@/DEFAULT_DICTIONARY",
   analyticsHandler = data => {},
+  basePath = '/',
   dictionaryEndpoint = "",
   dictionaryName = "Dictionary",
   dictionaryIntroText = "",
@@ -23,6 +24,7 @@ const initialize = ({
   //populate global state with init params
   const initialState = {
     appId,
+    basePath,
     dictionaryEndpoint,
     dictionaryName,
     dictionaryIntroText,
@@ -68,10 +70,32 @@ const initialize = ({
   return appRootDOMNode;
 };
 
+/**
+ * Gets the basePath for a Product Testing artifact
+ */
+const getProductTestBase = () => {
+  const url = window.location.pathname;
+  const components = url.split('/');
+  if (components.length < 2) {
+    throw Error("Path does not match expectations");
+  }
+  return components.slice(0,3).join('/');
+};
+
 // The following lets us run the app in dev not in situ as would normally be the case.
 if (process.env.NODE_ENV !== "production") {
   initialize({
     analyticsHandler: (data) => { console.log(data); },
+    dictionaryName: 'NCI Dictionary of Cancer Terms',
+    dictionaryIntroText: ''
+  });
+} else if (window?.location?.host === 'react-app-dev.cancer.gov') {
+  // This is for product testing
+  initialize({
+    basePath: getProductTestBase(),
+    analyticsHandler: (data) => { console.log(data); },
+    // The following params should be dynamic based on
+    // the test being performed
     dictionaryName: 'NCI Dictionary of Cancer Terms',
     dictionaryIntroText: ''
   });
