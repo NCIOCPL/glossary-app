@@ -13,6 +13,7 @@
   },
   "homepage": "https://github.com/nciocpl/glossary-app#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "camelcase": "^5.3.1",
     "core-js": "^3.6.4",
     "cypress-cucumber-preprocessor": "^2.0.1",
