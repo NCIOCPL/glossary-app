@@ -140,7 +140,7 @@
     "@babel/core": "7.7.4",
     "@cypress/code-coverage": "^1.11.0",
     "@svgr/webpack": "4.3.3",
-    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@types/express": "^4.17.2",
