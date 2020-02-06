@@ -1,19 +1,59 @@
+import { cleanup, render } from '@testing-library/react';
 import React from 'react';
-import { render } from '@testing-library/react';
+import { useParams } from 'react-router';
 
+import { testIds } from '../../../constants';
 import Definition from '../Definition';
 
-import { useParams } from 'react-router';
 jest.mock('react-router');
 
-test.only('Match Term Name for Definition', () => { 
+let definition;
+let wrapper;
 
-  const id = "12345";
+function getMockData(term) {
+  return term !== 'hpv'
+      ? require('../../../services/stubbed/44058__metastatic')
+      : require('../../../services/stubbed/44386__hpv');
+}
 
-  useParams.mockReturnValue({      
-      idOrName: id
+describe('Definition component test', () => {
+
+  beforeEach(() => {
+    definition = getMockData();
+
+    useParams.mockReturnValue({
+      idOrName: definition.termName
+    });
+
+    wrapper = render(<Definition />);
   });
 
-  const { getByText } = render(<Definition />);
-  expect(getByText(/12345/)).toBeTruthy();
+  afterEach(cleanup);
+
+  test('Match Term Name for Definition', () => {
+    const { getByText } = wrapper;
+    expect(getByText(definition.termName)).toBeTruthy();
+  });
+
+  test('Ensure attribute "data-cdr-id" exists with correct value for Definition component', () => {
+    const { getByTestId } = wrapper;
+    expect(getByTestId(testIds.TERM_DEF_TITLE)).toHaveAttribute('data-cdr-id', `${definition.termId}`);
+  });
+
+  describe('', () => {
+    beforeEach(cleanup);
+    test('Ensure pronunciation is not displayed for a definition without one', () => {
+      definition = getMockData('hpv');
+
+      useParams.mockReturnValue({
+        idOrName: definition.termName
+      });
+      wrapper = render(<Definition />);
+      const { queryByTestId } = wrapper;
+      expect(queryByTestId(testIds.TERM_DEF_PRONUNCIATION)).toBeNull();
+    });
+  });
 });
+
+
+
