@@ -1,0 +1,19 @@
+{
+  "termId": 583866,
+  "language": "es",
+  "dictionary": "Genetics",
+  "audience": "HealthProfessional",
+  "termName": "antioncogén",
+  "firstLetter": "a",
+  "prettyUrlName": "antioncogen",
+  "pronunciation": {
+    "key": null,
+    "audio": "https://nci-media-dev.cancer.gov/audio/pdq/720504.mp3"
+  },
+  "definition": {
+    "html": " También se llama gen supresor de tumores.",
+    "text": " También se llama gen supresor de tumores."
+  },
+  "relatedResources": [],
+  "media": []
+}

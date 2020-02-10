@@ -29,7 +29,7 @@ const Definition = () => {
             </div>
             }
             { payload.definition &&
-                <div dangerouslySetInnerHTML={{__html: payload.definition.html}}></div>
+                <div data-testid={testIds.TERM_DEF_DESCRIPTION} dangerouslySetInnerHTML={{__html: payload.definition.html}}></div>
             }
         </div>
       }
