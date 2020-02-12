@@ -7,13 +7,15 @@ import { useStateValue } from "../../../store/store.js";
 jest.mock("../../../store/store.js");
 
 test.only('Match dictionary name for Home', () => {
-  const dictionaryName = 'NCI Dictionary of Cancer Terms';
+  const dictionaryName = 'Cancer.gov';
+  const dictionaryTitle = 'NCI Dictionary of Cancer Terms'
 
   useStateValue.mockReturnValue([
     {
       appId: "mockAppId",
       basePath: '/testbase',
-      dictionaryName
+      dictionaryName,
+      dictionaryTitle
     }
   ]);
   
@@ -23,7 +25,7 @@ test.only('Match dictionary name for Home', () => {
     </MemoryRouter>
   );
   
-  expect(getByText(dictionaryName)).toBeTruthy();
+  expect(getByText(dictionaryTitle)).toBeTruthy();
   
   // Test link is correct
   expect(document.querySelector("a").getAttribute("href")).toBe(

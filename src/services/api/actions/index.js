@@ -1,0 +1,1 @@
+export { getTermDefinition } from './getTermDefinition';

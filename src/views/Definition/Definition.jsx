@@ -1,37 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useQuery } from 'react-fetching-library';
 import { useParams } from 'react-router';
 
+import { Spinner } from '../../components';
 import { testIds } from '../../constants';
-// These would eventually be replaced with the actual api call
-const metastatic = require('../../services/stubbed/44058__metastatic');
-const hpv = require('../../services/stubbed/44386__hpv');
+import { getTermDefinition } from '../../services/api/actions';
 
 const Definition = () => {
   const { idOrName } = useParams();
-  const [ definitionResults, getTermDefinitionResults ] = useState({});
-  useEffect( () => {
-      const term = idOrName === 'metastatic' ? metastatic : hpv;
-      // Fetch term definition from API
-      getTermDefinitionResults( term );
-  }, [ idOrName ]);
+  const { loading, payload, error } = useQuery( getTermDefinition( idOrName ) );
 
   return (
-    <div>
-      <h1 className="term-title"
-          data-testid={testIds.TERM_DEF_TITLE}
-          data-cdr-id={ definitionResults.termId }
-      >
-          { definitionResults.termName }
-      </h1>
-      { definitionResults.pronunciation &&
-        <div className="pronunciation" data-testid={testIds.TERM_DEF_PRONUNCIATION}>
-            {definitionResults.pronunciation.key}
+    <>
+      { loading &&
+        <Spinner />
+      }
+      { !loading && !error && payload &&
+        <div>
+            <h1 className="term-title"
+                data-testid={testIds.TERM_DEF_TITLE}
+                data-cdr-id={ payload.termId }
+            >
+                { payload.termName }
+            </h1>
+            { payload.pronunciation &&
+            <div className="pronunciation" data-testid={testIds.TERM_DEF_PRONUNCIATION}>
+                {payload.pronunciation.key}
+            </div>
+            }
+            { payload.definition &&
+                <div dangerouslySetInnerHTML={{__html: payload.definition.html}}></div>
+            }
         </div>
       }
-      { definitionResults.definition &&
-        <div dangerouslySetInnerHTML={{__html: definitionResults.definition.html}}></div>
-      }
-    </div>
+    </>
   );
 };
 
