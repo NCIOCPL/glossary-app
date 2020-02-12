@@ -1,2 +1,1 @@
-/* template */
-// export {default as ComponentName} from "./ComponentFolder";
+export { default as Spinner } from "./atomic/Spinner";
