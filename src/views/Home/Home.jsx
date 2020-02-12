@@ -4,12 +4,12 @@ import { useStateValue } from "../../store/store.js";
 import { useAppPaths } from "../../hooks/routing";
 
 const Home = () => {
-  const [{ dictionaryName }] = useStateValue();
+  const [{ dictionaryTitle }] = useStateValue();
   const { DefinitionPath } = useAppPaths();
 
   return (
     <div>
-      <h1>{dictionaryName}</h1>
+      <h1>{dictionaryTitle}</h1>
       <div>
         Hello World
       </div>
