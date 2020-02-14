@@ -1,3 +1,17 @@
 // components
 @import "../components/audio-player/audio-player";
 @import "../components/youtube-video-player/youtube-video-player.scss";
+
+h1 {
+  margin-bottom: 0.25em;
+  color: #606060;
+  font-size: 28px;
+  font-family: Montserrat;
+  font-weight: 700;
+}
+
+/* Todo: Should this div be swapped with a header element? (e.g h2, h3, h4..) */
+.pronunciation {
+  margin-bottom: 0.75em;
+  font-family: Noto Sans;
+}

@@ -8,13 +8,31 @@ import { StateProvider } from "./store/store";
 import { AnalyticsProvider } from "./tracking";
 import * as serviceWorker from "./serviceWorker";
 
+import { ClientContextProvider } from 'react-fetching-library';
+import { getAxiosClient } from './services/api/axios-client';
+
+// Default settings for development.
+// This can be overridden by integration tests.
+const defaultDevSettings = {
+  analyticsHandler: (data) => { console.log(data); },
+  audience: 'Patient',
+  basePath: '/',
+  dictionaryEndpoint: "/api",
+  dictionaryName: 'Cancer.gov',
+  dictionaryTitle: 'NCI Dictionary of Cancer Terms',
+  dictionaryIntoText: 'Intro Text',
+  language: 'en'
+}
+
 const initialize = ({
   appId = "@@/DEFAULT_DICTIONARY",
   analyticsHandler = data => {},
+  audience = 'Patient',
   basePath = '/',
-  dictionaryEndpoint = "",
-  dictionaryName = "Dictionary",
+  dictionaryEndpoint = "https://webapis-dev.cancer.gov/glossary/v1/",
+  dictionaryName = "Cancer.gov",
   dictionaryIntroText = "",
+  dictionaryTitle = "NCI Dictionary of Cancer Terms",
   language = "en", // en|es (English|Spanish)
   rootId = "NCI-app-root"
 } = {}) => {
@@ -24,10 +42,12 @@ const initialize = ({
   //populate global state with init params
   const initialState = {
     appId,
+    audience,
     basePath,
     dictionaryEndpoint,
     dictionaryName,
     dictionaryIntroText,
+    dictionaryTitle,
     language
   };
 
@@ -52,8 +72,10 @@ const initialize = ({
     ReactDOM.hydrate(
       <StateProvider initialState={initialState} reducer={reducer}>
         <AnalyticsProvider analyticsHandler={analyticsHandler}>
-          <App />
-        </AnalyticsProvider>
+            <ClientContextProvider client={getAxiosClient(initialState)}>
+              <App />
+            </ClientContextProvider>
+          </AnalyticsProvider>
       </StateProvider>,
       appRootDOMNode
     );
@@ -61,7 +83,9 @@ const initialize = ({
     ReactDOM.render(
       <StateProvider initialState={initialState} reducer={reducer} >
         <AnalyticsProvider analyticsHandler={analyticsHandler}>
-          <App />
+          <ClientContextProvider client={getAxiosClient(initialState)}>
+            <App />
+          </ClientContextProvider>
         </AnalyticsProvider>
       </StateProvider>,
       appRootDOMNode
@@ -84,11 +108,15 @@ const getProductTestBase = () => {
 
 // The following lets us run the app in dev not in situ as would normally be the case.
 if (process.env.NODE_ENV !== "production") {
-  initialize({
-    analyticsHandler: (data) => { console.log(data); },
-    dictionaryName: 'NCI Dictionary of Cancer Terms',
-    dictionaryIntroText: ''
-  });
+
+  const integrationTestOverrides = window.INT_TEST_APP_PARAMS || {};
+  const initSettings = {
+    ...defaultDevSettings,
+    ...integrationTestOverrides
+  };
+
+  initialize(initSettings);
+  
 } else if (window?.location?.host === 'react-app-dev.cancer.gov') {
   // This is for product testing
   initialize({
@@ -96,8 +124,9 @@ if (process.env.NODE_ENV !== "production") {
     analyticsHandler: (data) => { console.log(data); },
     // The following params should be dynamic based on
     // the test being performed
-    dictionaryName: 'NCI Dictionary of Cancer Terms',
-    dictionaryIntroText: ''
+    dictionaryEndpoint: "https://webapis-dev.cancer.gov/glossary/v1/",
+    dictionaryName: 'Cancer.gov',
+    dictionaryIntroText: 'NCI Dictionary of Cancer Terms'
   });
 }
 
