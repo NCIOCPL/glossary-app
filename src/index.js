@@ -11,6 +11,19 @@ import * as serviceWorker from "./serviceWorker";
 import { ClientContextProvider } from 'react-fetching-library';
 import { getAxiosClient } from './services/api/axios-client';
 
+// Default settings for development.
+// This can be overridden by integration tests.
+const defaultDevSettings = {
+  analyticsHandler: (data) => { console.log(data); },
+  audience: 'Patient',
+  basePath: '/',
+  dictionaryEndpoint: "/api",
+  dictionaryName: 'Cancer.gov',
+  dictionaryTitle: 'NCI Dictionary of Cancer Terms',
+  dictionaryIntoText: 'Intro Text',
+  language: 'en'
+}
+
 const initialize = ({
   appId = "@@/DEFAULT_DICTIONARY",
   analyticsHandler = data => {},
@@ -95,13 +108,15 @@ const getProductTestBase = () => {
 
 // The following lets us run the app in dev not in situ as would normally be the case.
 if (process.env.NODE_ENV !== "production") {
-  initialize({
-    analyticsHandler: (data) => { console.log(data); },
-    audience: 'Patient',
-    dictionaryEndpoint: "/api",
-    dictionaryName: 'Cancer.gov',
-    dictionaryIntroText: 'NCI Dictionary of Cancer Terms'
-  });
+
+  const integrationTestOverrides = window.INT_TEST_APP_PARAMS || {};
+  const initSettings = {
+    ...defaultDevSettings,
+    ...integrationTestOverrides
+  };
+
+  initialize(initSettings);
+  
 } else if (window?.location?.host === 'react-app-dev.cancer.gov') {
   // This is for product testing
   initialize({
