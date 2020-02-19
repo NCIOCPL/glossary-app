@@ -121,7 +121,7 @@ jobs:
           echo ::set-env name=REPO_NAME::$(echo $REPO_NAME)
 
           ######## ERROR IF PR FROM FORK
-          if ["$REPO_OWNER" != "NCIOCPL"]; then
+          if [ "$REPO_OWNER" != "NCIOCPL" ]; then
             echo "YOU SHOULD NOT SEND PR FROM FORK!!!"
             exit 1
           fi
@@ -141,7 +141,10 @@ jobs:
       - name: install python modules
         shell: bash
         run: |
+          ## Update Setup Tools so that Edgegrid can install
+          python -m pip install --upgrade pip setuptools wheel
           pip install -Iv netstorageapi==1.2.12
+          pip install requests edgegrid-python
       ## Actually do the upload
       - name: Upload artifact to netstorage
         shell: python
@@ -150,10 +153,18 @@ jobs:
           NS_KEYNAME: ${{ secrets.ns_keyname }}
           NS_KEY: ${{ secrets.ns_key }}
           NS_CPCODE: ${{ secrets.ns_cpcode }}
+          PROP_CPCODE: ${{ secrets.prop_cpcode }}
+          EG_HOSTNAME: ${{ secrets.eg_hostname }}
+          EG_CLIENT_TOKEN: ${{ secrets.eg_client_token }}
+          EG_CLIENT_SECRET: ${{ secrets.eg_client_secret }}
+          EG_ACCESS_TOKEN: ${{ secrets.eg_access_token }}
           ARTIFACT_FILENAME: ${{ format('{0}.zip', steps.set_vars.outputs.build_name) }}
         run: |
           import os
+          import requests
           from akamai.netstorage import Netstorage, NetstorageError
+          from akamai.edgegrid import EdgeGridAuth
+          from urllib.parse import urljoin
 
           NS_HOSTNAME = os.environ.get('NS_HOSTNAME')
           NS_KEYNAME = os.environ.get('NS_KEYNAME')
@@ -161,22 +172,50 @@ jobs:
           NS_CPCODE = os.environ.get('NS_CPCODE')
           REPO_NAME = os.environ.get('REPO_NAME')
           BUILD_NAME = os.environ.get('BUILD_NAME')
+          PROP_CPCODE = os.environ.get('PROP_CPCODE')
+          EG_HOSTNAME = os.environ.get('EG_HOSTNAME')
+          EG_CLIENT_TOKEN = os.environ.get('EG_CLIENT_TOKEN')
+          EG_CLIENT_SECRET = os.environ.get('EG_CLIENT_SECRET')
+          EG_ACCESS_TOKEN = os.environ.get('EG_ACCESS_TOKEN')
 
           artifact_filename = '{0}.zip'.format(BUILD_NAME)
           local_source = os.path.join(os.getcwd(), artifact_filename)
           netstorage_destination = '/{0}/{1}/{2}'.format(NS_CPCODE, REPO_NAME, artifact_filename)
           
-          print(local_source)
+          ## Upload to Netstorage
           ns = Netstorage(NS_HOSTNAME, NS_KEYNAME, NS_KEY, True)
           ok, response = ns.upload(local_source, netstorage_destination, True)
-
-          ## TODO: Clear cache
 
           if not ok:
             # Error occurred
             print(response)
             exit(1)
-          else: 
-            print("Uploaded {0} successfully".format(artifact_filename))
-            exit(0)
-  ## TODO: Post notice PR is ready for testing
+          
+          ## Clear cache
+          session = requests.Session()
+          session.auth = EdgeGridAuth(
+            client_token=EG_CLIENT_TOKEN,
+            client_secret=EG_CLIENT_SECRET,
+            access_token=EG_ACCESS_TOKEN
+          )
+
+          ## Purge the cache
+          purge_result = session.post(
+            urljoin(EG_HOSTNAME, '/ccu/v3/delete/cpcode/production'),
+            json={
+              "objects": [NS_CPCODE, PROP_CPCODE]
+            }
+          )
+
+          ## Handle error from purge
+          if (purge_result.status_code != 201) :
+            print("Purge failed")
+            print(purge_result.reason)
+            print(purge_result.content)
+            exit(2)
+
+          ## Sucessfully Completed.
+          print("Uploaded {0} successfully".format(artifact_filename))
+          exit(0)            
+
+## TODO: Post notice PR is ready for testing
