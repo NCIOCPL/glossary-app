@@ -73,7 +73,18 @@ describe('Definition component with English', () => {
         expect(getByTestId(testIds.TERM_DEF_TITLE)).toHaveAttribute('data-cdr-id', `${definition.termId}`);
     });
 
-    describe('', () => {
+    test('Images specified in media are displayed', () => {
+        const {container} = wrapper;
+        expect(container.querySelectorAll('figure.image-left-medium').length).toEqual(1);
+    });
+
+    test('Video specified in media are displayed', () => {
+        const {container} = wrapper;
+        expect(container.querySelectorAll('figure.video').length).toEqual(1);
+    });
+
+
+    describe('Displaying the information for the term "hpv"', () => {
         const idOrPurl = 'hpv';
         beforeEach(cleanup);
         test('Ensure pronunciation is not displayed for a definition without one', async () => {
@@ -101,6 +112,13 @@ describe('Definition component with English', () => {
             const { queryByTestId } = wrapper;
             expect(queryByTestId(testIds.TERM_DEF_PRONUNCIATION)).toBeNull();
         });
+
+        test('No media should be displayed when empty', () => {
+            const {container} = wrapper;
+            expect(container.querySelectorAll('figure.video').length).toEqual(0);
+            expect(container.querySelectorAll('figure.image-left-medium').length).toEqual(0);
+        });
+    
     });
 });
 
