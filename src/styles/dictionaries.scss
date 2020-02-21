@@ -1,6 +1,9 @@
 // components
-@import "../components/audio-player/audio-player";
-@import "../components/youtube-video-player/youtube-video-player.scss";
+@import "../components/atomic/audio-player/audio-player";
+@import "../components/atomic/youtube-video-player/youtube-video-player.scss";
+
+//views
+@import "../views/Definition/Definition";
 
 h1 {
   margin-bottom: 0.25em;
