@@ -13,11 +13,12 @@ const Definition = () => {
   const [{ language }] = useStateValue();
 
   const renderRelatedResources = () => {
+    let headerText = (language === 'en')? 'More Information' : 'Más información';
     return (
       <>
         {((payload.relatedResources && payload.relatedResources.length > 0) ||
           (payload.media && payload.media.length > 0)) && (
-          <h6>More Information</h6>
+          <h6>{headerText}</h6>
         )}
         {renderRelatedResourceLinks()}
         {renderMediaItems()}

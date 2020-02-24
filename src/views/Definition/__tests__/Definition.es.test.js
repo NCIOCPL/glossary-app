@@ -73,6 +73,11 @@ describe('Definition component with Spanish', () => {
         const { getByText } = wrapper;
         expect(getByText(idOrPurl)).toBeTruthy();
     });
+
+    test('More Information is replaced with spanish text', () => {
+        const { getByText } = wrapper;
+        expect(getByText('Más información')).toBeTruthy();
+    });
 });
 
 
