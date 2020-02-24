@@ -3,7 +3,8 @@ import { useStateValue } from "../store/store";
 // Paths for app
 const appPaths = {
   'HomePath': '/',
-  'DefinitionPath': '/def/:idOrName'
+  'DefinitionPath': '/def/:idOrName',
+  'ExpandPath': '/expand/:expandChar'
 };
 
 /**

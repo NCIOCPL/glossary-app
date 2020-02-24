@@ -1,0 +1,9 @@
+.az-list {
+  .browse {
+    float: none;
+  }
+
+  & > ul {
+    display: inline;
+  }
+}
