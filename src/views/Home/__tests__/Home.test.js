@@ -18,13 +18,13 @@ test.only('Match dictionary name for Home', () => {
       dictionaryTitle
     }
   ]);
-  
-  const { getByText } = render(    
+
+  const { getByText } = render(
     <MemoryRouter initialEntries={["/testbase"]}>
       <Home />
     </MemoryRouter>
   );
-  
+
   expect(getByText(dictionaryTitle)).toBeTruthy();
   
   // Test link is correct
