@@ -1,9 +1,9 @@
-import { render } from '@testing-library/react';
-import React from 'react';
-import { MemoryRouter } from 'react-router';
+import { render } from "@testing-library/react";
+import React from "react";
+import { MemoryRouter } from "react-router";
 
-import { testIds } from '../../../../constants';
-import { SearchBox } from '../../../index';
+import { testIds } from "../../../../constants";
+import { SearchBox } from "../../../index";
 import { useStateValue } from "../../../../store/store";
 
 jest.mock("../../../../store/store.js");
@@ -30,5 +30,7 @@ describe('SearchBox component', () => {
         const { getByTestId } = wrapper;
         // Search component should be rendered
         expect(getByTestId(testIds.SEARCH_CONTAINER));
+        // AZList component should be rendered
+        expect(getByTestId(testIds.AZ_LIST));
     });
 });

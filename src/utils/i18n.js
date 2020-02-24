@@ -1,4 +1,8 @@
 export const i18n = {
+    browse: {
+        en: 'Browse',
+        es: 'Ojear'
+    },
     contains: {
         en: 'Contains',
         es: 'Contiene'

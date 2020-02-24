@@ -9504,7 +9504,6 @@ p.date.dynamic-date,p.description.dynamic-description {
 }
 
 .az-list .browse {
-    float: left;
     padding-top: .5em;
     margin-right: 1em
 }
@@ -9516,6 +9515,10 @@ p.date.dynamic-date,p.description.dynamic-description {
 
 .az-list.inline>ul {
     margin-bottom: inherit
+}
+
+.az-list>ul {
+    display: inline;
 }
 
 .az-list>ul>li {
