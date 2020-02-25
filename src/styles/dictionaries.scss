@@ -1,6 +1,15 @@
-// components
-@import "../components/atomic/audio-player/audio-player";
-@import "../components/atomic/youtube-video-player/youtube-video-player.scss";
+// components - atomic
+@import 
+  "../components/atomic/audio-player/audio-player",
+  "../components/atomic/youtube-video-player/youtube-video-player";
+
+// components - molecules
+@import "../components/molecules/pronunciation/pronunciation";
+
+// Views specific
+@import 
+  "../views/Definition/definition", 
+  "../views/Home/home";
 
 h1 {
   margin-bottom: 0.25em;
@@ -8,10 +17,4 @@ h1 {
   font-size: 28px;
   font-family: Montserrat;
   font-weight: 700;
-}
-
-/* Todo: Should this div be swapped with a header element? (e.g h2, h3, h4..) */
-.pronunciation {
-  margin-bottom: 0.75em;
-  font-family: Noto Sans;
 }

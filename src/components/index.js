@@ -5,5 +5,6 @@ export { default as Spinner } from "./atomic/Spinner";
 
 // molecules
 export {FigureCgovImage, FigureCgovVideo} from './molecules/figures';
+export {default as Pronunciation } from './molecules/pronunciation'
 
 // organisms

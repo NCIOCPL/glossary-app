@@ -3,7 +3,12 @@ import { useQuery } from "react-fetching-library";
 import { useParams } from "react-router";
 import { useStateValue } from "../../store/store.js";
 
-import { Spinner, FigureCgovImage, FigureCgovVideo } from "../../components";
+import {
+  Spinner,
+  FigureCgovImage,
+  FigureCgovVideo,
+  Pronunciation
+} from "../../components";
 import { testIds } from "../../constants";
 import { getTermDefinition } from "../../services/api/actions";
 
@@ -12,14 +17,22 @@ const Definition = () => {
   const { loading, payload, error } = useQuery(getTermDefinition(idOrName));
   const [{ language }] = useStateValue();
 
+  const renderPronunciation = () => {
+    if (payload.pronunciation) {
+      return (
+        <Pronunciation lang={language} pronunciationObj={payload.pronunciation} />
+      );
+    } else {
+      return <></>;
+    }
+  };
+
   const renderRelatedResources = () => {
-    let headerText = (language === 'en')? 'More Information' : 'Más información';
+    let headerText = language === "en" ? "More Information" : "Más información";
     return (
       <>
         {((payload.relatedResources && payload.relatedResources.length > 0) ||
-          (payload.media && payload.media.length > 0)) && (
-          <h6>{headerText}</h6>
-        )}
+          (payload.media && payload.media.length > 0)) && <h6>{headerText}</h6>}
         {renderRelatedResourceLinks()}
         {renderMediaItems()}
       </>
@@ -62,7 +75,7 @@ const Definition = () => {
                   {mediaItem.Caption}
                 </FigureCgovVideo>
               );
-            }else{
+            } else {
               return false;
             }
           })}
@@ -82,14 +95,7 @@ const Definition = () => {
           >
             {payload.termName}
           </h1>
-          {payload.pronunciation && (
-            <div
-              className="pronunciation"
-              data-testid={testIds.TERM_DEF_PRONUNCIATION}
-            >
-              {payload.pronunciation.key}
-            </div>
-          )}
+          {renderPronunciation()}
           {payload.definition && (
             <div
               data-testid={testIds.TERM_DEF_DESCRIPTION}

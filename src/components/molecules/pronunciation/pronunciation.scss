@@ -1,0 +1,14 @@
+.pronunciation {
+  display: flex;
+  font-family: Noto Sans;
+  margin-bottom: 0.75em;
+  &__audio {
+    flex: none;
+    width: 42px;
+  }
+  &__key {
+    flex: 1 1 auto;
+    line-height: 1.4;
+    padding-top: 8px;
+  }
+}

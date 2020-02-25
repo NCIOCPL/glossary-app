@@ -39,7 +39,7 @@ const AudioPlayer = ({ audioSrc, lang = "en", tracking = () => {} }) => {
   };
 
   const srText =
-    lang === "es" ? "escuchar la pronunciación" : "Listen to pronunciation";
+    lang === "es" ? "Escuche la pronunciación" : "Listen to pronunciation";
 
   return (
     <>

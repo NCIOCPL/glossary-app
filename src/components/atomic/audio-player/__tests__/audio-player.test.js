@@ -26,7 +26,7 @@ describe("<AudioPlayer /> component", () => {
   it("has spanish screenreader text if language is specified as spanish", () => {
     const { container } = render(<AudioPlayer audioSrc="mock.mp3" lang="es" />);
     expect(container.querySelector("span.show-for-sr")).toHaveTextContent(
-      "escuchar la pronunciación"
+      "Escuche la pronunciación"
     );
   });
 

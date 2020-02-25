@@ -3,7 +3,6 @@ import React from 'react';
 import { useParams } from 'react-router';
 import { ClientContextProvider } from 'react-fetching-library';
 
-import { testIds } from '../../../constants';
 import Definition from '../Definition';
 import { useStateValue } from '../../../store/store.js';
 import fixtures from '../../../utils/fixtures';
