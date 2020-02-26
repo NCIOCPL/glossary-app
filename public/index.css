@@ -25,15 +25,22 @@ code {
   clear: both;
   height: 100%;
   min-height: 100vh;
+  overflow: auto;
 }
 
 .content-container {
-  float: right;
-  padding-left: 0.9375em;
-  padding-right: 3.125em;
   position: relative;
-  width: 75%;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
 }
+@media only screen and (min-width: 1025px) {
+  .content-container {
+    float: right;
+    padding-right: 3.125em;
+    width: 75%;
+  }
+}
+
 .show-for-sr {
   position: absolute;
   width: 1px;

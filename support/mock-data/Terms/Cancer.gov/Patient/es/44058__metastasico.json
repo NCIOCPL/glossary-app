@@ -8,7 +8,7 @@
   "prettyUrlName": "metastasico",
   "pronunciation": {
     "key": null,
-    "audio": "https://nci-media-dev.cancer.gov/audio/pdq/704103.mp3"
+    "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704103.mp3"
   },
   "definition": {
     "html": "Relacionado con la metástasis,\nque es la diseminación del cáncer desde el sitio primario\n(el lugar donde empezó) hasta otras partes del\ncuerpo.",
@@ -27,15 +27,15 @@
       "ImageSources": [
         {
           "Size": "original",
-          "Src": "https://nci-media-dev.cancer.gov/images/pdq/CDR766321.jpg"
+          "Src": "https://nci-media-dev.cancer.gov/pdq/media/images/766321.jpg"
         },
         {
           "Size": "571",
-          "Src": "https://nci-media-dev.cancer.gov/images/pdq/CDR766321-571.jpg"
+          "Src": "https://nci-media-dev.cancer.gov/pdq/media/images/766321-571.jpg"
         },
         {
           "Size": "750",
-          "Src": "https://nci-media-dev.cancer.gov/images/pdq/CDR766321-750.jpg"
+          "Src": "https://nci-media-dev.cancer.gov/pdq/media/images/766321-750.jpg"
         }
       ],
       "Ref": "CDR0000766321",
