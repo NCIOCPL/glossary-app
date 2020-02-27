@@ -2,8 +2,12 @@ import React from "react";
 import { useQuery } from "react-fetching-library";
 import { useParams } from "react-router";
 import { useStateValue } from "../../store/store.js";
-
-import { Spinner, FigureCgovImage, FigureCgovVideo } from "../../components";
+import {
+  Spinner,
+  FigureCgovImage,
+  FigureCgovVideo,
+  Pronunciation
+} from "../../components";
 import { testIds } from "../../constants";
 import { getTermDefinition } from "../../services/api/actions";
 
@@ -11,6 +15,19 @@ const Definition = () => {
   const { idOrName } = useParams();
   const { loading, payload, error } = useQuery(getTermDefinition(idOrName));
   const [{ language }] = useStateValue();
+
+  const renderPronunciation = () => {
+    return (
+      <>
+        {payload.pronunciation && (
+          <Pronunciation
+            lang={language}
+            pronunciationObj={payload.pronunciation}
+          />
+        )}
+      </>
+    );
+  };
 
   const renderRelatedResources = () => {
     return (
@@ -21,7 +38,7 @@ const Definition = () => {
     );
   };
 
-  const renderRelatedResourceLinks = () => (<></>);
+  const renderRelatedResourceLinks = () => <></>;
 
   const renderMediaItems = () => {
     return (
@@ -77,14 +94,7 @@ const Definition = () => {
           >
             {payload.termName}
           </h1>
-          {payload.pronunciation && (
-            <div
-              className="pronunciation"
-              data-testid={testIds.TERM_DEF_PRONUNCIATION}
-            >
-              {payload.pronunciation.key}
-            </div>
-          )}
+          {renderPronunciation()}
           {payload.definition && (
             <div
               data-testid={testIds.TERM_DEF_DESCRIPTION}
