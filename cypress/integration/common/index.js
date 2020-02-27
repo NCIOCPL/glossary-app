@@ -1,4 +1,8 @@
-import { Given, Then, When } from "cypress-cucumber-preprocessor/steps";
+import { And, Given, Then, When } from "cypress-cucumber-preprocessor/steps";
+
+import { testIds } from "../../../src/constants";
+
+const baseURL = Cypress.config('baseUrl');
 
 Then("page title is {string}", title => {
   cy.get('h1').should('contain', title);
@@ -17,7 +21,7 @@ Given('the user is viewing the definition with the pretty url {string}', (a) => 
 });
 
 Then('the definition text {string} appears on the page', (a) => {
-  cy.get("div[data-testid='term-def-description']").should(($div) => {
+  cy.get(`div[data-testid='${testIds.TERM_DEF_DESCRIPTION}']`).should(($div) => {
     expect($div).to.have.lengthOf(1);
     const el = $div.get(0);
     expect(el.innerText).to.be.equal(a);
@@ -31,11 +35,11 @@ Given('{string} is set to {string}', (key, param) => {
 });
 
 Then('the pronunciation text {string} appears on the page', (a) => {
-  cy.get("div[data-testid='term-def-pronunciation']").should('have.text', a);
+  cy.get(`div[data-testid='${testIds.TERM_DEF_PRONUNCIATION}']`).should('have.text', a);
 });
 
 Then('the pronunciation text does not appear on the page', () => {
-  cy.get("div[data-testid='term-def-pronunciation']").should('not.exist');
+  cy.get(`div[data-testid='${testIds.TERM_DEF_PRONUNCIATION}']`).should('not.exist');
 });
 
 //******************MEDIA RELATED TEST STEPS*****************//
@@ -116,7 +120,7 @@ Then('there is a play button', () => {
 });
 
 Then('the user clicks the play button', () => {
-  cy.get("figure[class*='video'] div[class*='play-button']").click();
+  cy.get("figure[class*='video'] div[class*='play-button']").click({force : true});
 });
 
 Then('the video begins playing', () => {
@@ -153,4 +157,58 @@ Then('a video is displayed with the following', dataTable => {
 
 Then('a youtube video is displayed with the video id {string}', (video_id) => {
   cy.get("figure[class*='video'] img").should('have.attr', 'src').and('contain', video_id);
+});
+
+
+/*
+  ------------------------------
+    Term Definition Page Tests
+  ------------------------------
+ */
+Then('heading {string} appears', searchBoxTitle => {
+  cy.log('Heading:', searchBoxTitle);
+  cy.get('h6').contains(searchBoxTitle);
+});
+
+Then('search options for {string} and {string} appears', (startsWithRadioLabel, containsRadioLabel) => {
+  cy.get('label').contains(startsWithRadioLabel);
+  cy.get('label').contains(containsRadioLabel);
+});
+
+Then('{string} search box appears', (keywords) => {
+  cy.get(`input[placeholder="Enter keywords or phrases"]`);
+});
+
+Then('search button appears beside search box with {string}', (searchButtonText) => {
+  cy.get(`input[value="${searchButtonText}"]`);
+});
+
+Then('{string} appears with A-Z List of Links beside it', (browseLabel) => {
+  // Browse label shows
+  cy.get(`nav[data-testid='${testIds.AZ_LIST}']`).contains(browseLabel);
+  // A-Z nav list is rendered with 27 items
+  cy.get(`nav[data-testid='${testIds.AZ_LIST}'] > ul > li`).should('have.length', 27);
+});
+
+And('user submits their search clicking the {string} button', (searchButtonText) => {
+  cy.get(`input[value="${searchButtonText}"]`).click();
+});
+
+Then('the system returns users to the search results page for the search term', () => {
+  cy.window().then((win) => {
+    if ( win.INT_TEST_APP_PARAMS ) {
+      const searchBaseLocation = win.INT_TEST_APP_PARAMS.language === 'es' ? 'buscar' : 'search';
+      cy.location('href').should('eq', `${baseURL}/${searchBaseLocation}?contains=false&q=`);
+    }
+  });
+});
+
+When('user clicks a letter in the A-Z list', () => {
+  // First letter in A-Z nav list "A" is clicked
+  cy.get(`nav[data-testid='${testIds.AZ_LIST}'] > ul > li:first a`).click();
+});
+
+Then('the system returns users to the search results page for the letter', () => {
+
+  cy.location('href').should('eq', `${baseURL}/expand/A`);
 });

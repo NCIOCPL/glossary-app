@@ -1,15 +1,17 @@
 import React from "react";
 import { useQuery } from "react-fetching-library";
 import { useParams } from "react-router";
-import { useStateValue } from "../../store/store.js";
+
 import {
-  Spinner,
   FigureCgovImage,
   FigureCgovVideo,
+  SearchBox,
+  Spinner,
   Pronunciation
 } from "../../components";
 import { testIds } from "../../constants";
 import { getTermDefinition } from "../../services/api/actions";
+import { useStateValue } from "../../store/store.js";
 
 const Definition = () => {
   const { idOrName } = useParams();
@@ -104,6 +106,8 @@ const Definition = () => {
           {((payload.relatedResources && payload.relatedResources.length > 0) ||
             (payload.media && payload.media.length > 0)) &&
             renderRelatedResources()}
+
+          <SearchBox showTitle />
         </>
       )}
     </>
