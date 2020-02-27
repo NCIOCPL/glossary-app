@@ -51,6 +51,7 @@ const unsupportedMediaFile = {
 describe("Definition component with English", () => {
   const idOrPurl = "metastatic";
   const language = "en";
+  const searchBoxTitle = "Search NCI's Dictionary of Cancer Terms";
 
   definition = getFixture(`${fixturePath}/${language}/${metastaticFile}`);
 
@@ -74,7 +75,8 @@ describe("Definition component with English", () => {
         basePath: "/",
         dictionaryName,
         dictionaryTitle,
-        language
+        language,
+        searchBoxTitle
       }
     ]);
 
@@ -102,6 +104,11 @@ describe("Definition component with English", () => {
       "data-cdr-id",
       `${definition.termId}`
     );
+  });
+
+  test('SearchBox component is displayed with title', () => {
+    const { getByText } = wrapper;
+    expect(getByText(searchBoxTitle)).toBeInTheDocument();
   });
 
   // Media related tests

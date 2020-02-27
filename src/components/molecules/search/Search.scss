@@ -1,16 +1,27 @@
-.radio {
-  margin-top: 2em;
-  display: inline-block;
-  margin-right: 15px;
-}
+.dictionary-search {
+  .radio-selection {
+    margin-bottom: 1em;
+  }
 
-.dictionary-search-input {
-  display: inline-block;
-  width: 65%;
-}
+  .radio {
+    margin-top: 1em;
+    display: inline-block;
+    margin-right: 15px;
+  }
 
-.button {
-  display: inline-block;
-  width: 20%;
-  margin-left: 1em;
+  .dictionary-search-input {
+    display: inline-block;
+    width: 65%;
+  }
+
+  .ncids-input {
+    width: 100%;
+  }
+
+  .button {
+    display: inline-block;
+    width: 20%;
+    margin-right: 1em;
+    margin-left: 1em;
+  }
 }
