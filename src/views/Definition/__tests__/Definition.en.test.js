@@ -104,6 +104,12 @@ describe("Definition component with English", () => {
     );
   });
 
+  test("Pronunciation audio and phonetic keys are outputted when provided", () => {
+    const { container } = wrapper;
+    expect(container.querySelector(".pronunciation__audio")).toBeInTheDocument();
+    expect(container.querySelector(".pronunciation__key")).toBeInTheDocument();
+  });
+
   // Media related tests
   test("Images specified in media are displayed", () => {
     const { container } = wrapper;
@@ -177,6 +183,12 @@ describe("Definition component with English", () => {
       });
       const { queryByTestId } = wrapper;
       expect(queryByTestId(testIds.TERM_DEF_PRONUNCIATION)).toBeNull();
+    });
+
+    test("Pronunciation data should not be present", () => {
+      const { container } = wrapper;
+      expect(container.querySelector(".pronunciation__audio")).not.toBeInTheDocument();
+      expect(container.querySelector(".pronunciation__key")).not.toBeInTheDocument();
     });
 
     test("No media should be displayed when empty", () => {
