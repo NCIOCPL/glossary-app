@@ -34,8 +34,8 @@ Then('the pronunciation text {string} appears on the page', (a) => {
   cy.get("div[data-testid='term-def-pronunciation']").should('have.text', a);
 });
 
-Then('there is no pronunciation text on the page', () => {
-  cy.get("div[data-testid='term-def-pronunciation']").should('be.empty');
+Then('the pronunciation text does not appear on the page', () => {
+  cy.get("div[data-testid='term-def-pronunciation']").should('not.exist');
 });
 
 //******************MEDIA RELATED TEST STEPS*****************//
