@@ -35,7 +35,7 @@ const initialize = ({
   dictionaryTitle = "NCI Dictionary of Cancer Terms",
   language = "en", // en|es (English|Spanish)
   rootId = "NCI-app-root",
-  searchBoxTitle = "Search the Dictionary of Cancer Terms"
+  searchBoxTitle = "Search NCI's Dictionary of Cancer Terms"
 } = {}) => {
   const appRootDOMNode = document.getElementById(rootId);
   const isRehydrating = appRootDOMNode.getAttribute("data-isRehydrating");

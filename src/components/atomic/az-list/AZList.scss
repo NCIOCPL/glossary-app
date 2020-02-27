@@ -5,5 +5,11 @@
 
   & > ul {
     display: inline;
+
+    & > li {
+      & a {
+        color: #2b7bba;
+      }
+    }
   }
 }

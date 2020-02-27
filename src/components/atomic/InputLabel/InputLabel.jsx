@@ -14,7 +14,7 @@ const InputLabel = ({
   classes += required ? ' ncids-label--required' : '';
   classes += hasError ? ' ncids-label--error' : '';
   return (
-    <label id={`${htmlFor}-label`} className={classes} htmlFor={htmlFor} data-testid="tid-label">
+    <label id={`${htmlFor}-label`} className={classes} htmlFor={htmlFor} data-testid={`tid-${htmlFor}-label`}>
       {label}
       {labelHint && <span className="ncids-hint"> {labelHint}</span>}
     </label>

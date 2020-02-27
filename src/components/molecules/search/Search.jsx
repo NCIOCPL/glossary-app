@@ -44,13 +44,13 @@ const Search = () => {
             <div className="radio-selection">
                 <Radio label={i18n.startsWith[language]}
                        id="starts-with"
-                       className="radio"
+                       className="inline"
                        value={startsWithValue}
                        defaultChecked={selectedOption === startsWithValue}
                        onChange={toggleRadioSelection} />
                 <Radio label={i18n.contains[language]}
                        id="contains"
-                       className="radio"
+                       className="inline"
                        value={containsValue}
                        onChange={toggleRadioSelection} />
             </div>

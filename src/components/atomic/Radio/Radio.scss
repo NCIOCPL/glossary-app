@@ -2,6 +2,11 @@
   box-sizing: border-box;
   padding: 0;
 
+  &.inline {
+    margin-right: 1em;
+    display: inline-block;
+  }
+
   &__input {
     position: absolute;
     left: -999em;
