@@ -1,0 +1,27 @@
+{
+  "termId": 44759,
+  "language": "es",
+  "dictionary": "Cancer.gov",
+  "audience": "Patient",
+  "termName": "tejido graso de la mama",
+  "firstLetter": "t",
+  "prettyUrlName": "tejido-graso-de-la-mama",
+  "pronunciation": {
+    "key": null,
+    "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705928.mp3"
+  },
+  "definition": {
+    "html": "Término que se usa para describir el tejido de la mama que está formado casi en su totalidad por tejido graso. El tejido graso de la mama no se ve denso en un mamograma, lo que hace más fácil encontrar tumores u otros cambios en la mama. El tejido graso de la mama es más común en las mujeres mayores en comparación con las mujeres jóvenes. El tejido graso de la mama es una de las cuatro categorías que se usan para describir el grado de densidad de la mama que se observa en un mamograma.",
+    "text": "Término que se usa para describir el tejido de la mama que está formado casi en su totalidad por tejido graso. El tejido graso de la mama no se ve denso en un mamograma, lo que hace más fácil encontrar tumores u otros cambios en la mama. El tejido graso de la mama es más común en las mujeres mayores en comparación con las mujeres jóvenes. El tejido graso de la mama es una de las cuatro categorías que se usan para describir el grado de densidad de la mama que se observa en un mamograma."
+  },
+  "relatedResources": [
+    {
+      "Type": "GlossaryTerm",
+      "Text": "densidad de la mama",
+      "TermId": 335487,
+      "Audience": "Patient",
+      "PrettyUrlName": "densidad-de-la-mama"
+    }
+  ],
+  "media": []
+}
