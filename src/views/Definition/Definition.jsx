@@ -3,7 +3,12 @@ import { useQuery } from "react-fetching-library";
 import { useParams } from "react-router";
 import { useStateValue } from "../../store/store.js";
 
-import { Spinner, FigureCgovImage, FigureCgovVideo } from "../../components";
+import {
+  Spinner,
+  FigureCgovImage,
+  FigureCgovVideo,
+  RelatedResourceList
+} from "../../components";
 import { testIds } from "../../constants";
 import { getTermDefinition } from "../../services/api/actions";
 
@@ -21,7 +26,22 @@ const Definition = () => {
     );
   };
 
-  const renderRelatedResourceLinks = () => (<></>);
+  const renderRelatedResourceLinks = () => {
+    let headerText = language === "en" ? "More Information" : "Más información";
+    if (payload.relatedResources && payload.relatedResources.length > 0) {
+      return (
+        <>
+          <h6>{headerText}</h6>
+          <RelatedResourceList
+            linksArr={payload.relatedResources}
+            lang={language}
+          />
+        </>
+      );
+    } else {
+      return <></>;
+    }
+  };
 
   const renderMediaItems = () => {
     return (
