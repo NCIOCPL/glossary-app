@@ -136,7 +136,8 @@
     "nonGlobalStepDefinitions": true
   },
   "nyc": {
-    "report-dir": "coverage/cypress"
+    "report-dir": "coverage/cypress",
+    "reporter": ["text", "json"]
   },
   "devDependencies": {
     "@babel/core": "7.7.4",

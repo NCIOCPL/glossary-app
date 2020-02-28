@@ -1,5 +1,4 @@
 import { And, Given, Then, When } from "cypress-cucumber-preprocessor/steps";
-
 import { testIds } from "../../../src/constants";
 
 const baseURL = Cypress.config('baseUrl');
@@ -212,3 +211,51 @@ Then('the system returns users to the search results page for the letter', () =>
 
   cy.location('href').should('eq', `${baseURL}/expand/A`);
 });
+
+// *************************MORE INFORMATION LINKS************************//
+
+
+
+Then('there is a heading on the page with {string}', moreInfoHeader => {
+    cy.get(`div[data-testid='${testIds.MORE_INFORMATION}'] h6`).should('have.text', moreInfoHeader);
+});
+
+
+Then('there is a link to a definition with the pretty url {string} and the text {string} following the text {string}', (prettyUrl, definitionTitle, definitionOf) => {
+    cy.document().then(doc => {
+        let definitionOfElem = doc.querySelector(`div[data-testid='${testIds.MORE_INFORMATION}'] ul>li`).childNodes[0].wholeText;
+        expect(definitionOfElem).to.be.eq(definitionOf)
+        cy.get(`div[data-testid='${testIds.MORE_INFORMATION}'] ul li a`).should('have.attr', 'href').and('contain', prettyUrl);
+        cy.get(`div[data-testid='${testIds.MORE_INFORMATION}'] ul li a`).should('have.text', definitionTitle);
+    })
+});
+
+
+Then('More Information does not appear as a label',() =>{
+    cy.get(`div[data-testid='${testIds.MORE_INFORMATION}'] h6`).should('not.exist');
+});
+
+Then('media is displayed', ()=> {
+cy.get("figure[class*='image']").should(($fig)=>{
+expect($fig.length).to.be.greaterThan(0);
+})
+
+});
+
+Then('there is an resource item with the following link and text',dataTable =>{
+  //slit the data table into array of pairs
+  var rawTable = dataTable.rawTable.slice();
+  
+  //Verify the total number of More information link
+  cy.document().then(doc=>{
+      let listOfResurces = doc.querySelectorAll(`div[data-testid='${testIds.MORE_INFORMATION}'] ul li a`)
+      expect(listOfResurces.length).to.be.eq(rawTable.length);
+  });
+  
+  //get the link with the provided url and assert it's text
+  for (let i = 0; i < rawTable.length; i++) {
+    var row = rawTable[i];
+    cy.get(`div[data-testid='${testIds.MORE_INFORMATION}'] ul li a[href='`+row[0]+`']`).should('have.text',row[1])
+  }
+  });
+  

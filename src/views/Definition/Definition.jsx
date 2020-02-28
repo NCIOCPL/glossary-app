@@ -7,7 +7,8 @@ import {
   FigureCgovVideo,
   SearchBox,
   Spinner,
-  Pronunciation
+  Pronunciation,
+  RelatedResourceList
 } from "../../components";
 import { testIds } from "../../constants";
 import { getTermDefinition } from "../../services/api/actions";
@@ -33,14 +34,29 @@ const Definition = () => {
 
   const renderRelatedResources = () => {
     return (
-      <div className="related-resources">
+      <div className="related-resources" data-testid={testIds.MORE_INFORMATION}>
         {renderRelatedResourceLinks()}
         {renderMediaItems()}
       </div>
     );
   };
 
-  const renderRelatedResourceLinks = () => <></>;
+  const renderRelatedResourceLinks = () => {
+    let headerText = language === "en" ? "More Information" : "Más información";
+    if (payload.relatedResources && payload.relatedResources.length > 0) {
+      return (
+        <>
+          <h6>{headerText}</h6>
+          <RelatedResourceList
+            linksArr={payload.relatedResources}
+            lang={language}
+          />
+        </>
+      );
+    } else {
+      return <></>;
+    }
+  };
 
   const renderMediaItems = () => {
     return (
