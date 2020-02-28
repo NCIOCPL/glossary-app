@@ -10,7 +10,7 @@ Feature: Audio Pronunciation Player on Term Page
         Given the user is viewing the definition with the pretty url "metastatic"
         And there is an audio player with the url "https://nci-media-dev.cancer.gov/pdq/media/audio/704104.mp3" before the phonetic spelling
         When the user clicks the audio speaker icon
-        Then the pronunciation for metastatic should play
+        Then the pronunciation for "metastatic" should play
         And a pause button appears in place of the speaker icon
         When user clicks pause
         Then the audio track pauses and the play icon appears
