@@ -16,3 +16,9 @@ Feature: Basic Term Page
   Scenario: As a CDR manager, I would like to be able to find the CDRID of a definition on the definition page so that I can quickly locate the definition within the CDR system.
     Given the user is viewing the definition with the pretty url "metastatic"
     Then there should be a "data-cdr-id" attribute on the definition title element
+
+  Scenario: As a user, I would like to see the basic information I am viewing the definition for fatty breast tissue
+    Given the user is viewing the definition with the pretty url "fatty-breast-tissue"
+    Then the page title is "fatty breast tissue"
+    Then the pronunciation text "(FA-tee brest TIH-shoo)" appears on the page
+    And the definition text "A term used to describe breast tissue that is made up of almost all fatty tissue. Fatty breast tissue does not look dense on a mammogram, which may make it easier to find tumors or other changes in the breast. Fatty breast tissue is more common in older women than in younger women. Fatty breast tissue is one of four categories used to describe a level of breast density seen on a mammogram." appears on the page

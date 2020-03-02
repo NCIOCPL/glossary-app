@@ -19,7 +19,7 @@ const Definition = () => {
 
   const renderRelatedResources = () => {
     return (
-      <div className="related-resources">
+      <div className="related-resources" data-testid={testIds.MORE_INFORMATION}>
         {renderRelatedResourceLinks()}
         {renderMediaItems()}
       </div>
