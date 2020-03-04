@@ -1,13 +1,14 @@
 /// <reference path="../../node_modules/@types/express/index.d.ts"/>
 
-const fs          = require('fs');
-const path        = require('path');
-const util        = require('util');
+const fs = require('fs');
+const path = require('path');
+const util = require('util');
 
 /**
  * Async wrapper for readFile
  */
 const readFileAsync = util.promisify(fs.readFile);
+
 
 /**
  * Async wrapper for readDir
@@ -59,6 +60,28 @@ const getResultsByQueryType = async ( req, res, next ) => {
         console.error(err);
         res.status(404).end();
     }
+  };
+ /* getTermTotalCount - Middleware for getting a Term total count.
+ * @param {Express.Request} req
+ * @param {Express.Response} res 
+ * @param {Function} next 
+ */
+
+const getTermTotalCount = async (req, res, next) => {
+  const {
+    audience,
+    dictionary,
+    language,
+  } = req.params;
+  const mockDir = path.join(__dirname, '..', 'mock-data', 'Terms', 'count', dictionary, audience, language);
+
+  const mockFile = path.join(mockDir, `count.json`);
+  try {
+    res.sendFile(mockFile);
+  } catch (err) {
+    console.error(err);
+    res.status(404).end();
+  }
 };
 
 /**
@@ -75,7 +98,7 @@ const getTermByIdOrPrettyUrl = async (req, res, next) => {
   try {
     const mocks = (await readDirAsync(searchDir))
       .reduce((filemap, mockfile) => {
-        const [ term_id, purl ] = mockfile
+        const [term_id, purl] = mockfile
           .replace(".json", "")
           .split("__");
         filemap[term_id] = path.join(searchDir, mockfile);
@@ -112,6 +135,11 @@ const middleware = (app) => {
   app.use(
     '/api/Terms/:queryType/:dictionary/:audience/:language/:query',
     getResultsByQueryType
+    );
+
+    app.use(
+    '/api/Terms/count/:dictionary/:audience/:language',
+    getTermTotalCount
   );
 
   app.use(
