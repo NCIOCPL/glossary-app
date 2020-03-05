@@ -3,7 +3,6 @@ import {
   render,
   fireEvent,
   wait,
-  waitForDomChange,
   cleanup
 } from "@testing-library/react";
 import "@testing-library/jest-dom";
@@ -11,6 +10,7 @@ import ReactTestUtils from "react-dom/test-utils";
 import AudioPlayer from "../";
 
 describe("<AudioPlayer /> component", () => {
+
   afterEach(cleanup);
 
   it("creates an HTML5 audio element", () => {
@@ -70,6 +70,8 @@ describe("<AudioPlayer /> component", () => {
     await wait();
     expect(playStub).toHaveBeenCalled();
     fireEvent.click(container.querySelector("button"));
+    fireEvent.pause(container.querySelector("audio"));
+    await wait();
     expect(pauseStub).toHaveBeenCalled();
   });
 

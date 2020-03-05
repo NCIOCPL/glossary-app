@@ -4,7 +4,10 @@ import { useStateValue } from "../store/store";
 const appPaths = {
   'HomePath': '/',
   'DefinitionPath': '/def/:idOrName',
-  'ExpandPath': '/expand/:expandChar'
+  'ExpandPath': '/expand/:expandChar',
+  'ExpandPathNoParam': '/expand',
+  'ExpandPathSpanish': '/expandir/:expandChar',
+  'ExpandPathNoParamSpanish': '/expandir'
 };
 
 /**
@@ -33,7 +36,6 @@ const replacePath = (path, params = {}) => {
  * @returns 
  */
 export const useAppPaths = () => {
-
   const [{ basePath }] = useStateValue();
 
   const paths =

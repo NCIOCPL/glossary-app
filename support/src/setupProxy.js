@@ -15,6 +15,53 @@ const readFileAsync = util.promisify(fs.readFile);
 const readDirAsync = util.promisify(fs.readdir);
 
 /**
+ * getResultsByQueryType - Middleware for getting expand or search results by query.
+ * @param {Express.Request} req
+ * @param {Express.Response} res
+ * @param {Function} next
+ */
+const getResultsByQueryType = async ( req, res, next ) => {
+    const {
+        audience,
+        dictionary,
+        language,
+        query,
+        queryType
+    } = req.params;
+    const mockDir = path.join( __dirname, '..', 'mock-data', 'Terms', queryType, dictionary, audience, language );
+
+    try {
+        const mockFile = path.join( mockDir, `${query}.json` );
+        await fs.promises.access( mockFile )
+            .then( () => {
+                res.sendFile(mockFile);
+            })
+            .catch( err => {
+                const resObject = {
+                    meta: {
+                        totalResults: 0,
+                        from: 0
+                    },
+                    results: [],
+                    links: null
+                };
+                console.error(err);
+                if ( err.code === 'ENOENT') {
+                    console.log(
+                        'Create file with payload in path specified above to return a response with results. ' + '\n' +
+                        'Returning response with no results for request.',
+                        resObject
+                    );
+                }
+                res.send(resObject);
+            });
+    } catch (err) {
+        console.error(err);
+        res.status(404).end();
+    }
+};
+
+/**
  * Middleware for getting a Term object by ID or Pretty Url Name field.
  * @param {Express.Request} req
  * @param {Express.Response} res 
@@ -60,6 +107,11 @@ const middleware = (app) => {
   app.use(
     '/api/Terms/:dictionary/:audience/:language/:id_or_purl',
     getTermByIdOrPrettyUrl
+  );
+
+  app.use(
+    '/api/Terms/:queryType/:dictionary/:audience/:language/:query',
+    getResultsByQueryType
   );
 
   app.use(
