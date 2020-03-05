@@ -1,0 +1,23 @@
+{
+  "termId":46299,
+  "language":"en",
+  "dictionary":"Cancer.gov",
+  "audience":"Patient",
+  "termName":"M protein",
+  "firstLetter":"m",
+  "prettyUrlName":"m-protein",
+  "pronunciation":{
+    "key":"(... PROH-teen)",
+    "audio":"https://nci-media-dev.cancer.gov/pdq/media/audio/707997.mp3"
+  },
+  "definition":{
+    "html":"An antibody found in unusually large amounts in the blood or urine of people with multiple myeloma and other types of plasma cell tumors. Also called monoclonal protein.",
+    "text":"An antibody found in unusually large amounts in the blood or urine of people with multiple myeloma and other types of plasma cell tumors. Also called monoclonal protein."
+  },
+  "relatedResources":[
+
+  ],
+  "media":[
+
+  ]
+}

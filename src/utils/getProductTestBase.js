@@ -5,7 +5,7 @@ export const getProductTestBase = () => {
   const url = window.location.pathname;
   const components = url.split("/");
   if (components.length < 2) {
-    throw Error("Path does not match expectations");
+    throw new Error("Path does not match expectations");
   }
   return components.slice(0, 3).join("/");
 };

@@ -14,10 +14,11 @@ export function setLanguage(language) {
   LANGUAGE = language;
 }
 
-export const getEndpoint = endpoint => {
-  // Define api endpoints here
-  const urls = {
-    termDefinition: `/Terms/${DICTIONARY_NAME}/${AUDIENCE}/${LANGUAGE}`
-  };
-  return urls[endpoint];
+export const getEndpoint = ( endpoint ) => {
+    // Define api endpoints here
+    const urls = {
+        expandChar: `/Terms/expand/${DICTIONARY_NAME}/${AUDIENCE}/${LANGUAGE}`,
+        termDefinition: `/Terms/${DICTIONARY_NAME}/${AUDIENCE}/${LANGUAGE}`
+    };
+    return urls[endpoint];
 };

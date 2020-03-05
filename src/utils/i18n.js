@@ -11,12 +11,16 @@ export const i18n = {
         en: 'Search',
         es: 'Buscar'
     },
+    searchPlaceholderText: {
+        en: 'Enter keywords or phrases',
+        es: 'Escriba frase o palabra clave'
+    },
     startsWith: {
         en: 'Starts with',
         es: 'Empieza con'
     },
-    searchPlaceholderText: {
-        en: 'Enter keywords or phrases',
-        es: 'Escriba frase o palabra clave'
+    termListTitle: {
+        en: 'results found for',
+        es: 'resultados de'
     }
 };
