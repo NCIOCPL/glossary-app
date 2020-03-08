@@ -14,7 +14,7 @@ const Home = () => {
         Hello World
       </div>
       <div>
-        <Link to={DefinitionPath({ idOrName: '12345' })}>Test Definition Link</Link>
+        <Link to={DefinitionPath({ idOrName: '44058' })}>Test Definition Link (metastatic)</Link>
       </div>
     </div>
   );

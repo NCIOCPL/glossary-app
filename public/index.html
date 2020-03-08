@@ -9,6 +9,84 @@
     </title>
     <link rel="stylesheet" href="%PUBLIC_URL%/index.css" />
     <link rel="stylesheet" href="%PUBLIC_URL%/__nci-dev__common.css" />
+    <script type="text/javascript">
+      function getUrlVars() {
+        var vars = {};
+        var parts = window.location.href.replace(
+          /[?&]+([^=&]+)=([^&]*)/gi,
+          function(m, key, value) {
+            vars[key] = value;
+          }
+        );
+        return vars;
+      }
+      function getUrlParam(parameter, defaultvalue) {
+        var urlparameter = defaultvalue;
+        if (window.location.href.indexOf(parameter) > -1) {
+          urlparameter = getUrlVars()[parameter];
+        }
+        return urlparameter;
+      }
+      window.publicUrl = "%PUBLIC_URL%";
+      const configIndex = getUrlParam("cfg", "0");
+      window.currentConfig = configIndex;
+      const cfgs = [
+        {
+          analyticsHandler: (data) => { console.log(data); },
+          appId: "@@/TERMS_DICTIONARY",
+          audience: "Patient",
+          basePath: "",
+          dictionaryEndpoint: "https://webapis-dev.cancer.gov/glossary/v1/",
+          dictionaryIntroText:
+            "The NCI Dictionary of Cancer Terms features <strong>8,575</strong> terms related to cancer and medicine.",
+          dictionaryName: "Cancer.gov",
+          dictionaryTitle: "NCI Dictionary of Cancer Terms",
+          language: "en",
+          searchBoxTitle: "Search NCI's Dictionary of Cancer Terms"
+        },
+        {
+          analyticsHandler: (data) => { console.log(data); },
+          appId: "@@/TERMS_DICTIONARY_SPANISH",
+          audience: "Patient",
+          basePath: "",
+          dictionaryEndpoint: "https://webapis-dev.cancer.gov/glossary/v1/",
+          dictionaryIntroText:
+            "El diccionario de cáncer del NCI contiene <strong>8,575</strong> términos relacionados con el cáncer y la medicina.",
+          dictionaryName: "Cancer.gov",
+          dictionaryTitle: "Diccionario de cáncer",
+          language: "es",
+          searchBoxTitle: "Busca diccionario de cáncer"
+        },
+        {
+          analyticsHandler: (data) => { console.log(data); },
+          appId: "@@/GENETICS_DICTIONARY",
+          audience: "HealthProfessional",
+          basePath: "",
+          dictionaryEndpoint: "https://webapis-dev.cancer.gov/glossary/v1/",
+          dictionaryIntroText:
+            "The NCI Dictionary of Genetics Terms contains technical definitions for more than 200 terms related to genetics.",
+          dictionaryName: "Genetics",
+          dictionaryTitle: "NCI Dictionary of Genetics Terms",
+          language: "en",
+          searchBoxTitle: "Search NCI's Dictionary of Genetics Terms"
+        },
+        {
+          analyticsHandler: (data) => { console.log(data); },
+          appId: "@@/GENETICS_DICTIONARY_SPANISH",
+          audience: "HealthProfessional",
+          basePath: "",
+          dictionaryEndpoint: "https://webapis-dev.cancer.gov/glossary/v1/",
+          dictionaryIntroText:
+            "El diccionario de genética del NCI contiene mas de 200 términos relacionados con genética.",
+          dictionaryName: "Genetics",
+          dictionaryTitle: "Diccionario de genética",
+          language: "es",
+          searchBoxTitle: "Busca diccionario de genética"
+        }
+      ];
+
+      window.APP_PARAMS = cfgs[configIndex];
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -19,5 +97,39 @@
         </div>
       </div>
     </main>
+    <div class="jm-wrapper">
+      <select id="jm1" class="jumpmenu">
+        <option value="0">Cancer Terms</option>
+        <option value="1">Cancer Terms (Spanish)</option>
+        <option value="2">Genetics</option>
+        <option value="3">Genetics (Spanish)</option>
+      </select>
+    </div>
+    <script type="text/javascript">
+      document.getElementById("jm1").value = window.currentConfig;
+      function initJumpMenus() {
+        // Turns all <select> elements with the 'jumpmenu' class into jump menus
+        var selectElements = document.getElementsByTagName("select");
+        for (i = 0; i < selectElements.length; i++) {
+          // Check for the class and make sure the element has an ID
+          if (
+            selectElements[i].className == "jumpmenu" &&
+            document.getElementById(selectElements[i].id) != ""
+          ) {
+            jumpmenu = document.getElementById(selectElements[i].id);
+            jumpmenu.onchange = function() {
+              if (this.options[this.selectedIndex].value != "") {
+                // Redirect
+                location.href = window.publicUrl + "?cfg=" +
+                  this.options[this.selectedIndex].value;
+              }
+            };
+          }
+        }
+      }
+      window.onload = function() {
+        initJumpMenus();
+      };
+    </script>
   </body>
 </html>

@@ -7,22 +7,9 @@ import App from "./App";
 import { StateProvider } from "./store/store";
 import { AnalyticsProvider } from "./tracking";
 import * as serviceWorker from "./serviceWorker";
-
+import { getProductTestBase } from './utils';
 import { ClientContextProvider } from 'react-fetching-library';
 import { getAxiosClient } from './services/api/axios-client';
-
-// Default settings for development.
-// This can be overridden by integration tests.
-const defaultDevSettings = {
-  analyticsHandler: (data) => { console.log(data); },
-  audience: 'Patient',
-  basePath: '/',
-  dictionaryEndpoint: "/api",
-  dictionaryName: 'Cancer.gov',
-  dictionaryTitle: 'NCI Dictionary of Cancer Terms',
-  dictionaryIntoText: 'Intro Text',
-  language: 'en'
-}
 
 const initialize = ({
   appId = "@@/DEFAULT_DICTIONARY",
@@ -96,43 +83,29 @@ const initialize = ({
   return appRootDOMNode;
 };
 
-/**
- * Gets the basePath for a Product Testing artifact
- */
-const getProductTestBase = () => {
-  const url = window.location.pathname;
-  const components = url.split('/');
-  if (components.length < 2) {
-    throw Error("Path does not match expectations");
-  }
-  return components.slice(0,3).join('/');
-};
+export default initialize;
 
 // The following lets us run the app in dev not in situ as would normally be the case.
+const appParams = window.APP_PARAMS || {};
+const integrationTestOverrides = window.INT_TEST_APP_PARAMS || {};
 if (process.env.NODE_ENV !== "production") {
-
-  const integrationTestOverrides = window.INT_TEST_APP_PARAMS || {};
-  const initSettings = {
-    ...defaultDevSettings,
-    ...integrationTestOverrides
+  //This is DEV
+  const dictSettings = {
+    ...appParams,
+    ...integrationTestOverrides,
+    ...{dictionaryEndpoint: "/api"}
   };
-
-  initialize(initSettings);
+  initialize(dictSettings);
   
 } else if (window?.location?.host === 'react-app-dev.cancer.gov') {
   // This is for product testing
-  initialize({
-    basePath: getProductTestBase(),
-    analyticsHandler: (data) => { console.log(data); },
-    // The following params should be dynamic based on
-    // the test being performed
-    dictionaryEndpoint: "https://webapis-dev.cancer.gov/glossary/v1/",
-    dictionaryName: 'Cancer.gov',
-    dictionaryIntroText: 'NCI Dictionary of Cancer Terms'
-  });
+  const dictSettings = {
+    ...appParams,
+    ...integrationTestOverrides,
+    ...{basePath: getProductTestBase()}
+  };
+  initialize(dictSettings);
 }
-
-export default initialize;
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

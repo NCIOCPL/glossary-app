@@ -28,6 +28,12 @@ code {
   overflow: auto;
 }
 
+@media only screen and (min-width: 1441px) {
+  .general-page-body-container {
+    max-width: 1200px;
+  }
+}
+
 .content-container {
   position: relative;
   padding-left: 0.9375em;
@@ -50,4 +56,18 @@ code {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.jm-wrapper {
+  position: fixed;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  padding: 4px 8px;
+  bottom: 0;
+  left: 0;
+  background: rgba( 128,128,128, 0.3);
+}
+
+.jm-wrapper select {
+  margin-bottom: 0;
 }

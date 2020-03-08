@@ -14,5 +14,9 @@ export const i18n = {
     startsWith: {
         en: 'Starts with',
         es: 'Empieza con'
+    },
+    searchPlaceholderText: {
+        en: 'Enter keywords or phrases',
+        es: 'Escriba frase o palabra clave'
     }
 };
