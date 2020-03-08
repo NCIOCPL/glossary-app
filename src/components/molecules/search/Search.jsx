@@ -5,7 +5,7 @@ import Radio from "../../atomic/Radio";
 import TextInput from "../../atomic/TextInput";
 import { testIds } from "../../../constants";
 import { useStateValue } from "../../../store/store";
-import { i18n } from "../../../utils/i18n";
+import { i18n } from "../../../utils";
 
 const Search = () => {
     const containsValue = 'contains';
@@ -58,7 +58,7 @@ const Search = () => {
                        action={updateTextInput}
                        classes="dictionary-search-input"
                        label=""
-                       placeHolder="Enter keywords or phrases" />
+                       placeHolder={i18n.searchPlaceholderText[language]} />
             <input type="submit"
                    className="submit button postfix"
                    id="btnSearch"

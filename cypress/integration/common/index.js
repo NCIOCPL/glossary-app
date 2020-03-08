@@ -175,7 +175,7 @@ Then('search options for {string} and {string} appears', (startsWithRadioLabel, 
 });
 
 Then('{string} search box appears', (keywords) => {
-  cy.get(`input[placeholder="Enter keywords or phrases"]`);
+  cy.get('input.dictionary-search-input');
 });
 
 Then('search button appears beside search box with {string}', (searchButtonText) => {
