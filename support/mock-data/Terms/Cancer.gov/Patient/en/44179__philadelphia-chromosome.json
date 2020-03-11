@@ -14,6 +14,13 @@
         "html": "An abnormality of chromosome 22 in which part of chromosome 9 is transferred to it. Bone marrow cells that contain the Philadelphia chromosome are often found in chronic myelogenous leukemia and sometimes found in acute lymphocytic leukemia.",
         "text": "An abnormality of chromosome 22 in which part of chromosome 9 is transferred to it. Bone marrow cells that contain the Philadelphia chromosome are often found in chronic myelogenous leukemia and sometimes found in acute lymphocytic leukemia."
     },
+    "otherLanguages": [ 
+        {
+           "language": "es",
+           "termName": "cromosoma Filadelfia",
+           "prettyUrlName": "cromosoma-filadelfia"
+        }
+      ],
     "relatedResources": [],
     "media": [
         {

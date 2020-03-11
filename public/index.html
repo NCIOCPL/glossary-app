@@ -32,7 +32,10 @@
       window.currentConfig = configIndex;
       const cfgs = [
         {
-          analyticsHandler: (data) => { console.log(data); },
+          altLanguageDictionaryBasePath: "/espanol/publicaciones/diccionario",
+          analyticsHandler: data => {
+            console.log(data);
+          },
           appId: "@@/TERMS_DICTIONARY",
           audience: "Patient",
           basePath: "",
@@ -45,7 +48,10 @@
           searchBoxTitle: "Search NCI's Dictionary of Cancer Terms"
         },
         {
-          analyticsHandler: (data) => { console.log(data); },
+          altLanguageDictionaryBasePath: "/publications/dictionaries/cancer-terms",
+          analyticsHandler: data => {
+            console.log(data);
+          },
           appId: "@@/TERMS_DICTIONARY_SPANISH",
           audience: "Patient",
           basePath: "",
@@ -58,7 +64,9 @@
           searchBoxTitle: "Busca diccionario de cáncer"
         },
         {
-          analyticsHandler: (data) => { console.log(data); },
+          analyticsHandler: data => {
+            console.log(data);
+          },
           appId: "@@/GENETICS_DICTIONARY",
           audience: "HealthProfessional",
           basePath: "",
@@ -71,7 +79,9 @@
           searchBoxTitle: "Search NCI's Dictionary of Genetics Terms"
         },
         {
-          analyticsHandler: (data) => { console.log(data); },
+          analyticsHandler: data => {
+            console.log(data);
+          },
           appId: "@@/GENETICS_DICTIONARY_SPANISH",
           audience: "HealthProfessional",
           basePath: "",
@@ -90,6 +100,23 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div class="mock-header">
+      <div>
+        <img
+          class="logo"
+          src="https://www.cancer.gov/publishedcontent/images/images/design-elements/logos/nci-logo-full.__v1.svg"
+          alt="National Cancer Institiute"
+        />
+      </div>
+      <div class="mock-language-bar">
+        <div id="LangList1">
+          <ul>
+            <li><a href="/replaceme">Language Toggle</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <main id="main-content" class="main-content">
       <div class="general-page-body-container">
         <div class="content-container contentzone">
@@ -120,7 +147,9 @@
             jumpmenu.onchange = function() {
               if (this.options[this.selectedIndex].value != "") {
                 // Redirect
-                location.href = window.publicUrl + "?cfg=" +
+                location.href =
+                  window.publicUrl +
+                  "?cfg=" +
                   this.options[this.selectedIndex].value;
               }
             };
@@ -128,6 +157,9 @@
         }
       }
       window.onload = function() {
+        document.documentElement.setAttribute('lang', window.APP_PARAMS.language);
+        // hide language toggle if no spanish base provided
+        document.querySelector('.mock-language-bar').style.display = (window.APP_PARAMS.altLanguageDictionaryBasePath && window.APP_PARAMS.altLanguageDictionaryBasePath !== '')? 'block': 'none';
         initJumpMenus();
       };
     </script>

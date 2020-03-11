@@ -12,6 +12,7 @@ import { ClientContextProvider } from 'react-fetching-library';
 import { getAxiosClient } from './services/api/axios-client';
 
 const initialize = ({
+  altLanguageDictionaryBasePath = "",
   appId = "@@/DEFAULT_DICTIONARY",
   analyticsHandler = data => {},
   audience = 'Patient',
@@ -21,6 +22,7 @@ const initialize = ({
   dictionaryIntroText = "",
   dictionaryTitle = "NCI Dictionary of Cancer Terms",
   language = "en", // en|es (English|Spanish)
+  languageToggleSelector = '#LangList1 a',
   rootId = "NCI-app-root",
   searchBoxTitle = "Search NCI's Dictionary of Cancer Terms"
 } = {}) => {
@@ -29,6 +31,7 @@ const initialize = ({
 
   //populate global state with init params
   const initialState = {
+    altLanguageDictionaryBasePath,
     appId,
     audience,
     basePath,
@@ -37,6 +40,7 @@ const initialize = ({
     dictionaryIntroText,
     dictionaryTitle,
     language,
+    languageToggleSelector,
     searchBoxTitle
   };
 
