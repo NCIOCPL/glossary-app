@@ -14,6 +14,13 @@
     "html": "Cáncer que no se puede curar y que es mortal. También se llama cáncer en estadio terminal.",
     "text": "Cáncer que no se puede curar y que es mortal. También se llama cáncer en estadio terminal."
   },
+  "otherLanguages": [ 
+    {
+       "language": "en",
+       "termName": "terminal cancer",
+       "prettyUrlName": "terminal-cancer"
+    }
+  ],
   "relatedResources": [
     {
       "Url": "https://www.cancer.gov/espanol/cancer/cancer-avanzado/opciones-de-cuidado/hoja-informativa-cuidado",

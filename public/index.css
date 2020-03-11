@@ -13,15 +13,17 @@ code {
     monospace;
 }
 
-.general-page-body-container {
-  background: #fffffb;
-  padding-bottom: 1.5em;
+.general-page-body-container,
+.mock-header {
   position: relative;
-  box-shadow: 10px 0 10px -7px rgba(0, 0, 0, 0.5),
-    -10px 0 10px -7px rgba(0, 0, 0, 0.5);
-  width: 100%;
   margin: 0 auto;
   max-width: 62.5em;
+}
+
+.general-page-body-container {
+  background: #fffffb;
+  box-shadow: 10px 0 10px -7px rgba(0, 0, 0, 0.5),
+    -10px 0 10px -7px rgba(0, 0, 0, 0.5);
   clear: both;
   height: 100%;
   min-height: 100vh;
@@ -29,7 +31,8 @@ code {
 }
 
 @media only screen and (min-width: 1441px) {
-  .general-page-body-container {
+  .general-page-body-container,
+  .mock-header {
     max-width: 1200px;
   }
 }
@@ -39,6 +42,7 @@ code {
   padding-left: 0.9375em;
   padding-right: 0.9375em;
 }
+
 @media only screen and (min-width: 1025px) {
   .content-container {
     float: right;
@@ -65,9 +69,47 @@ code {
   padding: 4px 8px;
   bottom: 0;
   left: 0;
-  background: rgba( 128,128,128, 0.3);
+  background: rgba(128, 128, 128, 0.3);
 }
 
 .jm-wrapper select {
   margin-bottom: 0;
+}
+
+.mock-header .logo {
+  width: 90%;
+  transform: translateY(0.5px);
+  margin: 13px;
+}
+
+.mock-header ul {
+  margin-bottom: 0;
+}
+
+.mock-language-bar {
+  margin: 0 auto;
+  max-width: 62.5em;
+  text-align: right;
+  padding-right: 0.9375em;
+  background: #2a71a5;
+}
+.mock-language-bar a,
+.mock-language-bar a:hover {
+  color: white;
+}
+
+@media only screen and (min-width: 641px) {
+  .mock-header .logo {
+    width: 60%;
+  }
+}
+@media only screen and (min-width: 1025px) {
+
+  .mock-language-bar {
+    background: white;
+  }
+  .mock-language-bar a,
+  .mock-language-bar a:hover {
+    color: #2b7bba;
+  }
 }

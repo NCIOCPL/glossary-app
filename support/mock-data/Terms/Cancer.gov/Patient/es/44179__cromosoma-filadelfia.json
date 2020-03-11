@@ -14,6 +14,13 @@
         "html": "Anomalía del cromosoma 22 en la que este recibe una parte del cromosoma 9. En la leucemia mielógena crónica y la leucemia linfocítica aguda, con frecuencia  se encuentran células de la médula ósea que contienen el cromosoma Filadelfia.",
         "text": "Anomalía del cromosoma 22 en la que este recibe una parte del cromosoma 9. En la leucemia mielógena crónica y la leucemia linfocítica aguda, con frecuencia  se encuentran células de la médula ósea que contienen el cromosoma Filadelfia."
     },
+    "otherLanguages": [ 
+        {
+           "language": "en",
+           "termName": "Philadelphia chromosome",
+           "prettyUrlName": "philadelphia-chromosome"
+        }
+      ],
     "relatedResources": [],
     "media": [
         {

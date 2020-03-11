@@ -11,6 +11,13 @@
     "html": "Tipo de virus que causa la formación de tejido anormal (por ejemplo, verrugas) y otros cambios en las células. La infección durante largo tiempo por ciertos tipos de VPH a veces causa cáncer de cuello uterino. Es posible que el VPH también desempeñe una función en otros tipos de cáncer, como los cánceres de ano, vagina, vulva, pene y orofaringe. También se llama virus del papiloma humano.",
     "text": "Tipo de virus que causa la formación de tejido anormal (por ejemplo, verrugas) y otros cambios en las células. La infección durante largo tiempo por ciertos tipos de VPH a veces causa cáncer de cuello uterino. Es posible que el VPH también desempeñe una función en otros tipos de cáncer, como los cánceres de ano, vagina, vulva, pene y orofaringe. También se llama virus del papiloma humano."
   },
+  "otherLanguages": [ 
+    {
+       "language": "en",
+       "termName": "HPV",
+       "prettyUrlName": "hpv"
+    }
+  ],
   "relatedResources": [
     {
       "Url": "https://www.cancer.gov/espanol/cancer/causas-prevencion/riesgo/germenes-infecciosos/vph-y-cancer?redirect=true",

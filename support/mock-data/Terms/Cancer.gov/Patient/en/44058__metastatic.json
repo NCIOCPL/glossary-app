@@ -14,6 +14,13 @@
     "html": "Having to do\n          with metastasis, which is the spread of cancer from the\n          primary site (place where it started) to other places in\n          the body.",
     "text": "Having to do\n          with metastasis, which is the spread of cancer from the\n          primary site (place where it started) to other places in\n          the body."
   },
+  "otherLanguages": [ 
+    {
+       "language": "es",
+       "termName": "metastásico",
+       "prettyUrlName": "metastasico"
+    }
+  ],
   "relatedResources": [
     {
       "Url": "https://www.cancer.gov/types/metastatic-cancer",

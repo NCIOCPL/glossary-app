@@ -14,6 +14,13 @@
     "html": "Cáncer que se forma en los tejidos del pulmón, por lo general, en las células que recubren las vías respiratorias. Los dos tipos más importantes de cáncer de pulmón son el cáncer de pulmón de células pequeñas y el cáncer de pulmón de células no pequeñas. Estos tipos de cáncer se diagnostican con base en el aspecto que tengan las células bajo un microscopio.",
     "text": "Cáncer que se forma en los tejidos del pulmón, por lo general, en las células que recubren las vías respiratorias. Los dos tipos más importantes de cáncer de pulmón son el cáncer de pulmón de células pequeñas y el cáncer de pulmón de células no pequeñas. Estos tipos de cáncer se diagnostican con base en el aspecto que tengan las células bajo un microscopio."
   },
+  "otherLanguages": [ 
+    {
+       "language": "en",
+       "termName": "lung cancer",
+       "prettyUrlName": "lung-cancer"
+    }
+  ],
   "relatedResources": [
     {
       "Url": "https://www.cancer.gov/espanol/tipos/pulmon",

@@ -14,6 +14,13 @@
     "html": "Relacionado con la metástasis,\nque es la diseminación del cáncer desde el sitio primario\n(el lugar donde empezó) hasta otras partes del\ncuerpo.",
     "text": "Relacionado con la metástasis,\nque es la diseminación del cáncer desde el sitio primario\n(el lugar donde empezó) hasta otras partes del\ncuerpo."
   },
+  "otherLanguages": [ 
+    {
+       "language": "en",
+       "termName": "metastatic",
+       "prettyUrlName": "metastatic"
+    }
+  ],
   "relatedResources": [
     {
       "Url": "https://www.cancer.gov/espanol/tipos/cancer-metastatico",

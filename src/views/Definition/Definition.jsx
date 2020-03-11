@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 import { useQuery } from "react-fetching-library";
 import { useParams } from "react-router";
 
@@ -17,7 +18,26 @@ import { useStateValue } from "../../store/store.js";
 const Definition = () => {
   const { idOrName } = useParams();
   const { loading, payload, error } = useQuery(getTermDefinition(idOrName));
-  const [{ language }] = useStateValue();
+  const [{ altLanguageDictionaryBasePath, language, languageToggleSelector }] = useStateValue();
+
+  useEffect(() => {
+    // check if there is an alternate language analog
+    if (
+      altLanguageDictionaryBasePath !== "" &&
+      payload &&
+      payload.otherLanguages &&
+      payload.otherLanguages.length > 0
+    ) {
+      initLanguageToggle(payload.otherLanguages[0]);
+    }
+  }, [payload]);
+
+  const initLanguageToggle = langObj => {
+    const langToggle = document.querySelector(languageToggleSelector);
+    if (langToggle && langObj.prettyUrlName) {
+      langToggle.href = `${altLanguageDictionaryBasePath}/def/${langObj.prettyUrlName}`;
+    }
+  };
 
   const renderPronunciation = () => {
     return (
