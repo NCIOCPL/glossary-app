@@ -14,6 +14,13 @@
     "html": "Cancer that forms in tissues of the lung, usually in the cells lining air passages. The two main types are small cell lung cancer and non-small cell lung cancer. These types are diagnosed based on how the cells look under a microscope.",
     "text": "Cancer that forms in tissues of the lung, usually in the cells lining air passages. The two main types are small cell lung cancer and non-small cell lung cancer. These types are diagnosed based on how the cells look under a microscope."
   },
+  "otherLanguages": [ 
+    {
+       "language": "es",
+       "termName": "cáncer de pulmón",
+       "prettyUrlName": "cancer-de-pulmon"
+    }
+  ],
   "relatedResources": [
     {
       "Url": "https://www.cancer.gov/types/lung",

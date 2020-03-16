@@ -32,6 +32,7 @@
       window.currentConfig = configIndex;
       const cfgs = [
         {
+          altLanguageDictionaryBasePath: "/espanol/publicaciones/diccionario",
           analyticsHandler: data => {
             console.log(data);
           },
@@ -47,6 +48,7 @@
           searchBoxTitle: "Search NCI's Dictionary of Cancer Terms"
         },
         {
+          altLanguageDictionaryBasePath: "/publications/dictionaries/cancer-terms",
           analyticsHandler: data => {
             console.log(data);
           },
@@ -107,7 +109,7 @@
         />
       </div>
       <div class="mock-language-bar">
-        <div id="LandList1">
+        <div id="LangList1">
           <ul>
             <li><a href="/espanol/publicaciones/diccionario">Español</a></li>
           </ul>
@@ -155,6 +157,9 @@
         }
       }
       window.onload = function() {
+        document.documentElement.setAttribute('lang', window.APP_PARAMS.language);
+        // hide language toggle if no spanish base provided
+        document.querySelector('.mock-language-bar').style.display = (window.APP_PARAMS.altLanguageDictionaryBasePath && window.APP_PARAMS.altLanguageDictionaryBasePath !== '')? 'block': 'none';
         initJumpMenus();
       };
     </script>

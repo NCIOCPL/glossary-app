@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "react-fetching-library";
 import { useParams } from "react-router";
 
@@ -17,7 +17,33 @@ import { useStateValue } from "../../store/store.js";
 const Definition = () => {
   const { idOrName } = useParams();
   const { loading, payload, error } = useQuery(getTermDefinition(idOrName));
-  const [{ language }] = useStateValue();
+  const [{ altLanguageDictionaryBasePath, language }] = useStateValue();
+
+  useEffect(() => {
+    // check if there is an alternate language analog
+    if (
+      altLanguageDictionaryBasePath !== "" &&
+      payload &&
+      payload.otherLanguages.length > 0
+    ) {
+      initLanguageToggle(payload.otherLanguages[0]);
+    }
+  }, [payload]);
+
+  const initLanguageToggle = langObj => {
+    const langToggle = document.querySelector("#LangList1 a");
+    if (langToggle && langObj.prettyUrlName) {
+      langToggle.setAttribute(
+        "onClick",
+        `NCIAnalytics.ClickLink(this,'Language Select ${
+          language === "en" ? "Spanish" : "English"
+        }')`
+      );
+      langToggle.href = `${altLanguageDictionaryBasePath}/def/${langObj.prettyUrlName}`;
+      langToggle.lang = langObj.language === "en" ? "en" : "es";
+      langToggle.innerHTML = langObj.language === "en" ? "English" : "Español";
+    }
+  };
 
   const renderPronunciation = () => {
     return (

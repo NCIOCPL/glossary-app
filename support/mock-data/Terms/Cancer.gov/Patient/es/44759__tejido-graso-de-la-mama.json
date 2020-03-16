@@ -14,6 +14,13 @@
     "html": "Término que se usa para describir el tejido de la mama que está formado casi en su totalidad por tejido graso. El tejido graso de la mama no se ve denso en un mamograma, lo que hace más fácil encontrar tumores u otros cambios en la mama. El tejido graso de la mama es más común en las mujeres mayores en comparación con las mujeres jóvenes. El tejido graso de la mama es una de las cuatro categorías que se usan para describir el grado de densidad de la mama que se observa en un mamograma.",
     "text": "Término que se usa para describir el tejido de la mama que está formado casi en su totalidad por tejido graso. El tejido graso de la mama no se ve denso en un mamograma, lo que hace más fácil encontrar tumores u otros cambios en la mama. El tejido graso de la mama es más común en las mujeres mayores en comparación con las mujeres jóvenes. El tejido graso de la mama es una de las cuatro categorías que se usan para describir el grado de densidad de la mama que se observa en un mamograma."
   },
+  "otherLanguages": [ 
+    {
+       "language": "en",
+       "termName": "fatty breast tissue",
+       "prettyUrlName": "fatty-breast-tissue"
+    }
+  ],
   "relatedResources": [
     {
       "Type": "GlossaryTerm",

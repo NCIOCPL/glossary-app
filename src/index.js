@@ -12,6 +12,7 @@ import { ClientContextProvider } from 'react-fetching-library';
 import { getAxiosClient } from './services/api/axios-client';
 
 const initialize = ({
+  altLanguageDictionaryBasePath = "",
   appId = "@@/DEFAULT_DICTIONARY",
   analyticsHandler = data => {},
   audience = 'Patient',
@@ -29,6 +30,7 @@ const initialize = ({
 
   //populate global state with init params
   const initialState = {
+    altLanguageDictionaryBasePath,
     appId,
     audience,
     basePath,

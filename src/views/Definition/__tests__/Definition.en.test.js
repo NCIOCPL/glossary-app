@@ -15,6 +15,8 @@ let client;
 let definition;
 let wrapper;
 
+let spy;
+
 const { getFixture } = fixtures;
 const fixturePath = `/Terms/Cancer.gov/Patient`;
 const hpvFile = "44386__hpv.json";
@@ -35,6 +37,7 @@ const unsupportedMediaFile = {
     text:
       "A type of virus that can cause abnormal tissue growth (for example, warts) and other changes to cells. Infection for a long time with certain types of HPV can cause cervical cancer. HPV may also play a role in some other types of cancer, such as anal, vaginal, vulvar, penile, and oropharyngeal cancers.  Also called human papillomavirus."
   },
+  otherLanguages: [],
   relatedResources: [],
   media: [
     {
@@ -47,6 +50,68 @@ const unsupportedMediaFile = {
     }
   ]
 };
+
+// describe('Language Toggle', () => {
+
+//   const idOrPurl = "metastatic";
+//   const language = "en";
+//   const searchBoxTitle = "Search NCI's Dictionary of Cancer Terms";
+
+//   definition = getFixture(`${fixturePath}/${language}/${metastaticFile}`);
+
+//   client = {
+//     query: async () => ({
+//       error: false,
+//       status: 200,
+//       payload: definition
+//     })
+//   };
+
+//   beforeEach(async () => {
+//     const dictionaryName = "Cancer.gov";
+//     const dictionaryTitle = "NCI Dictionary of Cancer Terms";
+
+//     useParams.mockReturnValue({
+//       idOrName: idOrPurl
+//     });
+
+//     const mockToggleElement = document.createElement("div");
+//     mockToggleElement.id = 'LangList1';
+//     mockToggleElement.innerHTML = '<a href="/">Language</a>';
+//     document.body.appendChild(mockToggleElement);
+//     //spy.mockReturnValue(mockToggleElement);
+
+//     useStateValue.mockReturnValue([
+//       {
+//         altLanguageDictionaryBasePath: "/diccionario",
+//         appId: "mockAppId",
+//         basePath: "/",
+//         dictionaryName,
+//         dictionaryTitle,
+//         language,
+//         searchBoxTitle
+//       }
+//     ]);
+
+//     await act(async () => {
+//       wrapper = render(
+//         <ClientContextProvider client={client}>
+//           <Definition />
+//         </ClientContextProvider>
+//       );
+//     });
+//   });
+
+//   afterEach(() => {
+//     cleanup();
+//   });
+
+//   test('gets updated with spanish analog', () => {
+//     const {debug} = wrapper;
+//     debug();
+//   });
+
+// });
 
 describe("Definition component with English", () => {
   const idOrPurl = "metastatic";
@@ -63,14 +128,23 @@ describe("Definition component with English", () => {
     })
   };
 
+  //create mock lang node
+  const mockToggleElement = document.createElement("div");
+  mockToggleElement.id = "LangList1";
+  mockToggleElement.innerHTML = '<a href="/" data-testid="mockLangToggle">Language</a>';
+  document.body.appendChild(mockToggleElement);
+
   beforeEach(async () => {
     const dictionaryName = "Cancer.gov";
     const dictionaryTitle = "NCI Dictionary of Cancer Terms";
+
     useParams.mockReturnValue({
       idOrName: idOrPurl
     });
+
     useStateValue.mockReturnValue([
       {
+        altLanguageDictionaryBasePath: "/diccionario",
         appId: "mockAppId",
         basePath: "/",
         dictionaryName,
@@ -93,6 +167,14 @@ describe("Definition component with English", () => {
     cleanup();
   });
 
+  test("Updates language toggle with link to spanish analog", () => {
+    const { getByTestId } = wrapper;
+    expect(getByTestId('mockLangToggle')).toHaveTextContent('Español');
+    expect(getByTestId('mockLangToggle')).toHaveAttribute('href', '/diccionario/def/metastasico');
+    expect(getByTestId('mockLangToggle')).toHaveAttribute('lang', 'es');
+    expect(getByTestId('mockLangToggle')).toHaveAttribute('onClick', "NCIAnalytics.ClickLink(this,'Language Select Spanish')");
+  });
+
   test("Match Term Name for Definition", () => {
     const { getByText } = wrapper;
     expect(getByText(idOrPurl)).toBeTruthy();
@@ -108,11 +190,13 @@ describe("Definition component with English", () => {
 
   test("Pronunciation audio and phonetic keys are outputted when provided", () => {
     const { container } = wrapper;
-    expect(container.querySelector(".pronunciation__audio")).toBeInTheDocument();
+    expect(
+      container.querySelector(".pronunciation__audio")
+    ).toBeInTheDocument();
     expect(container.querySelector(".pronunciation__key")).toBeInTheDocument();
   });
 
-  test('SearchBox component is displayed with title', () => {
+  test("SearchBox component is displayed with title", () => {
     const { getByText } = wrapper;
     expect(getByText(searchBoxTitle)).toBeInTheDocument();
   });
@@ -194,8 +278,12 @@ describe("Definition component with English", () => {
 
     test("Pronunciation data should not be present", () => {
       const { container } = wrapper;
-      expect(container.querySelector(".pronunciation__audio")).not.toBeInTheDocument();
-      expect(container.querySelector(".pronunciation__key")).not.toBeInTheDocument();
+      expect(
+        container.querySelector(".pronunciation__audio")
+      ).not.toBeInTheDocument();
+      expect(
+        container.querySelector(".pronunciation__key")
+      ).not.toBeInTheDocument();
     });
 
     test("No media should be displayed when empty", () => {
