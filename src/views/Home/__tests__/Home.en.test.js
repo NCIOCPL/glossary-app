@@ -11,8 +11,12 @@ import { fixtures } from "../../../utils";
 jest.mock("../../../store/store.js");
 
 let wrapper;
+const dispatch = jest.fn();
 const dictionaryName = "Cancer.gov";
 const dictionaryTitle = "NCI Dictionary of Cancer Terms";
+const dictionaryIntroText =
+    "<p>The NCI Dictionary of Cancer Terms features <strong>{{term_count}}</strong> terms related to cancer and medicine.</p>" +
+    "<p>We offer a widget that you can add to your website to let users look up cancer-related terms. <a href=\"/syndication/widgets\">Get NCI’s Dictionary of Cancer Terms Widget</a></p>";
 const language = "en";
 
 const expandChar = "A";
@@ -37,10 +41,12 @@ describe("Home component(English)", () => {
       languageToggleSelector: '#LangList1 a',
       appId: "mockAppId",
       basePath: "/",
+      dictionaryIntroText,
       dictionaryName,
       dictionaryTitle,
-      language: "en"
-    }
+      language
+    },
+    dispatch
   ]);
 
   //create mock lang node
@@ -63,6 +69,17 @@ describe("Home component(English)", () => {
   });
 
   afterEach(cleanup);
+
+  test("Match dictionary title name for Home", () => {
+    const { getByText } = wrapper;
+    expect( getByText(dictionaryTitle) ).toBeTruthy();
+  });
+
+  test('Results for expand char "A" are displayed on home page by default', () => {
+    const { getByText, getAllByRole } = wrapper;
+    expect(getByText(`${termListCount} results found for: ${expandChar}`)).toBeInTheDocument();
+    expect(getAllByRole("term").length).toEqual(termListCount);
+  });
 
   test("Updates language toggle with link to spanish analog", () => {
     const { getByTestId } = wrapper;

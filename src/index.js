@@ -5,6 +5,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { StateProvider } from "./store/store";
+import reducer from "./store/reducer";
 import { AnalyticsProvider } from "./tracking";
 import * as serviceWorker from "./serviceWorker";
 import { getProductTestBase } from './utils';
@@ -19,7 +20,7 @@ const initialize = ({
   basePath = '/',
   dictionaryEndpoint = "https://webapis-dev.cancer.gov/glossary/v1/",
   dictionaryName = "Cancer.gov",
-  dictionaryIntroText = "",
+  dictionaryIntroText = "The NCI Dictionary of Cancer Terms features {{term_count}} terms related to cancer and medicine",
   dictionaryTitle = "NCI Dictionary of Cancer Terms",
   language = "en", // en|es (English|Spanish)
   languageToggleSelector = '#LangList1 a',
@@ -42,23 +43,6 @@ const initialize = ({
     language,
     languageToggleSelector,
     searchBoxTitle
-  };
-
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case "LOAD_GLOBAL":
-        return {
-          ...state,
-          [action.payload.field]: action.payload.value
-        };
-      case "LOAD_GLOBALS":
-        return {
-          ...state,
-          ...action.payload
-        };
-      default:
-        return state;
-    }
   };
 
   if (isRehydrating) {

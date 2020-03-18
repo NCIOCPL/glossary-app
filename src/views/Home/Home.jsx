@@ -1,21 +1,34 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useQuery } from "react-fetching-library";
 import { Helmet } from "react-helmet";
 import { useParams, useLocation } from "react-router-dom";
 
 import SearchBox from "../../components/molecules/search-box";
-import { AZListArray, queryType, testIds } from "../../constants";
+import { AZListArray, queryType } from "../../constants";
 import { useAppPaths } from "../../hooks/routing";
+import IntroText from "./IntroText";
+import { getTermCount } from "../../services/api/actions";
+import { updateGlobalValue } from "../../store/actions";
 import { useStateValue } from "../../store/store.js";
 import { NoMatchingResults, TermList } from "../Terms";
+import { formatNumberToThousands, TokenParser } from "../../utils";
 
 const Home = () => {
+  const [ isIntroTextReplaced, introTextReplaced ] = useState(false);
   const [
-    { altLanguageDictionaryBasePath, languageToggleSelector, dictionaryTitle }
+      {
+          altLanguageDictionaryBasePath,
+          dictionaryIntroText,
+          dictionaryTitle ,
+          languageToggleSelector
+      },
+      dispatch
   ] = useStateValue();
   const { HomePath } = useAppPaths();
   const location = useLocation();
   const params = useParams();
+  const termCount = useQuery( getTermCount() );
   const { pathname } = location;
   const isExpand =
     pathname.includes(`/${queryType.EXPAND}`) ||
@@ -35,6 +48,22 @@ const Home = () => {
     }
   }, []);
 
+  useEffect( () => {
+    // Todo: This might have to be moved up higher in the chain. Cater to all data necessary
+    //  to load app being fetched first before displaying anything to the user, and fallback
+    //  scenarios should any of these related fetches fail to provide a better user experience.
+    if ( termCount.payload && !isIntroTextReplaced ) {
+        const context = { term_count: formatNumberToThousands( termCount.payload ) };
+        dispatch(
+            updateGlobalValue({
+                field: 'dictionaryIntroText',
+                value: TokenParser.replaceTokens(dictionaryIntroText, context)
+            })
+        );
+        introTextReplaced(true);
+    }
+  }, [termCount.payload, dictionaryIntroText, dispatch, isIntroTextReplaced]);
+
   const initLanguageToggle = langToggle => {
     if (langToggle) {
       langToggle.href = `${altLanguageDictionaryBasePath}`;
@@ -51,29 +80,41 @@ const Home = () => {
         </Helmet>
       );
     }
+
+    // Add index directive for robots to home
+    if ( isHome ) {
+      retHead = (
+          <Helmet>
+              <meta name="robots" content="index" />
+          </Helmet>
+      );
+    }
     return retHead;
   };
 
   return (
     <>
       {renderHelmet()}
-      <h1>{dictionaryTitle}</h1>
+        <h1>{dictionaryTitle}</h1>
       {/*
-        --------------------------------------------------------------------
-            Intro-text component goes here. Only rendered on home page
-        --------------------------------------------------------------------
-        */}
-      {isHome && (
-        <div data-test-id={testIds.INTRO_TEXT}>Intro text placeholder here</div>
+      --------------------------------------------------------------------
+          Intro-text component goes here. Only rendered on home page
+      --------------------------------------------------------------------
+      */}
+      { isHome && (
+          <IntroText />
       )}
       <SearchBox />
       {/*
-        -----------------------------------------------------------------------------------------
-            Render TermList if renderTermList flag is true (route is expand with param or home),
-            otherwise route is expand without param then render NoMatchingResults.
-        -----------------------------------------------------------------------------------------
-        */}
-      {renderTermList ? <TermList query={query} /> : <NoMatchingResults />}
+      -----------------------------------------------------------------------------------------
+          Render TermList if renderTermList flag is true (route is expand with param or home),
+          otherwise route is expand without param then render NoMatchingResults.
+      -----------------------------------------------------------------------------------------
+      */}
+      { renderTermList
+          ? <TermList query={ query } />
+          : <NoMatchingResults />
+      }
     </>
   );
 };
