@@ -2,6 +2,8 @@ Feature: Basic Term from Genetics dictionary for Health Professionals
  Background:
    Given "audience" is set to "HealthProfessional"
    Given "dictionaryName" is set to "Genetics"
+   Given "language" is set to "en"
+
 
   Scenario: As a user, I would like to see the basic information for an English term when I am viewing the definition in Genetics dictionary for Health Professionals
     Given the user is viewing the definition with the pretty url "acrochordon"

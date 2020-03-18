@@ -348,3 +348,13 @@ Then('{string} exists in the data for the page URL of {string}', (noIndexDirecti
 });
 
 
+
+/*
+    ----------------------------------------
+        SiteWide Language Toggle
+    ----------------------------------------
+*/
+
+Then('the language toggle should have the URL path {string}',(urlPath)=>{
+cy.get('#LangList1 a').should('have.attr','href').and('to.be.eq',urlPath);
+})
