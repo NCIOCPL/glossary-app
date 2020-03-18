@@ -61,10 +61,11 @@ const getResultsByQueryType = async ( req, res, next ) => {
         res.status(404).end();
     }
   };
- /* getTermTotalCount - Middleware for getting a Term total count.
+
+/* getTermTotalCount - Middleware for getting a Term total count.
  * @param {Express.Request} req
- * @param {Express.Response} res 
- * @param {Function} next 
+ * @param {Express.Response} res
+ * @param {Function} next
  */
 
 const getTermTotalCount = async (req, res, next) => {

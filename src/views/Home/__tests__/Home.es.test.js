@@ -11,8 +11,12 @@ import { fixtures } from "../../../utils";
 jest.mock("../../../store/store.js");
 
 let wrapper;
+const dispatch = jest.fn();
 const dictionaryName = "Cancer.gov";
 const dictionaryTitle = "NCI Dictionary of Cancer Terms";
+const dictionaryIntroText =
+    "<p>El diccionario de cáncer del NCI contiene <strong>{{term_count}}</strong> términos relacionados con el cáncer y la medicina.</p>" +
+    "<p>Ofrecemos un widget que usted puede añadir a su sitio web para que sus usuarios puedan buscar términos de cáncer. <a href=\"/espanol/sindicacion/widgets\">Obtenga el widget de términos de cáncer del Diccionario del NCI</a>.</p>";
 const language = "es";
 
 const expandChar = "A";
@@ -20,7 +24,6 @@ const queryFile = `${expandChar}.json`;
 const { getFixture } = fixtures;
 const fixturePath = `/Terms/expand/Cancer.gov/Patient`;
 const termList = getFixture(`${fixturePath}/${language}/${queryFile}`);
-const termListCount = termList.meta.totalResults;
 
 const client = {
   query: async () => ({
@@ -37,10 +40,12 @@ describe("Home component(Spanish)", () => {
       languageToggleSelector: '#LangList1 a',
       appId: "mockAppId",
       basePath: "/",
+      dictionaryIntroText,
       dictionaryName,
       dictionaryTitle,
       language: "es"
-    }
+    },
+    dispatch
   ]);
 
     //create mock lang node

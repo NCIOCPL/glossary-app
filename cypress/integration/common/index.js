@@ -25,6 +25,14 @@ Given('user is on the dictionary landing page or results page', () => {
   cy.visit(baseURL);
 });
 
+Given('the user is viewing the dictionary landing page', () => {
+  cy.visit(baseURL);
+});
+
+Given('user is on landing page for the selected Dictionary', () => {
+  cy.visit(baseURL);
+});
+
 Given('user is on landing Genetics Terms page', () => {
   cy.visit(baseURL);
 });
@@ -347,6 +355,45 @@ Then('{string} exists in the data for the page URL of {string}', (noIndexDirecti
   cy.get('head meta[name="robots"]').should("have.attr", "content", "noindex");
 });
 
+/*
+    -----------------------------------
+        Landing page related tests
+    -----------------------------------
+*/
+
+And('introductory text appears below the page title', () => {
+  expect(cy.get(`div[data-testid='${testIds.INTRO_TEXT}']`)).to.exist;
+});
+
+And('{string} radio is selected by default', (startsWithRadio) => {
+  const startsWithRadioValue = 'Starts with';
+  cy.get(`input[value="${startsWithRadioValue.toLowerCase()}"]`).should('be.checked');
+});
+
+And('{string} appears at the end of the list', (azListLastItem) => {
+  cy.get(`nav[data-testid='${testIds.AZ_LIST}'] > ul > li:last`).should('have.text', azListLastItem);
+});
+
+And('each option appears as a link', () => {
+  cy.get(`nav[data-testid='${testIds.AZ_LIST}'] > ul > li > a`).should('have.attr', 'href').and('to.contain', '/expand');
+});
+
+And('the page is showing the expand results for letter {string}', (letter) => {
+  cy.window().then((win) => {
+    if ( win.INT_TEST_APP_PARAMS ) {
+      const resultsTitle = win.INT_TEST_APP_PARAMS.language === 'es' ? 'resultados de: ' : 'results found for: ';
+      cy.get('h4').should('contain.text', `${resultsTitle}${letter}`);
+    }
+  });
+});
+
+And('the URL does not include {string}', (expandURL) => {
+  cy.location('href').should('not.include', `${baseURL}/${expandURL}`);
+});
+
+Then('{string} exists in the data for the page', (noIndexDirective) => {
+  cy.get('head meta[name="robots"]').should("have.attr", "content", "index");
+});
 
 
 /*

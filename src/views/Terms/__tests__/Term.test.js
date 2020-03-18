@@ -2,10 +2,10 @@ import { act, cleanup, fireEvent, render } from "@testing-library/react";
 import React from 'react';
 import { MemoryRouter, useLocation } from "react-router";
 
+import { testIds } from "../../../constants";
 import { Term } from "../index";
 import { useStateValue } from "../../../store/store";
 import fixtures from "../../../utils/fixtures";
-import {testIds} from "../../../constants";
 
 jest.mock("../../../store/store");
 
