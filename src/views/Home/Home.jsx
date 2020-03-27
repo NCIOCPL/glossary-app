@@ -19,6 +19,7 @@ const Home = () => {
   const [
       {
           altLanguageDictionaryBasePath,
+          basePath,
           dictionaryIntroText,
           dictionaryTitle ,
           languageToggleSelector
@@ -33,7 +34,7 @@ const Home = () => {
   const isExpand =
     pathname.includes(`/${queryType.EXPAND}`) ||
     pathname.includes(`/${queryType.EXPAND_SPANISH}`);
-  const isHome = pathname === HomePath();
+  const isHome = pathname === HomePath() || pathname === basePath;
   const { expandChar } = params;
   // Set default query param for home page when expand char is not defined
   const query = expandChar || AZListArray[0].toUpperCase();
