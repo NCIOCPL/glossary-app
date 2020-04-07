@@ -1,5 +1,5 @@
 import { And, Given, Then, When } from "cypress-cucumber-preprocessor/steps";
-import { NO_MATCHING_TEXT_EXPAND, testIds } from "../../../src/constants";
+import { NO_MATCHING_TEXT_EXPAND, queryType, testIds } from "../../../src/constants";
 
 const baseURL = Cypress.config('baseUrl');
 
@@ -48,7 +48,7 @@ Given('user appends {string} to the URL', (location) => {
 Given('the user is viewing a results page based on clicking a letter like {string} in the dictionary', (letter) => {
   cy.window().then((win) => {
     if ( win.INT_TEST_APP_PARAMS ) {
-      const expandBaseLocation = win.INT_TEST_APP_PARAMS.language === 'es' ? 'expandir' : 'expand';
+      const expandBaseLocation = win.INT_TEST_APP_PARAMS.language === 'es' ? queryType.EXPAND_SPANISH : queryType.EXPAND;
       cy.visit(`${baseURL}/${expandBaseLocation}/${letter}`);
     }
   });
@@ -245,7 +245,7 @@ When('user clicks a letter in the A-Z list', () => {
 Then('the system returns users to the search results page for the letter', () => {
   cy.window().then((win) => {
     if ( win.INT_TEST_APP_PARAMS ) {
-      const expandBaseLocation = win.INT_TEST_APP_PARAMS.language === 'es' ? 'expandir' : 'expand';
+      const expandBaseLocation = win.INT_TEST_APP_PARAMS.language === 'es' ? queryType.EXPAND_SPANISH : queryType.EXPAND;
       cy.location('href').should('eq', `${baseURL}/${expandBaseLocation}/A`);
     }
   });
@@ -375,7 +375,12 @@ And('{string} appears at the end of the list', (azListLastItem) => {
 });
 
 And('each option appears as a link', () => {
-  cy.get(`nav[data-testid='${testIds.AZ_LIST}'] > ul > li > a`).should('have.attr', 'href').and('to.contain', '/expand');
+  cy.window().then((win) => {
+    if ( win.INT_TEST_APP_PARAMS ) {
+      const expandLink = win.INT_TEST_APP_PARAMS.language === 'es' ? queryType.EXPAND_SPANISH : queryType.EXPAND;
+      cy.get(`nav[data-testid='${testIds.AZ_LIST}'] > ul > li > a`).should('have.attr', 'href').and('to.contain', `/${expandLink}`);
+    }
+  });
 });
 
 And('the page is showing the expand results for letter {string}', (letter) => {

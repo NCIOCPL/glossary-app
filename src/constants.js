@@ -25,5 +25,5 @@ export const testIds = {
 
 export const queryType = {
   EXPAND: 'expand',
-  EXPAND_SPANISH: 'expandir'
+  EXPAND_SPANISH: 'ampliar'
 };
