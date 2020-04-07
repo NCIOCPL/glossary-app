@@ -1,13 +1,15 @@
+import { queryType } from "../constants";
 import { useStateValue } from "../store/store";
 
+const { EXPAND, EXPAND_SPANISH } = queryType;
 // Paths for app
 const appPaths = {
   'HomePath': '/',
   'DefinitionPath': '/def/:idOrName',
-  'ExpandPath': '/expand/:expandChar',
-  'ExpandPathNoParam': '/expand',
-  'ExpandPathSpanish': '/expandir/:expandChar',
-  'ExpandPathNoParamSpanish': '/expandir'
+  'ExpandPath': `/${EXPAND}/:expandChar`,
+  'ExpandPathNoParam': `/${EXPAND}`,
+  'ExpandPathSpanish': `/${EXPAND_SPANISH}/:expandChar`,
+  'ExpandPathNoParamSpanish': `/${EXPAND_SPANISH}`
 };
 
 /**

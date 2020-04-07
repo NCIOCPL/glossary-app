@@ -3,6 +3,7 @@ import React from "react";
 import { ClientContextProvider } from "react-fetching-library";
 import { MemoryRouter, useLocation } from "react-router";
 
+import { queryType } from "../constants";
 import { useAppPaths } from "../hooks/routing";
 import { getAxiosClient } from "../services/api/axios-client";
 import { useStateValue } from "../store/store.js";
@@ -12,6 +13,7 @@ import Home from "../views/Home";
 jest.mock("../store/store.js");
 
 let wrapper;
+const { EXPAND, EXPAND_SPANISH } = queryType;
 
 describe("App component", () => {
   let location;
@@ -152,7 +154,7 @@ describe("App component", () => {
     });
 
     const expectedLocationObject = {
-      pathname: `/expandir/${expandChar}`,
+      pathname: `/${EXPAND_SPANISH}/${expandChar}`,
       search: '',
       hash: '',
       state: null,
@@ -182,7 +184,7 @@ describe("App component", () => {
     });
 
     const expectedLocationObject = {
-      pathname: '/expandir',
+      pathname: `/${EXPAND_SPANISH}`,
       search: '',
       hash: '',
       state: null,
