@@ -9,12 +9,15 @@ beforeEach(() => {
     // to development defaults does not break a bunch of texts.
     win.INT_TEST_APP_PARAMS = { 
       audience: 'Patient',
-      basePath: '/',
+      baseHost: '/',
       dictionaryEndpoint: "/api",
       dictionaryName: 'Cancer.gov',
       dictionaryTitle: 'NCI Dictionary of Cancer Terms',
-      dictionaryIntoText: 'Intro Text',
-      language: 'en'
+      dictionaryIntroText: 'Intro Text',
+      language: 'en',
+      canonicalHost: 'https://www.cancer.gov',
+      altLanguageDictionaryBasePath: "",
+      siteName: 'National Cancer Institute'
     }
     console.log(win.INT_TEST_APP_PARAMS)
   });

@@ -126,7 +126,6 @@ const Definition = () => {
       </>
     );
   };
-
   const renderRelatedResources = () => {
     return (
       <div className="related-resources" data-testid={testIds.MORE_INFORMATION}>
@@ -135,7 +134,6 @@ const Definition = () => {
       </div>
     );
   };
-
   const renderRelatedResourceLinks = () => {
     let headerText = language === "en" ? "More Information" : "Más información";
     if (payload.relatedResources && payload.relatedResources.length > 0) {
@@ -194,7 +192,6 @@ const Definition = () => {
       </>
     );
   };
-
   return (
     <>
       {loading && <Spinner />}
@@ -218,12 +215,10 @@ const Definition = () => {
           {((payload.relatedResources && payload.relatedResources.length > 0) ||
             (payload.media && payload.media.length > 0)) &&
             renderRelatedResources()}
-
           <SearchBox showTitle />
         </>
       )}
     </>
   );
 };
-
 export default Definition;
