@@ -1,13 +1,14 @@
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
-import { MemoryRouter, useLocation } from "react-router";
+import { MemoryRouter, useLocation } from "react-router-dom";
 
-import { testIds } from "../../../../constants";
+import { searchMatchType, testIds } from "../../../../constants";
 import Search  from "../Search";
 import { useStateValue } from "../../../../store/store";
 
 jest.mock("../../../../store/store.js");
 let wrapper;
+const { beginsWith, contains } = searchMatchType;
 const dictionaryName = 'Cancer.gov';
 const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
 
@@ -58,8 +59,8 @@ describe('Search component test', () => {
        const { getByText } = wrapper;
        // Expected router location object when "Starts with" radio button is checked by default
        const expectedLocationObject = {
-           pathname: '/search',
-           search: '?contains=false&q=',
+           pathname: '/search/',
+           search: '',
            hash: '',
            state: null,
            key: expect.any(String)
@@ -75,8 +76,8 @@ describe('Search component test', () => {
         // Expected router location object when "Starts with" radio button is checked by default
         // and text input entered is "meta"
         const expectedLocationObject = {
-            pathname: '/search',
-            search: `?contains=false&q=${searchText}`,
+            pathname: `/search/${searchText}/`,
+            search: `?searchMode=${beginsWith}`,
             hash: '',
             state: null,
             key: expect.any(String)
@@ -94,8 +95,8 @@ describe('Search component test', () => {
         // Expected router location object when "Contains" radio button is checked
         // and the text input entered is "cancer"
         const expectedLocationObject = {
-            pathname: '/search',
-            search: `?contains=true&q=${searchText}`,
+            pathname: `/search/${searchText}/`,
+            search: `?searchMode=${contains}`,
             hash: '',
             state: null,
             key: expect.any(String)

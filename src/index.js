@@ -81,7 +81,6 @@ if (process.env.NODE_ENV !== "production") {
   const dictSettings = {
     ...appParams,
     ...integrationTestOverrides,
-    ...{dictionaryEndpoint: "/api"}
   };
   initialize(dictSettings);
   

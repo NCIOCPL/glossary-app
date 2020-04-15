@@ -1,0 +1,940 @@
+{
+  "meta": {
+    "totalResults": 49,
+    "from": 0
+  },
+  "results": [
+    {
+      "termId": 43992,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "aerobic metabolism",
+      "firstLetter": "a",
+      "prettyUrlName": "aerobic-metabolism",
+      "pronunciation": {
+        "key": "(ayr-OH-bik meh-TA-buh-lih-zum)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704007.mp3"
+      },
+      "definition": {
+        "html": "A chemical process in which oxygen is used to make energy from carbohydrates (sugars). Also called aerobic respiration, cell respiration,  and oxidative metabolism.",
+        "text": "A chemical process in which oxygen is used to make energy from carbohydrates (sugars). Also called aerobic respiration, cell respiration,  and oxidative metabolism."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 306486,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "agnogenic myeloid metaplasia",
+      "firstLetter": "a",
+      "prettyUrlName": "agnogenic-myeloid-metaplasia",
+      "pronunciation": {
+        "key": "(ag-noh-JEH-nik MY-eh-loyd meh-tuh-PLAY-zhuh)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/710152.mp3"
+      },
+      "definition": {
+        "html": "A progressive, chronic disease in which the bone marrow is replaced by fibrous tissue and blood is made in organs such as the liver and the spleen, instead of in the bone marrow. This disease is marked by an enlarged spleen and progressive anemia. Also called chronic idiopathic myelofibrosis, idiopathic myelofibrosis, myelosclerosis with myeloid metaplasia,  and primary myelofibrosis.",
+        "text": "A progressive, chronic disease in which the bone marrow is replaced by fibrous tissue and blood is made in organs such as the liver and the spleen, instead of in the bone marrow. This disease is marked by an enlarged spleen and progressive anemia. Also called chronic idiopathic myelofibrosis, idiopathic myelofibrosis, myelosclerosis with myeloid metaplasia,  and primary myelofibrosis."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 45152,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "antimetabolite",
+      "firstLetter": "a",
+      "prettyUrlName": "antimetabolite",
+      "pronunciation": {
+        "key": "(AN-tee-meh-TA-boh-lite)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705086.mp3"
+      },
+      "definition": {
+        "html": "A drug that is very similar to natural chemicals in a normal biochemical reaction in cells but different enough to interfere with the normal division and functions of cells.",
+        "text": "A drug that is very similar to natural chemicals in a normal biochemical reaction in cells but different enough to interfere with the normal division and functions of cells."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 45623,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "bone marrow metastasis",
+      "firstLetter": "b",
+      "prettyUrlName": "bone-marrow-metastasis",
+      "pronunciation": {
+        "key": "(bone MAYR-oh meh-TAS-tuh-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705694.mp3"
+      },
+      "definition": {
+        "html": "Cancer that has spread from the original (primary) tumor to the bone marrow.",
+        "text": "Cancer that has spread from the original (primary) tumor to the bone marrow."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 45317,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "bone metastasis",
+      "firstLetter": "b",
+      "prettyUrlName": "bone-metastasis",
+      "pronunciation": {
+        "key": "(...meh-TAS-tuh-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705309.mp3"
+      },
+      "definition": {
+        "html": "Cancer that has spread from the original (primary) tumor to the bone.",
+        "text": "Cancer that has spread from the original (primary) tumor to the bone."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 45314,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "brain metastasis",
+      "firstLetter": "b",
+      "prettyUrlName": "brain-metastasis",
+      "pronunciation": {
+        "key": "(brayn meh-TAS-tuh-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705303.mp3"
+      },
+      "definition": {
+        "html": "Cancer that has spread from the original (primary) tumor to the brain.",
+        "text": "Cancer that has spread from the original (primary) tumor to the brain."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44126,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "cellular metabolism",
+      "firstLetter": "c",
+      "prettyUrlName": "cellular-metabolism",
+      "pronunciation": {
+        "key": "(SEL-yoo-ler meh-TA-buh-lih-zum)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704200.mp3"
+      },
+      "definition": {
+        "html": "The sum of all chemical changes that take place in a cell through which energy and basic components are provided for essential processes, including the synthesis of new molecules and the breakdown and removal of others.",
+        "text": "The sum of all chemical changes that take place in a cell through which energy and basic components are provided for essential processes, including the synthesis of new molecules and the breakdown and removal of others."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 436738,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "central nervous system metastasis",
+      "firstLetter": "c",
+      "prettyUrlName": "central-nervous-system-metastasis",
+      "pronunciation": {
+        "key": "(SEN-trul NER-vus SIS-tem meh-TAS-tuh-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/713634.mp3"
+      },
+      "definition": {
+        "html": "Cancer that has spread from the original (primary) tumor to the central nervous system (CNS). Also called CNS metastasis.",
+        "text": "Cancer that has spread from the original (primary) tumor to the central nervous system (CNS). Also called CNS metastasis."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 45644,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "CNS metastasis",
+      "firstLetter": "c",
+      "prettyUrlName": "cns-metastasis",
+      "pronunciation": {
+        "key": "(...meh-TAS-tuh-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705725.mp3"
+      },
+      "definition": {
+        "html": "Cancer that has spread from the original (primary) tumor to the central nervous system (CNS). Also called central nervous system metastasis.",
+        "text": "Cancer that has spread from the original (primary) tumor to the central nervous system (CNS). Also called central nervous system metastasis."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 346489,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "complete metastasectomy",
+      "firstLetter": "c",
+      "prettyUrlName": "complete-metastasectomy",
+      "pronunciation": {
+        "key": "(kum-PLEET meh-TAS-tuh-SEK-toh-mee)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/711568.mp3"
+      },
+      "definition": {
+        "html": "Surgery to remove all metastases (tumors formed from cells that have spread from the primary tumor).",
+        "text": "Surgery to remove all metastases (tumors formed from cells that have spread from the primary tumor)."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 415317,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "distant metastasis",
+      "firstLetter": "d",
+      "prettyUrlName": "distant-metastasis",
+      "pronunciation": {
+        "key": "(DIS-tunt meh-TAS-tuh-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/713087.mp3"
+      },
+      "definition": {
+        "html": "Refers to cancer that has spread from the original (primary) tumor to distant organs or distant lymph nodes. Also known as distant cancer.",
+        "text": "Refers to cancer that has spread from the original (primary) tumor to distant organs or distant lymph nodes. Also known as distant cancer."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 634128,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "in-transit metastasis",
+      "firstLetter": "i",
+      "prettyUrlName": "in-transit-metastasis",
+      "pronunciation": {
+        "key": "(in-TRAN-zit meh-TAS-tuh-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/723100.mp3"
+      },
+      "definition": {
+        "html": "A type of metastasis in which skin cancer spreads through a lymph vessel and begins to grow more than 2 centimeters away from the primary tumor but before it reaches the nearest lymph node.",
+        "text": "A type of metastasis in which skin cancer spreads through a lymph vessel and begins to grow more than 2 centimeters away from the primary tumor but before it reaches the nearest lymph node."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 736792,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "iodine I 123-metaiodobenzylguanidine",
+      "firstLetter": "i",
+      "prettyUrlName": "iodine-i-123-metaiodobenzylguanidine",
+      "pronunciation": {
+        "key": "(I-oh-dine … meh-tuh-I-oh-doh-BEN-zul-GWAH-nih-deen)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/742991.mp3"
+      },
+      "definition": {
+        "html": "A drug containing a form of radioactive iodine called I 123 that is used to find certain types of tumors, including pheochromocytomas and neuroblastomas. Radiation from I 123 may help show where cancer cells are in the body. Iodine I 123-metaiodobenzylguanidine is a type of radioconjugate. Also called 123I-MIBG, AdreView,  and iobenguane I 123.",
+        "text": "A drug containing a form of radioactive iodine called I 123 that is used to find certain types of tumors, including pheochromocytomas and neuroblastomas. Radiation from I 123 may help show where cancer cells are in the body. Iodine I 123-metaiodobenzylguanidine is a type of radioconjugate. Also called 123I-MIBG, AdreView,  and iobenguane I 123."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 390340,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "iodine I 131-metaiodobenzylguanidine",
+      "firstLetter": "i",
+      "prettyUrlName": "iodine-i-131-metaiodobenzylguanidine",
+      "pronunciation": {
+        "key": "(I-oh-dine ... meh-tuh-I-oh-doh-BEN-zul-GWAH-nih-deen)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/713249.mp3"
+      },
+      "definition": {
+        "html": "A drug containing a form of radioactive iodine called I 131 that is used to treat malignant pheochromocytoma and paraganglioma. It is used in patients who need treatment with systemic anticancer therapy and whose tumor cells take up radioactive iobenguane and are detected by a scanner. Iodine I 131-metaiodobenzylguanidine is used to treat pheochromocytoma and paraganglioma that cannot be removed by surgery, are locally advanced, or have spread to other parts of the body. It is also being studied in the treatment of other types of cancer. Iodine I 131-metaiodobenzylguanidine builds up in tumor cells and gives off radiation that may kill the tumor cells. It is a type of radioconjugate. Also called 131I-MIBG, Azedra,  and iobenguane I 131.",
+        "text": "A drug containing a form of radioactive iodine called I 131 that is used to treat malignant pheochromocytoma and paraganglioma. It is used in patients who need treatment with systemic anticancer therapy and whose tumor cells take up radioactive iobenguane and are detected by a scanner. Iodine I 131-metaiodobenzylguanidine is used to treat pheochromocytoma and paraganglioma that cannot be removed by surgery, are locally advanced, or have spread to other parts of the body. It is also being studied in the treatment of other types of cancer. Iodine I 131-metaiodobenzylguanidine builds up in tumor cells and gives off radiation that may kill the tumor cells. It is a type of radioconjugate. Also called 131I-MIBG, Azedra,  and iobenguane I 131."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 45318,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "leptomeningeal metastasis",
+      "firstLetter": "l",
+      "prettyUrlName": "leptomeningeal-metastasis",
+      "pronunciation": {
+        "key": "(LEP-toh-meh-NIN-jee-ul meh-TAS-tuh-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705311.mp3"
+      },
+      "definition": {
+        "html": "A serious problem that may occur in cancer in which cancer cells spread from the original (primary) tumor to the meninges (thin layers of tissue that cover and protect the brain and spinal cord). It can happen in many types of cancer, but is the most common in melanoma, breast, lung, and gastrointestinal cancer. The cancer may cause the meninges to be inflamed. Also called carcinomatous meningitis, leptomeningeal carcinoma, leptomeningeal carcinomatosis, meningeal carcinomatosis, meningeal metastasis,  and neoplastic meningitis.",
+        "text": "A serious problem that may occur in cancer in which cancer cells spread from the original (primary) tumor to the meninges (thin layers of tissue that cover and protect the brain and spinal cord). It can happen in many types of cancer, but is the most common in melanoma, breast, lung, and gastrointestinal cancer. The cancer may cause the meninges to be inflamed. Also called carcinomatous meningitis, leptomeningeal carcinoma, leptomeningeal carcinomatosis, meningeal carcinomatosis, meningeal metastasis,  and neoplastic meningitis."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 45316,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "liver metastasis",
+      "firstLetter": "l",
+      "prettyUrlName": "liver-metastasis",
+      "pronunciation": {
+        "key": "(LIH-ver meh-TAS-tuh-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705307.mp3"
+      },
+      "definition": {
+        "html": "Cancer that has spread from the original (primary) tumor to the liver.",
+        "text": "Cancer that has spread from the original (primary) tumor to the liver."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 45315,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "lung metastasis",
+      "firstLetter": "l",
+      "prettyUrlName": "lung-metastasis",
+      "pronunciation": {
+        "key": "(...meh-TAS-tuh-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705304.mp3"
+      },
+      "definition": {
+        "html": "Cancer that has spread from the original (primary) tumor to the lung.",
+        "text": "Cancer that has spread from the original (primary) tumor to the lung."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44211,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "matrix metalloproteinase",
+      "firstLetter": "m",
+      "prettyUrlName": "matrix-metalloproteinase",
+      "pronunciation": {
+        "key": "(MAY-trix meh-TA-loh-PROH-tee-nays)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704303.mp3"
+      },
+      "definition": {
+        "html": "A member of a group of enzymes that can break down proteins, such as collagen, that are normally found in the spaces between cells in tissues (i.e., extracellular matrix proteins). Because these enzymes need zinc or calcium atoms to work properly, they are called metalloproteinases. Matrix metalloproteinases are involved in wound healing, angiogenesis, and tumor cell metastasis.",
+        "text": "A member of a group of enzymes that can break down proteins, such as collagen, that are normally found in the spaces between cells in tissues (i.e., extracellular matrix proteins). Because these enzymes need zinc or calcium atoms to work properly, they are called metalloproteinases. Matrix metalloproteinases are involved in wound healing, angiogenesis, and tumor cell metastasis."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 45782,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "meningeal metastasis",
+      "firstLetter": "m",
+      "prettyUrlName": "meningeal-metastasis",
+      "pronunciation": {
+        "key": "(meh-NIN-jee-ul meh-TAS-tuh-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707234.mp3"
+      },
+      "definition": {
+        "html": "A serious problem that may occur in cancer in which cancer cells spread from the original (primary) tumor to the meninges (thin layers of tissue that cover and protect the brain and spinal cord). It can happen in many types of cancer, but is the most common in melanoma, breast, lung, and gastrointestinal cancer. The cancer may cause the meninges to be inflamed. Also called carcinomatous meningitis, leptomeningeal carcinoma, leptomeningeal carcinomatosis, leptomeningeal metastasis, meningeal carcinomatosis,  and neoplastic meningitis.",
+        "text": "A serious problem that may occur in cancer in which cancer cells spread from the original (primary) tumor to the meninges (thin layers of tissue that cover and protect the brain and spinal cord). It can happen in many types of cancer, but is the most common in melanoma, breast, lung, and gastrointestinal cancer. The cancer may cause the meninges to be inflamed. Also called carcinomatous meningitis, leptomeningeal carcinoma, leptomeningeal carcinomatosis, leptomeningeal metastasis, meningeal carcinomatosis,  and neoplastic meningitis."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 691484,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "meta-analysis",
+      "firstLetter": "m",
+      "prettyUrlName": "meta-analysis",
+      "pronunciation": {
+        "key": "(meh-tuh-uh-NA-lih-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/727898.mp3"
+      },
+      "definition": {
+        "html": "A process that analyzes data from different studies done about the same subject. The results of a meta-analysis are usually stronger than the results of any study by itself.",
+        "text": "A process that analyzes data from different studies done about the same subject. The results of a meta-analysis are usually stronger than the results of any study by itself."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44056,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolic",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolic",
+      "pronunciation": {
+        "key": "(MEH-tuh-BAH-lik)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704100.mp3"
+      },
+      "definition": {
+        "html": "Having to do with metabolism (the total of all chemical changes that take place in a cell or an organism to produce energy and basic materials needed for important life processes).",
+        "text": "Having to do with metabolism (the total of all chemical changes that take place in a cell or an organism to produce energy and basic materials needed for important life processes)."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44332,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolic acidosis",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolic-acidosis",
+      "pronunciation": {
+        "key": "(MEH-tuh-BAH-lik A-sih-DOH-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704490.mp3"
+      },
+      "definition": {
+        "html": "A condition in which the blood is too acidic. It may be caused by severe illness or sepsis (bacteria in the bloodstream).",
+        "text": "A condition in which the blood is too acidic. It may be caused by severe illness or sepsis (bacteria in the bloodstream)."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44055,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolic disorder",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolic-disorder",
+      "pronunciation": {
+        "key": "(MEH-tuh-BAH-lik dis-OR-der)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704097.mp3"
+      },
+      "definition": {
+        "html": "A condition in which normal metabolic processes are disrupted, usually because of a missing enzyme.",
+        "text": "A condition in which normal metabolic processes are disrupted, usually because of a missing enzyme."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 643126,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolic syndrome",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolic-syndrome",
+      "pronunciation": {
+        "key": "(MEH-tuh-BAH-lik SIN-drome)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/725638.mp3"
+      },
+      "definition": {
+        "html": "A condition marked by extra fat around the abdomen, high levels of blood glucose (sugar) when not eating, high levels of triglycerides (a type of fat) in the blood, low levels of high-density lipoproteins (a type of protein that carries fats) in the blood, and high blood pressure. People with metabolic syndrome are at increased risk of diabetes mellitus and diseases of the heart and blood vessels. Also called metabolic syndrome X.",
+        "text": "A condition marked by extra fat around the abdomen, high levels of blood glucose (sugar) when not eating, high levels of triglycerides (a type of fat) in the blood, low levels of high-density lipoproteins (a type of protein that carries fats) in the blood, and high blood pressure. People with metabolic syndrome are at increased risk of diabetes mellitus and diseases of the heart and blood vessels. Also called metabolic syndrome X."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 643125,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolic syndrome X",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolic-syndrome-x",
+      "pronunciation": {
+        "key": "(MEH-tuh-BAH-lik SIN-drome ...)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/725635.mp3"
+      },
+      "definition": {
+        "html": "A condition marked by extra fat around the abdomen, high levels of blood glucose (sugar) when not eating, high levels of triglycerides (a type of fat) in the blood, low levels of high-density lipoproteins (a type of protein that carries fats) in the blood, and high blood pressure. People with metabolic syndrome X are at increased risk of diabetes mellitus and diseases of the heart and blood vessels. Also called metabolic syndrome.",
+        "text": "A condition marked by extra fat around the abdomen, high levels of blood glucose (sugar) when not eating, high levels of triglycerides (a type of fat) in the blood, low levels of high-density lipoproteins (a type of protein that carries fats) in the blood, and high blood pressure. People with metabolic syndrome X are at increased risk of diabetes mellitus and diseases of the heart and blood vessels. Also called metabolic syndrome."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44057,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolic therapy",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolic-therapy",
+      "pronunciation": {
+        "key": "(MEH-tuh-BAH-lik THAYR-uh-pee)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704102.mp3"
+      },
+      "definition": {
+        "html": "Treatment to correct changes in metabolism that can be caused by disease.",
+        "text": "Treatment to correct changes in metabolism that can be caused by disease."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 446118,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolic type",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolic-type",
+      "pronunciation": {
+        "key": "(MEH-tuh-BAH-lik tipe)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/714825.mp3"
+      },
+      "definition": {
+        "html": "In alternative medicine, a theory that people fall into one of three groups (protein, carbohydrate, or mixed type) based on the main type of food that their bodies need to stay healthy.",
+        "text": "In alternative medicine, a theory that people fall into one of three groups (protein, carbohydrate, or mixed type) based on the main type of food that their bodies need to stay healthy."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 46173,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolism",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolism",
+      "pronunciation": {
+        "key": "(meh-TA-buh-lih-zum)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707785.mp3"
+      },
+      "definition": {
+        "html": "The chemical changes that take place in a cell or an organism. These changes make energy and the materials cells and organisms need to grow, reproduce, and stay healthy. Metabolism also helps get rid of toxic substances.",
+        "text": "The chemical changes that take place in a cell or an organism. These changes make energy and the materials cells and organisms need to grow, reproduce, and stay healthy. Metabolism also helps get rid of toxic substances."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 462687,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolite",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolite",
+      "pronunciation": {
+        "key": "(meh-TA-boh-lite)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/716923.mp3"
+      },
+      "definition": {
+        "html": "A substance made or used when the body breaks down food, drugs or chemicals, or its own tissue (for example, fat or muscle tissue). This process, called metabolism, makes energy and the materials needed for growth, reproduction, and maintaining health. It also helps get rid of toxic substances.",
+        "text": "A substance made or used when the body breaks down food, drugs or chemicals, or its own tissue (for example, fat or muscle tissue). This process, called metabolism, makes energy and the materials needed for growth, reproduction, and maintaining health. It also helps get rid of toxic substances."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 770483,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolomics",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolomics",
+      "pronunciation": {
+        "key": "(meh-TA-buh-LOH-mix)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/774993.mp3"
+      },
+      "definition": {
+        "html": "The study of substances called metabolites in cells and tissues. Metabolites are small molecules that are made when the body breaks down food, drugs, chemicals, or its own tissue. They can be measured in blood, urine, and other body fluids. Disease and environmental factors, such as diet, drugs, and chemicals, can affect how metabolites are made and used in the body. Metabolomics may help find new ways to diagnose and treat diseases, such as cancer.",
+        "text": "The study of substances called metabolites in cells and tissues. Metabolites are small molecules that are made when the body breaks down food, drugs, chemicals, or its own tissue. They can be measured in blood, urine, and other body fluids. Disease and environmental factors, such as diet, drugs, and chemicals, can affect how metabolites are made and used in the body. Metabolomics may help find new ways to diagnose and treat diseases, such as cancer."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 736800,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metaiodobenzylguanidine scan",
+      "firstLetter": "m",
+      "prettyUrlName": "metaiodobenzylguanidine-scan",
+      "pronunciation": {
+        "key": "(meh-tuh-I-oh-doh-BEN-zul-GWAH-nih-deen skan)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/742997.mp3"
+      },
+      "definition": {
+        "html": "A procedure used to find neuroendocrine tumors, such as neuroblastomas and pheochromocytomas. A small amount of a substance called radioactive metaiodobenzylguanidine is injected into a vein and travels through the bloodstream. Neuroendocrine tumor cells take up the radioactive metaiodobenzylguanidine and are detected by a scanner.  Also called iobenguane scan and MIBG scan.",
+        "text": "A procedure used to find neuroendocrine tumors, such as neuroblastomas and pheochromocytomas. A small amount of a substance called radioactive metaiodobenzylguanidine is injected into a vein and travels through the bloodstream. Neuroendocrine tumor cells take up the radioactive metaiodobenzylguanidine and are detected by a scanner.  Also called iobenguane scan and MIBG scan."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 463718,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metallic",
+      "firstLetter": "m",
+      "prettyUrlName": "metallic",
+      "pronunciation": {
+        "key": "(meh-TA-lik)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/716575.mp3"
+      },
+      "definition": {
+        "html": "Having to do with metal. Some cancer treatments may change the sense of taste and cause foods to have a metallic taste.",
+        "text": "Having to do with metal. Some cancer treatments may change the sense of taste and cause foods to have a metallic taste."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 693575,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metallic endoprosthesis",
+      "firstLetter": "m",
+      "prettyUrlName": "metallic-endoprosthesis",
+      "pronunciation": {
+        "key": "(meh-TA-lik EN-doh-pros-THEE-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/733178.mp3"
+      },
+      "definition": {
+        "html": "A device made of metal that is placed inside the body to replace a body part removed by surgery.  An example is a thigh bone replaced during surgery for cancer.",
+        "text": "A device made of metal that is placed inside the body to replace a body part removed by surgery.  An example is a thigh bone replaced during surgery for cancer."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 45786,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metaplasia",
+      "firstLetter": "m",
+      "prettyUrlName": "metaplasia",
+      "pronunciation": {
+        "key": "(meh-tuh-PLAY-zhuh)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707241.mp3"
+      },
+      "definition": {
+        "html": "A change of cells to a form that does not normally occur in the tissue in which it is found.",
+        "text": "A change of cells to a form that does not normally occur in the tissue in which it is found."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44243,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metaplastic carcinoma",
+      "firstLetter": "m",
+      "prettyUrlName": "metaplastic-carcinoma",
+      "pronunciation": {
+        "key": "(meh-tuh-PLAS-tik KAR-sih-NOH-muh)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704350.mp3"
+      },
+      "definition": {
+        "html": "A general term used to describe cancer that begins in cells that have changed into another cell type (for example, a squamous cell of the esophagus changing to resemble a cell of the stomach). In some cases, metaplastic changes alone may mean there is an increased chance of cancer developing at the site.",
+        "text": "A general term used to describe cancer that begins in cells that have changed into another cell type (for example, a squamous cell of the esophagus changing to resemble a cell of the stomach). In some cases, metaplastic changes alone may mean there is an increased chance of cancer developing at the site."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 346490,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metastasectomy",
+      "firstLetter": "m",
+      "prettyUrlName": "metastasectomy",
+      "pronunciation": {
+        "key": "(meh-TAS-tuh-SEK-toh-mee)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/711570.mp3"
+      },
+      "definition": {
+        "html": "Surgery to remove one or more metastases (tumors formed from cells that have spread from the primary tumor). When all metastases are removed, it is called a complete metastasectomy.",
+        "text": "Surgery to remove one or more metastases (tumors formed from cells that have spread from the primary tumor). When all metastases are removed, it is called a complete metastasectomy."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 46710,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metastasis",
+      "firstLetter": "m",
+      "prettyUrlName": "metastasis",
+      "pronunciation": {
+        "key": "(meh-TAS-tuh-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/709967.mp3"
+      },
+      "definition": {
+        "html": "The spread of cancer cells from the place where they first formed to another part of the body. In metastasis, cancer cells break away from the original (primary) tumor, travel through the blood or lymph system, and form a new tumor in other organs or tissues of the body. The new, metastatic tumor is the same type of cancer as the primary tumor. For example, if breast cancer spreads to the lung, the cancer cells in the lung are breast cancer cells, not lung cancer cells. The plural form of metastasis is metastases (meh-TAS-tuh-SEEZ).",
+        "text": "The spread of cancer cells from the place where they first formed to another part of the body. In metastasis, cancer cells break away from the original (primary) tumor, travel through the blood or lymph system, and form a new tumor in other organs or tissues of the body. The new, metastatic tumor is the same type of cancer as the primary tumor. For example, if breast cancer spreads to the lung, the cancer cells in the lung are breast cancer cells, not lung cancer cells. The plural form of metastasis is metastases (meh-TAS-tuh-SEEZ)."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 797421,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metastasis-free survival",
+      "firstLetter": "m",
+      "prettyUrlName": "metastasis-free-survival",
+      "pronunciation": {
+        "key": "(meh-TAS-tuh-sis ... ser-VY-vul)",
+        "audio": null
+      },
+      "definition": {
+        "html": "The length of time from the start of treatment for cancer that a patient is still alive and the cancer has not spread to other parts of the body. In a clinical trial, measuring the metastasis-free survival is one way to see how well a new treatment works. Also called MFS.",
+        "text": "The length of time from the start of treatment for cancer that a patient is still alive and the cancer has not spread to other parts of the body. In a clinical trial, measuring the metastasis-free survival is one way to see how well a new treatment works. Also called MFS."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 46283,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metastasize",
+      "firstLetter": "m",
+      "prettyUrlName": "metastasize",
+      "pronunciation": {
+        "key": "(meh-TAS-tuh-size)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707969.mp3"
+      },
+      "definition": {
+        "html": "To spread from one part of the body to another. When cancer cells metastasize and form secondary tumors, the cells in the metastatic tumor are like those in the original (primary) tumor.",
+        "text": "To spread from one part of the body to another. When cancer cells metastasize and form secondary tumors, the cells in the metastatic tumor are like those in the original (primary) tumor."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44058,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metastatic",
+      "firstLetter": "m",
+      "prettyUrlName": "metastatic",
+      "pronunciation": {
+        "key": "(meh-tuh-STA-tik)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704104.mp3"
+      },
+      "definition": {
+        "html": "Having to do\n          with metastasis, which is the spread of cancer from the\n          primary site (place where it started) to other places in\n          the body.",
+        "text": "Having to do\n          with metastasis, which is the spread of cancer from the\n          primary site (place where it started) to other places in\n          the body."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44778,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metasynchronous",
+      "firstLetter": "m",
+      "prettyUrlName": "metasynchronous",
+      "pronunciation": {
+        "key": "(meh-tuh-SING-kruh-nus)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/728133.mp3"
+      },
+      "definition": {
+        "html": "Occurring at nearly the same time.",
+        "text": "Occurring at nearly the same time."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44513,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "micrometastasis",
+      "firstLetter": "m",
+      "prettyUrlName": "micrometastasis",
+      "pronunciation": {
+        "key": "(MY-kroh-meh-TAS-tuh-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704690.mp3"
+      },
+      "definition": {
+        "html": "Small numbers of cancer cells that have spread from the primary tumor to other parts of the body and are too few to be picked up in a screening or diagnostic test.",
+        "text": "Small numbers of cancer cells that have spread from the primary tumor to other parts of the body and are too few to be picked up in a screening or diagnostic test."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 538643,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "mometasone furoate",
+      "firstLetter": "m",
+      "prettyUrlName": "mometasone-furoate",
+      "pronunciation": {
+        "key": "(moh-MEH-tuh-sone FYOOR-oh-ayt)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/718036.mp3"
+      },
+      "definition": {
+        "html": "A drug that is used in a cream to treat certain skin conditions and in a nasal spray to treat sinus problems caused by allergies. It is being studied as a way to treat inflammation of the skin caused by radiation therapy. Mometasone furoate is a type of corticosteroid. Also called Elocon and Nasonex.",
+        "text": "A drug that is used in a cream to treat certain skin conditions and in a nasal spray to treat sinus problems caused by allergies. It is being studied as a way to treat inflammation of the skin caused by radiation therapy. Mometasone furoate is a type of corticosteroid. Also called Elocon and Nasonex."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 306489,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "myelosclerosis with myeloid metaplasia",
+      "firstLetter": "m",
+      "prettyUrlName": "myelosclerosis-with-myeloid-metaplasia",
+      "pronunciation": {
+        "key": "(MY-eh-loh-skleh-ROH-sis ... MY-eh-loyd meh-tuh-PLAY-zhuh)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/710197.mp3"
+      },
+      "definition": {
+        "html": "A progressive, chronic disease in which the bone marrow is replaced by fibrous tissue and blood is made in organs such as the liver and the spleen, instead of in the bone marrow. This disease is marked by an enlarged spleen and progressive anemia. Also called agnogenic myeloid metaplasia, chronic idiopathic myelofibrosis, idiopathic myelofibrosis,  and primary myelofibrosis.",
+        "text": "A progressive, chronic disease in which the bone marrow is replaced by fibrous tissue and blood is made in organs such as the liver and the spleen, instead of in the bone marrow. This disease is marked by an enlarged spleen and progressive anemia. Also called agnogenic myeloid metaplasia, chronic idiopathic myelofibrosis, idiopathic myelofibrosis,  and primary myelofibrosis."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 45805,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "nonmetastatic",
+      "firstLetter": "n",
+      "prettyUrlName": "nonmetastatic",
+      "pronunciation": {
+        "key": "(non-meh-tuh-STA-tik)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707274.mp3"
+      },
+      "definition": {
+        "html": "Cancer that has not spread from the primary site  (place where it started) to other places in the body.",
+        "text": "Cancer that has not spread from the primary site  (place where it started) to other places in the body."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 770481,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "oligometastasis",
+      "firstLetter": "o",
+      "prettyUrlName": "oligometastasis",
+      "pronunciation": {
+        "key": "(AH-lih-goh-meh-TAS-tuh-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/774989.mp3"
+      },
+      "definition": {
+        "html": "A type of metastasis in which cancer cells from the original (primary) tumor travel through the body and form a small number of new tumors (metastatic tumors) in one or two other parts of the body. For example, cancer cells may spread from the breast to form one or two new tumors in the brain or spread from the colon to form new tumors in the liver. These types of tumors may be treatable.",
+        "text": "A type of metastasis in which cancer cells from the original (primary) tumor travel through the body and form a small number of new tumors (metastatic tumors) in one or two other parts of the body. For example, cancer cells may spread from the breast to form one or two new tumors in the brain or spread from the colon to form new tumors in the liver. These types of tumors may be treatable."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44071,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "oxidative metabolism",
+      "firstLetter": "o",
+      "prettyUrlName": "oxidative-metabolism",
+      "pronunciation": {
+        "key": "(OK-sih-DAY-tiv meh-TA-buh-lih-zum)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704126.mp3"
+      },
+      "definition": {
+        "html": "A chemical process in which oxygen is used to make energy from carbohydrates (sugars). Also called aerobic metabolism, aerobic respiration,  and cell respiration.",
+        "text": "A chemical process in which oxygen is used to make energy from carbohydrates (sugars). Also called aerobic metabolism, aerobic respiration,  and cell respiration."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 561722,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "steroid metabolism gene",
+      "firstLetter": "s",
+      "prettyUrlName": "steroid-metabolism-gene",
+      "pronunciation": {
+        "key": "(STAYR-oyd meh-TA-buh-lih-zum jeen)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/720677.mp3"
+      },
+      "definition": {
+        "html": "A type of gene that helps the body build up or break down steroids. Steroids may be made by the body (such as hormones and cholesterol) or made in a laboratory (such as drugs). A steroid metabolism gene called CYP17 is being studied in breast, ovarian, and uterine cancers.",
+        "text": "A type of gene that helps the body build up or break down steroids. Steroids may be made by the body (such as hormones and cholesterol) or made in a laboratory (such as drugs). A steroid metabolism gene called CYP17 is being studied in breast, ovarian, and uterine cancers."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 487473,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "Zometa",
+      "firstLetter": "z",
+      "prettyUrlName": "zometa",
+      "pronunciation": {
+        "key": "(ZOH-meh-tuh)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/718049.mp3"
+      },
+      "definition": {
+        "html": "A drug used to treat hypercalcemia (high blood levels of calcium) caused by cancer. It is also used with other anticancer drugs to treat multiple myeloma and cancers that have spread to the bone. It is also being studied in the treatment of other types of cancer. Zometa may help keep bone from breaking down and prevent the loss of calcium from the bones. It is a type of bisphosphonate. Also called zoledronate and zoledronic acid.",
+        "text": "A drug used to treat hypercalcemia (high blood levels of calcium) caused by cancer. It is also used with other anticancer drugs to treat multiple myeloma and cancers that have spread to the bone. It is also being studied in the treatment of other types of cancer. Zometa may help keep bone from breaking down and prevent the loss of calcium from the bones. It is a type of bisphosphonate. Also called zoledronate and zoledronic acid."
+      },
+      "relatedResources": [],
+      "media": []
+    }
+  ],
+  "links": null
+}

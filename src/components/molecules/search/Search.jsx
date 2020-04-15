@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router";
+import { useParams, useNavigate } from "react-router-dom";
 
 import Radio from "../../atomic/Radio";
 import TextInput from "../../atomic/TextInput";
-import { testIds } from "../../../constants";
+import { searchMatchType, testIds } from "../../../constants";
+import { useAppPaths } from "../../../hooks/routing";
 import { useStateValue } from "../../../store/store";
 import { i18n } from "../../../utils";
 
@@ -11,22 +12,27 @@ const Search = () => {
     const containsValue = 'contains';
     const startsWithValue = 'starts with';
     const [selectedOption, updateSelectedOption] = useState(startsWithValue);
-    const [searchText, updateSearchText] = useState();
+    const [searchText, updateSearchText] = useState('');
     const params = useParams();
     const navigate = useNavigate();
     const [{ language }] = useStateValue();
+    const { SearchPath, SearchPathSpanish } = useAppPaths();
 
     useEffect( () => {
         updateSelectedOption(startsWithValue);
     }, [params]);
 
-    const executeSearch = () => {
+    const expandPathWithLang = language === 'es' ? SearchPathSpanish : SearchPath;
+    const executeSearch = (e) => {
+      e.preventDefault();
       const isContainsSearch = selectedOption && selectedOption === containsValue;
-      const hasSearchText = !!searchText;
+      const hasSearchText = searchText.length > 0;
       const queryString = hasSearchText
-          ? `?contains=${isContainsSearch}&q=${searchText}`
-          : `?contains=${isContainsSearch}&q=`;
-      navigate(`/${i18n.search[language].toLowerCase()}${queryString}`, { replace: false });
+          ? isContainsSearch
+              ? `${searchText}/?searchMode=${searchMatchType.contains}`
+              : `${searchText}/?searchMode=${searchMatchType.beginsWith}`
+          : `/`;
+      navigate(expandPathWithLang({ searchText: queryString }));
     };
 
     const toggleRadioSelection = (event) => {

@@ -1,4 +1,6 @@
 import { act, cleanup, render } from "@testing-library/react";
+import axios from 'axios';
+import nock from 'nock';
 import React from "react";
 import { ClientContextProvider } from "react-fetching-library";
 import { MemoryRouter, useLocation } from "react-router";
@@ -13,7 +15,9 @@ import Home from "../views/Home";
 jest.mock("../store/store.js");
 
 let wrapper;
-const { EXPAND, EXPAND_SPANISH } = queryType;
+axios.defaults.adapter = require('axios/lib/adapters/http');
+
+const { EXPAND_SPANISH } = queryType;
 
 describe("App component", () => {
   let location;
@@ -22,7 +26,8 @@ describe("App component", () => {
     location = useLocation();
     return <RenderComponent />;
   }
-
+  const audience = "Patient";
+  const dictionaryEndpoint = "http://localhost:3000/api";
   const dictionaryName = "Cancer.gov";
   const dictionaryTitle = "NCI Dictionary of Cancer Terms";
   const language = "en";
@@ -31,7 +36,9 @@ describe("App component", () => {
   useStateValue.mockReturnValue([
     {
       appId: "mockAppId",
+      audience,
       basePath: "/",
+      dictionaryEndpoint,
       dictionaryName,
       dictionaryTitle,
       language,
@@ -39,12 +46,23 @@ describe("App component", () => {
     }
   ]);
 
+  beforeAll( () => {
+    nock.disableNetConnect();
+  });
+
+  afterAll( () => {
+    nock.cleanAll();
+    nock.enableNetConnect();
+  });
+
   afterEach(cleanup);
 
   test("DefinitionPath route exists and matches expected route", async () => {
     const { DefinitionPath } = useAppPaths();
     const idOrName = 'metastatic';
     const initialState = {
+      audience,
+      dictionaryEndpoint,
       dictionaryName,
       dictionaryTitle,
       language,
@@ -76,6 +94,8 @@ describe("App component", () => {
     const { ExpandPath } = useAppPaths();
     const expandChar = 'A';
     const initialState = {
+      audience,
+      dictionaryEndpoint,
       dictionaryName,
       dictionaryTitle,
       language,
@@ -106,6 +126,8 @@ describe("App component", () => {
   test("ExpandPathNoParam route exists and matches expected route", async () => {
     const { ExpandPathNoParam } = useAppPaths();
     const initialState = {
+      audience,
+      dictionaryEndpoint,
       dictionaryName,
       dictionaryTitle,
       language,
@@ -137,6 +159,8 @@ describe("App component", () => {
     const { ExpandPathSpanish } = useAppPaths();
     const expandChar = 'A';
     const initialState = {
+      audience,
+      dictionaryEndpoint,
       dictionaryName,
       dictionaryTitle,
       language,
@@ -167,6 +191,8 @@ describe("App component", () => {
   test("ExpandPathNoParamSpanish route exists and matches expected route", async () => {
     const { ExpandPathNoParamSpanish } = useAppPaths();
     const initialState = {
+      audience,
+      dictionaryEndpoint,
       dictionaryName,
       dictionaryTitle,
       language,
@@ -197,6 +223,8 @@ describe("App component", () => {
   test("HomePath route exists and matches expected route", async () => {
     const { HomePath } = useAppPaths();
     const initialState = {
+      audience,
+      dictionaryEndpoint,
       dictionaryName,
       dictionaryTitle,
       language,

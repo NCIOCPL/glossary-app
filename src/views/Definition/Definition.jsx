@@ -14,6 +14,7 @@ import {
 import { testIds } from "../../constants";
 import { getTermDefinition } from "../../services/api/actions";
 import { useStateValue } from "../../store/store.js";
+import { i18n } from "../../utils";
 
 const Definition = () => {
   const { idOrName } = useParams();
@@ -62,7 +63,7 @@ const Definition = () => {
   };
 
   const renderRelatedResourceLinks = () => {
-    let headerText = language === "en" ? "More Information" : "Más información";
+    let headerText = i18n.moreInformation[language];
     if (payload.relatedResources && payload.relatedResources.length > 0) {
       return (
         <>

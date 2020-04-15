@@ -18,6 +18,7 @@ export const getEndpoint = ( endpoint ) => {
     // Define api endpoints here
     const urls = {
         expandChar: `/Terms/expand/${DICTIONARY_NAME}/${AUDIENCE}/${LANGUAGE}`,
+        searchResults: `/Terms/search/${DICTIONARY_NAME}/${AUDIENCE}/${LANGUAGE}`,
         termCount: `/Terms/count/${DICTIONARY_NAME}/${AUDIENCE}/${LANGUAGE}`,
         termDefinition: `/Terms/${DICTIONARY_NAME}/${AUDIENCE}/${LANGUAGE}`
     };
