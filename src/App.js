@@ -16,7 +16,11 @@ const App = ({ tracking }) => {
     ExpandPath,
     ExpandPathNoParam,
     ExpandPathSpanish,
-    ExpandPathNoParamSpanish
+    ExpandPathNoParamSpanish,
+    SearchPath,
+    SearchPathNoParam,
+    SearchPathSpanish,
+    SearchPathSpanishNoParam
   } = useAppPaths();
 
   //example tracking setup for pageload
@@ -32,6 +36,10 @@ const App = ({ tracking }) => {
         <Route path={ ExpandPathNoParam() } element={<Home />} />
         <Route path={ ExpandPathSpanish() } element={<Home />} />
         <Route path={ ExpandPathNoParamSpanish() } element={<Home />} />
+        <Route path={ SearchPath() } element={<Home />} />
+        <Route path={ SearchPathNoParam() } element={<Home />} />
+        <Route path={ SearchPathSpanish() } element={<Home />} />
+        <Route path={ SearchPathSpanishNoParam() } element={<Home />} />
       </Routes>
     </Router>
   );

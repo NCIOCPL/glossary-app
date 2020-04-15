@@ -1,17 +1,18 @@
-import { act, cleanup, render } from "@testing-library/react";
+import { act, cleanup, fireEvent, render } from "@testing-library/react";
 import React from "react";
 import { ClientContextProvider } from "react-fetching-library";
 import { MemoryRouter } from "react-router";
 
-import { NO_MATCHING_TEXT_EXPAND, testIds } from "../../../constants";
+import { NO_MATCHING_TEXT_EXPAND, searchMatchType, testIds } from "../../../constants";
 import Home from "../Home";
 import { useStateValue } from "../../../store/store.js";
-import { fixtures } from "../../../utils";
+import { i18n, fixtures } from "../../../utils";
 
 jest.mock("../../../store/store.js");
 
 let wrapper;
 const dispatch = jest.fn();
+const dictionaryEndpoint = "http://localhost:3000/api";
 const dictionaryName = "Cancer.gov";
 const dictionaryTitle = "NCI Dictionary of Cancer Terms";
 const dictionaryIntroText =
@@ -41,6 +42,7 @@ describe("Home component(English)", () => {
       languageToggleSelector: '#LangList1 a',
       appId: "mockAppId",
       basePath: "/",
+      dictionaryEndpoint,
       dictionaryIntroText,
       dictionaryName,
       dictionaryTitle,
@@ -121,6 +123,29 @@ describe("Home component(English)", () => {
       const { getByTestId } = wrapper;
       expect(getByTestId(testIds.NO_MATCHING_RESULTS).textContent).toBe(
         NO_MATCHING_TEXT_EXPAND
+      );
+    });
+  });
+
+  describe("Load Home component using search path with no params", () => {
+    beforeEach(async () => {
+      cleanup();
+      await act(async () => {
+        wrapper = render(
+            <MemoryRouter initialEntries={["/search"]}>
+              <ClientContextProvider client={client}>
+                <Home />
+              </ClientContextProvider>
+            </MemoryRouter>
+        );
+      });
+    });
+    afterEach(cleanup);
+
+    test("NoMatchingResults component is rendered with no matching search text for search path with no params", () => {
+      const { getByTestId } = wrapper;
+      expect(getByTestId(testIds.NO_MATCHING_RESULTS).textContent).toBe(
+          i18n.noMatchingTextSearch[language]
       );
     });
   });

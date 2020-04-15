@@ -2,16 +2,20 @@ import React from 'react';
 import { useQuery } from "react-fetching-library";
 
 import Spinner from "../../components/atomic/spinner";
+import { queryType } from "../../constants";
 import NoMatchingResults from "./NoMatchingResults";
-import { getExpandCharResults } from "../../services/api/actions";
+import { getExpandCharResults, getSearchResults } from "../../services/api/actions";
 import { useStateValue } from "../../store/store";
 import Term from "./Term";
 import { i18n } from "../../utils";
 
-const TermList = ({ query }) => {
-    const { loading, payload, error } = useQuery( getExpandCharResults( query ) );
+const TermList = ({ matchType, query, type }) => {
+    const queryAction = type === queryType.SEARCH
+        ? getSearchResults(query, matchType)
+        : getExpandCharResults(query);
+    const { loading, payload, error } = useQuery( queryAction );
     const [{ language }] = useStateValue();
-
+    // console.log('TermList:', type, query, matchType);
     return (
         <>
             { loading && <Spinner /> }
@@ -20,7 +24,7 @@ const TermList = ({ query }) => {
                     { payload.results && payload.results.length > 0
                         ?
                             <>
-                                <h4>{ payload.meta.totalResults } { i18n.termListTitle[language] }: { query } </h4>
+                                <h4>{ payload.meta.totalResults } { i18n.termListTitle[language] }: { decodeURI(query) } </h4>
                                 <dl className="dictionary-list">
                                     { payload.results.map( ( result, index ) => {
                                         return <Term key={index} payload={result} />
@@ -29,7 +33,6 @@ const TermList = ({ query }) => {
                             </>
                         :   <NoMatchingResults />
                     }
-
                 </div>
             }
         </>

@@ -23,13 +23,21 @@ const readDirAsync = util.promisify(fs.readdir);
  */
 const getResultsByQueryType = async ( req, res, next ) => {
     const {
-        audience,
-        dictionary,
-        language,
-        query,
-        queryType
-    } = req.params;
-    const mockDir = path.join( __dirname, '..', 'mock-data', 'Terms', queryType, dictionary, audience, language );
+        params: {
+            audience,
+            dictionary,
+            language,
+            query,
+            queryType
+        },
+        query: {
+            matchType
+        }
+    } = req;
+
+    const mockDir = queryType === "search"
+        ? path.join( __dirname, '..', 'mock-data', 'Terms', queryType, dictionary, audience, language, matchType )
+        : path.join( __dirname, '..', 'mock-data', 'Terms', queryType, dictionary, audience, language );
 
     try {
         const mockFile = path.join( mockDir, `${query}.json` );
@@ -136,9 +144,9 @@ const middleware = (app) => {
   app.use(
     '/api/Terms/:queryType/:dictionary/:audience/:language/:query',
     getResultsByQueryType
-    );
+  );
 
-    app.use(
+  app.use(
     '/api/Terms/count/:dictionary/:audience/:language',
     getTermTotalCount
   );
@@ -151,6 +159,6 @@ const middleware = (app) => {
     }
   )
 
-}
+};
 
 module.exports = middleware;
