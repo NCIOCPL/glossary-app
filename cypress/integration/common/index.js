@@ -232,7 +232,7 @@ Then('the system returns users to the search results page for the search term', 
   cy.window().then((win) => {
     if ( win.INT_TEST_APP_PARAMS ) {
       const searchBaseLocation = win.INT_TEST_APP_PARAMS.language === 'es' ? 'buscar' : 'search';
-      cy.location('href').should('eq', `${baseURL}/${searchBaseLocation}?contains=false&q=`);
+      cy.location('href').should('eq', `${baseURL}/${searchBaseLocation}/`);
     }
   });
 });

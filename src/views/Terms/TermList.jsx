@@ -2,14 +2,18 @@ import React from 'react';
 import { useQuery } from "react-fetching-library";
 
 import Spinner from "../../components/atomic/spinner";
+import { queryType } from "../../constants";
 import NoMatchingResults from "./NoMatchingResults";
-import { getExpandCharResults } from "../../services/api/actions";
+import { getExpandCharResults, getSearchResults } from "../../services/api/actions";
 import { useStateValue } from "../../store/store";
 import Term from "./Term";
 import { i18n } from "../../utils";
 
-const TermList = ({ query }) => {
-    const { loading, payload, error } = useQuery( getExpandCharResults( query ) );
+const TermList = ({ matchType, query, type }) => {
+    const queryAction = type === queryType.SEARCH
+        ? getSearchResults(query, matchType)
+        : getExpandCharResults(query);
+    const { loading, payload, error } = useQuery( queryAction );
     const [{ language }] = useStateValue();
 
     return (
@@ -29,7 +33,6 @@ const TermList = ({ query }) => {
                             </>
                         :   <NoMatchingResults />
                     }
-
                 </div>
             }
         </>

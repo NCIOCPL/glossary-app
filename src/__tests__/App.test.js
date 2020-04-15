@@ -1,4 +1,6 @@
 import { act, cleanup, render } from "@testing-library/react";
+import axios from 'axios';
+import nock from 'nock';
 import React from "react";
 import { ClientContextProvider } from "react-fetching-library";
 import { MemoryRouter, useLocation } from "react-router";
@@ -6,6 +8,7 @@ import { MemoryRouter, useLocation } from "react-router";
 import { queryType } from "../constants";
 import { useAppPaths } from "../hooks/routing";
 import { getAxiosClient } from "../services/api/axios-client";
+import { buildAxiosRequest } from "../services/api/buildAxiosRequest";
 import { useStateValue } from "../store/store.js";
 import Definition from "../views/Definition";
 import Home from "../views/Home";
@@ -13,7 +16,25 @@ import Home from "../views/Home";
 jest.mock("../store/store.js");
 
 let wrapper;
+axios.defaults.adapter = require('axios/lib/adapters/http');
+
+/*
+const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
+const host = 'localhost';
+const port = '3000';
+const baseURL = `${protocol}://${host}:${port}/api`;
+const init = `${baseURL}`;
+let options = {
+  headers: { 'content-type': 'application/json; charset=utf-8' }
+};
+const axiosInstance = axios.create({
+  timeout: 10000
+});
+*/
+// axios.defaults.adapter = require('axios/lib/adapters/http');
 const { EXPAND, EXPAND_SPANISH } = queryType;
+// const scope = nock("http://localhost:3000");
+
 
 describe("App component", () => {
   let location;
@@ -21,8 +42,10 @@ describe("App component", () => {
   function ComponentWithLocation({ RenderComponent }) {
     location = useLocation();
     return <RenderComponent />;
+    // return <></>;
   }
-
+  const audience = "Patient";
+  const dictionaryEndpoint = "http://localhost:3000/api";
   const dictionaryName = "Cancer.gov";
   const dictionaryTitle = "NCI Dictionary of Cancer Terms";
   const language = "en";
@@ -31,7 +54,9 @@ describe("App component", () => {
   useStateValue.mockReturnValue([
     {
       appId: "mockAppId",
+      audience,
       basePath: "/",
+      dictionaryEndpoint,
       dictionaryName,
       dictionaryTitle,
       language,
@@ -39,12 +64,23 @@ describe("App component", () => {
     }
   ]);
 
+  beforeAll( () => {
+    nock.disableNetConnect();
+  });
+
+  afterAll( () => {
+    nock.cleanAll();
+    nock.enableNetConnect();
+  });
+
   afterEach(cleanup);
 
   test("DefinitionPath route exists and matches expected route", async () => {
     const { DefinitionPath } = useAppPaths();
     const idOrName = 'metastatic';
     const initialState = {
+      audience,
+      dictionaryEndpoint,
       dictionaryName,
       dictionaryTitle,
       language,
@@ -76,6 +112,8 @@ describe("App component", () => {
     const { ExpandPath } = useAppPaths();
     const expandChar = 'A';
     const initialState = {
+      audience,
+      dictionaryEndpoint,
       dictionaryName,
       dictionaryTitle,
       language,
@@ -106,6 +144,8 @@ describe("App component", () => {
   test("ExpandPathNoParam route exists and matches expected route", async () => {
     const { ExpandPathNoParam } = useAppPaths();
     const initialState = {
+      audience,
+      dictionaryEndpoint,
       dictionaryName,
       dictionaryTitle,
       language,
@@ -137,6 +177,8 @@ describe("App component", () => {
     const { ExpandPathSpanish } = useAppPaths();
     const expandChar = 'A';
     const initialState = {
+      audience,
+      dictionaryEndpoint,
       dictionaryName,
       dictionaryTitle,
       language,
@@ -167,6 +209,8 @@ describe("App component", () => {
   test("ExpandPathNoParamSpanish route exists and matches expected route", async () => {
     const { ExpandPathNoParamSpanish } = useAppPaths();
     const initialState = {
+      audience,
+      dictionaryEndpoint,
       dictionaryName,
       dictionaryTitle,
       language,
@@ -197,6 +241,8 @@ describe("App component", () => {
   test("HomePath route exists and matches expected route", async () => {
     const { HomePath } = useAppPaths();
     const initialState = {
+      audience,
+      dictionaryEndpoint,
       dictionaryName,
       dictionaryTitle,
       language,

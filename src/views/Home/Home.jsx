@@ -12,7 +12,7 @@ import { getTermCount } from "../../services/api/actions";
 import { updateGlobalValue } from "../../store/actions";
 import { useStateValue } from "../../store/store.js";
 import { NoMatchingResults, TermList } from "../Terms";
-import { formatNumberToThousands, TokenParser } from "../../utils";
+import { formatNumberToThousands, getKeyValueFromQueryString, TokenParser } from "../../utils";
 
 const Home = () => {
   const [ isIntroTextReplaced, introTextReplaced ] = useState(false);
@@ -29,24 +29,30 @@ const Home = () => {
   const { HomePath } = useAppPaths();
   const location = useLocation();
   const params = useParams();
+  const [ showTermList, setShowTermList ] = useState(false);
   const termCount = useQuery( getTermCount() );
-  const { pathname } = location;
+  const { pathname, search } = location;
   const isExpand =
     pathname.includes(`/${queryType.EXPAND}`) ||
     pathname.includes(`/${queryType.EXPAND_SPANISH}`);
   const isHome = pathname === HomePath() || pathname === basePath;
-  const { expandChar } = params;
-  // Set default query param for home page when expand char is not defined
-  const query = expandChar || AZListArray[0].toUpperCase();
-  // Render TermList ( true when expand route has parameter or on home page )
-  const renderTermList = (isExpand && expandChar) || isHome;
+  const isSearch =
+      pathname.includes(`/${queryType.SEARCH}`) ||
+      pathname.includes(`/${queryType.SEARCH_SPANISH}`);
+  const { expandChar, searchText } = params;
+  // Set query parameter that drives TermList component
+  const query = searchText
+      ? searchText
+      : expandChar || AZListArray[0].toUpperCase();
+  const matchType = getKeyValueFromQueryString( 'searchMode', search );
 
   useEffect(() => {
-    // update sitewide language toggle to point to provided analog
+    // update site-wide language toggle to point to provided analog
     const langToggle = document.querySelector(languageToggleSelector);
     if (langToggle && altLanguageDictionaryBasePath !== "") {
       initLanguageToggle(langToggle);
     }
+    renderTermListHandler();
   }, []);
 
   useEffect( () => {
@@ -65,6 +71,22 @@ const Home = () => {
     }
   }, [termCount.payload, dictionaryIntroText, dispatch, isIntroTextReplaced]);
 
+  useEffect( () => {
+      renderTermListHandler();
+  }, [ expandChar, isExpand, isHome, isSearch, searchText, showTermList, matchType ]);
+
+  const renderTermListHandler = () => {
+      if (
+          isHome ||
+          ( isExpand && expandChar ) ||
+          ( isSearch && ( searchText && matchType !== null )  )
+      ) {
+          setShowTermList( true );
+          return;
+      }
+      setShowTermList( false );
+  };
+
   const initLanguageToggle = langToggle => {
     if (langToggle) {
       langToggle.href = `${altLanguageDictionaryBasePath}`;
@@ -73,8 +95,8 @@ const Home = () => {
 
   const renderHelmet = () => {
     let retHead = <></>;
-    // Add noindex directive for robots for expand routes
-    if (isExpand) {
+    // Add noindex directive for robots to expand and search routes
+    if ( isExpand || isSearch ) {
       retHead = (
         <Helmet>
           <meta name="robots" content="noindex" />
@@ -107,13 +129,16 @@ const Home = () => {
       )}
       <SearchBox />
       {/*
-      -----------------------------------------------------------------------------------------
-          Render TermList if renderTermList flag is true (route is expand with param or home),
+      -----------------------------------------------------------------------------------------------------
+          Render TermList if showTermList flag is true (route is expand or search with params or home),
           otherwise route is expand without param then render NoMatchingResults.
-      -----------------------------------------------------------------------------------------
+      -----------------------------------------------------------------------------------------------------
       */}
-      { renderTermList
-          ? <TermList query={ query } />
+      { showTermList
+          ? <TermList
+              matchType={ matchType }
+              query={ query }
+              type={ isSearch ? queryType.SEARCH : queryType.EXPAND } />
           : <NoMatchingResults />
       }
     </>

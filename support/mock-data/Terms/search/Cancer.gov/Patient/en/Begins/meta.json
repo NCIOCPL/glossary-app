@@ -1,0 +1,427 @@
+{
+  "meta": {
+    "totalResults": 22,
+    "from": 0
+  },
+  "results": [
+    {
+      "termId": 691484,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "meta-analysis",
+      "firstLetter": "m",
+      "prettyUrlName": "meta-analysis",
+      "pronunciation": {
+        "key": "(meh-tuh-uh-NA-lih-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/727898.mp3"
+      },
+      "definition": {
+        "html": "A process that analyzes data from different studies done about the same subject. The results of a meta-analysis are usually stronger than the results of any study by itself.",
+        "text": "A process that analyzes data from different studies done about the same subject. The results of a meta-analysis are usually stronger than the results of any study by itself."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44056,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolic",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolic",
+      "pronunciation": {
+        "key": "(MEH-tuh-BAH-lik)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704100.mp3"
+      },
+      "definition": {
+        "html": "Having to do with metabolism (the total of all chemical changes that take place in a cell or an organism to produce energy and basic materials needed for important life processes).",
+        "text": "Having to do with metabolism (the total of all chemical changes that take place in a cell or an organism to produce energy and basic materials needed for important life processes)."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44332,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolic acidosis",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolic-acidosis",
+      "pronunciation": {
+        "key": "(MEH-tuh-BAH-lik A-sih-DOH-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704490.mp3"
+      },
+      "definition": {
+        "html": "A condition in which the blood is too acidic. It may be caused by severe illness or sepsis (bacteria in the bloodstream).",
+        "text": "A condition in which the blood is too acidic. It may be caused by severe illness or sepsis (bacteria in the bloodstream)."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44055,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolic disorder",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolic-disorder",
+      "pronunciation": {
+        "key": "(MEH-tuh-BAH-lik dis-OR-der)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704097.mp3"
+      },
+      "definition": {
+        "html": "A condition in which normal metabolic processes are disrupted, usually because of a missing enzyme.",
+        "text": "A condition in which normal metabolic processes are disrupted, usually because of a missing enzyme."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 643126,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolic syndrome",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolic-syndrome",
+      "pronunciation": {
+        "key": "(MEH-tuh-BAH-lik SIN-drome)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/725638.mp3"
+      },
+      "definition": {
+        "html": "A condition marked by extra fat around the abdomen, high levels of blood glucose (sugar) when not eating, high levels of triglycerides (a type of fat) in the blood, low levels of high-density lipoproteins (a type of protein that carries fats) in the blood, and high blood pressure. People with metabolic syndrome are at increased risk of diabetes mellitus and diseases of the heart and blood vessels. Also called metabolic syndrome X.",
+        "text": "A condition marked by extra fat around the abdomen, high levels of blood glucose (sugar) when not eating, high levels of triglycerides (a type of fat) in the blood, low levels of high-density lipoproteins (a type of protein that carries fats) in the blood, and high blood pressure. People with metabolic syndrome are at increased risk of diabetes mellitus and diseases of the heart and blood vessels. Also called metabolic syndrome X."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 643125,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolic syndrome X",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolic-syndrome-x",
+      "pronunciation": {
+        "key": "(MEH-tuh-BAH-lik SIN-drome ...)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/725635.mp3"
+      },
+      "definition": {
+        "html": "A condition marked by extra fat around the abdomen, high levels of blood glucose (sugar) when not eating, high levels of triglycerides (a type of fat) in the blood, low levels of high-density lipoproteins (a type of protein that carries fats) in the blood, and high blood pressure. People with metabolic syndrome X are at increased risk of diabetes mellitus and diseases of the heart and blood vessels. Also called metabolic syndrome.",
+        "text": "A condition marked by extra fat around the abdomen, high levels of blood glucose (sugar) when not eating, high levels of triglycerides (a type of fat) in the blood, low levels of high-density lipoproteins (a type of protein that carries fats) in the blood, and high blood pressure. People with metabolic syndrome X are at increased risk of diabetes mellitus and diseases of the heart and blood vessels. Also called metabolic syndrome."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44057,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolic therapy",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolic-therapy",
+      "pronunciation": {
+        "key": "(MEH-tuh-BAH-lik THAYR-uh-pee)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704102.mp3"
+      },
+      "definition": {
+        "html": "Treatment to correct changes in metabolism that can be caused by disease.",
+        "text": "Treatment to correct changes in metabolism that can be caused by disease."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 446118,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolic type",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolic-type",
+      "pronunciation": {
+        "key": "(MEH-tuh-BAH-lik tipe)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/714825.mp3"
+      },
+      "definition": {
+        "html": "In alternative medicine, a theory that people fall into one of three groups (protein, carbohydrate, or mixed type) based on the main type of food that their bodies need to stay healthy.",
+        "text": "In alternative medicine, a theory that people fall into one of three groups (protein, carbohydrate, or mixed type) based on the main type of food that their bodies need to stay healthy."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 46173,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolism",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolism",
+      "pronunciation": {
+        "key": "(meh-TA-buh-lih-zum)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707785.mp3"
+      },
+      "definition": {
+        "html": "The chemical changes that take place in a cell or an organism. These changes make energy and the materials cells and organisms need to grow, reproduce, and stay healthy. Metabolism also helps get rid of toxic substances.",
+        "text": "The chemical changes that take place in a cell or an organism. These changes make energy and the materials cells and organisms need to grow, reproduce, and stay healthy. Metabolism also helps get rid of toxic substances."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 462687,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolite",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolite",
+      "pronunciation": {
+        "key": "(meh-TA-boh-lite)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/716923.mp3"
+      },
+      "definition": {
+        "html": "A substance made or used when the body breaks down food, drugs or chemicals, or its own tissue (for example, fat or muscle tissue). This process, called metabolism, makes energy and the materials needed for growth, reproduction, and maintaining health. It also helps get rid of toxic substances.",
+        "text": "A substance made or used when the body breaks down food, drugs or chemicals, or its own tissue (for example, fat or muscle tissue). This process, called metabolism, makes energy and the materials needed for growth, reproduction, and maintaining health. It also helps get rid of toxic substances."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 770483,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metabolomics",
+      "firstLetter": "m",
+      "prettyUrlName": "metabolomics",
+      "pronunciation": {
+        "key": "(meh-TA-buh-LOH-mix)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/774993.mp3"
+      },
+      "definition": {
+        "html": "The study of substances called metabolites in cells and tissues. Metabolites are small molecules that are made when the body breaks down food, drugs, chemicals, or its own tissue. They can be measured in blood, urine, and other body fluids. Disease and environmental factors, such as diet, drugs, and chemicals, can affect how metabolites are made and used in the body. Metabolomics may help find new ways to diagnose and treat diseases, such as cancer.",
+        "text": "The study of substances called metabolites in cells and tissues. Metabolites are small molecules that are made when the body breaks down food, drugs, chemicals, or its own tissue. They can be measured in blood, urine, and other body fluids. Disease and environmental factors, such as diet, drugs, and chemicals, can affect how metabolites are made and used in the body. Metabolomics may help find new ways to diagnose and treat diseases, such as cancer."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 736800,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metaiodobenzylguanidine scan",
+      "firstLetter": "m",
+      "prettyUrlName": "metaiodobenzylguanidine-scan",
+      "pronunciation": {
+        "key": "(meh-tuh-I-oh-doh-BEN-zul-GWAH-nih-deen skan)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/742997.mp3"
+      },
+      "definition": {
+        "html": "A procedure used to find neuroendocrine tumors, such as neuroblastomas and pheochromocytomas. A small amount of a substance called radioactive metaiodobenzylguanidine is injected into a vein and travels through the bloodstream. Neuroendocrine tumor cells take up the radioactive metaiodobenzylguanidine and are detected by a scanner.  Also called iobenguane scan and MIBG scan.",
+        "text": "A procedure used to find neuroendocrine tumors, such as neuroblastomas and pheochromocytomas. A small amount of a substance called radioactive metaiodobenzylguanidine is injected into a vein and travels through the bloodstream. Neuroendocrine tumor cells take up the radioactive metaiodobenzylguanidine and are detected by a scanner.  Also called iobenguane scan and MIBG scan."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 463718,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metallic",
+      "firstLetter": "m",
+      "prettyUrlName": "metallic",
+      "pronunciation": {
+        "key": "(meh-TA-lik)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/716575.mp3"
+      },
+      "definition": {
+        "html": "Having to do with metal. Some cancer treatments may change the sense of taste and cause foods to have a metallic taste.",
+        "text": "Having to do with metal. Some cancer treatments may change the sense of taste and cause foods to have a metallic taste."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 693575,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metallic endoprosthesis",
+      "firstLetter": "m",
+      "prettyUrlName": "metallic-endoprosthesis",
+      "pronunciation": {
+        "key": "(meh-TA-lik EN-doh-pros-THEE-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/733178.mp3"
+      },
+      "definition": {
+        "html": "A device made of metal that is placed inside the body to replace a body part removed by surgery.  An example is a thigh bone replaced during surgery for cancer.",
+        "text": "A device made of metal that is placed inside the body to replace a body part removed by surgery.  An example is a thigh bone replaced during surgery for cancer."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 45786,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metaplasia",
+      "firstLetter": "m",
+      "prettyUrlName": "metaplasia",
+      "pronunciation": {
+        "key": "(meh-tuh-PLAY-zhuh)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707241.mp3"
+      },
+      "definition": {
+        "html": "A change of cells to a form that does not normally occur in the tissue in which it is found.",
+        "text": "A change of cells to a form that does not normally occur in the tissue in which it is found."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44243,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metaplastic carcinoma",
+      "firstLetter": "m",
+      "prettyUrlName": "metaplastic-carcinoma",
+      "pronunciation": {
+        "key": "(meh-tuh-PLAS-tik KAR-sih-NOH-muh)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704350.mp3"
+      },
+      "definition": {
+        "html": "A general term used to describe cancer that begins in cells that have changed into another cell type (for example, a squamous cell of the esophagus changing to resemble a cell of the stomach). In some cases, metaplastic changes alone may mean there is an increased chance of cancer developing at the site.",
+        "text": "A general term used to describe cancer that begins in cells that have changed into another cell type (for example, a squamous cell of the esophagus changing to resemble a cell of the stomach). In some cases, metaplastic changes alone may mean there is an increased chance of cancer developing at the site."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 346490,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metastasectomy",
+      "firstLetter": "m",
+      "prettyUrlName": "metastasectomy",
+      "pronunciation": {
+        "key": "(meh-TAS-tuh-SEK-toh-mee)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/711570.mp3"
+      },
+      "definition": {
+        "html": "Surgery to remove one or more metastases (tumors formed from cells that have spread from the primary tumor). When all metastases are removed, it is called a complete metastasectomy.",
+        "text": "Surgery to remove one or more metastases (tumors formed from cells that have spread from the primary tumor). When all metastases are removed, it is called a complete metastasectomy."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 46710,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metastasis",
+      "firstLetter": "m",
+      "prettyUrlName": "metastasis",
+      "pronunciation": {
+        "key": "(meh-TAS-tuh-sis)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/709967.mp3"
+      },
+      "definition": {
+        "html": "The spread of cancer cells from the place where they first formed to another part of the body. In metastasis, cancer cells break away from the original (primary) tumor, travel through the blood or lymph system, and form a new tumor in other organs or tissues of the body. The new, metastatic tumor is the same type of cancer as the primary tumor. For example, if breast cancer spreads to the lung, the cancer cells in the lung are breast cancer cells, not lung cancer cells. The plural form of metastasis is metastases (meh-TAS-tuh-SEEZ).",
+        "text": "The spread of cancer cells from the place where they first formed to another part of the body. In metastasis, cancer cells break away from the original (primary) tumor, travel through the blood or lymph system, and form a new tumor in other organs or tissues of the body. The new, metastatic tumor is the same type of cancer as the primary tumor. For example, if breast cancer spreads to the lung, the cancer cells in the lung are breast cancer cells, not lung cancer cells. The plural form of metastasis is metastases (meh-TAS-tuh-SEEZ)."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 797421,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metastasis-free survival",
+      "firstLetter": "m",
+      "prettyUrlName": "metastasis-free-survival",
+      "pronunciation": {
+        "key": "(meh-TAS-tuh-sis ... ser-VY-vul)",
+        "audio": null
+      },
+      "definition": {
+        "html": "The length of time from the start of treatment for cancer that a patient is still alive and the cancer has not spread to other parts of the body. In a clinical trial, measuring the metastasis-free survival is one way to see how well a new treatment works. Also called MFS.",
+        "text": "The length of time from the start of treatment for cancer that a patient is still alive and the cancer has not spread to other parts of the body. In a clinical trial, measuring the metastasis-free survival is one way to see how well a new treatment works. Also called MFS."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 46283,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metastasize",
+      "firstLetter": "m",
+      "prettyUrlName": "metastasize",
+      "pronunciation": {
+        "key": "(meh-TAS-tuh-size)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707969.mp3"
+      },
+      "definition": {
+        "html": "To spread from one part of the body to another. When cancer cells metastasize and form secondary tumors, the cells in the metastatic tumor are like those in the original (primary) tumor.",
+        "text": "To spread from one part of the body to another. When cancer cells metastasize and form secondary tumors, the cells in the metastatic tumor are like those in the original (primary) tumor."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44058,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metastatic",
+      "firstLetter": "m",
+      "prettyUrlName": "metastatic",
+      "pronunciation": {
+        "key": "(meh-tuh-STA-tik)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704104.mp3"
+      },
+      "definition": {
+        "html": "Having to do\n          with metastasis, which is the spread of cancer from the\n          primary site (place where it started) to other places in\n          the body.",
+        "text": "Having to do\n          with metastasis, which is the spread of cancer from the\n          primary site (place where it started) to other places in\n          the body."
+      },
+      "relatedResources": [],
+      "media": []
+    },
+    {
+      "termId": 44778,
+      "language": "en",
+      "dictionary": "Cancer.gov",
+      "audience": "Patient",
+      "termName": "metasynchronous",
+      "firstLetter": "m",
+      "prettyUrlName": "metasynchronous",
+      "pronunciation": {
+        "key": "(meh-tuh-SING-kruh-nus)",
+        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/728133.mp3"
+      },
+      "definition": {
+        "html": "Occurring at nearly the same time.",
+        "text": "Occurring at nearly the same time."
+      },
+      "relatedResources": [],
+      "media": []
+    }
+  ],
+  "links": null
+}
