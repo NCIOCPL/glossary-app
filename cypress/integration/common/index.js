@@ -16,6 +16,9 @@ Then("the page title is {string}", title => {
         Page Visits
     --------------------
 */
+Given('user is navigating to {string}', (a) => {
+  cy.visit(a);
+});
 
 Given("the user visits the home page", () => {
   cy.visit("/");
