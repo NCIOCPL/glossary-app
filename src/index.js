@@ -17,7 +17,9 @@ const initialize = ({
   appId = "@@/DEFAULT_DICTIONARY",
   analyticsHandler = data => {},
   audience = 'Patient',
+  baseHost = 'http://localhost:3000',
   basePath = '/',
+  canonicalHost = 'https://www.cancer.gov',
   dictionaryEndpoint = "https://webapis-dev.cancer.gov/glossary/v1/",
   dictionaryName = "Cancer.gov",
   dictionaryIntroText = "The NCI Dictionary of Cancer Terms features {{term_count}} terms related to cancer and medicine",
@@ -25,7 +27,8 @@ const initialize = ({
   language = "en", // en|es (English|Spanish)
   languageToggleSelector = '#LangList1 a',
   rootId = "NCI-app-root",
-  searchBoxTitle = "Search NCI's Dictionary of Cancer Terms"
+  searchBoxTitle = "Search NCI's Dictionary of Cancer Terms",
+  siteName = "National Cancer Institute"
 } = {}) => {
   const appRootDOMNode = document.getElementById(rootId);
   const isRehydrating = appRootDOMNode.getAttribute("data-isRehydrating");
@@ -35,14 +38,17 @@ const initialize = ({
     altLanguageDictionaryBasePath,
     appId,
     audience,
+    baseHost,
     basePath,
+    canonicalHost,
     dictionaryEndpoint,
     dictionaryName,
     dictionaryIntroText,
     dictionaryTitle,
     language,
     languageToggleSelector,
-    searchBoxTitle
+    searchBoxTitle,
+    siteName
   };
 
   if (isRehydrating) {
