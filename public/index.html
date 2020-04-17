@@ -38,7 +38,9 @@
           },
           appId: "@@/TERMS_DICTIONARY",
           audience: "Patient",
+          baseHost: "http://localhost:3000",
           basePath: "",
+          canonicalHost: "https://www.cancer.gov",
           dictionaryEndpoint: "https://webapis-dev.cancer.gov/glossary/v1/",
           dictionaryIntroText:
             "<p>The NCI Dictionary of Cancer Terms features <strong>{{term_count}}</strong> terms related to cancer and medicine.</p>" +
@@ -46,7 +48,8 @@
           dictionaryName: "Cancer.gov",
           dictionaryTitle: "NCI Dictionary of Cancer Terms",
           language: "en",
-          searchBoxTitle: "Search NCI's Dictionary of Cancer Terms"
+          searchBoxTitle: "Search NCI's Dictionary of Cancer Terms",
+          siteName: "National Cancer Institute"
         },
         {
           altLanguageDictionaryBasePath: "/publications/dictionaries/cancer-terms",
@@ -55,7 +58,9 @@
           },
           appId: "@@/TERMS_DICTIONARY_SPANISH",
           audience: "Patient",
+          baseHost: "http://localhost:3000",
           basePath: "",
+          canonicalHost: "https://www.cancer.gov",
           dictionaryEndpoint: "https://webapis-dev.cancer.gov/glossary/v1/",
           dictionaryIntroText:
             "<p>El diccionario de cáncer del NCI contiene <strong>{{term_count}}</strong> términos relacionados con el cáncer y la medicina.</p>" +
@@ -63,7 +68,8 @@
           dictionaryName: "Cancer.gov",
           dictionaryTitle: "Diccionario de cáncer",
           language: "es",
-          searchBoxTitle: "Busca diccionario de cáncer"
+          searchBoxTitle: "Busca diccionario de cáncer",
+          siteName: "Instituto Nacional del Cáncer"
         },
         {
           analyticsHandler: data => {
@@ -71,14 +77,17 @@
           },
           appId: "@@/GENETICS_DICTIONARY",
           audience: "HealthProfessional",
+          baseHost: "http://localhost:3000",
           basePath: "",
+          canonicalBase: "https://www.cancer.gov/publications/dictionaries/",
           dictionaryEndpoint: "https://webapis-dev.cancer.gov/glossary/v1/",
           dictionaryIntroText:
             "<p>The NCI Dictionary of Genetics Terms contains technical definitions for more than {{term_count}} terms related to genetics. These definitions were developed by the <a title=\"Follow link\" class=\"external-link\" href=\"/publications/pdq/editorial-boards/genetics\" rel=\"nofollow\"> PDQ® Cancer Genetics Editorial Board</a> to support the evidence-based, peer-reviewed <a title=\"Follow link\" class=\"external-link\" href=\"/publications/pdq/information-summaries/genetics\" rel=\"nofollow\"> PDQ cancer genetics information summaries</a>.</p>",
           dictionaryName: "Genetics",
           dictionaryTitle: "NCI Dictionary of Genetics Terms",
           language: "en",
-          searchBoxTitle: "Search NCI's Dictionary of Genetics Terms"
+          searchBoxTitle: "Search NCI's Dictionary of Genetics Terms",
+          siteName: "National Cancer Institute"
         },
         {
           analyticsHandler: data => {
@@ -86,14 +95,17 @@
           },
           appId: "@@/GENETICS_DICTIONARY_SPANISH",
           audience: "HealthProfessional",
+          baseHost: "http://localhost:3000",
           basePath: "",
+          canonicalHost: "https://www.cancer.gov",
           dictionaryEndpoint: "https://webapis-dev.cancer.gov/glossary/v1/",
           dictionaryIntroText:
             "El diccionario de genética del NCI contiene mas de {{term_count}} términos relacionados con genética.",
           dictionaryName: "Genetics",
           dictionaryTitle: "Diccionario de genética",
           language: "es",
-          searchBoxTitle: "Busca diccionario de genética"
+          searchBoxTitle: "Busca diccionario de genética",
+          siteName: "Instituto Nacional del Cáncer"
         }
       ];
 
