@@ -11,6 +11,7 @@ import * as serviceWorker from "./serviceWorker";
 import { getProductTestBase } from './utils';
 import { ClientContextProvider } from 'react-fetching-library';
 import { getAxiosClient } from './services/api/axios-client';
+import ErrorBoundary from "./views/ErrorBoundary";
 
 const initialize = ({
   altLanguageDictionaryBasePath = "",
@@ -49,10 +50,12 @@ const initialize = ({
     ReactDOM.hydrate(
       <StateProvider initialState={initialState} reducer={reducer}>
         <AnalyticsProvider analyticsHandler={analyticsHandler}>
-            <ClientContextProvider client={getAxiosClient(initialState)}>
+          <ClientContextProvider client={getAxiosClient(initialState)}>
+            <ErrorBoundary>
               <App />
-            </ClientContextProvider>
-          </AnalyticsProvider>
+            </ErrorBoundary>
+          </ClientContextProvider>
+        </AnalyticsProvider>
       </StateProvider>,
       appRootDOMNode
     );
@@ -61,7 +64,9 @@ const initialize = ({
       <StateProvider initialState={initialState} reducer={reducer} >
         <AnalyticsProvider analyticsHandler={analyticsHandler}>
           <ClientContextProvider client={getAxiosClient(initialState)}>
-            <App />
+            <ErrorBoundary>
+              <App />
+            </ErrorBoundary>
           </ClientContextProvider>
         </AnalyticsProvider>
       </StateProvider>,
@@ -80,8 +85,7 @@ if (process.env.NODE_ENV !== "production") {
   //This is DEV
   const dictSettings = {
     ...appParams,
-    ...integrationTestOverrides,
-    ...{dictionaryEndpoint: "/api"}
+    ...integrationTestOverrides
   };
   initialize(dictSettings);
   

@@ -1,12 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { useQuery } from "react-fetching-library";
 import { Helmet } from "react-helmet";
 import { useParams, useLocation } from "react-router-dom";
 
 import SearchBox from "../../components/molecules/search-box";
 import { AZListArray, queryType } from "../../constants";
-import { useAppPaths } from "../../hooks/routing";
+import { useAppPaths, useCustomQuery } from "../../hooks";
 import IntroText from "./IntroText";
 import { getTermCount } from "../../services/api/actions";
 import { updateGlobalValue } from "../../store/actions";
@@ -29,7 +28,7 @@ const Home = () => {
   const { HomePath } = useAppPaths();
   const location = useLocation();
   const params = useParams();
-  const termCount = useQuery( getTermCount() );
+  const termCount = useCustomQuery( getTermCount() );
   const { pathname } = location;
   const isExpand =
     pathname.includes(`/${queryType.EXPAND}`) ||

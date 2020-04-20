@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { Pronunciation } from "../../components";
-import { useAppPaths } from "../../hooks/routing";
+import { useAppPaths } from "../../hooks";
 import { useStateValue } from "../../store/store";
 import { testIds } from "../../constants";
 

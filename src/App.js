@@ -4,7 +4,7 @@ import track from "react-tracking";
 
 import "./styles/dictionaries.scss";
 
-import { useAppPaths } from "./hooks/routing";
+import { useAppPaths } from "./hooks";
 import Definition from './views/Definition';
 import Home from './views/Home';
 

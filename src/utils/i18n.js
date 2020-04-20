@@ -7,6 +7,10 @@ export const i18n = {
         en: 'Contains',
         es: 'Contiene'
     },
+    errorPageText: {
+      en: "An error occurred. Please try again later.",
+      es: "Se produjo un error. Por favor, vuelva a intentar más tarde."
+    },
     search: {
         en: 'Search',
         es: 'Buscar'

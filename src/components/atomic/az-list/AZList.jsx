@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { AZListArray, testIds } from "../../../constants";
-import { useAppPaths } from "../../../hooks/routing";
+import { useAppPaths } from "../../../hooks";
 import { useStateValue } from "../../../store/store";
 import { i18n } from "../../../utils/i18n";
 

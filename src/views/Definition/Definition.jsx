@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
-import { useQuery } from "react-fetching-library";
 import { useParams } from "react-router";
 
 import {
@@ -12,12 +11,13 @@ import {
   RelatedResourceList
 } from "../../components";
 import { testIds } from "../../constants";
+import { useCustomQuery } from "../../hooks";
 import { getTermDefinition } from "../../services/api/actions";
 import { useStateValue } from "../../store/store.js";
 
 const Definition = () => {
   const { idOrName } = useParams();
-  const { loading, payload, error } = useQuery(getTermDefinition(idOrName));
+  const { loading, payload } = useCustomQuery(getTermDefinition(idOrName));
   const [{ altLanguageDictionaryBasePath, language, languageToggleSelector }] = useStateValue();
 
   useEffect(() => {
@@ -123,7 +123,7 @@ const Definition = () => {
   return (
     <>
       {loading && <Spinner />}
-      {!loading && !error && payload && (
+      {!loading && payload && (
         <>
           <h1
             className="term-title"
