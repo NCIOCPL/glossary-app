@@ -410,3 +410,19 @@ Then('{string} exists in the data for the page', (noIndexDirective) => {
 Then('the language toggle should have the URL path {string}',(urlPath)=>{
 cy.get('#LangList1 a').should('have.attr','href').and('to.be.eq',urlPath);
 })
+
+
+/*
+    ----------------------------------------
+       API Error Page
+    ----------------------------------------
+*/
+
+Then('the user gets an error page that reads {string}',(errorMessage)=>{
+  Cypress.on('uncaught:exception', (err, runnable) => {
+    // returning false here to Cypress from
+    // failing the test
+    return false
+  })
+  cy.get('.error-container h1').should('have.text',errorMessage);
+});
