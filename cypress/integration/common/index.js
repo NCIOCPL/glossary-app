@@ -1,5 +1,10 @@
 import { And, Given, Then, When } from "cypress-cucumber-preprocessor/steps";
-import { NO_MATCHING_TEXT_EXPAND, queryType, testIds } from "../../../src/constants";
+import {
+  NO_MATCHING_TEXT_EXPAND,
+  NO_MATCHING_TEXT_EXPAND_SPANISH,
+  queryType,
+  testIds
+} from "../../../src/constants";
 
 const baseURL = Cypress.config('baseUrl');
 
@@ -305,8 +310,12 @@ Then('there is an resource item with the following link and text',dataTable =>{
     ------------------------------
 */
 
-When('user tries to go to this URL, system should return the {string} page', (text) => {
-  cy.get(`p[data-testid='${testIds.NO_MATCHING_RESULTS}']`).should('have.text', NO_MATCHING_TEXT_EXPAND);
+When('user tries to go to this URL, system should return the {string} page for language {string}', (text, lang) => {
+  cy.get(`p[data-testid='${testIds.NO_MATCHING_RESULTS}']`)
+      .should(
+          'have.text',
+          lang === 'es' ? NO_MATCHING_TEXT_EXPAND_SPANISH : NO_MATCHING_TEXT_EXPAND
+      );
 });
 
 Then('the system returns user to the search results page for the search term {string} URL has {string}', (term, destURL) => {
@@ -413,3 +422,19 @@ Then('{string} exists in the data for the page', (noIndexDirective) => {
 Then('the language toggle should have the URL path {string}',(urlPath)=>{
 cy.get('#LangList1 a').should('have.attr','href').and('to.be.eq',urlPath);
 })
+
+
+/*
+    ----------------------------------------
+       API Error Page
+    ----------------------------------------
+*/
+
+Then('the user gets an error page that reads {string}',(errorMessage)=>{
+  Cypress.on('uncaught:exception', (err, runnable) => {
+    // returning false here to Cypress from
+    // failing the test
+    return false
+  })
+  cy.get('.error-container h1').should('have.text',errorMessage);
+});

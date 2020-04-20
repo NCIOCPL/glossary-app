@@ -46,27 +46,12 @@ const getResultsByQueryType = async ( req, res, next ) => {
                 res.sendFile(mockFile);
             })
             .catch( err => {
-                const resObject = {
-                    meta: {
-                        totalResults: 0,
-                        from: 0
-                    },
-                    results: [],
-                    links: null
-                };
-                console.error(err);
-                if ( err.code === 'ENOENT') {
-                    console.log(
-                        'Create file with payload in path specified above to return a response with results. ' + '\n' +
-                        'Returning response with no results for request.',
-                        resObject
-                    );
-                }
-                res.send(resObject);
+                // const mockResponse = mockNoResultsAPI( err );
+                res.send( mockNoResultsAPI( err ) );
             });
     } catch (err) {
         console.error(err);
-        res.status(404).end();
+        res.send( mockNoResultsAPI( err ) );
     }
   };
 
@@ -128,6 +113,26 @@ const getTermByIdOrPrettyUrl = async (req, res, next) => {
     console.error(err);
     res.status(404).end();
   }
+};
+
+const mockNoResultsAPI = (err) => {
+    const resObject = {
+        meta: {
+            totalResults: 0,
+            from: 0
+        },
+        results: [],
+        links: null
+    };
+    if ( err && err.code === 'ENOENT') {
+        console.error(err);
+        console.log(
+            'Create file with payload in path specified above to return a response with results. ' + '\n' +
+            'Returning response with no results for request.',
+            resObject
+        );
+    }
+    return resObject;
 };
 
 /**

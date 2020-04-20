@@ -9,6 +9,6 @@ Feature: As a user, I want metadata on the page, so that I can share the web pag
         And "siteName" is set to "National Cancer Institute"
 
     Scenario: View page works when there translated defs in an untranslated app
-        Given the user is viewing the definition with the pretty url "metastatic"
-        Then the page title is "metastatic"
+        Given the user is viewing the definition with the pretty url "metastatic-untranslated"
+        Then the page title is "metastatic-untranslated"
         And there are no alternate links

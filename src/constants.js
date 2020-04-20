@@ -8,6 +8,7 @@ export const DEFAULT_RESULT_SIZE = 10000;
 
 // No Matching text
 export const NO_MATCHING_TEXT_EXPAND = "No matches were found for your selected letter. Please try a new search, or click a different letter in the alphabet and browse through the list of terms that begin with that letter.";
+export const NO_MATCHING_TEXT_EXPAND_SPANISH = "No matches were found for your selected letter. Please try a new search, or click a different letter in the alphabet and browse through the list of terms that begin with that letter.";
 
 export const searchMatchType = {
   beginsWith: 'Begins',

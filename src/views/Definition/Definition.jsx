@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
-import { useQuery } from "react-fetching-library";
-import { useParams } from "react-router";
 import { Helmet } from "react-helmet";
+import { useParams } from "react-router";
 
 import {
   FigureCgovImage,
@@ -13,14 +12,24 @@ import {
   RelatedResourceList
 } from "../../components";
 import { testIds } from "../../constants";
+import { useCustomQuery } from "../../hooks";
 import { getTermDefinition } from "../../services/api/actions";
 import { useStateValue } from "../../store/store.js";
 import { i18n } from "../../utils";
 
 const Definition = () => {
   const { idOrName } = useParams();
-  const { loading, payload, error } = useQuery(getTermDefinition(idOrName));
-  const [{ altLanguageDictionaryBasePath, baseHost, basePath, canonicalHost, dictionaryTitle, language, languageToggleSelector, siteName }] = useStateValue();
+  const { loading, payload } = useCustomQuery(getTermDefinition(idOrName));
+  const [{
+      altLanguageDictionaryBasePath,
+      baseHost,
+      basePath,
+      canonicalHost,
+      dictionaryTitle,
+      language,
+      languageToggleSelector,
+      siteName
+  }] = useStateValue();
 
   useEffect(() => {
     // check if there is an alternate language analog
@@ -58,7 +67,7 @@ const Definition = () => {
     let titleDefinitionText = language === "en" ? "Definition of" : "Definición de";
     let definition = renderMetaDefinition();
 
-    if (altLanguageDictionaryBasePath && 
+    if (altLanguageDictionaryBasePath &&
       payload.otherLanguages &&
       payload.otherLanguages.length > 0
     ) {
@@ -127,6 +136,7 @@ const Definition = () => {
       </>
     );
   };
+
   const renderRelatedResources = () => {
     return (
       <div className="related-resources" data-testid={testIds.MORE_INFORMATION}>
@@ -135,6 +145,7 @@ const Definition = () => {
       </div>
     );
   };
+
   const renderRelatedResourceLinks = () => {
     let headerText = i18n.moreInformation[language];
     if (payload.relatedResources && payload.relatedResources.length > 0) {
@@ -193,10 +204,11 @@ const Definition = () => {
       </>
     );
   };
+
   return (
     <>
       {loading && <Spinner />}
-      {!loading && !error && payload && (
+      {!loading && payload && (
         <>
           {renderHelmet()}
           <h1
@@ -222,4 +234,5 @@ const Definition = () => {
     </>
   );
 };
+
 export default Definition;

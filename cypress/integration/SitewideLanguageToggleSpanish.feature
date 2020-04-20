@@ -2,6 +2,7 @@ Feature: Sitewide Language Toggle Spanish
 
 Background:
     Given "language" is set to "es"
+    And "dictionaryTitle" is set to "Diccionario de cáncer"
     And "altLanguageDictionaryBasePath" is set to "/publications/dictionaries/cancer-terms"
 
     Scenario: Toggle for a definition points to a translation
@@ -10,7 +11,7 @@ Background:
 
     Scenario: Toggle for a expanded term points to the main page of the translation
         Given user is on the dictionary landing page or results page
-        When user selects letter "M" from A-Z list
+        When user selects letter "A" from A-Z list
         Then the language toggle should have the URL path "/publications/dictionaries/cancer-terms"
 
 # Scenario: Toggle for a expanded term points to the main page of the translation

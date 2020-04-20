@@ -1,36 +1,29 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { useQuery } from "react-fetching-library";
 import { Helmet } from "react-helmet";
 import { useParams, useLocation } from "react-router";
 
 import SearchBox from "../../components/molecules/search-box";
 import { AZListArray, queryType } from "../../constants";
-import { useAppPaths } from "../../hooks/routing";
+import { useAppPaths } from "../../hooks";
 import IntroText from "./IntroText";
-import { getTermCount } from "../../services/api/actions";
-import { updateGlobalValue } from "../../store/actions";
 import { useStateValue } from "../../store/store.js";
 import { NoMatchingResults, TermList } from "../Terms";
-import { formatNumberToThousands, getKeyValueFromQueryString, TokenParser } from "../../utils";
+import { getKeyValueFromQueryString } from "../../utils";
 
 const Home = () => {
-  const [ isIntroTextReplaced, introTextReplaced ] = useState(false);
   const [
       {
           altLanguageDictionaryBasePath,
           basePath,
-          dictionaryIntroText,
           dictionaryTitle ,
           languageToggleSelector
-      },
-      dispatch
+      }
   ] = useStateValue();
   const { HomePath } = useAppPaths();
   const location = useLocation();
   const params = useParams();
   const [ showTermList, setShowTermList ] = useState(false);
-  const termCount = useQuery( getTermCount() );
   const { pathname, search } = location;
   const isExpand =
     pathname.includes(`/${queryType.EXPAND}`) ||
@@ -64,27 +57,11 @@ const Home = () => {
     if (langToggle && altLanguageDictionaryBasePath !== "") {
       initLanguageToggle(langToggle);
     }
-    renderTermListHandler('init');
+    renderTermListHandler();
   }, []);
 
   useEffect( () => {
-    // Todo: This might have to be moved up higher in the chain. Cater to all data necessary
-    //  to load app being fetched first before displaying anything to the user, and fallback
-    //  scenarios should any of these related fetches fail to provide a better user experience.
-    if ( termCount.payload && !isIntroTextReplaced ) {
-        const context = { term_count: formatNumberToThousands( termCount.payload ) };
-        dispatch(
-            updateGlobalValue({
-                field: 'dictionaryIntroText',
-                value: TokenParser.replaceTokens(dictionaryIntroText, context)
-            })
-        );
-        introTextReplaced(true);
-    }
-  }, [termCount.payload, dictionaryIntroText, dispatch, isIntroTextReplaced]);
-
-  useEffect( () => {
-      renderTermListHandler('deps');
+      renderTermListHandler();
   }, [ expandChar, isExpand, isHome, isSearch, searchText, showTermList, matchType ]);
 
   const renderTermListHandler = (caller) => {

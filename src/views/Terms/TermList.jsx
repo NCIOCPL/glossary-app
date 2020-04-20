@@ -1,8 +1,8 @@
 import React from 'react';
-import { useQuery } from "react-fetching-library";
 
 import Spinner from "../../components/atomic/spinner";
 import { queryType } from "../../constants";
+import { useCustomQuery } from "../../hooks";
 import NoMatchingResults from "./NoMatchingResults";
 import { getExpandCharResults, getSearchResults } from "../../services/api/actions";
 import { useStateValue } from "../../store/store";
@@ -13,13 +13,13 @@ const TermList = ({ matchType, query, type }) => {
     const queryAction = type === queryType.SEARCH
         ? getSearchResults(query, matchType)
         : getExpandCharResults(query);
-    const { loading, payload, error } = useQuery( queryAction );
+    const { loading, payload } = useCustomQuery( queryAction );
     const [{ language }] = useStateValue();
-    // console.log('TermList:', type, query, matchType);
+
     return (
         <>
             { loading && <Spinner /> }
-            { !loading && !error && payload &&
+            { !loading && payload &&
                 <div className="dictionary-list-container results" data-dict-type="term">
                     { payload.results && payload.results.length > 0
                         ?

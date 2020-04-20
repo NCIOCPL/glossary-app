@@ -6,7 +6,7 @@ import { setAudience, setDictionaryName, setLanguage } from "./endpoints";
 import { requestHostInterceptor } from './requestInterceptors/requestHostInterceptor';
 
 const axiosInstance = axios.create({
-    timeout: 10000,
+    timeout: 15000,
 });
 
 export const getAxiosClient = (initialize) => {
