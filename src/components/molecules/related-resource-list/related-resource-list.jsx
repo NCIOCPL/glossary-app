@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAppPaths } from "../../../hooks/routing";
+import { useAppPaths } from "../../../hooks";
 
 const RelatedResourceList = ({ linksArr, lang = "en" }) => {
   const { DefinitionPath } = useAppPaths();

@@ -9,7 +9,7 @@ Feature: Sitewide Language Toggle
 
     Scenario: Toggle for a expanded term points to the main page of the translation
         Given user is on the dictionary landing page or results page
-        When user selects letter "M" from A-Z list
+        When user selects letter "A" from A-Z list
         Then the language toggle should have the URL path "/espanol/publicaciones/diccionario"
 
 # Scenario: Toggle for a expanded term points to the main page of the translation

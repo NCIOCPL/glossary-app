@@ -6,7 +6,7 @@ import { ClientContextProvider } from "react-fetching-library";
 import { MemoryRouter, useLocation } from "react-router";
 
 import { queryType } from "../constants";
-import { useAppPaths } from "../hooks/routing";
+import { useAppPaths } from "../hooks";
 import { getAxiosClient } from "../services/api/axios-client";
 import { useStateValue } from "../store/store.js";
 import Definition from "../views/Definition";

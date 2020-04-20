@@ -3,7 +3,7 @@ Feature: View Terms by letter
 
   Scenario: User appends /expand to the URL and tries to access the dictionary
     Given user appends "/expand" to the URL
-    When user tries to go to this URL, system should return the "No Matches Found" page
+    When user tries to go to this URL, system should return the "No Matches Found" page for language "en"
 
   Scenario: User selects a letter from A-Z list on dictionaries
     Given user is on the dictionary landing page or results page
