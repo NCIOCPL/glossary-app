@@ -1,4 +1,7 @@
 Feature: Sitewide Language Toggle
+    Background:
+        Given "language" is set to "en"
+        And "altLanguageDictionaryBasePath" is set to "/espanol/publicaciones/diccionario"
 
     Scenario: Toggle for a definition points to a translation
         Given the user is viewing the definition with the pretty url "metastatic"

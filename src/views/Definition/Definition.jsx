@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { useQuery } from "react-fetching-library";
 import { useParams } from "react-router";
+import { Helmet } from "react-helmet";
 
 import {
   FigureCgovImage,
@@ -19,7 +20,7 @@ import { i18n } from "../../utils";
 const Definition = () => {
   const { idOrName } = useParams();
   const { loading, payload, error } = useQuery(getTermDefinition(idOrName));
-  const [{ altLanguageDictionaryBasePath, language, languageToggleSelector }] = useStateValue();
+  const [{ altLanguageDictionaryBasePath, baseHost, basePath, canonicalHost, dictionaryTitle, language, languageToggleSelector, siteName }] = useStateValue();
 
   useEffect(() => {
     // check if there is an alternate language analog
@@ -40,6 +41,80 @@ const Definition = () => {
     }
   };
 
+  const renderMetaDefinition = () => {
+    const regex = new RegExp(/[^.!?]+[.!?]+/g);
+    var definitionSplit = payload.definition.text.match(regex);
+
+    if(definitionSplit.length >= 2) {
+      definitionSplit = definitionSplit.slice(0, 2)
+      return definitionSplit.join("");
+    }
+    else {
+      return definitionSplit;
+    }
+  }
+
+  const renderHelmet = () => {
+    let titleDefinitionText = language === "en" ? "Definition of" : "Definición de";
+    let definition = renderMetaDefinition();
+
+    if (altLanguageDictionaryBasePath && 
+      payload.otherLanguages &&
+      payload.otherLanguages.length > 0
+    ) {
+      return (
+        <Helmet>
+          <title>{`${titleDefinitionText} ${payload.termName} - ${dictionaryTitle} - ${siteName}`}</title>
+          <meta property="og:title" content={`${titleDefinitionText} ${payload.termName} - ${dictionaryTitle}`}/>
+          <meta
+            property="og:url"
+            content={baseHost + basePath + '/def/' + payload.prettyUrlName}
+          />
+          <meta name="description" content={definition} />
+          <meta
+            property="og:description"
+            content={definition}
+          />
+          <link
+            rel="canonical"
+            href={canonicalHost + basePath + '/def/' + payload.prettyUrlName}
+          />
+          <link
+            rel="alternate"
+            hreflang={language}
+            href={baseHost + basePath + "/def/" + payload.prettyUrlName}
+          />
+          <link
+            rel="alternate"
+            hreflang={payload.otherLanguages[0].language}
+            href={baseHost + altLanguageDictionaryBasePath + "/def/" + payload.otherLanguages[0].prettyUrlName}
+          />
+        </Helmet>
+      );
+    }
+    else {
+      return (
+        <Helmet>
+          <title>{`${titleDefinitionText} ${payload.termName} - ${dictionaryTitle} - ${siteName}`}</title>
+          <meta property="og:title" content={`${titleDefinitionText} ${payload.termName} - ${dictionaryTitle}`}/>
+          <meta
+            property="og:url"
+            content={baseHost + basePath + '/def/' + payload.prettyUrlName}
+          />
+          <meta name="description" content={definition} />
+          <meta
+            property="og:description"
+            content={definition}
+          />
+          <link
+            rel="canonical"
+            href={canonicalHost + basePath + '/def/' + payload.prettyUrlName}
+          />
+        </Helmet>
+      );
+    }
+  };
+
   const renderPronunciation = () => {
     return (
       <>
@@ -52,7 +127,6 @@ const Definition = () => {
       </>
     );
   };
-
   const renderRelatedResources = () => {
     return (
       <div className="related-resources" data-testid={testIds.MORE_INFORMATION}>
@@ -61,7 +135,6 @@ const Definition = () => {
       </div>
     );
   };
-
   const renderRelatedResourceLinks = () => {
     let headerText = i18n.moreInformation[language];
     if (payload.relatedResources && payload.relatedResources.length > 0) {
@@ -120,12 +193,12 @@ const Definition = () => {
       </>
     );
   };
-
   return (
     <>
       {loading && <Spinner />}
       {!loading && !error && payload && (
         <>
+          {renderHelmet()}
           <h1
             className="term-title"
             data-testid={testIds.TERM_DEF_TITLE}
@@ -143,12 +216,10 @@ const Definition = () => {
           {((payload.relatedResources && payload.relatedResources.length > 0) ||
             (payload.media && payload.media.length > 0)) &&
             renderRelatedResources()}
-
           <SearchBox showTitle />
         </>
       )}
     </>
   );
 };
-
 export default Definition;
