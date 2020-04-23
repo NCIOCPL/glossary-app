@@ -16,6 +16,51 @@ const readFileAsync = util.promisify(fs.readFile);
 const readDirAsync = util.promisify(fs.readdir);
 
 /**
+ * getAutoSuggestResults - Middleware for getting results for auto suggest.
+ * @param {Express.Request} req
+ * @param {Express.Response} res
+ * @param {Function} next
+ */
+const getAutoSuggestResults = async ( req, res, next ) => {
+    const {
+        params: {
+            audience,
+            dictionary,
+            language,
+            query
+        },
+        query: {
+            matchType
+        }
+    } = req;
+    const resNoResults = [];
+    const mockDir = path.join( __dirname, '..', 'mock-data', 'Autosuggest', dictionary, audience, language, matchType );
+
+    try {
+        const mockFile = path.join( mockDir, `${query}.json` );
+        await fs.promises.access( mockFile )
+            .then( () => {
+                res.sendFile(mockFile);
+            })
+            .catch( err => {
+                // API return an empty array for no results
+                console.error(err);
+                if ( err.code === 'ENOENT') {
+                    console.log(
+                        'Create file with payload in path specified above to return a response with results. ' + '\n' +
+                        'Returning response with no results for request.',
+                        resNoResults
+                    );
+                }
+                res.send(resNoResults);
+            });
+    } catch (err) {
+        console.error(err);
+        res.send(resNoResults);
+    }
+};
+
+/**
  * getResultsByQueryType - Middleware for getting expand or search results by query.
  * @param {Express.Request} req
  * @param {Express.Response} res
@@ -68,7 +113,7 @@ const getResultsByQueryType = async ( req, res, next ) => {
         console.error(err);
         res.status(404).end();
     }
-  };
+};
 
 /* getTermTotalCount - Middleware for getting a Term total count.
  * @param {Express.Request} req
@@ -135,6 +180,11 @@ const getTermByIdOrPrettyUrl = async (req, res, next) => {
  * @param {Express.Application} app 
  */
 const middleware = (app) => {
+
+    app.use(
+        '/api/Autosuggest/:dictionary/:audience/:language/:query',
+        getAutoSuggestResults
+    );
 
   app.use(
     '/api/Terms/:dictionary/:audience/:language/:id_or_purl',
