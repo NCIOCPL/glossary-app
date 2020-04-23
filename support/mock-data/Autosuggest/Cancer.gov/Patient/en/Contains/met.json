@@ -1,0 +1,98 @@
+[
+  {
+    "termId": 43992,
+    "termName": "aerobic metabolism"
+  },
+  {
+    "termId": 306486,
+    "termName": "agnogenic myeloid metaplasia"
+  },
+  {
+    "termId": 45623,
+    "termName": "bone marrow metastasis"
+  },
+  {
+    "termId": 45317,
+    "termName": "bone metastasis"
+  },
+  {
+    "termId": 45314,
+    "termName": "brain metastasis"
+  },
+  {
+    "termId": 44126,
+    "termName": "cellular metabolism"
+  },
+  {
+    "termId": 436738,
+    "termName": "central nervous system metastasis"
+  },
+  {
+    "termId": 45644,
+    "termName": "CNS metastasis"
+  },
+  {
+    "termId": 346489,
+    "termName": "complete metastasectomy"
+  },
+  {
+    "termId": 415317,
+    "termName": "distant metastasis"
+  },
+  {
+    "termId": 561397,
+    "termName": "DNA methylase"
+  },
+  {
+    "termId": 576489,
+    "termName": "DNA methyltransferase"
+  },
+  {
+    "termId": 784255,
+    "termName": "histone methyltransferase inhibitor"
+  },
+  {
+    "termId": 634128,
+    "termName": "in-transit metastasis"
+  },
+  {
+    "termId": 45318,
+    "termName": "leptomeningeal metastasis"
+  },
+  {
+    "termId": 45316,
+    "termName": "liver metastasis"
+  },
+  {
+    "termId": 45315,
+    "termName": "lung metastasis"
+  },
+  {
+    "termId": 44211,
+    "termName": "matrix metalloproteinase"
+  },
+  {
+    "termId": 45782,
+    "termName": "meningeal metastasis"
+  },
+  {
+    "termId": 306489,
+    "termName": "myelosclerosis with myeloid metaplasia"
+  },
+  {
+    "termId": 44071,
+    "termName": "oxidative metabolism"
+  },
+  {
+    "termId": 689770,
+    "termName": "physical touch methods"
+  },
+  {
+    "termId": 632172,
+    "termName": "recombinant human methionyl stem cell factor"
+  },
+  {
+    "termId": 561722,
+    "termName": "steroid metabolism gene"
+  }
+]
