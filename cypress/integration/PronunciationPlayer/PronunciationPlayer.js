@@ -9,7 +9,6 @@ Given(
   "there is an audio player with the url {string} before the phonetic spelling",
   a => {
     cy.get("div.pronunciation__audio")
-      .as("player")
       .should("exist");
     cy.get("div.pronunciation__audio audio")
       .should("have.attr", "src")
@@ -21,12 +20,11 @@ When("the user clicks the audio speaker icon", () => {
   cy.get("div.pronunciation button")
     .as("playButton")
     .click();
+    cy.wait(500);
 });
 
 Then("the pronunciation for {string} should play", def => {
-  cy.get("div.pronunciation button")
-    .wait(300)
-    .should("have.class", "btnAudio playing");
+  cy.get("div.pronunciation button[class='btnAudio playing']").should('exist');
   cy.document().then(doc => {
     let current = doc.querySelector("div.pronunciation__audio audio")
       .currentTime;
@@ -45,7 +43,7 @@ Then("a pause button appears in place of the speaker icon", () => {
 });
 
 When("user clicks pause", () => {
-  cy.get("div.pronunciation button").click();
+  cy.get("@playButton").click();
   cy.document().then(doc => {
     let ranges = doc.querySelector("div.pronunciation__audio audio").played;
     let duration = doc.querySelector("div.pronunciation__audio audio").duration;
@@ -64,7 +62,7 @@ Then("the audio track pauses and the play icon appears", () => {
 });
 
 When("user clicks play icon", () => {
-  cy.get("div.pronunciation button").click();
+  cy.get("@playButton").click();
 });
 
 Then("audio plays from where it was paused and the pause icon appears", () => {
@@ -85,7 +83,7 @@ Then("audio plays from where it was paused and the pause icon appears", () => {
 When(
   "audio has finished playing, the button returns to the audio speaker icon",
   () => {
-    cy.get("div.pronunciation button").should(
+    cy.get("@playButton").should(
       "not.have.class",
       "btnAudio playing"
     );
