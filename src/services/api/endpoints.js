@@ -17,6 +17,7 @@ export function setLanguage(language) {
 export const getEndpoint = ( endpoint ) => {
     // Define api endpoints here
     const urls = {
+        autoSuggestResults: `/Autosuggest/${DICTIONARY_NAME}/${AUDIENCE}/${LANGUAGE}`,
         expandChar: `/Terms/expand/${DICTIONARY_NAME}/${AUDIENCE}/${LANGUAGE}`,
         searchResults: `/Terms/search/${DICTIONARY_NAME}/${AUDIENCE}/${LANGUAGE}`,
         termCount: `/Terms/count/${DICTIONARY_NAME}/${AUDIENCE}/${LANGUAGE}`,
