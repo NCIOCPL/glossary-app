@@ -12,7 +12,10 @@ describe('buildAxiosRequest', () => {
     const port = '3000';
     const baseURL = `${protocol}://${host}:${port}/api`;
     let options = {
-        headers: { 'content-type': 'application/json; charset=utf-8' }
+        headers: { 'content-type': 'application/json; charset=utf-8' },
+        signal: {
+            onabort: jest.fn()
+        }
     };
     axios.defaults.adapter = require('axios/lib/adapters/http');
     const axiosInstance = axios.create({

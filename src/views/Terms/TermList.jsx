@@ -24,7 +24,7 @@ const TermList = ({ matchType, query, type }) => {
                     { payload.results && payload.results.length > 0
                         ?
                             <>
-                                <h4>{ payload.meta.totalResults } { i18n.termListTitle[language] }: { decodeURI(query) } </h4>
+                                <h4>{ payload.meta.totalResults } { i18n.termListTitle[language] }: { decodeURIComponent(query) } </h4>
                                 <dl className="dictionary-list">
                                     { payload.results.map( ( result, index ) => {
                                         return <Term key={index} payload={result} />

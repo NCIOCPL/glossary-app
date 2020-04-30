@@ -2,13 +2,15 @@
 import { Then } from 'cypress-cucumber-preprocessor/steps';
 
 Then('the page contains meta tags with the following names', dataTable => {
-  for (const { name, content } of dataTable.hashes()) {
+  cy.document().then(doc => {
+    for (const { name, content } of dataTable.hashes()) {
 
-    const locator = `meta[name='${name}']`;
-      //find element, ensure it has attribute content 
-    //compare content's value with expected one
-    cy.get(locator).should('have.attr', 'content').and('be.eq', content);
-  }
+      const locator = `meta[name='${name}']`;
+      //find element, ensure it has attribute content
+      //compare content's value with expected one
+      cy.get(locator).should('have.attr', 'content').and('be.eq', content);
+    }
+  });
 });
 
 Then('the page contains meta tags with the following properties', dataTable => {

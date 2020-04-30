@@ -24,7 +24,7 @@ describe("App component", () => {
 
   function ComponentWithLocation({ RenderComponent }) {
     location = useLocation();
-    return <RenderComponent />;
+    return <div />;
   }
   const audience = "Patient";
   const dictionaryEndpoint = "http://localhost:3000/api";
