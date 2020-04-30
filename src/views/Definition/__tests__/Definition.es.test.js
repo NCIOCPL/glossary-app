@@ -1,6 +1,6 @@
 import { act, cleanup, render } from "@testing-library/react";
 import React from "react";
-import { useParams } from "react-router";
+import { useLocation, useParams } from "react-router";
 import { ClientContextProvider } from "react-fetching-library";
 
 import Definition from "../Definition";
@@ -48,6 +48,9 @@ describe("Definition component with Spanish", () => {
     definition = getFixture(`${fixturePath}/${language}/${metastaticFileES}`);
     client = getClient(definition);
 
+    useLocation.mockReturnValue({
+      location: {}
+    });
     useParams.mockReturnValue({
       idOrName: idOrPurl
     });

@@ -52,7 +52,7 @@ const Definition = () => {
 
   const renderMetaDefinition = () => {
     const regex = new RegExp(/[^.!?]+[.!?]+/g);
-    var definitionSplit = payload.definition.text.match(regex);
+    let definitionSplit = payload.definition.text.match(regex);
 
     if(definitionSplit.length >= 2) {
       definitionSplit = definitionSplit.slice(0, 2)
@@ -61,15 +61,16 @@ const Definition = () => {
     else {
       return definitionSplit;
     }
-  }
+  };
 
   const renderHelmet = () => {
     let titleDefinitionText = language === "en" ? "Definition of" : "Definición de";
     let definition = renderMetaDefinition();
 
-    if (altLanguageDictionaryBasePath &&
-      payload.otherLanguages &&
-      payload.otherLanguages.length > 0
+    if (
+        altLanguageDictionaryBasePath &&
+        payload.otherLanguages &&
+        payload.otherLanguages.length > 0
     ) {
       return (
         <Helmet>
@@ -170,8 +171,7 @@ const Definition = () => {
           payload.media.map(mediaItem => {
             if (mediaItem.Type === "Image") {
               const imgArr = mediaItem.ImageSources;
-              const thumbUri = imgArr.find(imgItem => imgItem.Size === "571")
-                .Src;
+              const thumbUri = imgArr.find(imgItem => imgItem.Size === "571").Src;
               const enlargeUri = imgArr.find(
                 imgItem => imgItem.Size === "original"
               ).Src;

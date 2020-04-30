@@ -1,4 +1,4 @@
-import { fireEvent, render } from "@testing-library/react";
+import { act, cleanup, fireEvent, render } from "@testing-library/react";
 import React from "react";
 import { MemoryRouter, useLocation } from "react-router-dom";
 
@@ -14,28 +14,37 @@ const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
 
 describe('Search component test', () => {
     let location;
-
-    function SearchWithLocation(props) {
+    const language = "en";
+    function SearchWithLocation({RenderComponent}) {
         location = useLocation();
-        return <Search />;
+        return <RenderComponent />;
     }
 
-    beforeEach(() => {
+    beforeEach(async () => {
+        /*useLocation.mockReturnValue({
+           location: {}
+        });*/
         useStateValue.mockReturnValue([
             {
                 appId: "mockAppId",
                 basePath: "/",
                 dictionaryName,
                 dictionaryTitle,
-                language: "en"
+                language
             }
         ]);
 
-        wrapper = render(
-            <MemoryRouter initialEntries={["/"]}>
-                <SearchWithLocation />
-            </MemoryRouter>
-        );
+        await act( async () => {
+            wrapper = await render(
+                <MemoryRouter initialEntries={["/"]}>
+                    <SearchWithLocation RenderComponent={ Search } />
+                </MemoryRouter>
+            );
+        });
+    });
+
+    afterEach(() => {
+        cleanup();
     });
 
    test('Search component renders', () => {
@@ -45,13 +54,13 @@ describe('Search component test', () => {
 
    test('Check both Starts with and Contains radio buttons are present', () => {
        const { getByDisplayValue } = wrapper;
-       expect(getByDisplayValue('starts with')).toBeInTheDocument();
-       expect(getByDisplayValue('contains')).toBeInTheDocument();
+       expect(getByDisplayValue(searchMatchType.beginsWith)).toBeInTheDocument();
+       expect(getByDisplayValue(searchMatchType.contains)).toBeInTheDocument();
    });
 
    test('Starts with radio is checked by default', () => {
        const { getByDisplayValue } = wrapper;
-       const startsWithRadio = getByDisplayValue('starts with');
+       const startsWithRadio = getByDisplayValue(searchMatchType.beginsWith);
        expect(startsWithRadio.defaultChecked).toBe(true);
    });
 
@@ -101,7 +110,7 @@ describe('Search component test', () => {
             state: null,
             key: expect.any(String)
         };
-        const containsRadio = getByDisplayValue('contains');
+        const containsRadio = getByDisplayValue(searchMatchType.contains);
         fireEvent.click(containsRadio);
         const textInput = getByPlaceholderText('Enter keywords or phrases');
         fireEvent.change(textInput, { target: { value: searchText } });

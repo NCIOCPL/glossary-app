@@ -26,6 +26,6 @@ export const getAxiosClient = (initialize) => {
 
     return createClient({
         requestInterceptors: [ requestHostInterceptor(HOST) ],
-        fetch: buildAxiosRequest(axiosInstance),
+        fetch: buildAxiosRequest(axiosInstance)
     });
 };

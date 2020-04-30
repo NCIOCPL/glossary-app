@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
-import { testIds } from '../../../src/constants';
+import { searchMatchType, testIds } from '../../../src/constants';
 
 
 When('user clicks on {string} button', (searchButton) => {
@@ -26,12 +26,15 @@ Then('search bar contains a placeholder text {string}', (searchBarPlaceholder) =
 });
 
 Then('{string} option is selected', (startsWithOrContains) => {
-    let buttonValue = startsWithOrContains.toLowerCase();
-    if(startsWithOrContains==='Contiene')
-    buttonValue = "contains";
-    else if(startsWithOrContains ==='Empieza con')
-    buttonValue = "starts with"
-  const locator = `input[value='${buttonValue}']`
+  let radioButtonValue = startsWithOrContains === "Contains"
+      ? searchMatchType.contains
+      : searchMatchType.beginsWith;
+  if ( startsWithOrContains==='Contiene' ) {
+    radioButtonValue = searchMatchType.contains;
+  } else if ( startsWithOrContains ==='Empieza con' ) {
+    radioButtonValue = searchMatchType.beginsWith;
+  }
+  const locator = `input[value='${radioButtonValue}']`
   cy.get(locator).should('be.checked');
 });
 

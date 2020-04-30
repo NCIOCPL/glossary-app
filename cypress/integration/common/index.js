@@ -2,7 +2,7 @@ import { And, Given, Then, When } from "cypress-cucumber-preprocessor/steps";
 import {
   NO_MATCHING_TEXT_EXPAND,
   NO_MATCHING_TEXT_EXPAND_SPANISH,
-  queryType,
+  queryType, searchMatchType,
   testIds
 } from "../../../src/constants";
 
@@ -378,8 +378,8 @@ And('introductory text appears below the page title', () => {
 });
 
 And('{string} radio is selected by default', (startsWithRadio) => {
-  const startsWithRadioValue = 'Starts with';
-  cy.get(`input[value="${startsWithRadioValue.toLowerCase()}"]`).should('be.checked');
+  const startsWithRadioValue = searchMatchType.beginsWith;
+  cy.get(`input[value="${startsWithRadioValue}"]`).should('be.checked');
 });
 
 And('{string} appears at the end of the list', (azListLastItem) => {
