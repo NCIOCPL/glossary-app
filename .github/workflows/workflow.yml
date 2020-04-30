@@ -100,7 +100,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download built app
-        uses: actions/download-artifact@master
+        uses: actions/download-artifact@v1
         with:
           name: build-artifact
       ## Setup vars from Build Info from build job
