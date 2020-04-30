@@ -13,6 +13,15 @@ let client;
 let wrapper;
 describe( '', () => {
 
+    beforeEach(() => {
+        jest.spyOn(console, 'error');
+        console.error.mockImplementation(() => {});
+    });
+
+    afterEach(() => {
+        console.error.mockRestore();
+    });
+
     test('useCustomQuery example should throw error - English message', async () => {
         const language = "en";
         useStateValue.mockReturnValue([{ language }]);

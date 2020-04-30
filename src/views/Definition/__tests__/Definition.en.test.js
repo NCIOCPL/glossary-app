@@ -1,6 +1,6 @@
 import { act, cleanup, render } from "@testing-library/react";
 import React from "react";
-import { useParams } from "react-router";
+import { useLocation, useParams } from "react-router-dom";
 import { ClientContextProvider } from "react-fetching-library";
 
 import { testIds } from "../../../constants";
@@ -74,10 +74,12 @@ describe("Definition component with English", () => {
     const dictionaryName = "Cancer.gov";
     const dictionaryTitle = "NCI Dictionary of Cancer Terms";
 
+    useLocation.mockReturnValue({
+      location: {}
+    });
     useParams.mockReturnValue({
       idOrName: idOrPurl
     });
-
     useStateValue.mockReturnValue([
       {
         altLanguageDictionaryBasePath: "/diccionario",
@@ -166,7 +168,7 @@ describe("Definition component with English", () => {
       });
 
       await act(async () => {
-        wrapper = render(
+        wrapper = await render(
           <ClientContextProvider client={client}>
             <Definition />
           </ClientContextProvider>
@@ -200,7 +202,7 @@ describe("Definition component with English", () => {
       });
 
       await act(async () => {
-        wrapper = render(
+        wrapper = await render(
           <ClientContextProvider client={client}>
             <Definition />
           </ClientContextProvider>
