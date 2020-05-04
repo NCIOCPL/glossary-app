@@ -438,3 +438,93 @@ Then('the user gets an error page that reads {string}',(errorMessage)=>{
   })
   cy.get('.error-container h1').should('have.text',errorMessage);
 });
+
+/*
+    ----------------------------------------
+        Autosuggest component
+    ----------------------------------------
+*/
+
+Then('Autosuggest appears after user types in 3 or more characters', () => {
+  cy.get(".menu-anchor div[class*='--terms']").should('be.visible');
+});
+
+Then('highlighting of the text {string} appears in the autosuggest field', (enteredText) => {
+  const regex = new RegExp(`${enteredText}`, 'i');
+  cy.get(".menu-anchor div[class*='--terms'] span strong").each(($el) => {
+    cy.wrap($el).invoke('text').should('match', regex);
+  })
+});
+
+When('user clicks on the search bar', () => {
+  cy.get('#keywords').click();
+});
+
+Then('helper text {string} appears', (helperText) => {
+  cy.get('.menu-anchor div div').should('have.text', helperText);
+});
+
+When('user selects autosuggested term', () => {
+  cy.get(".menu-anchor div[class*='--terms'] span").first().invoke('text').then((text) => {
+    Cypress.TERM_TEXT = text;
+  });
+  cy.get(".menu-anchor div[class*='--terms'] span").first().click()
+
+});
+
+Then('term is populated into the search bar', () => {
+  cy.get('#keywords').should('have.value', Cypress.TERM_TEXT)
+});
+
+Then('search is executed', () => {
+  let searchMode;
+  let index = 0;
+  cy.document().then(doc => {
+
+    const radios = doc.querySelectorAll('.radio-selection div input');
+    for (let i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        index = i;
+        break;
+      }
+    }
+    const selectedRadio = doc.querySelectorAll('.radio-selection div label')[index].innerText;
+
+    if (selectedRadio === "Starts with" || selectedRadio === "Empieza con")
+      searchMode = 'searchMode=Begins';
+    else
+      searchMode = 'searchMode=Contains';
+
+
+    cy.location('href').should('include', searchMode);
+  });
+
+
+});
+
+Then('URL contains selected term', () => {
+  
+  cy.window().then(win => {
+    const decoded = decodeURIComponent(win.location.pathname);
+    const lang = win.INT_TEST_APP_PARAMS.language;
+    if (lang === 'en')
+      expect(decoded).to.eq(`/search/${Cypress.TERM_TEXT}/`);
+    else
+      expect(decoded).to.eq(`/buscar/${Cypress.TERM_TEXT}/`);
+  })
+
+});
+
+Then('URL contains searched term', () => {
+  let searchedItem;
+
+  cy.get('#keywords').should('have.attr', 'value').then((val) => {
+    searchedItem = val;
+  })
+
+  cy.window().then(win => {
+    const decoded = decodeURIComponent(win.location.pathname);
+    expect(decoded).to.eq(`/search/${searchedItem}/`);
+  })
+
+});
