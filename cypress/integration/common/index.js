@@ -346,6 +346,19 @@ And('each result displays its full definition below the link for the term', () =
   expect(cy.get(`dd[data-testid='${testIds.TERM_ITEM_DESCRIPTION}']`)).to.exist;
 });
 
+And('the term links have the following hrefs', dataTable => {
+  cy.document().then(doc => {
+    const terms = doc.querySelectorAll('dfn a');
+    for (const { term, href } of dataTable.hashes()) {
+      terms.forEach(singleTerm => {
+        if (singleTerm.innerText === term) 
+          expect(singleTerm.href).to.eq(`${baseURL}${href}`);
+        
+      });
+    }
+  })
+});
+
 
 /*
     ----------------------------------------
@@ -426,7 +439,7 @@ cy.get('#LangList1 a').should('have.attr','href').and('to.be.eq',urlPath);
 
 /*
     ----------------------------------------
-       API Error Page
+      API Error Page
     ----------------------------------------
 */
 

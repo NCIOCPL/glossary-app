@@ -11,7 +11,7 @@
       "audience":"Patient",
       "termName":"A33",
       "firstLetter":"a",
-      "prettyUrlName":"a33",
+      "prettyUrlName":null,
       "pronunciation":null,
       "definition":{
         "html":"Tipo de anticuerpo monoclonal que se usa para la detección o el tratamiento de cáncer. Los anticuerpos monoclonales son sustancias producidas en el laboratorio que pueden localizar las células cancerosas y unirse a ellas.",
@@ -51,7 +51,7 @@
       "audience":"Patient",
       "termName":"AAF-EE",
       "firstLetter":"a",
-      "prettyUrlName":"aaf-ee",
+      "prettyUrlName":null,
       "pronunciation":null,
       "definition":{
         "html":"Procedimiento mediante el que se toma una muestra de tejido para examinarla bajo un microscopio. Se inserta por la boca hasta el esófago un endoscopio con una sonda de ecografía y una aguja de biopsia. Un endoscopio es un instrumento delgado con forma de tubo que tiene una luz y una lente para observar. La sonda de ecografía se usa para hacer rebotar ondas de sonido de alta energía contra los órganos y tejidos internos para obtener una imagen en un monitor. La imagen ayuda al médico a ver el lugar donde está la aguja de biopsia. También se llama aspiración con aguja fina guiada por ecografía endoscópica.",

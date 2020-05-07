@@ -13,6 +13,13 @@ Feature: View Terms by letter
     And each result in the results listing appears as a link to the term's page
     And the audio icon and the pronunciation appear beside the term on the same line as the link
     And each result displays its full definition below the link for the term
+    And the term links have the following hrefs
+      | term           | href          |
+      | A33            | /def/a33      |
+      | A6             | /def/658765   |
+      | AAP            | /def/aap      |
+      | AAT deficiency | /def/797047   |
+      | abarelix       | /def/abarelix |
 
   Scenario: Results /expand page metadata
     Given the user is viewing a results page based on clicking a letter like "A" in the dictionary

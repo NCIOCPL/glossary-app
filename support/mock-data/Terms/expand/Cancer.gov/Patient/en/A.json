@@ -31,7 +31,7 @@
       "audience":"Patient",
       "termName":"A6",
       "firstLetter":"a",
-      "prettyUrlName":"a6",
+      "prettyUrlName": null,
       "pronunciation":null,
       "definition":{
         "html":"A substance being studied in the treatment of cancer. A6 is a small piece of a protein called urokinase (an enzyme that dissolves blood clots or prevents them from forming). It is a type of antiangiogenesis agent and a type of antimetastatic agent. Also called urokinase plasminogen activator (uPA)-derived peptide A6.",
@@ -71,7 +71,7 @@
       "audience":"Patient",
       "termName":"AAT deficiency",
       "firstLetter":"a",
-      "prettyUrlName":"aat-deficiency",
+      "prettyUrlName":null,
       "pronunciation":{
         "key":"(… deh-FIH-shun-see)",
         "audio":"https://nci-media-dev.cancer.gov/pdq/media/audio/798897.mp3"

@@ -30,7 +30,7 @@
       "audience": "Patient",
       "termName": "metabolismo",
       "firstLetter": "m",
-      "prettyUrlName": "metabolismo",
+      "prettyUrlName": null,
       "pronunciation": {
         "key": null,
         "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707784.mp3"
@@ -68,7 +68,7 @@
       "audience": "Patient",
       "termName": "metabolismo celular",
       "firstLetter": "m",
-      "prettyUrlName": "metabolismo-celular",
+      "prettyUrlName": null,
       "pronunciation": {
         "key": null,
         "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704201.mp3"

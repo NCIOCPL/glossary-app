@@ -9,6 +9,12 @@ Feature: As a user, I would like to be able to enter keywords and have the optio
         Then the URL contains "/search"
         And search results page displays results title "# results found for: " "<keyword>"
         And each result in the results listing appears as a link to the term's page
+        And the term links have the following hrefs
+            | term               | href                     |
+            | meta-analysis      | /def/meta-analysis       |
+            | metabolic          | /def/44056               |
+            | metabolic acidosis | /def/metabolic-acidosis  |
+            | metabolic disorder | /def/44055               |
         And "Starts with" option is selected
         And search bar contains the "<keyword>" that user entered
 
@@ -26,6 +32,12 @@ Feature: As a user, I would like to be able to enter keywords and have the optio
         Then the URL contains "/search"
         And search results page displays results title "# results found for: " "<keyword>"
         And each result in the results listing appears as a link to the term's page
+        And the term links have the following hrefs
+            | term                          | href                     |
+            | aerobic metabolism            | /def/aerobic-metabolism  |
+            | agnogenic myeloid metaplasia  | /def/306486              |
+            | antimetabolite                | /def/antimetabolite      |
+            | bone marrow metastasis        | /def/45623               |
         And "Contains" option is selected
         And search bar contains the "<keyword>" that user entered
 

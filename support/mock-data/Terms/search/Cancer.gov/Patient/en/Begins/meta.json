@@ -30,7 +30,7 @@
       "audience": "Patient",
       "termName": "metabolic",
       "firstLetter": "m",
-      "prettyUrlName": "metabolic",
+      "prettyUrlName": null,
       "pronunciation": {
         "key": "(MEH-tuh-BAH-lik)",
         "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704100.mp3"
@@ -68,7 +68,7 @@
       "audience": "Patient",
       "termName": "metabolic disorder",
       "firstLetter": "m",
-      "prettyUrlName": "metabolic-disorder",
+      "prettyUrlName": null,
       "pronunciation": {
         "key": "(MEH-tuh-BAH-lik dis-OR-der)",
         "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704097.mp3"

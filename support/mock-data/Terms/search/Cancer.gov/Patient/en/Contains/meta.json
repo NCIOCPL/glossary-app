@@ -30,7 +30,7 @@
       "audience": "Patient",
       "termName": "agnogenic myeloid metaplasia",
       "firstLetter": "a",
-      "prettyUrlName": "agnogenic-myeloid-metaplasia",
+      "prettyUrlName": null,
       "pronunciation": {
         "key": "(ag-noh-JEH-nik MY-eh-loyd meh-tuh-PLAY-zhuh)",
         "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/710152.mp3"
@@ -68,7 +68,7 @@
       "audience": "Patient",
       "termName": "bone marrow metastasis",
       "firstLetter": "b",
-      "prettyUrlName": "bone-marrow-metastasis",
+      "prettyUrlName": null,
       "pronunciation": {
         "key": "(bone MAYR-oh meh-TAS-tuh-sis)",
         "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705694.mp3"
