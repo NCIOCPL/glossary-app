@@ -14,6 +14,12 @@ Feature: As a user, I would like to be able to enter keywords on Spanish cancer 
         Then the URL contains "/buscar"
         And search results page displays results title "# resultados de: " "<keyword>"
         And each result in the results listing appears as a link to the term's page
+        And the term links have the following hrefs
+            | term                 | href                       |
+            | metabólico           | /def/metabolico            |
+            | metabolismo          | /def/46173                 |
+            | metabolismo aeróbico | /def/metabolismo-aerobico  |
+            | metabolismo celular  | /def/44126                 |
         And "Empieza con" option is selected
         And search bar contains the "<keyword>" that user entered
 
@@ -32,6 +38,12 @@ Feature: As a user, I would like to be able to enter keywords on Spanish cancer 
         Then the URL contains "/buscar"
         And search results page displays results title "# resultados de: " "<keyword>"
         And each result in the results listing appears as a link to the term's page
+        And the term links have the following hrefs
+            | term                 | href                 |
+            | acidosis metabólica  | /def/44332           |
+            | antimetabolito       | /def/antimetabolito  |
+            | azoximetano          | /def/367457          |
+            | beclometasona        | /def/beclometasona   |
         And "Contiene" option is selected
         And search bar contains the "<keyword>" that user entered
 

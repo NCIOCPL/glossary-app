@@ -14,6 +14,13 @@ Feature: View Terms by letter Spanish
     Then search results page displays results title "# resultados de: A"
     And each result in the results listing appears as a link to the term's page
     And each result displays its full definition below the link for the term
+    And the term links have the following hrefs
+      | term           | href          |
+      | A33            | /def/46722    |
+      | A6             | /def/a6       |
+      | AAF-EE         | /def/592940   |
+      | AAP            | /def/aap      |
+      | abarelix       | /def/abarelix |
 
   Scenario: Results /ampliar page metadata
     Given the user is viewing a results page based on clicking a letter like "A" in the dictionary

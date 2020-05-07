@@ -11,7 +11,7 @@
       "audience": "Patient",
       "termName": "acidosis metabólica",
       "firstLetter": "a",
-      "prettyUrlName": "acidosis-metabolica",
+      "prettyUrlName": null,
       "pronunciation": {
         "key": null,
         "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704491.mp3"
@@ -49,7 +49,7 @@
       "audience": "Patient",
       "termName": "azoximetano",
       "firstLetter": "a",
-      "prettyUrlName": "azoximetano",
+      "prettyUrlName": null,
       "pronunciation": {
         "key": null,
         "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/711187.mp3"

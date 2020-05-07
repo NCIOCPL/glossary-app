@@ -9,14 +9,14 @@ import { testIds } from "../../constants";
 const Term = ({ payload }) => {
   const { DefinitionPath } = useAppPaths();
   const [{ language }] = useStateValue();
-  const { definition, termId, termName, pronunciation } = payload;
+  const { definition, termId, termName, prettyUrlName, pronunciation } = payload;
 
   
   return (
     <div>
       <dt>
         <dfn data-cdr-id={termId}>
-          <Link to={DefinitionPath({ idOrName: termId })}>{termName}</Link>
+          <Link to={DefinitionPath({ idOrName: prettyUrlName ? prettyUrlName : termId })}>{termName}</Link>
         </dfn>
       </dt>
       {pronunciation && (
