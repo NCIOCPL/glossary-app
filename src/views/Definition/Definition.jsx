@@ -2,7 +2,8 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { useParams } from "react-router";
-
+import { useAppPaths } from "../../hooks";
+import track from "react-tracking";
 import {
   FigureCgovImage,
   FigureCgovVideo,
@@ -17,13 +18,39 @@ import { getTermDefinition } from "../../services/api/actions";
 import { useStateValue } from "../../store/store.js";
 import { i18n } from "../../utils";
 
-const Definition = () => {
+/**
+ * Gets the title for this definition page. For now that is just the term
+ * name. Since analytics must capture the H1 as the title, this helper will
+ * ensure it does not get messed up if someone changes the H1. 
+ * 
+ * @param {object} payload The payload object. 
+ * @param {string} payload.termName The term name.
+ */
+const getPageTitle = ({termName}) => {
+  return termName;
+}
+
+/**
+ * Helper function to get the metaTitle for the page as that also must get
+ * passed into analytics. We wouldn't want it to get out of sync either
+ * would we?
+ * @param {object} payload The payload object.
+ * @param {string} payload.termName The term name.
+ * @param {string} dictionaryTitle The title of the dictionary.
+ * @param {string} siteName The name of the site.
+ * @param {string} language The language of the page.
+ */
+const getMetaTitle = ({termName}, dictionaryTitle, siteName, language) => {
+  return `${i18n.definitionOf[language]} ${termName} - ${dictionaryTitle} - ${siteName}`;
+}
+
+const Definition = ({tracking}) => {
+  const { DefinitionPath } = useAppPaths();
   const { idOrName } = useParams();
   const { loading, payload } = useCustomQuery(getTermDefinition(idOrName));
   const [{
       altLanguageDictionaryBasePath,
       baseHost,
-      basePath,
       canonicalHost,
       dictionaryTitle,
       language,
@@ -42,6 +69,22 @@ const Definition = () => {
       initLanguageToggle(payload.otherLanguages[0]);
     }
   }, [payload]);
+
+  //example tracking setup for pageload
+  useEffect(() => {
+    if (!loading && payload) {
+      tracking.trackEvent({
+        type: 'PageLoad',
+        event: "GlossaryApp:Load:Definition",
+        //TODO: this is dirty and should be set internally based on the value passed in.
+        name: canonicalHost.replace('https://', '') + DefinitionPath({ idOrName: payload.prettyUrlName ? payload.prettyUrlName : payload.termId }),
+        title: getPageTitle(payload),
+        metaTitle: getMetaTitle(payload, dictionaryTitle, siteName, language),
+        term: payload.termName,
+        id: payload.termId
+      });
+    }
+  }, [tracking, loading, payload]);
 
   const initLanguageToggle = langObj => {
     const langToggle = document.querySelector(languageToggleSelector);
@@ -64,7 +107,7 @@ const Definition = () => {
   }
 
   const renderHelmet = () => {
-    let titleDefinitionText = language === "en" ? "Definition of" : "Definición de";
+    
     let definition = renderMetaDefinition();
 
     if (altLanguageDictionaryBasePath &&
@@ -73,11 +116,11 @@ const Definition = () => {
     ) {
       return (
         <Helmet>
-          <title>{`${titleDefinitionText} ${payload.termName} - ${dictionaryTitle} - ${siteName}`}</title>
-          <meta property="og:title" content={`${titleDefinitionText} ${payload.termName} - ${dictionaryTitle}`}/>
+          <title>{getMetaTitle(payload, dictionaryTitle, siteName, language)}</title>
+          <meta property="og:title" content={`${i18n.definitionOf[language]} ${payload.termName} - ${dictionaryTitle}`}/>
           <meta
             property="og:url"
-            content={baseHost + basePath + '/def/' + payload.prettyUrlName}
+            content={baseHost + DefinitionPath({ idOrName: payload.prettyUrlName ? payload.prettyUrlName : payload.termId })}
           />
           <meta name="description" content={definition} />
           <meta
@@ -86,12 +129,12 @@ const Definition = () => {
           />
           <link
             rel="canonical"
-            href={canonicalHost + basePath + '/def/' + payload.prettyUrlName}
+            href={canonicalHost + DefinitionPath({ idOrName: payload.prettyUrlName ? payload.prettyUrlName : payload.termId })}
           />
           <link
             rel="alternate"
             hreflang={language}
-            href={baseHost + basePath + "/def/" + payload.prettyUrlName}
+            href={baseHost + DefinitionPath({ idOrName: payload.prettyUrlName ? payload.prettyUrlName : payload.termId })}
           />
           <link
             rel="alternate"
@@ -104,11 +147,11 @@ const Definition = () => {
     else {
       return (
         <Helmet>
-          <title>{`${titleDefinitionText} ${payload.termName} - ${dictionaryTitle} - ${siteName}`}</title>
-          <meta property="og:title" content={`${titleDefinitionText} ${payload.termName} - ${dictionaryTitle}`}/>
+          <title>{getMetaTitle(payload, dictionaryTitle, siteName, language)}</title>
+          <meta property="og:title" content={`${i18n.definitionOf[language]} ${payload.termName} - ${dictionaryTitle}`}/>
           <meta
             property="og:url"
-            content={baseHost + basePath + '/def/' + payload.prettyUrlName}
+            content={baseHost + DefinitionPath({ idOrName: payload.prettyUrlName ? payload.prettyUrlName : payload.termId })}
           />
           <meta name="description" content={definition} />
           <meta
@@ -117,7 +160,7 @@ const Definition = () => {
           />
           <link
             rel="canonical"
-            href={canonicalHost + basePath + '/def/' + payload.prettyUrlName}
+            href={canonicalHost + DefinitionPath({ idOrName: payload.prettyUrlName ? payload.prettyUrlName : payload.termId })}
           />
         </Helmet>
       );
@@ -216,7 +259,7 @@ const Definition = () => {
             data-testid={testIds.TERM_DEF_TITLE}
             data-cdr-id={payload.termId}
           >
-            {payload.termName}
+            {getPageTitle(payload)}
           </h1>
           {renderPronunciation()}
           {payload.definition && (
@@ -235,4 +278,6 @@ const Definition = () => {
   );
 };
 
-export default Definition;
+export default track({
+  page: "def"
+})(Definition);

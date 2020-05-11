@@ -6,7 +6,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { StateProvider } from "./store/store";
 import reducer from "./store/reducer";
-import { AnalyticsProvider } from "./tracking";
+import { EddlAnalyticsProvider } from "./tracking";
 import * as serviceWorker from "./serviceWorker";
 import { getProductTestBase, EDDLAnalyticsHandler } from './utils';
 import { ClientContextProvider } from 'react-fetching-library';
@@ -29,6 +29,8 @@ const initialize = ({
   dictionaryName = "Cancer.gov",
   dictionaryIntroText = "The NCI Dictionary of Cancer Terms features {{term_count}} terms related to cancer and medicine",
   dictionaryTitle = "NCI Dictionary of Cancer Terms",
+  analyticsChannel = "unknown",
+  analyticsPublishedDate = "unknown",
   language = "en", // en|es (English|Spanish)
   languageToggleSelector = '#LangList1 a',
   rootId = "NCI-app-root",
@@ -50,36 +52,44 @@ const initialize = ({
     dictionaryName,
     dictionaryIntroText,
     dictionaryTitle,
+    analyticsChannel,
+    analyticsPublishedDate,
     language,
     languageToggleSelector,
     searchBoxTitle,
     siteName
   };
 
+  const AppBlock = () => {
+    return (
+      <StateProvider initialState={initialState} reducer={reducer}>
+      <EddlAnalyticsProvider
+        analyticsHandler={analyticsHandler}
+        pageLanguage={language === 'es' ? 'spanish' : 'english'}
+        pageAudience={audience === "HealthProfessional" ? 'Health professional' : 'Patient'}
+        pageChannel={analyticsChannel}
+        pageContentGroup={dictionaryTitle}
+        publishedDate={analyticsPublishedDate}
+        dictionaryTitle={dictionaryTitle}
+      >
+        <ClientContextProvider client={getAxiosClient(initialState)}>
+          <ErrorBoundary>
+            <App />
+          </ErrorBoundary>
+        </ClientContextProvider>
+      </EddlAnalyticsProvider>
+    </StateProvider>
+    );
+  }
+
   if (isRehydrating) {
     ReactDOM.hydrate(
-      <StateProvider initialState={initialState} reducer={reducer}>
-        <AnalyticsProvider analyticsHandler={analyticsHandler}>
-          <ClientContextProvider client={getAxiosClient(initialState)}>
-            <ErrorBoundary>
-              <App />
-            </ErrorBoundary>
-          </ClientContextProvider>
-        </AnalyticsProvider>
-      </StateProvider>,
+      <AppBlock />,
       appRootDOMNode
     );
   } else {
     ReactDOM.render(
-      <StateProvider initialState={initialState} reducer={reducer} >
-        <AnalyticsProvider analyticsHandler={analyticsHandler}>
-          <ClientContextProvider client={getAxiosClient(initialState)}>
-            <ErrorBoundary>
-              <App />
-            </ErrorBoundary>
-          </ClientContextProvider>
-        </AnalyticsProvider>
-      </StateProvider>,
+      <AppBlock />,
       appRootDOMNode
     );
   }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import track from "react-tracking";
 
@@ -23,10 +23,6 @@ const App = ({ tracking }) => {
     SearchPathSpanishNoParam
   } = useAppPaths();
 
-  //example tracking setup for pageload
-  useEffect(() => {
-    tracking.trackEvent({action: 'pageLoad'})
-  }, [tracking]);
   return (
     <Router>
       <Routes >
