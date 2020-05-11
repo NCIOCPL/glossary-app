@@ -8,7 +8,7 @@ import { StateProvider } from "./store/store";
 import reducer from "./store/reducer";
 import { AnalyticsProvider } from "./tracking";
 import * as serviceWorker from "./serviceWorker";
-import { getProductTestBase } from './utils';
+import { getProductTestBase, EDDLAnalyticsHandler } from './utils';
 import { ClientContextProvider } from 'react-fetching-library';
 import { getAxiosClient } from './services/api/axios-client';
 import ErrorBoundary from "./views/ErrorBoundary";
@@ -16,7 +16,11 @@ import ErrorBoundary from "./views/ErrorBoundary";
 const initialize = ({
   altLanguageDictionaryBasePath = "",
   appId = "@@/DEFAULT_DICTIONARY",
-  analyticsHandler = data => {},
+  // This should still be configurable in case someone is hosting
+  // this outside of the digital platform, and wants to hookup
+  // their own analytics. See index.html for an overly complicated
+  // configuration that handles logging to the console.
+  analyticsHandler = EDDLAnalyticsHandler(window),
   audience = 'Patient',
   baseHost = 'http://localhost:3000',
   basePath = '/',
