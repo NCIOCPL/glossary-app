@@ -5,3 +5,5 @@ export const trackedEvents = {
 };
 
 export { default as AnalyticsProvider } from './analytics-provider';
+export { default as MockAnalyticsProvider } from './mock-analytics-provider';
+export { default as WrapperComponent } from './wrapper-component';

@@ -57,6 +57,7 @@ describe("Definition component with Spanish", () => {
         languageToggleSelector: '#LangList1 a',
         appId: "mockAppId",
         basePath: "/",
+        canonicalHost: 'https://example.org',
         dictionaryName,
         dictionaryTitle,
         language

@@ -9,12 +9,13 @@ import WrapperComponent from './wrapper-component';
  *
  * @param {Object} props - The props
  * @param {array} props.children - the child objects
+ * @param {object} props.data - the event data
  * @param {function} props.analyticsHandler - The function for handling tracking dispatches
  */
-const AnalyticsProvider = ({ children, analyticsHandler }) => {
+const MockAnalyticsProvider = ({ children, data = {}, analyticsHandler = ()=>{} }) => {
   
   const TrackingWrapper = track(
-    {},
+    data,
     { 
       dispatch: analyticsHandler 
     }
@@ -28,4 +29,4 @@ const AnalyticsProvider = ({ children, analyticsHandler }) => {
 
 };
 
-export default AnalyticsProvider;
+export default MockAnalyticsProvider;

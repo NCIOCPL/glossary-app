@@ -4,3 +4,4 @@ export { getProductTestBase } from "./getProductTestBase";
 export { formatNumberToThousands } from "./number";
 export { TokenParser } from "./replaceTokens";
 export { getKeyValueFromQueryString } from "./url";
+export { EDDLAnalyticsHandler } from "./eddl-analytics-handler";

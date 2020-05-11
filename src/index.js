@@ -29,6 +29,8 @@ const initialize = ({
   dictionaryName = "Cancer.gov",
   dictionaryIntroText = "The NCI Dictionary of Cancer Terms features {{term_count}} terms related to cancer and medicine",
   dictionaryTitle = "NCI Dictionary of Cancer Terms",
+  analyticsChannel = "unknown",
+  analyticsPublishedDate = "unknown",
   language = "en", // en|es (English|Spanish)
   languageToggleSelector = '#LangList1 a',
   rootId = "NCI-app-root",
@@ -50,6 +52,8 @@ const initialize = ({
     dictionaryName,
     dictionaryIntroText,
     dictionaryTitle,
+    analyticsChannel,
+    analyticsPublishedDate,
     language,
     languageToggleSelector,
     searchBoxTitle,
