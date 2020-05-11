@@ -6,3 +6,4 @@ export { matchItemToTerm } from "./matchItemToTerm";
 export { TokenParser } from "./replaceTokens";
 export { emboldenSubstring } from "./strings";
 export { getKeyValueFromQueryString } from "./url";
+export { EDDLAnalyticsHandler } from "./eddl-analytics-handler";

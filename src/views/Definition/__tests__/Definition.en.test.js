@@ -85,6 +85,7 @@ describe("Definition component with English", () => {
         altLanguageDictionaryBasePath: "/diccionario",
         languageToggleSelector: '#LangList1 a',
         appId: "mockAppId",
+        canonicalHost: 'https://example.org',
         basePath: "/",
         dictionaryName,
         dictionaryTitle,

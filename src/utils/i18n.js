@@ -42,5 +42,9 @@ export const i18n = {
     termListTitle: {
         en: "results found for",
         es: "resultados de"
+    },
+    definitionOf: {
+        en: "Definition of",
+        es: "Definición de"
     }
 };
