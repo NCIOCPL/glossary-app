@@ -2,6 +2,7 @@ import { act, cleanup, render } from "@testing-library/react";
 import React from "react";
 import { ClientContextProvider } from "react-fetching-library";
 import { MemoryRouter } from "react-router";
+import { MockAnalyticsProvider } from "../../../tracking";
 
 import { NO_MATCHING_TEXT_EXPAND, testIds } from "../../../constants";
 import Home from "../Home";
@@ -58,11 +59,13 @@ describe("Home component(Spanish)", () => {
   beforeEach(async () => {
     await act(async () => {
       wrapper = render(
-        <MemoryRouter initialEntries={["/"]}>
-          <ClientContextProvider client={client}>
-            <Home />
-          </ClientContextProvider>
-        </MemoryRouter>
+        <MockAnalyticsProvider>
+          <MemoryRouter initialEntries={["/"]}>
+            <ClientContextProvider client={client}>
+              <Home />
+            </ClientContextProvider>
+          </MemoryRouter>
+        </MockAnalyticsProvider>
       );
     });
   });

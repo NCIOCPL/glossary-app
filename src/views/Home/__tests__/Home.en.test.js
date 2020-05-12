@@ -2,11 +2,13 @@ import { act, cleanup, fireEvent, render } from "@testing-library/react";
 import React from "react";
 import { ClientContextProvider } from "react-fetching-library";
 import { MemoryRouter } from "react-router";
+import { MockAnalyticsProvider } from "../../../tracking";
 
 import { NO_MATCHING_TEXT_EXPAND, searchMatchType, testIds } from "../../../constants";
 import Home from "../Home";
 import { useStateValue } from "../../../store/store.js";
 import { i18n, fixtures } from "../../../utils";
+
 
 jest.mock("../../../store/store.js");
 
@@ -61,11 +63,13 @@ describe("Home component(English)", () => {
   beforeEach(async () => {
     await act(async () => {
       wrapper = render(
-        <MemoryRouter initialEntries={["/"]}>
-          <ClientContextProvider client={client}>
-            <Home />
-          </ClientContextProvider>
-        </MemoryRouter>
+        <MockAnalyticsProvider>
+          <MemoryRouter initialEntries={["/"]}>
+            <ClientContextProvider client={client}>
+              <Home />
+            </ClientContextProvider>
+          </MemoryRouter>
+        </MockAnalyticsProvider>
       );
     });
   });
@@ -109,11 +113,13 @@ describe("Home component(English)", () => {
       cleanup();
       await act(async () => {
         wrapper = render(
-          <MemoryRouter initialEntries={["/expand"]}>
-            <ClientContextProvider client={client}>
-              <Home />
-            </ClientContextProvider>
-          </MemoryRouter>
+          <MockAnalyticsProvider>
+            <MemoryRouter initialEntries={["/expand"]}>
+              <ClientContextProvider client={client}>
+                <Home />
+              </ClientContextProvider>
+            </MemoryRouter>
+          </MockAnalyticsProvider>
         );
       });
     });
@@ -132,11 +138,13 @@ describe("Home component(English)", () => {
       cleanup();
       await act(async () => {
         wrapper = render(
-            <MemoryRouter initialEntries={["/search"]}>
-              <ClientContextProvider client={client}>
-                <Home />
-              </ClientContextProvider>
-            </MemoryRouter>
+            <MockAnalyticsProvider>
+              <MemoryRouter initialEntries={["/search"]}>
+                <ClientContextProvider client={client}>
+                  <Home />
+                </ClientContextProvider>
+              </MemoryRouter>
+            </MockAnalyticsProvider>
         );
       });
     });
