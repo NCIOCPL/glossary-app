@@ -1,6 +1,7 @@
 import { render } from "@testing-library/react";
 import React from "react";
 import { MemoryRouter } from "react-router";
+import { MockAnalyticsProvider } from "../../../../tracking";
 
 import { testIds } from "../../../../constants";
 import { SearchBox } from "../../../index";
@@ -21,9 +22,11 @@ useStateValue.mockReturnValue([
 ]);
 describe('SearchBox component', () => {
     const wrapper = render(
-        <MemoryRouter initialEntries={["/"]}>
-            <SearchBox />
-        </MemoryRouter>
+        <MockAnalyticsProvider>
+            <MemoryRouter initialEntries={["/"]}>
+                <SearchBox />
+            </MemoryRouter>
+        </MockAnalyticsProvider>
     );
 
     test('Renders with child components [ Search | AZList ]', () => {

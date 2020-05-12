@@ -1,6 +1,7 @@
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import React from "react";
 import { MemoryRouter } from "react-router";
+import { MockAnalyticsProvider } from "../../../../tracking";
 
 import AZList from "../AZList";
 import { testIds } from "../../../../constants";
@@ -20,11 +21,17 @@ useStateValue.mockReturnValue([
    }
 ]);
 
+const helper = { 
+   analyticsHandler : () => {}
+};
+
 describe('AZList component', () => {
    const wrapper = render(
-       <MemoryRouter initialEntries={["/"]}>
-          <AZList />
-       </MemoryRouter>
+      <MockAnalyticsProvider analyticsHandler={helper.analyticsHandler} >
+         <MemoryRouter initialEntries={["/"]}>
+            <AZList />
+         </MemoryRouter>
+      </MockAnalyticsProvider>
    );
 
    test('AZList renders and contains 27 items', () => {
@@ -34,4 +41,15 @@ describe('AZList component', () => {
       expect(listContainer.children.length).toBe(27);
       expect(getByTestId(testIds.AZ_LIST));
    });
+
+   test('AZList expand analytics event', () => {
+      const spy = jest.spyOn(helper, 'analyticsHandler');
+      const { container } = wrapper;
+      const listContainer = container.querySelector('ul')
+      // Validate that list contains 27 items
+      const link =listContainer.firstChild.firstChild;
+      fireEvent.click(link);
+      expect(spy).toHaveBeenCalledTimes(1);
+   });
+
 });

@@ -4,6 +4,7 @@ import nock from 'nock';
 import React from "react";
 import { ClientContextProvider } from "react-fetching-library";
 import { MemoryRouter, useLocation } from "react-router";
+import { MockAnalyticsProvider } from "../tracking";
 
 import { queryType } from "../constants";
 import { useAppPaths } from "../hooks";
@@ -71,11 +72,13 @@ describe("App component", () => {
 
     await act( async () => {
       wrapper = render(
+        <MockAnalyticsProvider>
           <MemoryRouter initialEntries={[DefinitionPath({ idOrName })]}>
             <ClientContextProvider client={getAxiosClient(initialState)}>
               <ComponentWithLocation RenderComponent={ Definition } />
             </ClientContextProvider>
           </MemoryRouter>
+        </MockAnalyticsProvider>
       );
     });
 
@@ -104,11 +107,13 @@ describe("App component", () => {
 
     await act( async () => {
       wrapper = render(
+        <MockAnalyticsProvider>
           <MemoryRouter initialEntries={[ExpandPath({ expandChar })]}>
             <ClientContextProvider client={getAxiosClient(initialState)}>
               <ComponentWithLocation RenderComponent={ Home } />
             </ClientContextProvider>
           </MemoryRouter>
+        </MockAnalyticsProvider>
       );
     });
 
@@ -136,11 +141,13 @@ describe("App component", () => {
 
     await act( async () => {
       wrapper = render(
+        <MockAnalyticsProvider>
           <MemoryRouter initialEntries={[ExpandPathNoParam()]}>
             <ClientContextProvider client={getAxiosClient(initialState)}>
               <ComponentWithLocation RenderComponent={ Home } />
             </ClientContextProvider>
           </MemoryRouter>
+        </MockAnalyticsProvider>
       );
     });
 
@@ -169,11 +176,13 @@ describe("App component", () => {
 
     await act( async () => {
       wrapper = render(
+        <MockAnalyticsProvider>
           <MemoryRouter initialEntries={[ExpandPathSpanish({ expandChar })]}>
             <ClientContextProvider client={getAxiosClient(initialState)}>
               <ComponentWithLocation RenderComponent={ Home } />
             </ClientContextProvider>
           </MemoryRouter>
+        </MockAnalyticsProvider>
       );
     });
 
@@ -201,11 +210,13 @@ describe("App component", () => {
 
     await act( async () => {
       wrapper = render(
+        <MockAnalyticsProvider>
           <MemoryRouter initialEntries={[ExpandPathNoParamSpanish()]}>
             <ClientContextProvider client={getAxiosClient(initialState)}>
               <ComponentWithLocation RenderComponent={ Home } />
             </ClientContextProvider>
           </MemoryRouter>
+        </MockAnalyticsProvider>
       );
     });
 
@@ -233,11 +244,13 @@ describe("App component", () => {
 
     await act( async () => {
       wrapper = render(
+        <MockAnalyticsProvider>
           <MemoryRouter initialEntries={[HomePath()]}>
             <ClientContextProvider client={getAxiosClient(initialState)}>
               <ComponentWithLocation RenderComponent={ Home } />
             </ClientContextProvider>
           </MemoryRouter>
+        </MockAnalyticsProvider>
       );
     });
 
