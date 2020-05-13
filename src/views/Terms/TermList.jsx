@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Spinner from "../../components/atomic/spinner";
 import { queryType } from "../../constants";
@@ -15,6 +15,10 @@ const TermList = ({ matchType, query, type }) => {
         : getExpandCharResults(query);
     const { loading, payload } = useCustomQuery( queryAction );
     const [{ language }] = useStateValue();
+
+    useEffect( () => {
+        window.scrollTo(0,0);
+    }, []);
 
     return (
         <>

@@ -103,5 +103,21 @@ describe('TermList component rendered with English', () => {
             const { queryByTestId } = wrapper;
             expect(queryByTestId(testIds.NO_MATCHING_RESULTS)).toBeTruthy();
         });
+
+        test("should check scroll position is at top of page", async () => {
+            jest.spyOn(window, 'scrollTo');
+
+            await act(async () => {
+                render(
+                  <MemoryRouter initialEntries={["/"]}>
+                      <ClientContextProvider client={client}>
+                          <TermList query={query} />
+                      </ClientContextProvider>
+                  </MemoryRouter>
+                );
+            });
+            expect(window.scrollTo).toHaveBeenCalledTimes(1);
+            expect(window.scrollTo).toHaveBeenLastCalledWith(0, 0);
+        });
     });
 });

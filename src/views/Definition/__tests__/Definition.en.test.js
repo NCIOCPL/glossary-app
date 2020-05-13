@@ -1,4 +1,4 @@
-import { act, cleanup, render } from "@testing-library/react";
+import { act, cleanup, render, screen } from "@testing-library/react";
 import React from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { ClientContextProvider } from "react-fetching-library";
@@ -149,6 +149,20 @@ describe("Definition component with English", () => {
   test("Video specified in media are displayed", () => {
     const { container } = wrapper;
     expect(container.querySelectorAll("figure.video").length).toEqual(1);
+  });
+
+  test("should check scroll position is at top of page", async () => {
+    jest.spyOn(window, 'scrollTo');
+
+    await act(async () => {
+      wrapper = render(
+        <ClientContextProvider client={client}>
+          <Definition />
+        </ClientContextProvider>
+      );
+    });
+    expect(window.scrollTo).toHaveBeenCalledTimes(1);
+    expect(window.scrollTo).toHaveBeenLastCalledWith(0, 0);
   });
 
   describe("Unsupported media types", () => {
