@@ -58,6 +58,10 @@ const Definition = ({tracking}) => {
       siteName
   }] = useStateValue();
 
+  useEffect( () => {
+    window.scrollTo(0,0);
+  }, []);
+
   useEffect(() => {
     // check if there is an alternate language analog
     if (
