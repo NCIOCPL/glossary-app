@@ -1,38 +1,38 @@
 .dictionary-list-container {
-  h4 {
-    color: #2E2E2E;
-    font-size: 1.25em;
-    font-style: normal;
-  }
+	h4 {
+		color: #2e2e2e;
+		font-size: 1.25em;
+		font-style: normal;
+	}
 
-  dt {
-    margin-bottom: 0;
-    display: inline-block;
-  }
+	dt {
+		margin-bottom: 0;
+		display: inline-block;
+	}
 
-  dd.pronunciation {
-    margin-bottom: 0;
-    display: inline;
+	dd.pronunciation {
+		margin-bottom: 0;
+		display: inline;
 
-    .pronunciation,
-    .pronunciation__audio,
-    .pronunciation__key {
-      display: inline;
-    }
-  }
+		.pronunciation,
+		.pronunciation__audio,
+		.pronunciation__key {
+			display: inline;
+		}
+	}
 
-  dd.definition {
-    margin-bottom: 15px;
-  }
+	dd.definition {
+		margin-bottom: 15px;
+	}
 
-  .btnAudio {
-    padding-top: 0;
-    padding-bottom: 0;
-    height: 22px;
-  }
+	.btnAudio {
+		padding-top: 0;
+		padding-bottom: 0;
+		height: 22px;
+	}
 
-  .pronunciation__key {
-    padding-top: 2px;
-    line-height: normal;
-  }
+	.pronunciation__key {
+		padding-top: 2px;
+		line-height: normal;
+	}
 }

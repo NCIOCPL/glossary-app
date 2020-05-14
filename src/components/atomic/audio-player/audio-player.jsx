@@ -1,63 +1,63 @@
-import React, { useRef, useState } from "react";
-import "./audio-player.scss";
+import React, { useRef, useState } from 'react';
+import './audio-player.scss';
 
-const AudioPlayer = ({ audioSrc, lang = "en", tracking = () => {} }) => {
-  const [playing, setPlaying] = useState(false);
-  const [paused, setPaused] = useState(false);
-  const [hasError, setHasError] = useState(false);
-  const playerRef = useRef(null);
+const AudioPlayer = ({ audioSrc, lang = 'en', tracking = () => {} }) => {
+	const [playing, setPlaying] = useState(false);
+	const [paused, setPaused] = useState(false);
+	const [hasError, setHasError] = useState(false);
+	const playerRef = useRef(null);
 
-  const handlePlay = async () => {
-    const player = playerRef.current;
-    if (playing) {
-      player.pause();
-    } else {
-      try{
-        await player.play();
-        trackPlaying();
-      }
-      catch(error){
-        setHasError(true);
-      }
-    }
-  };
+	const handlePlay = async () => {
+		const player = playerRef.current;
+		if (playing) {
+			player.pause();
+		} else {
+			try {
+				await player.play();
+				trackPlaying();
+			} catch (error) {
+				setHasError(true);
+			}
+		}
+	};
 
-  const trackEnded = () => {
-    tracking();
-    setPlaying(false);
-    setPaused(false);
-  };
+	const trackEnded = () => {
+		tracking();
+		setPlaying(false);
+		setPaused(false);
+	};
 
-  const trackPlaying = () => {
-    setPlaying(true);
-    setPaused(false);
-  };
+	const trackPlaying = () => {
+		setPlaying(true);
+		setPaused(false);
+	};
 
-  const trackPaused = e => {
-    setPaused(true);
-    setPlaying(false);
-  };
+	const trackPaused = (e) => {
+		setPaused(true);
+		setPlaying(false);
+	};
 
-  const srText =
-    lang === "es" ? "escuchar la pronunciación" : "Listen to pronunciation";
+	const srText =
+		lang === 'es' ? 'escuchar la pronunciación' : 'Listen to pronunciation';
 
-  return (
-    <>
-      <audio
-        src={audioSrc}
-        ref={playerRef}
-        onEnded={trackEnded}
-        onPause={trackPaused}
-      />
-      <button
-        type="button"
-        className={`btnAudio ${playing ? "playing" : ""}${paused ? "paused" : ""}${hasError ? "error" : ""}`}
-        onClick={handlePlay}
-      >
-        <span className="show-for-sr">{srText}</span>
-      </button>
-    </>
-  );
+	return (
+		<>
+			<audio
+				src={audioSrc}
+				ref={playerRef}
+				onEnded={trackEnded}
+				onPause={trackPaused}
+			/>
+			<button
+				type="button"
+				className={`btnAudio ${playing ? 'playing' : ''}${
+					paused ? 'paused' : ''
+				}${hasError ? 'error' : ''}`}
+				onClick={handlePlay}>
+				<span className="show-for-sr">{srText}</span>
+			</button>
+		</>
+	);
 };
 
 export default AudioPlayer;

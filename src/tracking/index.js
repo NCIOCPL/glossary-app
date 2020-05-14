@@ -1,7 +1,7 @@
-import * as events from "./events";
+import * as events from './events';
 
 export const trackedEvents = {
-  ...events
+	...events,
 };
 
 export { default as AnalyticsProvider } from './analytics-provider';

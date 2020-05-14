@@ -1,11 +1,9 @@
 import React from 'react';
 import track from 'react-tracking';
 
-const WrapperComponent = ({children}) => {
-  return (
-    <>{children}</>
-  )
-}
+const WrapperComponent = ({ children }) => {
+	return <>{children}</>;
+};
 
 /**
  * A HoC to handle deficiencies in the react-tracking module when using stateless
@@ -17,20 +15,14 @@ const WrapperComponent = ({children}) => {
  * @param {function} props.analyticsHandler - The function for handling tracking dispatches
  */
 const AnalyticsProvider = ({ children, analyticsHandler }) => {
-  
-  const TrackingWrapper = track(
-    {},
-    { 
-      dispatch: analyticsHandler 
-    }
-  )(WrapperComponent);
+	const TrackingWrapper = track(
+		{},
+		{
+			dispatch: analyticsHandler,
+		}
+	)(WrapperComponent);
 
-  return (
-    <TrackingWrapper>
-      {children}
-    </TrackingWrapper>
-  );
-
+	return <TrackingWrapper>{children}</TrackingWrapper>;
 };
 
 export default AnalyticsProvider;

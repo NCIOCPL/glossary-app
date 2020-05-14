@@ -1,1 +1,1 @@
-export { default } from "./pronunciation";
+export { default } from './pronunciation';

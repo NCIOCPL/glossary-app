@@ -1,7 +1,6 @@
 
 Feature: As a user, I would like to be able to enter keywords on Spanish cancer terms dictionary and have the option to submit a search
 
-
     Background:
         Given "language" is set to "es"
 

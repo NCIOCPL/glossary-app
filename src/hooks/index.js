@@ -1,2 +1,2 @@
-export { useCustomQuery } from "./customFetch";
-export { useAppPaths } from "./routing";
+export { useCustomQuery } from './customFetch';
+export { useAppPaths } from './routing';

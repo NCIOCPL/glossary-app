@@ -1,36 +1,36 @@
-import { render } from "@testing-library/react";
-import React from "react";
-import { MemoryRouter } from "react-router";
+import { render } from '@testing-library/react';
+import React from 'react';
+import { MemoryRouter } from 'react-router';
 
-import { testIds } from "../../../../constants";
-import { SearchBox } from "../../../index";
-import { useStateValue } from "../../../../store/store";
+import { testIds } from '../../../../constants';
+import { SearchBox } from '../../../index';
+import { useStateValue } from '../../../../store/store';
 
-jest.mock("../../../../store/store.js");
+jest.mock('../../../../store/store.js');
 
 const dictionaryName = 'Cancer.gov';
 const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
 useStateValue.mockReturnValue([
-    {
-        appId: "mockAppId",
-        basePath: '/',
-        dictionaryName,
-        dictionaryTitle,
-        language: "en"
-    }
+	{
+		appId: 'mockAppId',
+		basePath: '/',
+		dictionaryName,
+		dictionaryTitle,
+		language: 'en',
+	},
 ]);
 describe('SearchBox component', () => {
-    const wrapper = render(
-        <MemoryRouter initialEntries={["/"]}>
-            <SearchBox />
-        </MemoryRouter>
-    );
+	const wrapper = render(
+		<MemoryRouter initialEntries={['/']}>
+			<SearchBox />
+		</MemoryRouter>
+	);
 
-    test('Renders with child components [ Search | AZList ]', () => {
-        const { getByTestId } = wrapper;
-        // Search component should be rendered
-        expect(getByTestId(testIds.SEARCH_CONTAINER));
-        // AZList component should be rendered
-        expect(getByTestId(testIds.AZ_LIST));
-    });
+	test('Renders with child components [ Search | AZList ]', () => {
+		const { getByTestId } = wrapper;
+		// Search component should be rendered
+		expect(getByTestId(testIds.SEARCH_CONTAINER));
+		// AZList component should be rendered
+		expect(getByTestId(testIds.AZ_LIST));
+	});
 });
