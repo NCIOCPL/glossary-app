@@ -10,28 +10,31 @@
     <link rel="stylesheet" href="%PUBLIC_URL%/index.css" />
     <link rel="stylesheet" href="%PUBLIC_URL%/__nci-dev__common.css" />
     <script type="text/javascript">
-      // Debugging for testing out new AnalyticsHandler.
-      (function (){
-        var pusher = function() {
-          // Get all the arguments, as push takes in n number of arguments.
-          for (var i=0; i < arguments.length; i++) {
-            console.log(arguments[i]);
+      // Only setup the handler if this is not running under cypress.
+      if (!window.Cypress) {
+        // Debugging for testing out new AnalyticsHandler.
+        (function (){
+          var pusher = function() {
+            // Get all the arguments, as push takes in n number of arguments.
+            for (var i=0; i < arguments.length; i++) {
+              console.log(arguments[i]);
+            }
           }
-        }
-        // Initialize the NCIDataLayer
-        window.NCIDataLayer = window.NCIDataLayer || [];
-        // Set our pusher if it is not already set
-        // this should avoid accidental re-initializations
-        if (window.NCIDataLayer.push !== pusher) {
-          // Process all the existing items until the queue is
-          // empty.
-          var existingItem;
-          while ((existingItem = window.NCIDataLayer.shift()) !== undefined) {
-            pusher(existingItem);
+          // Initialize the NCIDataLayer
+          window.NCIDataLayer = window.NCIDataLayer || [];
+          // Set our pusher if it is not already set
+          // this should avoid accidental re-initializations
+          if (window.NCIDataLayer.push === Array.prototype.push) {
+            // Process all the existing items until the queue is
+            // empty.
+            var existingItem;
+            while ((existingItem = window.NCIDataLayer.shift()) !== undefined) {
+              pusher(existingItem);
+            }
+            window.NCIDataLayer.push = pusher;
           }
-          window.NCIDataLayer.push = pusher;
-        }
-      })();
+        })();
+      }
     </script>
     <script type="text/javascript">
       function getUrlVars() {

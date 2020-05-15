@@ -20,9 +20,8 @@ beforeEach(() => {
       dictionaryTitle: "NCI Dictionary of Cancer Terms",
       language: "en",
       searchBoxTitle: "Search NCI's Dictionary of Cancer Terms",
-      siteName: "National Cancer Institute"
+      siteName: "National Cancer Institute",
     };
     console.log(win.INT_TEST_APP_PARAMS)
   });
 });
-
