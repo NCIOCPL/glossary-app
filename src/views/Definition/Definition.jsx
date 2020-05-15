@@ -57,8 +57,6 @@ const Definition = ({tracking}) => {
       languageToggleSelector,
       siteName
   }] = useStateValue();
-  // This gets used by a lot of places.
-  const titleDefinitionText = i18n.definitionOf[language];
 
   useEffect(() => {
     // check if there is an alternate language analog
@@ -81,7 +79,7 @@ const Definition = ({tracking}) => {
         //TODO: this is dirty and should be set internally based on the value passed in.
         name: canonicalHost.replace('https://', '') + DefinitionPath({ idOrName: payload.prettyUrlName ? payload.prettyUrlName : payload.termId }),
         title: getPageTitle(payload),
-        metaTitle: getMetaTitle(titleDefinitionText, payload, dictionaryTitle, siteName),
+        metaTitle: getMetaTitle(payload, dictionaryTitle, siteName, language),
         term: payload.termName,
         id: payload.termId
       });
