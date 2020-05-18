@@ -451,3 +451,21 @@ Then('the user gets an error page that reads {string}',(errorMessage)=>{
   })
   cy.get('.error-container h1').should('have.text',errorMessage);
 });
+
+/*
+    ----------------------------------------
+     Analytics
+    ----------------------------------------
+*/
+
+Then('browser waits', () => {
+  cy.wait(2000);
+})
+
+When('NCIDataLayer is being captured', () => {
+  cy.window().then((win) => {
+      while (win.NCIDataLayer.length > 0) {
+          win.NCIDataLayer.pop();
+      }
+  })
+});
