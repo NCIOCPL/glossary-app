@@ -1,11 +1,11 @@
 import { And, Given, Then, When } from "cypress-cucumber-preprocessor/steps";
 import {
-  NO_MATCHING_TEXT_EXPAND,
-  NO_MATCHING_TEXT_EXPAND_SPANISH,
   queryType,
   searchMatchType,
   testIds
 } from "../../../src/constants";
+
+import { i18n } from "../../../src/utils";
 
 const baseURL = Cypress.config('baseUrl');
 
@@ -311,12 +311,17 @@ Then('there is an resource item with the following link and text',dataTable =>{
     ------------------------------
 */
 
-When('user tries to go to this URL, system should return the {string} page for language {string}', (text, lang) => {
-  cy.get(`p[data-testid='${testIds.NO_MATCHING_RESULTS}']`)
-      .should(
+When('user tries to go to this URL, system should return the Expand {string} page for language {string}', (text, lang) => {
+  cy.window().then((win) => {
+    if ( win.INT_TEST_APP_PARAMS ) {
+      const { language } = win.INT_TEST_APP_PARAMS;
+      cy.get(`p[data-testid='${testIds.NO_MATCHING_RESULTS}']`)
+        .should(
           'have.text',
-          lang === 'es' ? NO_MATCHING_TEXT_EXPAND_SPANISH : NO_MATCHING_TEXT_EXPAND
-      );
+          i18n.noMatchingExpand[language]  
+        );   
+    }
+  })
 });
 
 Then('the system returns user to the search results page for the search term {string} URL has {string}', (term, destURL) => {
