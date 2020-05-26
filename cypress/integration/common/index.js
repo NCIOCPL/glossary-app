@@ -164,13 +164,20 @@ Then('there is a play button', () => {
 });
 
 Then('the user clicks the play button', () => {
-  cy.get("figure[class*='video'] div[class*='play-button']").click({force : true});
+  cy.window().then((win) => {
+    if (win.YT) {
+      cy.get("figure[class*='video'] div[class*='play-button']").click({force: true});
+    }
+  });
 });
 
 Then('the video begins playing', () => {
   //iframe is not present until the play button is clicked
-  //
-  cy.get("figure[class*='video'] iframe").should('exist');
+  cy.window().then((win) => {
+    if (win.YT) {
+      cy.get("figure[class*='video'] iframe").should('exist');
+    }
+  });
 });
 
 Then('a video is displayed with the following', dataTable => {
