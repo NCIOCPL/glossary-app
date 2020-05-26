@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import React from 'react';
 import { MemoryRouter } from "react-router";
 
-import { NO_MATCHING_TEXT_EXPAND, testIds } from "../../../constants";
+import { testIds } from "../../../constants";
 import { NoMatchingResults } from "../index";
 import { useStateValue } from "../../../store/store";
 import { i18n } from "../../../utils";
