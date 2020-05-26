@@ -264,6 +264,7 @@ const Definition = ({tracking}) => {
           {renderPronunciation()}
           {payload.definition && (
             <div
+              className="term-description"
               data-testid={testIds.TERM_DEF_DESCRIPTION}
               dangerouslySetInnerHTML={{ __html: payload.definition.html }}
             ></div>

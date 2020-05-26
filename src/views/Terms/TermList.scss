@@ -8,6 +8,12 @@
   dt {
     margin-bottom: 0;
     display: inline-block;
+
+    + .pronunciation {
+      .pronunciation__key {
+        margin-left: 8px;
+      }
+    }
   }
 
   dd.pronunciation {
@@ -29,6 +35,7 @@
     padding-top: 0;
     padding-bottom: 0;
     height: 22px;
+    width: 34px;
   }
 
   .pronunciation__key {
