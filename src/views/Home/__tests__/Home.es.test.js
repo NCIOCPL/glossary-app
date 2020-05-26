@@ -4,10 +4,10 @@ import { ClientContextProvider } from "react-fetching-library";
 import { MemoryRouter } from "react-router";
 import { MockAnalyticsProvider } from "../../../tracking";
 
-import { NO_MATCHING_TEXT_EXPAND, testIds } from "../../../constants";
+import { testIds } from "../../../constants";
 import Home from "../Home";
 import { useStateValue } from "../../../store/store.js";
-import { fixtures } from "../../../utils";
+import { i18n, fixtures } from "../../../utils";
 
 jest.mock("../../../store/store.js");
 
@@ -78,5 +78,55 @@ describe("Home component(Spanish)", () => {
       "href",
       "/cancer-terms"
     );
+  });
+
+  describe("Load Spanish Home component using expand path with no params", () => {
+    beforeEach(async () => {
+      cleanup();
+      await act(async () => {
+        wrapper = render(
+          <MockAnalyticsProvider>
+            <MemoryRouter initialEntries={["/ampliar"]}>
+              <ClientContextProvider client={client}>
+                <Home />
+              </ClientContextProvider>
+            </MemoryRouter>
+          </MockAnalyticsProvider>
+        );
+      });
+    });
+    afterEach(cleanup);
+
+    test("NoMatchingResults component is rendered for ampliar path with no params", () => {
+      const { getByTestId } = wrapper;
+      expect(getByTestId(testIds.NO_MATCHING_RESULTS).textContent).toBe(
+        i18n.noMatchingExpand[language]
+      );
+    });
+  });
+
+  describe("Load Spanish Home component using search path with no params", () => {
+    beforeEach(async () => {
+      cleanup();
+      await act(async () => {
+        wrapper = render(
+          <MockAnalyticsProvider>
+            <MemoryRouter initialEntries={["/buscar"]}>
+              <ClientContextProvider client={client}>
+                <Home />
+              </ClientContextProvider>
+            </MemoryRouter>
+          </MockAnalyticsProvider>
+        );
+      });
+    });
+    afterEach(cleanup);
+
+    test("NoMatchingResults component is rendered with no matching search text for buscar path with no params", () => {
+      const { getByTestId } = wrapper;
+      expect(getByTestId(testIds.NO_MATCHING_RESULTS).textContent).toBe(
+          i18n.noMatchingTextSearch[language]
+      );
+    });
   });
 });

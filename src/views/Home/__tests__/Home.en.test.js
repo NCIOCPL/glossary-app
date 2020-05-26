@@ -4,7 +4,7 @@ import { ClientContextProvider } from "react-fetching-library";
 import { MemoryRouter } from "react-router";
 import { MockAnalyticsProvider } from "../../../tracking";
 
-import { NO_MATCHING_TEXT_EXPAND, searchMatchType, testIds } from "../../../constants";
+import { searchMatchType, testIds } from "../../../constants";
 import Home from "../Home";
 import { useStateValue } from "../../../store/store.js";
 import { i18n, fixtures } from "../../../utils";
@@ -128,7 +128,7 @@ describe("Home component(English)", () => {
     test("NoMatchingResults component is rendered for expand path with no params", () => {
       const { getByTestId } = wrapper;
       expect(getByTestId(testIds.NO_MATCHING_RESULTS).textContent).toBe(
-        NO_MATCHING_TEXT_EXPAND
+        i18n.noMatchingExpand[language]
       );
     });
   });
