@@ -62,3 +62,11 @@ Feature: As a user, I would like to be able to enter keywords and have the optio
         Then the page contains meta tags with the following names
             | name  | content |
             | robots | noindex |
+
+    Scenario: As a user, if my search term only returns one result, I would like to be redirected to the term’s page instead of the results page. 
+        Given the user is viewing the dictionary landing page
+        When user types "metastatic" in the search bar
+        And user clicks on "Search" button 
+        Then the user is redirected to "/def/metastatic"
+        And the search bar on the page does not maintain the user’s term
+        And "Starts with" option is selected

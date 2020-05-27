@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Spinner from "../../components/atomic/spinner";
 import { queryType } from "../../constants";
-import { useCustomQuery } from "../../hooks";
+import { useAppPaths, useCustomQuery } from "../../hooks";
 import NoMatchingResults from "./NoMatchingResults";
 import { getExpandCharResults, getSearchResults } from "../../services/api/actions";
 import { useStateValue } from "../../store/store";
@@ -15,6 +16,19 @@ const TermList = ({ matchType, query, type }) => {
         : getExpandCharResults(query);
     const { loading, payload } = useCustomQuery( queryAction );
     const [{ language }] = useStateValue();
+    const { DefinitionPath } = useAppPaths();
+    const navigate = useNavigate();
+
+    useEffect( () => {
+        if ( payload && payload.results && payload.results.length === 1 ) {
+            const idOrName = payload.results[0].prettyUrlName
+                ? payload.results[0].prettyUrlName
+                : payload.results[0].termId;
+
+            navigate(DefinitionPath({idOrName}));
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ payload]);
 
     useEffect( () => {
         window.scrollTo(0,0);
@@ -25,7 +39,7 @@ const TermList = ({ matchType, query, type }) => {
             { loading && <Spinner /> }
             { !loading && payload &&
                 <div className="dictionary-list-container results" data-dict-type="term">
-                    { payload.results && payload.results.length > 0
+                    { payload.results && payload.results.length > 1
                         ?
                             <>
                                 <h4>{ payload.meta.totalResults } { i18n.termListTitle[language] }: { decodeURIComponent(query) } </h4>
