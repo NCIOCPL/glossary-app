@@ -13,6 +13,9 @@
     "url": "https://github.com/nciocpl/glossary-app/issues"
   },
   "homepage": ".",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "dependencies": {
     "@babel/core": "7.9.0",
     "@cypress/code-coverage": "^1.11.0",
