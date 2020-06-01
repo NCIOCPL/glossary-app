@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import track from 'react-tracking';
 import { AnalyticsProvider } from './';
 import WrapperComponent from './wrapper-component';
@@ -14,44 +15,53 @@ import WrapperComponent from './wrapper-component';
  * TODO: Document page object override
  */
 const EddlAnalyticsProvider = ({
-  children,
-  analyticsHandler,
-  pageName,
-  pageTitle,
-  pageMetaTitle,
-  pageLanguage,
-  pageAudience,
-  pageChannel,
-  pageContentGroup,
-  pagePublishedDate,
-  ...pageAdditionalDetails
+	children,
+	analyticsHandler,
+	pageName,
+	pageTitle,
+	pageMetaTitle,
+	pageLanguage,
+	pageAudience,
+	pageChannel,
+	pageContentGroup,
+	pagePublishedDate,
+	...pageAdditionalDetails
 }) => {
-  
-  const TrackingWrapper = track(
-    {
-      name: pageName,
-      title: pageTitle,
-      metaTitle: pageMetaTitle,
-      language: pageLanguage,
-      audience: pageAudience,
-      channel: pageChannel,
-      contentGroup: pageContentGroup,
-      publishedDate: pagePublishedDate,
-      ...pageAdditionalDetails
-    },
-    { 
-      dispatch: analyticsHandler 
-    }
-  )(WrapperComponent);
+	const TrackingWrapper = track(
+		{
+			name: pageName,
+			title: pageTitle,
+			metaTitle: pageMetaTitle,
+			language: pageLanguage,
+			audience: pageAudience,
+			channel: pageChannel,
+			contentGroup: pageContentGroup,
+			publishedDate: pagePublishedDate,
+			...pageAdditionalDetails,
+		},
+		{
+			dispatch: analyticsHandler,
+		}
+	)(WrapperComponent);
 
-  return (
-    <AnalyticsProvider analyticsHandler={analyticsHandler}>
-      <TrackingWrapper>
-        {children}
-      </TrackingWrapper>
-    </AnalyticsProvider>
-  );
+	return (
+		<AnalyticsProvider analyticsHandler={analyticsHandler}>
+			<TrackingWrapper>{children}</TrackingWrapper>
+		</AnalyticsProvider>
+	);
+};
 
+EddlAnalyticsProvider.propTypes = {
+	children: PropTypes.node,
+	analyticsHandler: PropTypes.func,
+	pageName: PropTypes.string,
+	pageTitle: PropTypes.string,
+	pageMetaTitle: PropTypes.string,
+	pageLanguage: PropTypes.string,
+	pageAudience: PropTypes.string,
+	pageChannel: PropTypes.string,
+	pageContentGroup: PropTypes.string,
+	pagePublishedDate: PropTypes.string,
 };
 
 export default EddlAnalyticsProvider;

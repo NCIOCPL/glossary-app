@@ -1,47 +1,47 @@
 {
-    "termId": 44179,
-    "language": "es",
-    "dictionary": "Cancer.gov",
-    "audience": "Patient",
-    "termName": "cromosoma Filadelfia",
-    "firstLetter": "c",
-    "prettyUrlName": "cromosoma-filadelfia",
-    "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704258.mp3"
-    },
-    "definition": {
-        "html": "Anomalía del cromosoma 22 en la que este recibe una parte del cromosoma 9. En la leucemia mielógena crónica y la leucemia linfocítica aguda, con frecuencia  se encuentran células de la médula ósea que contienen el cromosoma Filadelfia.",
-        "text": "Anomalía del cromosoma 22 en la que este recibe una parte del cromosoma 9. En la leucemia mielógena crónica y la leucemia linfocítica aguda, con frecuencia  se encuentran células de la médula ósea que contienen el cromosoma Filadelfia."
-    },
-    "otherLanguages": [ 
-        {
-           "language": "en",
-           "termName": "Philadelphia chromosome",
-           "prettyUrlName": "philadelphia-chromosome"
-        }
-      ],
-    "relatedResources": [],
-    "media": [
-        {
-            "Type": "Image",
-            "ImageSources": [
-                {
-                    "Size": "original",
-                    "Src": "https://nci-media-dev.cancer.gov/pdq/media/images/558048.jpg"
-                },
-                {
-                    "Size": "571",
-                    "Src": "https://nci-media-dev.cancer.gov/pdq/media/images/558048-571.jpg"
-                },
-                {
-                    "Size": "750",
-                    "Src": "https://nci-media-dev.cancer.gov/pdq/media/images/558048-750.jpg"
-                }
-            ],
-            "Ref": "CDR0000558048",
-            "Alt": "Cromosoma Filadelfia; en los tres paneles de la imagen se observa una sección del cromosoma 9 y una sección del cromosoma 22 que se rompen e intercambian lugares, creando un cromosoma 22 alterado llamado cromosoma Filadelfia. En el panel izquierdo, se muestra el cromosoma 9 normal con el gen ABL y el cromosoma 22 normal con el gen BCR. En el panel central, se muestra el cromosoma 9 que se separa a la altura del gen ABL y el cromosoma 22 que se separa por debajo del gen BCR. En el panel derecho, se muestra el cromosoma 9 unido a la sección del cromosoma 22 y el cromosoma 22 con la sección del cromosoma 9 que contiene parte del gen ABL unido. El cromosoma 22 alterado con el gen BCR-ABL se llama cromosoma Filadelfia.",
-            "Caption": "Cromosoma Filadelfia. Una sección del cromosoma 9 y una sección del cromosoma 22 se rompen e intercambian lugares. El gen BCR-ABL se forma en el cromosoma 22 donde se une a la sección del cromosoma 9. El cromosoma 22 alterado se llama cromosoma Filadelfia."
-        }
-    ]
+	"termId": 44179,
+	"language": "es",
+	"dictionary": "Cancer.gov",
+	"audience": "Patient",
+	"termName": "cromosoma Filadelfia",
+	"firstLetter": "c",
+	"prettyUrlName": "cromosoma-filadelfia",
+	"pronunciation": {
+		"key": null,
+		"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704258.mp3"
+	},
+	"definition": {
+		"html": "Anomalía del cromosoma 22 en la que este recibe una parte del cromosoma 9. En la leucemia mielógena crónica y la leucemia linfocítica aguda, con frecuencia  se encuentran células de la médula ósea que contienen el cromosoma Filadelfia.",
+		"text": "Anomalía del cromosoma 22 en la que este recibe una parte del cromosoma 9. En la leucemia mielógena crónica y la leucemia linfocítica aguda, con frecuencia  se encuentran células de la médula ósea que contienen el cromosoma Filadelfia."
+	},
+	"otherLanguages": [
+		{
+			"language": "en",
+			"termName": "Philadelphia chromosome",
+			"prettyUrlName": "philadelphia-chromosome"
+		}
+	],
+	"relatedResources": [],
+	"media": [
+		{
+			"Type": "Image",
+			"ImageSources": [
+				{
+					"Size": "original",
+					"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/558048.jpg"
+				},
+				{
+					"Size": "571",
+					"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/558048-571.jpg"
+				},
+				{
+					"Size": "750",
+					"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/558048-750.jpg"
+				}
+			],
+			"Ref": "CDR0000558048",
+			"Alt": "Cromosoma Filadelfia; en los tres paneles de la imagen se observa una sección del cromosoma 9 y una sección del cromosoma 22 que se rompen e intercambian lugares, creando un cromosoma 22 alterado llamado cromosoma Filadelfia. En el panel izquierdo, se muestra el cromosoma 9 normal con el gen ABL y el cromosoma 22 normal con el gen BCR. En el panel central, se muestra el cromosoma 9 que se separa a la altura del gen ABL y el cromosoma 22 que se separa por debajo del gen BCR. En el panel derecho, se muestra el cromosoma 9 unido a la sección del cromosoma 22 y el cromosoma 22 con la sección del cromosoma 9 que contiene parte del gen ABL unido. El cromosoma 22 alterado con el gen BCR-ABL se llama cromosoma Filadelfia.",
+			"Caption": "Cromosoma Filadelfia. Una sección del cromosoma 9 y una sección del cromosoma 22 se rompen e intercambian lugares. El gen BCR-ABL se forma en el cromosoma 22 donde se une a la sección del cromosoma 9. El cromosoma 22 alterado se llama cromosoma Filadelfia."
+		}
+	]
 }

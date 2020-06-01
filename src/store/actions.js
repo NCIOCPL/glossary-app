@@ -4,8 +4,8 @@ export const LOAD_GLOBALS = 'LOAD_GLOBALS';
 
 // Actions
 export const updateGlobalValue = (payload) => {
-    return {
-        type: LOAD_GLOBAL,
-        payload
-    }
+	return {
+		type: LOAD_GLOBAL,
+		payload,
+	};
 };

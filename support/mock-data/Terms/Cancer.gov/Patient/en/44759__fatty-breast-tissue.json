@@ -1,34 +1,34 @@
 {
-  "termId": 44759,
-  "language": "en",
-  "dictionary": "Cancer.gov",
-  "audience": "Patient",
-  "termName": "fatty breast tissue",
-  "firstLetter": "f",
-  "prettyUrlName": "fatty-breast-tissue",
-  "pronunciation": {
-    "key": "(FA-tee brest TIH-shoo)",
-    "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705927.mp3"
-  },
-  "definition": {
-    "html": "A term used to describe breast tissue that is made up of almost all fatty tissue. Fatty breast tissue does not look dense on a mammogram, which may make it easier to find tumors or other changes in the breast. Fatty breast tissue is more common in older women than in younger women. Fatty breast tissue is one of four categories used to describe a level of breast density seen on a mammogram.",
-    "text": "A term used to describe breast tissue that is made up of almost all fatty tissue. Fatty breast tissue does not look dense on a mammogram, which may make it easier to find tumors or other changes in the breast. Fatty breast tissue is more common in older women than in younger women. Fatty breast tissue is one of four categories used to describe a level of breast density seen on a mammogram."
-  },
-  "otherLanguages": [ 
-    {
-       "language": "es",
-       "termName": "tejido graso de la mama",
-       "prettyUrlName": "tejido-graso-de-la-mama"
-    }
-  ],
-  "relatedResources": [
-    {
-      "Type": "GlossaryTerm",
-      "Text": "breast density",
-      "TermId": 335487,
-      "Audience": "Patient",
-      "PrettyUrlName": "breast-density"
-    }
-  ],
-  "media": []
+	"termId": 44759,
+	"language": "en",
+	"dictionary": "Cancer.gov",
+	"audience": "Patient",
+	"termName": "fatty breast tissue",
+	"firstLetter": "f",
+	"prettyUrlName": "fatty-breast-tissue",
+	"pronunciation": {
+		"key": "(FA-tee brest TIH-shoo)",
+		"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705927.mp3"
+	},
+	"definition": {
+		"html": "A term used to describe breast tissue that is made up of almost all fatty tissue. Fatty breast tissue does not look dense on a mammogram, which may make it easier to find tumors or other changes in the breast. Fatty breast tissue is more common in older women than in younger women. Fatty breast tissue is one of four categories used to describe a level of breast density seen on a mammogram.",
+		"text": "A term used to describe breast tissue that is made up of almost all fatty tissue. Fatty breast tissue does not look dense on a mammogram, which may make it easier to find tumors or other changes in the breast. Fatty breast tissue is more common in older women than in younger women. Fatty breast tissue is one of four categories used to describe a level of breast density seen on a mammogram."
+	},
+	"otherLanguages": [
+		{
+			"language": "es",
+			"termName": "tejido graso de la mama",
+			"prettyUrlName": "tejido-graso-de-la-mama"
+		}
+	],
+	"relatedResources": [
+		{
+			"Type": "GlossaryTerm",
+			"Text": "breast density",
+			"TermId": 335487,
+			"Audience": "Patient",
+			"PrettyUrlName": "breast-density"
+		}
+	],
+	"media": []
 }

@@ -1,21 +1,17 @@
 {
-  "termId":46722,
-  "language":"en",
-  "dictionary":"Cancer.gov",
-  "audience":"Patient",
-  "termName":"A33",
-  "firstLetter":"a",
-  "prettyUrlName":"a33",
-  "pronunciation":null,
-  "definition":{
-    "html":"A type of monoclonal antibody used in cancer detection or therapy. Monoclonal antibodies are laboratory-produced substances that can locate and bind to cancer cells.",
-    "text":"A type of monoclonal antibody used in cancer detection or therapy. Monoclonal antibodies are laboratory-produced substances that can locate and bind to cancer cells."
-  },
-  "otherLanguages": [],
-  "relatedResources":[
-
-  ],
-  "media":[
-
-  ]
+	"termId": 46722,
+	"language": "en",
+	"dictionary": "Cancer.gov",
+	"audience": "Patient",
+	"termName": "A33",
+	"firstLetter": "a",
+	"prettyUrlName": "a33",
+	"pronunciation": null,
+	"definition": {
+		"html": "A type of monoclonal antibody used in cancer detection or therapy. Monoclonal antibodies are laboratory-produced substances that can locate and bind to cancer cells.",
+		"text": "A type of monoclonal antibody used in cancer detection or therapy. Monoclonal antibodies are laboratory-produced substances that can locate and bind to cancer cells."
+	},
+	"otherLanguages": [],
+	"relatedResources": [],
+	"media": []
 }

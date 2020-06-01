@@ -1,71 +1,70 @@
 {
-  "meta": {
-    "totalResults": 1,
-    "from": 0
-  },
-  "results": [
-    {
-      "termId": 44058,
-      "language": "en",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metastatic",
-      "firstLetter": "m",
-      "prettyUrlName": "metastatic",
-      "pronunciation": {
-        "key": "(meh-tuh-STA-tik)",
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704104.mp3"
-      },
-      "definition": {
-        "html": "Having to do\n          with metastasis, which is the spread of cancer from the\n          primary site (place where it started) to other places in\n          the body.",
-        "text": "Having to do\n          with metastasis, which is the spread of cancer from the\n          primary site (place where it started) to other places in\n          the body."
-      },
-      "otherLanguages": [ 
-        {
-          "language": "es",
-          "termName": "metastásico",
-          "prettyUrlName": "metastasico"
-        }
-      ],
-      "relatedResources": [
-        {
-          "Url": "https://www.cancer.gov/types/metastatic-cancer",
-          "Type": "External",
-          "Text": "Metastatic Cancer"
-        }
-      ],
-      "media": [
-        {
-          "Type": "Image",
-          "ImageSources": [
-            {
-              "Size": "original",
-              "Src": "https://nci-media-dev.cancer.gov/pdq/media/images/764135.jpg"
-            },
-            {
-              "Size": "571",
-              "Src": "https://nci-media-dev.cancer.gov/pdq/media/images/764135-571.jpg"
-            },
-            {
-              "Size": "750",
-              "Src": "https://nci-media-dev.cancer.gov/pdq/media/images/764135-750.jpg"
-            }
-          ],
-          "Ref": "CDR0000764135",
-          "Alt": "Metastasis; drawing shows primary cancer that has spread from the colon to other parts of the body (the liver and the lung). An inset shows cancer cells spreading from the primary cancer, through the blood and lymph system, to another part of the body where a metastatic tumor has formed.",
-          "Caption": "Metastasis. In metastasis, cancer cells break away from where they first formed (primary cancer), travel through the blood or lymph system, and form new tumors (metastatic tumors) in other parts of the body. The metastatic tumor is the same type of cancer as the primary tumor. "
-        },
-        {
-          "Type": "Video",
-          "Hosting": "youtube",
-          "Ref": "CDR0000787719",
-          "UniqueId": "fQwar_-QdiQ",
-          "Template": "Video75NoTitle",
-          "Title": "Metastasis: How Cancer Spreads",
-          "Caption": "Many cancer deaths are caused when cancer moves from the original tumor and spreads to other tissues and organs. This is called metastatic cancer. This animation shows how cancer cells travel from the place in the body where they first formed to other parts of the body."
-        }
-      ]
-      
-    }
-  ]
+	"meta": {
+		"totalResults": 1,
+		"from": 0
+	},
+	"results": [
+		{
+			"termId": 44058,
+			"language": "en",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metastatic",
+			"firstLetter": "m",
+			"prettyUrlName": "metastatic",
+			"pronunciation": {
+				"key": "(meh-tuh-STA-tik)",
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704104.mp3"
+			},
+			"definition": {
+				"html": "Having to do\n          with metastasis, which is the spread of cancer from the\n          primary site (place where it started) to other places in\n          the body.",
+				"text": "Having to do\n          with metastasis, which is the spread of cancer from the\n          primary site (place where it started) to other places in\n          the body."
+			},
+			"otherLanguages": [
+				{
+					"language": "es",
+					"termName": "metastásico",
+					"prettyUrlName": "metastasico"
+				}
+			],
+			"relatedResources": [
+				{
+					"Url": "https://www.cancer.gov/types/metastatic-cancer",
+					"Type": "External",
+					"Text": "Metastatic Cancer"
+				}
+			],
+			"media": [
+				{
+					"Type": "Image",
+					"ImageSources": [
+						{
+							"Size": "original",
+							"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/764135.jpg"
+						},
+						{
+							"Size": "571",
+							"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/764135-571.jpg"
+						},
+						{
+							"Size": "750",
+							"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/764135-750.jpg"
+						}
+					],
+					"Ref": "CDR0000764135",
+					"Alt": "Metastasis; drawing shows primary cancer that has spread from the colon to other parts of the body (the liver and the lung). An inset shows cancer cells spreading from the primary cancer, through the blood and lymph system, to another part of the body where a metastatic tumor has formed.",
+					"Caption": "Metastasis. In metastasis, cancer cells break away from where they first formed (primary cancer), travel through the blood or lymph system, and form new tumors (metastatic tumors) in other parts of the body. The metastatic tumor is the same type of cancer as the primary tumor. "
+				},
+				{
+					"Type": "Video",
+					"Hosting": "youtube",
+					"Ref": "CDR0000787719",
+					"UniqueId": "fQwar_-QdiQ",
+					"Template": "Video75NoTitle",
+					"Title": "Metastasis: How Cancer Spreads",
+					"Caption": "Many cancer deaths are caused when cancer moves from the original tumor and spreads to other tissues and organs. This is called metastatic cancer. This animation shows how cancer cells travel from the place in the body where they first formed to other parts of the body."
+				}
+			]
+		}
+	]
 }

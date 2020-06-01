@@ -1,90 +1,90 @@
 [
-  {
-    "termId": 691484,
-    "termName": "meta-analysis"
-  },
-  {
-    "termId": 44056,
-    "termName": "metabolic"
-  },
-  {
-    "termId": 44332,
-    "termName": "metabolic acidosis"
-  },
-  {
-    "termId": 44055,
-    "termName": "metabolic disorder"
-  },
-  {
-    "termId": 643126,
-    "termName": "metabolic syndrome"
-  },
-  {
-    "termId": 643125,
-    "termName": "metabolic syndrome X"
-  },
-  {
-    "termId": 44057,
-    "termName": "metabolic therapy"
-  },
-  {
-    "termId": 446118,
-    "termName": "metabolic type"
-  },
-  {
-    "termId": 46173,
-    "termName": "metabolism"
-  },
-  {
-    "termId": 462687,
-    "termName": "metabolite"
-  },
-  {
-    "termId": 770483,
-    "termName": "metabolomics"
-  },
-  {
-    "termId": 736800,
-    "termName": "metaiodobenzylguanidine scan"
-  },
-  {
-    "termId": 463718,
-    "termName": "metallic"
-  },
-  {
-    "termId": 693575,
-    "termName": "metallic endoprosthesis"
-  },
-  {
-    "termId": 45786,
-    "termName": "metaplasia"
-  },
-  {
-    "termId": 44243,
-    "termName": "metaplastic carcinoma"
-  },
-  {
-    "termId": 346490,
-    "termName": "metastasectomy"
-  },
-  {
-    "termId": 46710,
-    "termName": "metastasis"
-  },
-  {
-    "termId": 797421,
-    "termName": "metastasis-free survival"
-  },
-  {
-    "termId": 46283,
-    "termName": "metastasize"
-  },
-  {
-    "termId": 44058,
-    "termName": "metastatic"
-  },
-  {
-    "termId": 44778,
-    "termName": "metasynchronous"
-  }
+	{
+		"termId": 691484,
+		"termName": "meta-analysis"
+	},
+	{
+		"termId": 44056,
+		"termName": "metabolic"
+	},
+	{
+		"termId": 44332,
+		"termName": "metabolic acidosis"
+	},
+	{
+		"termId": 44055,
+		"termName": "metabolic disorder"
+	},
+	{
+		"termId": 643126,
+		"termName": "metabolic syndrome"
+	},
+	{
+		"termId": 643125,
+		"termName": "metabolic syndrome X"
+	},
+	{
+		"termId": 44057,
+		"termName": "metabolic therapy"
+	},
+	{
+		"termId": 446118,
+		"termName": "metabolic type"
+	},
+	{
+		"termId": 46173,
+		"termName": "metabolism"
+	},
+	{
+		"termId": 462687,
+		"termName": "metabolite"
+	},
+	{
+		"termId": 770483,
+		"termName": "metabolomics"
+	},
+	{
+		"termId": 736800,
+		"termName": "metaiodobenzylguanidine scan"
+	},
+	{
+		"termId": 463718,
+		"termName": "metallic"
+	},
+	{
+		"termId": 693575,
+		"termName": "metallic endoprosthesis"
+	},
+	{
+		"termId": 45786,
+		"termName": "metaplasia"
+	},
+	{
+		"termId": 44243,
+		"termName": "metaplastic carcinoma"
+	},
+	{
+		"termId": 346490,
+		"termName": "metastasectomy"
+	},
+	{
+		"termId": 46710,
+		"termName": "metastasis"
+	},
+	{
+		"termId": 797421,
+		"termName": "metastasis-free survival"
+	},
+	{
+		"termId": 46283,
+		"termName": "metastasize"
+	},
+	{
+		"termId": 44058,
+		"termName": "metastatic"
+	},
+	{
+		"termId": 44778,
+		"termName": "metasynchronous"
+	}
 ]

@@ -1,26 +1,26 @@
 {
-    "termId": 644322,
-    "language": "es",
-    "dictionary": "Cancer.gov",
-    "audience": "Patient",
-    "termName": "leucemia linfocítica granular de células citolíticas naturales grandes",
-    "firstLetter": "l",
-    "prettyUrlName": null,
-    "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/726073.mp3"
-    },
-    "definition": {
-        "html": "Tipo de leucemia por la que se encuentran en la sangre células citolíticas naturales (CN) grandes que contienen gránulos (un tipo de glóbulo blanco). Es una enfermedad crónica que puede durar por largo tiempo y empeorar. También se llama leucemia LGG-CN y LLGG-CN.",
-        "text": "Tipo de leucemia por la que se encuentran en la sangre células citolíticas naturales (CN) grandes que contienen gránulos (un tipo de glóbulo blanco). Es una enfermedad crónica que puede durar por largo tiempo y empeorar. También se llama leucemia LGG-CN y LLGG-CN."
-    },
-    "otherLanguages": [
-        { 
-            "language": "en",
-            "termName": "natural killer-cell large granular lymphocyte leukemia",
-            "prettyUrlName": "natural-killer-cell-large-granular-lymphocyte-leukemia"
-        }
-    ],
-    "relatedResources": [],
-    "media": []
+	"termId": 644322,
+	"language": "es",
+	"dictionary": "Cancer.gov",
+	"audience": "Patient",
+	"termName": "leucemia linfocítica granular de células citolíticas naturales grandes",
+	"firstLetter": "l",
+	"prettyUrlName": null,
+	"pronunciation": {
+		"key": null,
+		"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/726073.mp3"
+	},
+	"definition": {
+		"html": "Tipo de leucemia por la que se encuentran en la sangre células citolíticas naturales (CN) grandes que contienen gránulos (un tipo de glóbulo blanco). Es una enfermedad crónica que puede durar por largo tiempo y empeorar. También se llama leucemia LGG-CN y LLGG-CN.",
+		"text": "Tipo de leucemia por la que se encuentran en la sangre células citolíticas naturales (CN) grandes que contienen gránulos (un tipo de glóbulo blanco). Es una enfermedad crónica que puede durar por largo tiempo y empeorar. También se llama leucemia LGG-CN y LLGG-CN."
+	},
+	"otherLanguages": [
+		{
+			"language": "en",
+			"termName": "natural killer-cell large granular lymphocyte leukemia",
+			"prettyUrlName": "natural-killer-cell-large-granular-lymphocyte-leukemia"
+		}
+	],
+	"relatedResources": [],
+	"media": []
 }

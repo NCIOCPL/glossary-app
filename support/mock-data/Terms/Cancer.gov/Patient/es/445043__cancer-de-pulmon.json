@@ -1,53 +1,53 @@
 {
-  "termId": 445043,
-  "language": "es",
-  "dictionary": "Cancer.gov",
-  "audience": "Patient",
-  "termName": "cáncer de pulmón",
-  "firstLetter": "c",
-  "prettyUrlName": "cancer-de-pulmon",
-  "pronunciation": {
-    "key": null,
-    "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/714623.mp3"
-  },
-  "definition": {
-    "html": "Cáncer que se forma en los tejidos del pulmón, por lo general, en las células que recubren las vías respiratorias. Los dos tipos más importantes de cáncer de pulmón son el cáncer de pulmón de células pequeñas y el cáncer de pulmón de células no pequeñas. Estos tipos de cáncer se diagnostican con base en el aspecto que tengan las células bajo un microscopio.",
-    "text": "Cáncer que se forma en los tejidos del pulmón, por lo general, en las células que recubren las vías respiratorias. Los dos tipos más importantes de cáncer de pulmón son el cáncer de pulmón de células pequeñas y el cáncer de pulmón de células no pequeñas. Estos tipos de cáncer se diagnostican con base en el aspecto que tengan las células bajo un microscopio."
-  },
-  "otherLanguages": [ 
-    {
-       "language": "en",
-       "termName": "lung cancer",
-       "prettyUrlName": "lung-cancer"
-    }
-  ],
-  "relatedResources": [
-    {
-      "Url": "https://www.cancer.gov/espanol/tipos/pulmon",
-      "Type": "External",
-      "Text": "Cáncer de pulmón"
-    }
-  ],
-  "media": [
-    {
-      "Type": "Image",
-      "ImageSources": [
-        {
-          "Size": "original",
-          "Src": "https://nci-media-dev.cancer.gov/pdq/media/images/466537.jpg"
-        },
-        {
-          "Size": "571",
-          "Src": "https://nci-media-dev.cancer.gov/pdq/media/images/466537-571.jpg"
-        },
-        {
-          "Size": "750",
-          "Src": "https://nci-media-dev.cancer.gov/pdq/media/images/466537-750.jpg"
-        }
-      ],
-      "Ref": "CDR0000466537",
-      "Alt": "Anatomía respiratoria; en la imagen se observan el pulmón derecho con los lóbulos superiores, medios e inferiores; el pulmón izquierdo con los lóbulos superiores e inferiores; y la tráquea, los bronquios, los ganglios linfáticos y el diafragma.  En el recuadro se muestran los bronquiolos, los alvéolos, una arteria y una vena.",
-      "Caption": "Anatomía del sistema respiratorio. Se observa la tráquea, ambos pulmones con los lóbulos y las vías respiratorias.  También se muestran los ganglios linfáticos y el diafragma.  El oxígeno se inhala a los pulmones y pasa a través de las membranas delgadas de los alvéolos hacia el torrente sanguíneo (ver recuadro)."
-    }
-  ]
+	"termId": 445043,
+	"language": "es",
+	"dictionary": "Cancer.gov",
+	"audience": "Patient",
+	"termName": "cáncer de pulmón",
+	"firstLetter": "c",
+	"prettyUrlName": "cancer-de-pulmon",
+	"pronunciation": {
+		"key": null,
+		"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/714623.mp3"
+	},
+	"definition": {
+		"html": "Cáncer que se forma en los tejidos del pulmón, por lo general, en las células que recubren las vías respiratorias. Los dos tipos más importantes de cáncer de pulmón son el cáncer de pulmón de células pequeñas y el cáncer de pulmón de células no pequeñas. Estos tipos de cáncer se diagnostican con base en el aspecto que tengan las células bajo un microscopio.",
+		"text": "Cáncer que se forma en los tejidos del pulmón, por lo general, en las células que recubren las vías respiratorias. Los dos tipos más importantes de cáncer de pulmón son el cáncer de pulmón de células pequeñas y el cáncer de pulmón de células no pequeñas. Estos tipos de cáncer se diagnostican con base en el aspecto que tengan las células bajo un microscopio."
+	},
+	"otherLanguages": [
+		{
+			"language": "en",
+			"termName": "lung cancer",
+			"prettyUrlName": "lung-cancer"
+		}
+	],
+	"relatedResources": [
+		{
+			"Url": "https://www.cancer.gov/espanol/tipos/pulmon",
+			"Type": "External",
+			"Text": "Cáncer de pulmón"
+		}
+	],
+	"media": [
+		{
+			"Type": "Image",
+			"ImageSources": [
+				{
+					"Size": "original",
+					"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/466537.jpg"
+				},
+				{
+					"Size": "571",
+					"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/466537-571.jpg"
+				},
+				{
+					"Size": "750",
+					"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/466537-750.jpg"
+				}
+			],
+			"Ref": "CDR0000466537",
+			"Alt": "Anatomía respiratoria; en la imagen se observan el pulmón derecho con los lóbulos superiores, medios e inferiores; el pulmón izquierdo con los lóbulos superiores e inferiores; y la tráquea, los bronquios, los ganglios linfáticos y el diafragma.  En el recuadro se muestran los bronquiolos, los alvéolos, una arteria y una vena.",
+			"Caption": "Anatomía del sistema respiratorio. Se observa la tráquea, ambos pulmones con los lóbulos y las vías respiratorias.  También se muestran los ganglios linfáticos y el diafragma.  El oxígeno se inhala a los pulmones y pasa a través de las membranas delgadas de los alvéolos hacia el torrente sanguíneo (ver recuadro)."
+		}
+	]
 }
