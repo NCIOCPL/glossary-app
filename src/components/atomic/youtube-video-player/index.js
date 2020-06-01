@@ -1,1 +1,1 @@
-export { default } from "./youtube-video-player";
+export { default } from './youtube-video-player';

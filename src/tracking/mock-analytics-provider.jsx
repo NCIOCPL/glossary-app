@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import track from 'react-tracking';
 import WrapperComponent from './wrapper-component';
 
@@ -12,21 +13,22 @@ import WrapperComponent from './wrapper-component';
  * @param {object} props.data - the event data
  * @param {function} props.analyticsHandler - The function for handling tracking dispatches
  */
-const MockAnalyticsProvider = ({ children, data = {}, analyticsHandler = ()=>{} }) => {
-  
-  const TrackingWrapper = track(
-    data,
-    { 
-      dispatch: analyticsHandler 
-    }
-  )(WrapperComponent);
+const MockAnalyticsProvider = ({
+	children,
+	data = {},
+	analyticsHandler = () => {},
+}) => {
+	const TrackingWrapper = track(data, {
+		dispatch: analyticsHandler,
+	})(WrapperComponent);
 
-  return (
-    <TrackingWrapper>
-      {children}
-    </TrackingWrapper>
-  );
+	return <TrackingWrapper>{children}Î</TrackingWrapper>;
+};
 
+MockAnalyticsProvider.propTypes = {
+	children: PropTypes.node,
+	data: PropTypes.object,
+	analyticsHandler: PropTypes.func,
 };
 
 export default MockAnalyticsProvider;

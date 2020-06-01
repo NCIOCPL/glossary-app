@@ -1,23 +1,19 @@
 {
-  "termId":46299,
-  "language":"es",
-  "dictionary":"Cancer.gov",
-  "audience":"Patient",
-  "termName":"proteína M",
-  "firstLetter":"p",
-  "prettyUrlName":"proteina-m",
-  "pronunciation":{
-    "key":null,
-    "audio":"https://nci-media-dev.cancer.gov/pdq/media/audio/707998.mp3"
-  },
-  "definition":{
-    "html":"Anticuerpo que se encuentra en cantidades excepcionalmente grandes en la sangre o la orina de las personas con mieloma múltiple y otros tipos de tumores de células plasmáticas. También se llama proteína monoclonal.",
-    "text":"Anticuerpo que se encuentra en cantidades excepcionalmente grandes en la sangre o la orina de las personas con mieloma múltiple y otros tipos de tumores de células plasmáticas. También se llama proteína monoclonal."
-  },
-  "relatedResources":[
-
-  ],
-  "media":[
-
-  ]
+	"termId": 46299,
+	"language": "es",
+	"dictionary": "Cancer.gov",
+	"audience": "Patient",
+	"termName": "proteína M",
+	"firstLetter": "p",
+	"prettyUrlName": "proteina-m",
+	"pronunciation": {
+		"key": null,
+		"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707998.mp3"
+	},
+	"definition": {
+		"html": "Anticuerpo que se encuentra en cantidades excepcionalmente grandes en la sangre o la orina de las personas con mieloma múltiple y otros tipos de tumores de células plasmáticas. También se llama proteína monoclonal.",
+		"text": "Anticuerpo que se encuentra en cantidades excepcionalmente grandes en la sangre o la orina de las personas con mieloma múltiple y otros tipos de tumores de células plasmáticas. También se llama proteína monoclonal."
+	},
+	"relatedResources": [],
+	"media": []
 }

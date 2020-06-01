@@ -1,617 +1,617 @@
 {
-  "meta": {
-    "totalResults": 32,
-    "from": 0
-  },
-  "results": [
-    {
-      "termId": 44056,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metabólico",
-      "firstLetter": "m",
-      "prettyUrlName": "metabolico",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704099.mp3"
-      },
-      "definition": {
-        "html": "Relacionado con el metabolismo (el conjunto de todos los cambios químicos que ocurren en una célula o un organismo para producir la energía y los materiales básicos necesarios para importantes procesos vitales).",
-        "text": "Relacionado con el metabolismo (el conjunto de todos los cambios químicos que ocurren en una célula o un organismo para producir la energía y los materiales básicos necesarios para importantes procesos vitales)."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 46173,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metabolismo",
-      "firstLetter": "m",
-      "prettyUrlName": null,
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707784.mp3"
-      },
-      "definition": {
-        "html": "Cambios químicos que se presentan en una célula u organismo. Estos cambios producen la energía y los materiales que las células y los organismos necesitan para crecer, reproducirse y mantenerse sanos. El metabolismo también ayuda a eliminar sustancias tóxicas.",
-        "text": "Cambios químicos que se presentan en una célula u organismo. Estos cambios producen la energía y los materiales que las células y los organismos necesitan para crecer, reproducirse y mantenerse sanos. El metabolismo también ayuda a eliminar sustancias tóxicas."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 43992,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metabolismo aeróbico",
-      "firstLetter": "m",
-      "prettyUrlName": "metabolismo-aerobico",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704009.mp3"
-      },
-      "definition": {
-        "html": "Proceso químico en que el oxígeno se usa para producir energía a partir de los carbohidratos (azúcares). También se llama metabolismo oxidativo, respiración aeróbica,  y respiración celular.",
-        "text": "Proceso químico en que el oxígeno se usa para producir energía a partir de los carbohidratos (azúcares). También se llama metabolismo oxidativo, respiración aeróbica,  y respiración celular."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 44126,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metabolismo celular",
-      "firstLetter": "m",
-      "prettyUrlName": null,
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704201.mp3"
-      },
-      "definition": {
-        "html": "La suma de todos los cambios químicos que tienen lugar en la célula a fin de proporcionar energía y componentes básicos a los procesos esenciales de esta, incluso la síntesis de moléculas nuevas y la descomposición y eliminación de otras moléculas.",
-        "text": "La suma de todos los cambios químicos que tienen lugar en la célula a fin de proporcionar energía y componentes básicos a los procesos esenciales de esta, incluso la síntesis de moléculas nuevas y la descomposición y eliminación de otras moléculas."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 44071,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metabolismo oxidativo",
-      "firstLetter": "m",
-      "prettyUrlName": "metabolismo-oxidativo",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704127.mp3"
-      },
-      "definition": {
-        "html": "Proceso químico en que el oxígeno se usa para producir energía a partir de los carbohidratos (azúcares). También se llama metabolismo aeróbico, respiración aeróbica,  y respiración celular.",
-        "text": "Proceso químico en que el oxígeno se usa para producir energía a partir de los carbohidratos (azúcares). También se llama metabolismo aeróbico, respiración aeróbica,  y respiración celular."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 462687,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metabolito",
-      "firstLetter": "m",
-      "prettyUrlName": "metabolito",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/716924.mp3"
-      },
-      "definition": {
-        "html": "Sustancia que el cuerpo elabora o usa cuando descompone los alimentos, los medicamentos o sustancias químicas; o su propio tejido (por ejemplo, la grasa o el tejido muscular). Este proceso, que se llama metabolismo, produce energía y los materiales necesarios para el crecimiento, la reproducción y el mantenimiento de la salud. También ayuda a eliminar las sustancias tóxicas.",
-        "text": "Sustancia que el cuerpo elabora o usa cuando descompone los alimentos, los medicamentos o sustancias químicas; o su propio tejido (por ejemplo, la grasa o el tejido muscular). Este proceso, que se llama metabolismo, produce energía y los materiales necesarios para el crecimiento, la reproducción y el mantenimiento de la salud. También ayuda a eliminar las sustancias tóxicas."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 770483,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metabolómica",
-      "firstLetter": "m",
-      "prettyUrlName": "metabolomica",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/774994.mp3"
-      },
-      "definition": {
-        "html": "Estudio de sustancias llamadas metabolitos presentes en las células y los tejidos. Los metabolitos son moléculas pequeñas que se producen cuando el cuerpo descompone los alimentos, los medicamentos, las sustancias químicas o su propio tejido. Se pueden medir  en la sangre, la orina y otros líquidos del cuerpo. Las enfermedades o factores ambientales como la alimentación, los medicamentos y las sustancias químicas, pueden afectar la forma en que se elaboran los metabolitos y se usan en el cuerpo. La metabolómica puede ayudar a encontrar nuevas formas de diagnosticar y tratar las enfermedades, como el cáncer.",
-        "text": "Estudio de sustancias llamadas metabolitos presentes en las células y los tejidos. Los metabolitos son moléculas pequeñas que se producen cuando el cuerpo descompone los alimentos, los medicamentos, las sustancias químicas o su propio tejido. Se pueden medir  en la sangre, la orina y otros líquidos del cuerpo. Las enfermedades o factores ambientales como la alimentación, los medicamentos y las sustancias químicas, pueden afectar la forma en que se elaboran los metabolitos y se usan en el cuerpo. La metabolómica puede ayudar a encontrar nuevas formas de diagnosticar y tratar las enfermedades, como el cáncer."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 661194,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metahemoglobina",
-      "firstLetter": "m",
-      "prettyUrlName": "metahemoglobina",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/726336.mp3"
-      },
-      "definition": {
-        "html": "Forma de hemoglobina que se encuentra en pequeñas cantidades en la sangre. A diferencia de la hemoglobina normal, la metahemoglobina no puede transportar oxígeno. Hay lesiones, ciertos medicamentos, sustancias químicas o alimentos que pueden hacer que se elabore una cantidad más alta que la normal de metahemoglobina. Esto produce una afección que se llama metahemoglobinemia.",
-        "text": "Forma de hemoglobina que se encuentra en pequeñas cantidades en la sangre. A diferencia de la hemoglobina normal, la metahemoglobina no puede transportar oxígeno. Hay lesiones, ciertos medicamentos, sustancias químicas o alimentos que pueden hacer que se elabore una cantidad más alta que la normal de metahemoglobina. Esto produce una afección que se llama metahemoglobinemia."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 661196,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metahemoglobinemia",
-      "firstLetter": "m",
-      "prettyUrlName": "metahemoglobinemia",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/726338.mp3"
-      },
-      "definition": {
-        "html": "Afección por la que se encuentra en la sangre una cantidad mayor que la normal de metahemoglobina. La metahemoglobina es una forma de hemoglobina que no puede transportar oxígeno.   En el caso de la metahemoglobinemia, los tejidos no pueden conseguir suficiente oxígeno.   Los síntomas pueden incluir dolor de cabeza, mareo, fatiga, falta de aliento, náuseas, vómitos, latidos cardíacos rápidos, pérdida de coordinación muscular y piel de color azul.   La causa  de la metahemoglobinemia puede ser una lesión o por la exposición a ciertos medicamentos, sustancias químicas o alimentos.   También puede ser una afección hereditaria.  ",
-        "text": "Afección por la que se encuentra en la sangre una cantidad mayor que la normal de metahemoglobina. La metahemoglobina es una forma de hemoglobina que no puede transportar oxígeno.   En el caso de la metahemoglobinemia, los tejidos no pueden conseguir suficiente oxígeno.   Los síntomas pueden incluir dolor de cabeza, mareo, fatiga, falta de aliento, náuseas, vómitos, latidos cardíacos rápidos, pérdida de coordinación muscular y piel de color azul.   La causa  de la metahemoglobinemia puede ser una lesión o por la exposición a ciertos medicamentos, sustancias químicas o alimentos.   También puede ser una afección hereditaria.  "
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 463718,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metálico",
-      "firstLetter": "m",
-      "prettyUrlName": "metalico",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/716574.mp3"
-      },
-      "definition": {
-        "html": "Relacionado con metal. Algunos tratamientos para el cáncer pueden alterar el sentido del gusto y hacer que los alimentos tengan gusto metálico.",
-        "text": "Relacionado con metal. Algunos tratamientos para el cáncer pueden alterar el sentido del gusto y hacer que los alimentos tengan gusto metálico."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 44211,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metaloproteinasa de matriz",
-      "firstLetter": "m",
-      "prettyUrlName": "metaloproteinasa-de-matriz",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704302.mp3"
-      },
-      "definition": {
-        "html": "Miembro de un grupo de enzimas que pueden descomponer las proteínas, como el colágeno, que se encuentran normalmente en los espacios entre las células de los tejidos (es decir, proteínas de la matriz extracelular). Dado que estas enzimas necesitan cinc o átomos de calcio para trabajar adecuadamente, se llaman metaloproteasas. Las metaloproteasas de matriz participan en la curación de heridas, la angiogénesis y la metástasis de las células tumorales.",
-        "text": "Miembro de un grupo de enzimas que pueden descomponer las proteínas, como el colágeno, que se encuentran normalmente en los espacios entre las células de los tejidos (es decir, proteínas de la matriz extracelular). Dado que estas enzimas necesitan cinc o átomos de calcio para trabajar adecuadamente, se llaman metaloproteasas. Las metaloproteasas de matriz participan en la curación de heridas, la angiogénesis y la metástasis de las células tumorales."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 691484,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metanálisis",
-      "firstLetter": "m",
-      "prettyUrlName": "metanalisis",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/727899.mp3"
-      },
-      "definition": {
-        "html": "Proceso mediante el que se analizan datos de diferentes estudios realizados sobre el mismo tema. Por lo habitual, los resultados de un metanálisis son más sólidos que los resultados de cualquier estudio por sí solo.",
-        "text": "Proceso mediante el que se analizan datos de diferentes estudios realizados sobre el mismo tema. Por lo habitual, los resultados de un metanálisis son más sólidos que los resultados de cualquier estudio por sí solo."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 748816,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metanol",
-      "firstLetter": "m",
-      "prettyUrlName": "metanol",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/752604.mp3"
-      },
-      "definition": {
-        "html": "Tipo de alcohol que se utiliza para fabricar anticongelantes, plaguicidas, líquido limpiaparabrisas, diluyente de pintura, ciertos tipos de combustible y otras sustancias. El metanol se incendia con facilidad y es muy venenoso. Es uno de los muchos productos químicos dañinos que se encuentran en el humo del tabaco. También se llama alcohol de madera y alcohol metílico.",
-        "text": "Tipo de alcohol que se utiliza para fabricar anticongelantes, plaguicidas, líquido limpiaparabrisas, diluyente de pintura, ciertos tipos de combustible y otras sustancias. El metanol se incendia con facilidad y es muy venenoso. Es uno de los muchos productos químicos dañinos que se encuentran en el humo del tabaco. También se llama alcohol de madera y alcohol metílico."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 45786,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metaplasia",
-      "firstLetter": "m",
-      "prettyUrlName": "metaplasia",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707240.mp3"
-      },
-      "definition": {
-        "html": "Cambio en la forma que toman algunas células que, por lo general, no es normal en las células del tejido al que pertenecen.",
-        "text": "Cambio en la forma que toman algunas células que, por lo general, no es normal en las células del tejido al que pertenecen."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 306486,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metaplasia mieloide agnógena",
-      "firstLetter": "m",
-      "prettyUrlName": "metaplasia-mieloide-agnogena",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/710151.mp3"
-      },
-      "definition": {
-        "html": "Enfermedad crónica progresiva en la que la médula ósea es reemplazada por tejido fibroso y la sangre se produce en órganos tales como el hígado y el bazo, en vez de la médula ósea. Esta enfermedad se caracteriza por el agrandamiento del bazo y anemia progresiva. También se llama mieloesclerosis con metaplasia mieloide, mielofibrosis idiopática, mielofibrosis idiopática crónica,  y mielofibrosis primaria.",
-        "text": "Enfermedad crónica progresiva en la que la médula ósea es reemplazada por tejido fibroso y la sangre se produce en órganos tales como el hígado y el bazo, en vez de la médula ósea. Esta enfermedad se caracteriza por el agrandamiento del bazo y anemia progresiva. También se llama mieloesclerosis con metaplasia mieloide, mielofibrosis idiopática, mielofibrosis idiopática crónica,  y mielofibrosis primaria."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 44778,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metasincrónico",
-      "firstLetter": "m",
-      "prettyUrlName": "metasincronico",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/728132.mp3"
-      },
-      "definition": {
-        "html": "Que se presenta casi al mismo tiempo.",
-        "text": "Que se presenta casi al mismo tiempo."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 346490,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metastasectomía",
-      "firstLetter": "m",
-      "prettyUrlName": "metastasectomia",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/711569.mp3"
-      },
-      "definition": {
-        "html": "Cirugía para extraer una o más metástasis (tumores formados con células que se han diseminado desde el tumor primario). Cuando se extraen todas las metástasis, se llama metastasectomía completa.",
-        "text": "Cirugía para extraer una o más metástasis (tumores formados con células que se han diseminado desde el tumor primario). Cuando se extraen todas las metástasis, se llama metastasectomía completa."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 346489,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metastasectomía completa",
-      "firstLetter": "m",
-      "prettyUrlName": "metastasectomia-completa",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/711567.mp3"
-      },
-      "definition": {
-        "html": "Cirugía para extirpar todas las metástasis (tumores que se forman con células que se han diseminado desde el tumor primario).",
-        "text": "Cirugía para extirpar todas las metástasis (tumores que se forman con células que se han diseminado desde el tumor primario)."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 44058,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metastásico",
-      "firstLetter": "m",
-      "prettyUrlName": "metastasico",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704103.mp3"
-      },
-      "definition": {
-        "html": "Relacionado con la metástasis,\nque es la diseminación del cáncer desde el sitio primario\n(el lugar donde empezó) hasta otras partes del\ncuerpo.",
-        "text": "Relacionado con la metástasis,\nque es la diseminación del cáncer desde el sitio primario\n(el lugar donde empezó) hasta otras partes del\ncuerpo."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 46710,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metástasis",
-      "firstLetter": "m",
-      "prettyUrlName": "metastasis",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/709966.mp3"
-      },
-      "definition": {
-        "html": "Diseminación del cáncer de una parte del cuerpo en donde se formó originalmente a otra parte del cuerpo. Cuando ocurre una metástasis, las células  cancerosas se separan del tumor original (primario), viajan a través del sistema sanguíneo o linfático y forman un tumor nuevo en otros órganos o tejidos del cuerpo. El nuevo tumor metastásico es el mismo tipo de cáncer que el tumor primario. Por ejemplo, si el cáncer de mama se disemina al pulmón, las células cancerosas del pulmón son células del cáncer de mama, no son células de cáncer de pulmón. Las formas plural y singular de la palabra metástasis son iguales.",
-        "text": "Diseminación del cáncer de una parte del cuerpo en donde se formó originalmente a otra parte del cuerpo. Cuando ocurre una metástasis, las células  cancerosas se separan del tumor original (primario), viajan a través del sistema sanguíneo o linfático y forman un tumor nuevo en otros órganos o tejidos del cuerpo. El nuevo tumor metastásico es el mismo tipo de cáncer que el tumor primario. Por ejemplo, si el cáncer de mama se disemina al pulmón, las células cancerosas del pulmón son células del cáncer de mama, no son células de cáncer de pulmón. Las formas plural y singular de la palabra metástasis son iguales."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 415317,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metástasis a distancia",
-      "firstLetter": "m",
-      "prettyUrlName": "metastasis-a-distancia",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/713088.mp3"
-      },
-      "definition": {
-        "html": "Se refiere al cáncer que se ha diseminado desde el tumor original (primario) hasta órganos o nódulos linfáticos lejanos. También se conoce como cáncer distante.",
-        "text": "Se refiere al cáncer que se ha diseminado desde el tumor original (primario) hasta órganos o nódulos linfáticos lejanos. También se conoce como cáncer distante."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 45315,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metástasis de pulmón",
-      "firstLetter": "m",
-      "prettyUrlName": "metastasis-de-pulmon",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705305.mp3"
-      },
-      "definition": {
-        "html": "Cáncer que se ha diseminado del tumor original (primario) al pulmón.",
-        "text": "Cáncer que se ha diseminado del tumor original (primario) al pulmón."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 436738,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metástasis del sistema nervioso central",
-      "firstLetter": "m",
-      "prettyUrlName": "metastasis-del-sistema-nervioso-central",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/713633.mp3"
-      },
-      "definition": {
-        "html": "Metástasis del sistema nervioso central (SNC). Cáncer que se ha diseminado desde el tumor original (primario) hasta el sistema nervioso central (SNC). También se llama metástasis del SNC.",
-        "text": "Metástasis del sistema nervioso central (SNC). Cáncer que se ha diseminado desde el tumor original (primario) hasta el sistema nervioso central (SNC). También se llama metástasis del SNC."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 45644,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metástasis del SNC",
-      "firstLetter": "m",
-      "prettyUrlName": "metastasis-del-snc",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705726.mp3"
-      },
-      "definition": {
-        "html": "Cáncer que se ha diseminado desde el tumor original (primario) hasta el sistema nervioso central (SNC). También se llama metástasis del sistema nervioso central.",
-        "text": "Cáncer que se ha diseminado desde el tumor original (primario) hasta el sistema nervioso central (SNC). También se llama metástasis del sistema nervioso central."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 45623,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metástasis en la médula ósea",
-      "firstLetter": "m",
-      "prettyUrlName": "metastasis-en-la-medula-osea",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705693.mp3"
-      },
-      "definition": {
-        "html": "Cáncer que se diseminó desde el tumor original (primario) a la médula ósea.",
-        "text": "Cáncer que se diseminó desde el tumor original (primario) a la médula ósea."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 634128,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metástasis en tránsito",
-      "firstLetter": "m",
-      "prettyUrlName": "metastasis-en-transito",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/723101.mp3"
-      },
-      "definition": {
-        "html": "Tipo de metástasis en la que el cáncer de piel se disemina a través de un vaso linfático y comienza a crecer a  más de dos centímetros del tumor primario  antes de llegar al ganglio linfático más cercano.",
-        "text": "Tipo de metástasis en la que el cáncer de piel se disemina a través de un vaso linfático y comienza a crecer a  más de dos centímetros del tumor primario  antes de llegar al ganglio linfático más cercano."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 45314,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metástasis encefálica",
-      "firstLetter": "m",
-      "prettyUrlName": "metastasis-encefalica",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705302.mp3"
-      },
-      "definition": {
-        "html": "Cáncer que se diseminó desde el tumor original (primario) hasta el encéfalo.",
-        "text": "Cáncer que se diseminó desde el tumor original (primario) hasta el encéfalo."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 45316,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metástasis hepática",
-      "firstLetter": "m",
-      "prettyUrlName": "metastasis-hepatica",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705306.mp3"
-      },
-      "definition": {
-        "html": "Cáncer que se ha diseminado desde el tumor original (primario) al hígado.",
-        "text": "Cáncer que se ha diseminado desde el tumor original (primario) al hígado."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 45318,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metástasis leptomeníngea",
-      "firstLetter": "m",
-      "prettyUrlName": "metastasis-leptomeningea",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705310.mp3"
-      },
-      "definition": {
-        "html": "Problema grave que se puede presentar cuando las células de un cáncer se diseminan desde el tumor original (primario) hasta las meninges (capas delgadas de tejido que cubren y protegen el cerebro y la médula espinal). Puede ocurrir en muchos tipos de cáncer, pero es más común en el caso del melanoma y los cánceres de mama, pulmón y aparato digestivo. El cáncer puede hacer que las meninges se inflamen. También se llama carcinoma leptomeníngeo, carcinomatosis leptomeníngea, carcinomatosis meníngea, meningitis carcinomatosa, meningitis neoplásica,  y metástasis meníngea.",
-        "text": "Problema grave que se puede presentar cuando las células de un cáncer se diseminan desde el tumor original (primario) hasta las meninges (capas delgadas de tejido que cubren y protegen el cerebro y la médula espinal). Puede ocurrir en muchos tipos de cáncer, pero es más común en el caso del melanoma y los cánceres de mama, pulmón y aparato digestivo. El cáncer puede hacer que las meninges se inflamen. También se llama carcinoma leptomeníngeo, carcinomatosis leptomeníngea, carcinomatosis meníngea, meningitis carcinomatosa, meningitis neoplásica,  y metástasis meníngea."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 45782,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metástasis meníngea",
-      "firstLetter": "m",
-      "prettyUrlName": "metastasis-meningea",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707235.mp3"
-      },
-      "definition": {
-        "html": "Problema grave que se puede presentar cuando las células de un cáncer se diseminan desde el tumor original (primario) hasta las meninges (capas delgadas de tejido que cubren y protegen el cerebro y la médula espinal). Puede ocurrir en muchos tipos de cáncer, pero es más común en el caso del melanoma y los cánceres de mama, pulmón y aparato digestivo. El cáncer puede hacer que las meninges se inflamen. También se llama carcinoma leptomeníngeo, carcinomatosis leptomeníngea, carcinomatosis meníngea, meningitis carcinomatosa, meningitis neoplásica,  y metástasis leptomeníngea.",
-        "text": "Problema grave que se puede presentar cuando las células de un cáncer se diseminan desde el tumor original (primario) hasta las meninges (capas delgadas de tejido que cubren y protegen el cerebro y la médula espinal). Puede ocurrir en muchos tipos de cáncer, pero es más común en el caso del melanoma y los cánceres de mama, pulmón y aparato digestivo. El cáncer puede hacer que las meninges se inflamen. También se llama carcinoma leptomeníngeo, carcinomatosis leptomeníngea, carcinomatosis meníngea, meningitis carcinomatosa, meningitis neoplásica,  y metástasis leptomeníngea."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 45317,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metástasis ósea",
-      "firstLetter": "m",
-      "prettyUrlName": "metastasis-osea",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705308.mp3"
-      },
-      "definition": {
-        "html": "Cáncer que se diseminó desde el tumor original (primario) al hueso.",
-        "text": "Cáncer que se diseminó desde el tumor original (primario) al hueso."
-      },
-      "relatedResources": [],
-      "media": []
-    },
-    {
-      "termId": 46283,
-      "language": "es",
-      "dictionary": "Cancer.gov",
-      "audience": "Patient",
-      "termName": "metastatizar",
-      "firstLetter": "m",
-      "prettyUrlName": "metastatizar",
-      "pronunciation": {
-        "key": null,
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707970.mp3"
-      },
-      "definition": {
-        "html": "Diseminarse de una parte del cuerpo a otra. Cuando las células cancerosas se metastatizan y forman tumores secundarios, las células del tumor metastásico son como las del tumor original (primario).",
-        "text": "Diseminarse de una parte del cuerpo a otra. Cuando las células cancerosas se metastatizan y forman tumores secundarios, las células del tumor metastásico son como las del tumor original (primario)."
-      },
-      "relatedResources": [],
-      "media": []
-    }
-  ],
-  "links": null
+	"meta": {
+		"totalResults": 32,
+		"from": 0
+	},
+	"results": [
+		{
+			"termId": 44056,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metabólico",
+			"firstLetter": "m",
+			"prettyUrlName": "metabolico",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704099.mp3"
+			},
+			"definition": {
+				"html": "Relacionado con el metabolismo (el conjunto de todos los cambios químicos que ocurren en una célula o un organismo para producir la energía y los materiales básicos necesarios para importantes procesos vitales).",
+				"text": "Relacionado con el metabolismo (el conjunto de todos los cambios químicos que ocurren en una célula o un organismo para producir la energía y los materiales básicos necesarios para importantes procesos vitales)."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 46173,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metabolismo",
+			"firstLetter": "m",
+			"prettyUrlName": null,
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707784.mp3"
+			},
+			"definition": {
+				"html": "Cambios químicos que se presentan en una célula u organismo. Estos cambios producen la energía y los materiales que las células y los organismos necesitan para crecer, reproducirse y mantenerse sanos. El metabolismo también ayuda a eliminar sustancias tóxicas.",
+				"text": "Cambios químicos que se presentan en una célula u organismo. Estos cambios producen la energía y los materiales que las células y los organismos necesitan para crecer, reproducirse y mantenerse sanos. El metabolismo también ayuda a eliminar sustancias tóxicas."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 43992,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metabolismo aeróbico",
+			"firstLetter": "m",
+			"prettyUrlName": "metabolismo-aerobico",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704009.mp3"
+			},
+			"definition": {
+				"html": "Proceso químico en que el oxígeno se usa para producir energía a partir de los carbohidratos (azúcares). También se llama metabolismo oxidativo, respiración aeróbica,  y respiración celular.",
+				"text": "Proceso químico en que el oxígeno se usa para producir energía a partir de los carbohidratos (azúcares). También se llama metabolismo oxidativo, respiración aeróbica,  y respiración celular."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 44126,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metabolismo celular",
+			"firstLetter": "m",
+			"prettyUrlName": null,
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704201.mp3"
+			},
+			"definition": {
+				"html": "La suma de todos los cambios químicos que tienen lugar en la célula a fin de proporcionar energía y componentes básicos a los procesos esenciales de esta, incluso la síntesis de moléculas nuevas y la descomposición y eliminación de otras moléculas.",
+				"text": "La suma de todos los cambios químicos que tienen lugar en la célula a fin de proporcionar energía y componentes básicos a los procesos esenciales de esta, incluso la síntesis de moléculas nuevas y la descomposición y eliminación de otras moléculas."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 44071,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metabolismo oxidativo",
+			"firstLetter": "m",
+			"prettyUrlName": "metabolismo-oxidativo",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704127.mp3"
+			},
+			"definition": {
+				"html": "Proceso químico en que el oxígeno se usa para producir energía a partir de los carbohidratos (azúcares). También se llama metabolismo aeróbico, respiración aeróbica,  y respiración celular.",
+				"text": "Proceso químico en que el oxígeno se usa para producir energía a partir de los carbohidratos (azúcares). También se llama metabolismo aeróbico, respiración aeróbica,  y respiración celular."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 462687,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metabolito",
+			"firstLetter": "m",
+			"prettyUrlName": "metabolito",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/716924.mp3"
+			},
+			"definition": {
+				"html": "Sustancia que el cuerpo elabora o usa cuando descompone los alimentos, los medicamentos o sustancias químicas; o su propio tejido (por ejemplo, la grasa o el tejido muscular). Este proceso, que se llama metabolismo, produce energía y los materiales necesarios para el crecimiento, la reproducción y el mantenimiento de la salud. También ayuda a eliminar las sustancias tóxicas.",
+				"text": "Sustancia que el cuerpo elabora o usa cuando descompone los alimentos, los medicamentos o sustancias químicas; o su propio tejido (por ejemplo, la grasa o el tejido muscular). Este proceso, que se llama metabolismo, produce energía y los materiales necesarios para el crecimiento, la reproducción y el mantenimiento de la salud. También ayuda a eliminar las sustancias tóxicas."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 770483,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metabolómica",
+			"firstLetter": "m",
+			"prettyUrlName": "metabolomica",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/774994.mp3"
+			},
+			"definition": {
+				"html": "Estudio de sustancias llamadas metabolitos presentes en las células y los tejidos. Los metabolitos son moléculas pequeñas que se producen cuando el cuerpo descompone los alimentos, los medicamentos, las sustancias químicas o su propio tejido. Se pueden medir  en la sangre, la orina y otros líquidos del cuerpo. Las enfermedades o factores ambientales como la alimentación, los medicamentos y las sustancias químicas, pueden afectar la forma en que se elaboran los metabolitos y se usan en el cuerpo. La metabolómica puede ayudar a encontrar nuevas formas de diagnosticar y tratar las enfermedades, como el cáncer.",
+				"text": "Estudio de sustancias llamadas metabolitos presentes en las células y los tejidos. Los metabolitos son moléculas pequeñas que se producen cuando el cuerpo descompone los alimentos, los medicamentos, las sustancias químicas o su propio tejido. Se pueden medir  en la sangre, la orina y otros líquidos del cuerpo. Las enfermedades o factores ambientales como la alimentación, los medicamentos y las sustancias químicas, pueden afectar la forma en que se elaboran los metabolitos y se usan en el cuerpo. La metabolómica puede ayudar a encontrar nuevas formas de diagnosticar y tratar las enfermedades, como el cáncer."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 661194,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metahemoglobina",
+			"firstLetter": "m",
+			"prettyUrlName": "metahemoglobina",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/726336.mp3"
+			},
+			"definition": {
+				"html": "Forma de hemoglobina que se encuentra en pequeñas cantidades en la sangre. A diferencia de la hemoglobina normal, la metahemoglobina no puede transportar oxígeno. Hay lesiones, ciertos medicamentos, sustancias químicas o alimentos que pueden hacer que se elabore una cantidad más alta que la normal de metahemoglobina. Esto produce una afección que se llama metahemoglobinemia.",
+				"text": "Forma de hemoglobina que se encuentra en pequeñas cantidades en la sangre. A diferencia de la hemoglobina normal, la metahemoglobina no puede transportar oxígeno. Hay lesiones, ciertos medicamentos, sustancias químicas o alimentos que pueden hacer que se elabore una cantidad más alta que la normal de metahemoglobina. Esto produce una afección que se llama metahemoglobinemia."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 661196,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metahemoglobinemia",
+			"firstLetter": "m",
+			"prettyUrlName": "metahemoglobinemia",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/726338.mp3"
+			},
+			"definition": {
+				"html": "Afección por la que se encuentra en la sangre una cantidad mayor que la normal de metahemoglobina. La metahemoglobina es una forma de hemoglobina que no puede transportar oxígeno.   En el caso de la metahemoglobinemia, los tejidos no pueden conseguir suficiente oxígeno.   Los síntomas pueden incluir dolor de cabeza, mareo, fatiga, falta de aliento, náuseas, vómitos, latidos cardíacos rápidos, pérdida de coordinación muscular y piel de color azul.   La causa  de la metahemoglobinemia puede ser una lesión o por la exposición a ciertos medicamentos, sustancias químicas o alimentos.   También puede ser una afección hereditaria.  ",
+				"text": "Afección por la que se encuentra en la sangre una cantidad mayor que la normal de metahemoglobina. La metahemoglobina es una forma de hemoglobina que no puede transportar oxígeno.   En el caso de la metahemoglobinemia, los tejidos no pueden conseguir suficiente oxígeno.   Los síntomas pueden incluir dolor de cabeza, mareo, fatiga, falta de aliento, náuseas, vómitos, latidos cardíacos rápidos, pérdida de coordinación muscular y piel de color azul.   La causa  de la metahemoglobinemia puede ser una lesión o por la exposición a ciertos medicamentos, sustancias químicas o alimentos.   También puede ser una afección hereditaria.  "
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 463718,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metálico",
+			"firstLetter": "m",
+			"prettyUrlName": "metalico",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/716574.mp3"
+			},
+			"definition": {
+				"html": "Relacionado con metal. Algunos tratamientos para el cáncer pueden alterar el sentido del gusto y hacer que los alimentos tengan gusto metálico.",
+				"text": "Relacionado con metal. Algunos tratamientos para el cáncer pueden alterar el sentido del gusto y hacer que los alimentos tengan gusto metálico."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 44211,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metaloproteinasa de matriz",
+			"firstLetter": "m",
+			"prettyUrlName": "metaloproteinasa-de-matriz",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704302.mp3"
+			},
+			"definition": {
+				"html": "Miembro de un grupo de enzimas que pueden descomponer las proteínas, como el colágeno, que se encuentran normalmente en los espacios entre las células de los tejidos (es decir, proteínas de la matriz extracelular). Dado que estas enzimas necesitan cinc o átomos de calcio para trabajar adecuadamente, se llaman metaloproteasas. Las metaloproteasas de matriz participan en la curación de heridas, la angiogénesis y la metástasis de las células tumorales.",
+				"text": "Miembro de un grupo de enzimas que pueden descomponer las proteínas, como el colágeno, que se encuentran normalmente en los espacios entre las células de los tejidos (es decir, proteínas de la matriz extracelular). Dado que estas enzimas necesitan cinc o átomos de calcio para trabajar adecuadamente, se llaman metaloproteasas. Las metaloproteasas de matriz participan en la curación de heridas, la angiogénesis y la metástasis de las células tumorales."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 691484,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metanálisis",
+			"firstLetter": "m",
+			"prettyUrlName": "metanalisis",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/727899.mp3"
+			},
+			"definition": {
+				"html": "Proceso mediante el que se analizan datos de diferentes estudios realizados sobre el mismo tema. Por lo habitual, los resultados de un metanálisis son más sólidos que los resultados de cualquier estudio por sí solo.",
+				"text": "Proceso mediante el que se analizan datos de diferentes estudios realizados sobre el mismo tema. Por lo habitual, los resultados de un metanálisis son más sólidos que los resultados de cualquier estudio por sí solo."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 748816,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metanol",
+			"firstLetter": "m",
+			"prettyUrlName": "metanol",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/752604.mp3"
+			},
+			"definition": {
+				"html": "Tipo de alcohol que se utiliza para fabricar anticongelantes, plaguicidas, líquido limpiaparabrisas, diluyente de pintura, ciertos tipos de combustible y otras sustancias. El metanol se incendia con facilidad y es muy venenoso. Es uno de los muchos productos químicos dañinos que se encuentran en el humo del tabaco. También se llama alcohol de madera y alcohol metílico.",
+				"text": "Tipo de alcohol que se utiliza para fabricar anticongelantes, plaguicidas, líquido limpiaparabrisas, diluyente de pintura, ciertos tipos de combustible y otras sustancias. El metanol se incendia con facilidad y es muy venenoso. Es uno de los muchos productos químicos dañinos que se encuentran en el humo del tabaco. También se llama alcohol de madera y alcohol metílico."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 45786,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metaplasia",
+			"firstLetter": "m",
+			"prettyUrlName": "metaplasia",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707240.mp3"
+			},
+			"definition": {
+				"html": "Cambio en la forma que toman algunas células que, por lo general, no es normal en las células del tejido al que pertenecen.",
+				"text": "Cambio en la forma que toman algunas células que, por lo general, no es normal en las células del tejido al que pertenecen."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 306486,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metaplasia mieloide agnógena",
+			"firstLetter": "m",
+			"prettyUrlName": "metaplasia-mieloide-agnogena",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/710151.mp3"
+			},
+			"definition": {
+				"html": "Enfermedad crónica progresiva en la que la médula ósea es reemplazada por tejido fibroso y la sangre se produce en órganos tales como el hígado y el bazo, en vez de la médula ósea. Esta enfermedad se caracteriza por el agrandamiento del bazo y anemia progresiva. También se llama mieloesclerosis con metaplasia mieloide, mielofibrosis idiopática, mielofibrosis idiopática crónica,  y mielofibrosis primaria.",
+				"text": "Enfermedad crónica progresiva en la que la médula ósea es reemplazada por tejido fibroso y la sangre se produce en órganos tales como el hígado y el bazo, en vez de la médula ósea. Esta enfermedad se caracteriza por el agrandamiento del bazo y anemia progresiva. También se llama mieloesclerosis con metaplasia mieloide, mielofibrosis idiopática, mielofibrosis idiopática crónica,  y mielofibrosis primaria."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 44778,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metasincrónico",
+			"firstLetter": "m",
+			"prettyUrlName": "metasincronico",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/728132.mp3"
+			},
+			"definition": {
+				"html": "Que se presenta casi al mismo tiempo.",
+				"text": "Que se presenta casi al mismo tiempo."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 346490,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metastasectomía",
+			"firstLetter": "m",
+			"prettyUrlName": "metastasectomia",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/711569.mp3"
+			},
+			"definition": {
+				"html": "Cirugía para extraer una o más metástasis (tumores formados con células que se han diseminado desde el tumor primario). Cuando se extraen todas las metástasis, se llama metastasectomía completa.",
+				"text": "Cirugía para extraer una o más metástasis (tumores formados con células que se han diseminado desde el tumor primario). Cuando se extraen todas las metástasis, se llama metastasectomía completa."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 346489,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metastasectomía completa",
+			"firstLetter": "m",
+			"prettyUrlName": "metastasectomia-completa",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/711567.mp3"
+			},
+			"definition": {
+				"html": "Cirugía para extirpar todas las metástasis (tumores que se forman con células que se han diseminado desde el tumor primario).",
+				"text": "Cirugía para extirpar todas las metástasis (tumores que se forman con células que se han diseminado desde el tumor primario)."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 44058,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metastásico",
+			"firstLetter": "m",
+			"prettyUrlName": "metastasico",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704103.mp3"
+			},
+			"definition": {
+				"html": "Relacionado con la metástasis,\nque es la diseminación del cáncer desde el sitio primario\n(el lugar donde empezó) hasta otras partes del\ncuerpo.",
+				"text": "Relacionado con la metástasis,\nque es la diseminación del cáncer desde el sitio primario\n(el lugar donde empezó) hasta otras partes del\ncuerpo."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 46710,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metástasis",
+			"firstLetter": "m",
+			"prettyUrlName": "metastasis",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/709966.mp3"
+			},
+			"definition": {
+				"html": "Diseminación del cáncer de una parte del cuerpo en donde se formó originalmente a otra parte del cuerpo. Cuando ocurre una metástasis, las células  cancerosas se separan del tumor original (primario), viajan a través del sistema sanguíneo o linfático y forman un tumor nuevo en otros órganos o tejidos del cuerpo. El nuevo tumor metastásico es el mismo tipo de cáncer que el tumor primario. Por ejemplo, si el cáncer de mama se disemina al pulmón, las células cancerosas del pulmón son células del cáncer de mama, no son células de cáncer de pulmón. Las formas plural y singular de la palabra metástasis son iguales.",
+				"text": "Diseminación del cáncer de una parte del cuerpo en donde se formó originalmente a otra parte del cuerpo. Cuando ocurre una metástasis, las células  cancerosas se separan del tumor original (primario), viajan a través del sistema sanguíneo o linfático y forman un tumor nuevo en otros órganos o tejidos del cuerpo. El nuevo tumor metastásico es el mismo tipo de cáncer que el tumor primario. Por ejemplo, si el cáncer de mama se disemina al pulmón, las células cancerosas del pulmón son células del cáncer de mama, no son células de cáncer de pulmón. Las formas plural y singular de la palabra metástasis son iguales."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 415317,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metástasis a distancia",
+			"firstLetter": "m",
+			"prettyUrlName": "metastasis-a-distancia",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/713088.mp3"
+			},
+			"definition": {
+				"html": "Se refiere al cáncer que se ha diseminado desde el tumor original (primario) hasta órganos o nódulos linfáticos lejanos. También se conoce como cáncer distante.",
+				"text": "Se refiere al cáncer que se ha diseminado desde el tumor original (primario) hasta órganos o nódulos linfáticos lejanos. También se conoce como cáncer distante."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 45315,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metástasis de pulmón",
+			"firstLetter": "m",
+			"prettyUrlName": "metastasis-de-pulmon",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705305.mp3"
+			},
+			"definition": {
+				"html": "Cáncer que se ha diseminado del tumor original (primario) al pulmón.",
+				"text": "Cáncer que se ha diseminado del tumor original (primario) al pulmón."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 436738,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metástasis del sistema nervioso central",
+			"firstLetter": "m",
+			"prettyUrlName": "metastasis-del-sistema-nervioso-central",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/713633.mp3"
+			},
+			"definition": {
+				"html": "Metástasis del sistema nervioso central (SNC). Cáncer que se ha diseminado desde el tumor original (primario) hasta el sistema nervioso central (SNC). También se llama metástasis del SNC.",
+				"text": "Metástasis del sistema nervioso central (SNC). Cáncer que se ha diseminado desde el tumor original (primario) hasta el sistema nervioso central (SNC). También se llama metástasis del SNC."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 45644,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metástasis del SNC",
+			"firstLetter": "m",
+			"prettyUrlName": "metastasis-del-snc",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705726.mp3"
+			},
+			"definition": {
+				"html": "Cáncer que se ha diseminado desde el tumor original (primario) hasta el sistema nervioso central (SNC). También se llama metástasis del sistema nervioso central.",
+				"text": "Cáncer que se ha diseminado desde el tumor original (primario) hasta el sistema nervioso central (SNC). También se llama metástasis del sistema nervioso central."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 45623,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metástasis en la médula ósea",
+			"firstLetter": "m",
+			"prettyUrlName": "metastasis-en-la-medula-osea",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705693.mp3"
+			},
+			"definition": {
+				"html": "Cáncer que se diseminó desde el tumor original (primario) a la médula ósea.",
+				"text": "Cáncer que se diseminó desde el tumor original (primario) a la médula ósea."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 634128,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metástasis en tránsito",
+			"firstLetter": "m",
+			"prettyUrlName": "metastasis-en-transito",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/723101.mp3"
+			},
+			"definition": {
+				"html": "Tipo de metástasis en la que el cáncer de piel se disemina a través de un vaso linfático y comienza a crecer a  más de dos centímetros del tumor primario  antes de llegar al ganglio linfático más cercano.",
+				"text": "Tipo de metástasis en la que el cáncer de piel se disemina a través de un vaso linfático y comienza a crecer a  más de dos centímetros del tumor primario  antes de llegar al ganglio linfático más cercano."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 45314,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metástasis encefálica",
+			"firstLetter": "m",
+			"prettyUrlName": "metastasis-encefalica",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705302.mp3"
+			},
+			"definition": {
+				"html": "Cáncer que se diseminó desde el tumor original (primario) hasta el encéfalo.",
+				"text": "Cáncer que se diseminó desde el tumor original (primario) hasta el encéfalo."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 45316,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metástasis hepática",
+			"firstLetter": "m",
+			"prettyUrlName": "metastasis-hepatica",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705306.mp3"
+			},
+			"definition": {
+				"html": "Cáncer que se ha diseminado desde el tumor original (primario) al hígado.",
+				"text": "Cáncer que se ha diseminado desde el tumor original (primario) al hígado."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 45318,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metástasis leptomeníngea",
+			"firstLetter": "m",
+			"prettyUrlName": "metastasis-leptomeningea",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705310.mp3"
+			},
+			"definition": {
+				"html": "Problema grave que se puede presentar cuando las células de un cáncer se diseminan desde el tumor original (primario) hasta las meninges (capas delgadas de tejido que cubren y protegen el cerebro y la médula espinal). Puede ocurrir en muchos tipos de cáncer, pero es más común en el caso del melanoma y los cánceres de mama, pulmón y aparato digestivo. El cáncer puede hacer que las meninges se inflamen. También se llama carcinoma leptomeníngeo, carcinomatosis leptomeníngea, carcinomatosis meníngea, meningitis carcinomatosa, meningitis neoplásica,  y metástasis meníngea.",
+				"text": "Problema grave que se puede presentar cuando las células de un cáncer se diseminan desde el tumor original (primario) hasta las meninges (capas delgadas de tejido que cubren y protegen el cerebro y la médula espinal). Puede ocurrir en muchos tipos de cáncer, pero es más común en el caso del melanoma y los cánceres de mama, pulmón y aparato digestivo. El cáncer puede hacer que las meninges se inflamen. También se llama carcinoma leptomeníngeo, carcinomatosis leptomeníngea, carcinomatosis meníngea, meningitis carcinomatosa, meningitis neoplásica,  y metástasis meníngea."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 45782,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metástasis meníngea",
+			"firstLetter": "m",
+			"prettyUrlName": "metastasis-meningea",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707235.mp3"
+			},
+			"definition": {
+				"html": "Problema grave que se puede presentar cuando las células de un cáncer se diseminan desde el tumor original (primario) hasta las meninges (capas delgadas de tejido que cubren y protegen el cerebro y la médula espinal). Puede ocurrir en muchos tipos de cáncer, pero es más común en el caso del melanoma y los cánceres de mama, pulmón y aparato digestivo. El cáncer puede hacer que las meninges se inflamen. También se llama carcinoma leptomeníngeo, carcinomatosis leptomeníngea, carcinomatosis meníngea, meningitis carcinomatosa, meningitis neoplásica,  y metástasis leptomeníngea.",
+				"text": "Problema grave que se puede presentar cuando las células de un cáncer se diseminan desde el tumor original (primario) hasta las meninges (capas delgadas de tejido que cubren y protegen el cerebro y la médula espinal). Puede ocurrir en muchos tipos de cáncer, pero es más común en el caso del melanoma y los cánceres de mama, pulmón y aparato digestivo. El cáncer puede hacer que las meninges se inflamen. También se llama carcinoma leptomeníngeo, carcinomatosis leptomeníngea, carcinomatosis meníngea, meningitis carcinomatosa, meningitis neoplásica,  y metástasis leptomeníngea."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 45317,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metástasis ósea",
+			"firstLetter": "m",
+			"prettyUrlName": "metastasis-osea",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/705308.mp3"
+			},
+			"definition": {
+				"html": "Cáncer que se diseminó desde el tumor original (primario) al hueso.",
+				"text": "Cáncer que se diseminó desde el tumor original (primario) al hueso."
+			},
+			"relatedResources": [],
+			"media": []
+		},
+		{
+			"termId": 46283,
+			"language": "es",
+			"dictionary": "Cancer.gov",
+			"audience": "Patient",
+			"termName": "metastatizar",
+			"firstLetter": "m",
+			"prettyUrlName": "metastatizar",
+			"pronunciation": {
+				"key": null,
+				"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/707970.mp3"
+			},
+			"definition": {
+				"html": "Diseminarse de una parte del cuerpo a otra. Cuando las células cancerosas se metastatizan y forman tumores secundarios, las células del tumor metastásico son como las del tumor original (primario).",
+				"text": "Diseminarse de una parte del cuerpo a otra. Cuando las células cancerosas se metastatizan y forman tumores secundarios, las células del tumor metastásico son como las del tumor original (primario)."
+			},
+			"relatedResources": [],
+			"media": []
+		}
+	],
+	"links": null
 }

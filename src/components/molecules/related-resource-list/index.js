@@ -1,1 +1,1 @@
-export { default } from "./related-resource-list";
+export { default } from './related-resource-list';

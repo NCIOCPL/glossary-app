@@ -1,20 +1,20 @@
 {
-    "termId": 43966,
-    "language": "en",
-    "dictionary": "Cancer.gov",
-    "audience": "Patient",
-    "termName": "stage II cutaneous T-cell lymphoma",
-    "firstLetter": "s",
-    "prettyUrlName": "stage-ii-cutaneous-t-cell-lymphoma",
-    "pronunciation": {
-        "key": "(... kyoo-TAY-nee-us T-sel lim-FOH-muh)",
-        "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/703959.mp3"
-    },
-    "definition": {
-        "html": "Stage II cutaneous T-cell lymphoma may be either of the following: (1) stage IIA, in which the skin has red, dry, scaly patches but no tumors, and lymph nodes are enlarged but do not contain cancer cells; (2) stage IIB, in which tumors are found on the skin, and lymph nodes are enlarged but do not contain cancer cells.",
-        "text": "Stage II cutaneous T-cell lymphoma may be either of the following: (1) stage IIA, in which the skin has red, dry, scaly patches but no tumors, and lymph nodes are enlarged but do not contain cancer cells; (2) stage IIB, in which tumors are found on the skin, and lymph nodes are enlarged but do not contain cancer cells."
-    },
-    "otherLanguages": [],
-    "relatedResources": [],
-    "media": []
+	"termId": 43966,
+	"language": "en",
+	"dictionary": "Cancer.gov",
+	"audience": "Patient",
+	"termName": "stage II cutaneous T-cell lymphoma",
+	"firstLetter": "s",
+	"prettyUrlName": "stage-ii-cutaneous-t-cell-lymphoma",
+	"pronunciation": {
+		"key": "(... kyoo-TAY-nee-us T-sel lim-FOH-muh)",
+		"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/703959.mp3"
+	},
+	"definition": {
+		"html": "Stage II cutaneous T-cell lymphoma may be either of the following: (1) stage IIA, in which the skin has red, dry, scaly patches but no tumors, and lymph nodes are enlarged but do not contain cancer cells; (2) stage IIB, in which tumors are found on the skin, and lymph nodes are enlarged but do not contain cancer cells.",
+		"text": "Stage II cutaneous T-cell lymphoma may be either of the following: (1) stage IIA, in which the skin has red, dry, scaly patches but no tumors, and lymph nodes are enlarged but do not contain cancer cells; (2) stage IIB, in which tumors are found on the skin, and lymph nodes are enlarged but do not contain cancer cells."
+	},
+	"otherLanguages": [],
+	"relatedResources": [],
+	"media": []
 }

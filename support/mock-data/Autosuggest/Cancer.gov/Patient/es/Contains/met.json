@@ -1,102 +1,102 @@
 [
-  {
-    "termId": 44332,
-    "termName": "acidosis metabólica"
-  },
-  {
-    "termId": 748817,
-    "termName": "alcohol metílico"
-  },
-  {
-    "termId": 600466,
-    "termName": "bromuro de metilnaltrexona"
-  },
-  {
-    "termId": 44243,
-    "termName": "carcinoma metaplásico"
-  },
-  {
-    "termId": 454762,
-    "termName": "clorhidrato de metadona"
-  },
-  {
-    "termId": 631045,
-    "termName": "clorhidrato de metformina"
-  },
-  {
-    "termId": 45348,
-    "termName": "clorhidrato de metilfenidato"
-  },
-  {
-    "termId": 648993,
-    "termName": "clorhidrato de metoxilamina"
-  },
-  {
-    "termId": 632172,
-    "termName": "factor de células madre humano metionil recombinante"
-  },
-  {
-    "termId": 736800,
-    "termName": "gammagrafía con metayodobencilguanidina"
-  },
-  {
-    "termId": 561722,
-    "termName": "gen del metabolismo esteroideo"
-  },
-  {
-    "termId": 794425,
-    "termName": "gen MET"
-  },
-  {
-    "termId": 655033,
-    "termName": "grupo metilo"
-  },
-  {
-    "termId": 784255,
-    "termName": "inhibidor de la histona metiltransferasa"
-  },
-  {
-    "termId": 666675,
-    "termName": "inhibidor GSK1363089 de MET/VEGFR-2"
-  },
-  {
-    "termId": 306489,
-    "termName": "mieloesclerosis con metaplasia mieloide"
-  },
-  {
-    "termId": 45805,
-    "termName": "no metastásico"
-  },
-  {
-    "termId": 377711,
-    "termName": "quimioterapia metronómica"
-  },
-  {
-    "termId": 643126,
-    "termName": "síndrome metabólico"
-  },
-  {
-    "termId": 643125,
-    "termName": "síndrome metabólico X"
-  },
-  {
-    "termId": 794369,
-    "termName": "Staphylococcus aureus resistente a la meticilina"
-  },
-  {
-    "termId": 797421,
-    "termName": "supervivencia sin metástasis"
-  },
-  {
-    "termId": 44057,
-    "termName": "terapia metabólica"
-  },
-  {
-    "termId": 446118,
-    "termName": "tipo metabólico"
-  },
-  {
-    "termId": 44055,
-    "termName": "trastorno metabólico"
-  }
+	{
+		"termId": 44332,
+		"termName": "acidosis metabólica"
+	},
+	{
+		"termId": 748817,
+		"termName": "alcohol metílico"
+	},
+	{
+		"termId": 600466,
+		"termName": "bromuro de metilnaltrexona"
+	},
+	{
+		"termId": 44243,
+		"termName": "carcinoma metaplásico"
+	},
+	{
+		"termId": 454762,
+		"termName": "clorhidrato de metadona"
+	},
+	{
+		"termId": 631045,
+		"termName": "clorhidrato de metformina"
+	},
+	{
+		"termId": 45348,
+		"termName": "clorhidrato de metilfenidato"
+	},
+	{
+		"termId": 648993,
+		"termName": "clorhidrato de metoxilamina"
+	},
+	{
+		"termId": 632172,
+		"termName": "factor de células madre humano metionil recombinante"
+	},
+	{
+		"termId": 736800,
+		"termName": "gammagrafía con metayodobencilguanidina"
+	},
+	{
+		"termId": 561722,
+		"termName": "gen del metabolismo esteroideo"
+	},
+	{
+		"termId": 794425,
+		"termName": "gen MET"
+	},
+	{
+		"termId": 655033,
+		"termName": "grupo metilo"
+	},
+	{
+		"termId": 784255,
+		"termName": "inhibidor de la histona metiltransferasa"
+	},
+	{
+		"termId": 666675,
+		"termName": "inhibidor GSK1363089 de MET/VEGFR-2"
+	},
+	{
+		"termId": 306489,
+		"termName": "mieloesclerosis con metaplasia mieloide"
+	},
+	{
+		"termId": 45805,
+		"termName": "no metastásico"
+	},
+	{
+		"termId": 377711,
+		"termName": "quimioterapia metronómica"
+	},
+	{
+		"termId": 643126,
+		"termName": "síndrome metabólico"
+	},
+	{
+		"termId": 643125,
+		"termName": "síndrome metabólico X"
+	},
+	{
+		"termId": 794369,
+		"termName": "Staphylococcus aureus resistente a la meticilina"
+	},
+	{
+		"termId": 797421,
+		"termName": "supervivencia sin metástasis"
+	},
+	{
+		"termId": 44057,
+		"termName": "terapia metabólica"
+	},
+	{
+		"termId": 446118,
+		"termName": "tipo metabólico"
+	},
+	{
+		"termId": 44055,
+		"termName": "trastorno metabólico"
+	}
 ]

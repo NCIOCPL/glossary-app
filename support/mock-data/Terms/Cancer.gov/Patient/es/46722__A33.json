@@ -1,20 +1,16 @@
 {
-  "termId":46722,
-  "language":"es",
-  "dictionary":"Cancer.gov",
-  "audience":"Patient",
-  "termName":"A33",
-  "firstLetter":"a",
-  "prettyUrlName":"a33",
-  "pronunciation":null,
-  "definition":{
-    "html":"Tipo de anticuerpo monoclonal que se usa para la detección o el tratamiento de cáncer. Los anticuerpos monoclonales son sustancias producidas en el laboratorio que pueden localizar las células cancerosas y unirse a ellas.",
-    "text":"Tipo de anticuerpo monoclonal que se usa para la detección o el tratamiento de cáncer. Los anticuerpos monoclonales son sustancias producidas en el laboratorio que pueden localizar las células cancerosas y unirse a ellas."
-  },
-  "relatedResources":[
-
-  ],
-  "media":[
-
-  ]
+	"termId": 46722,
+	"language": "es",
+	"dictionary": "Cancer.gov",
+	"audience": "Patient",
+	"termName": "A33",
+	"firstLetter": "a",
+	"prettyUrlName": "a33",
+	"pronunciation": null,
+	"definition": {
+		"html": "Tipo de anticuerpo monoclonal que se usa para la detección o el tratamiento de cáncer. Los anticuerpos monoclonales son sustancias producidas en el laboratorio que pueden localizar las células cancerosas y unirse a ellas.",
+		"text": "Tipo de anticuerpo monoclonal que se usa para la detección o el tratamiento de cáncer. Los anticuerpos monoclonales son sustancias producidas en el laboratorio que pueden localizar las células cancerosas y unirse a ellas."
+	},
+	"relatedResources": [],
+	"media": []
 }
