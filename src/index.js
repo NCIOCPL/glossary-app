@@ -82,8 +82,7 @@ const initialize = ({
 					pageContentGroup={dictionaryTitle}
 					publishedDate={analyticsPublishedDate}
 					dictionaryTitle={dictionaryTitle}
-					analyticsName={analyticsName}
-					>
+					analyticsName={analyticsName}>
 					<ClientContextProvider client={getAxiosClient(initialState)}>
 						<ErrorBoundary>
 							<App />

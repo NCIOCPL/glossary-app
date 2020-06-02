@@ -48,6 +48,7 @@ describe('Home component(English)', () => {
 			dictionaryName,
 			dictionaryTitle,
 			language,
+			canonicalHost: 'https://cancer.gov',
 		},
 		dispatch,
 	]);

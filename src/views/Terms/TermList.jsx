@@ -13,16 +13,28 @@ import {
 import { useStateValue } from '../../store/store';
 import Term from './Term';
 import { i18n } from '../../utils';
+import { useTracking } from 'react-tracking';
+import { useLocation } from 'react-router';
+
+const getMetaTitle = (dictionaryTitle, siteName) => {
+	return `${dictionaryTitle} - ${siteName}`;
+};
 
 const TermList = ({ matchType, query, type }) => {
+	const tracking = useTracking();
+	const location = useLocation();
 	const queryAction =
 		type === queryType.SEARCH
 			? getSearchResults(query, matchType)
 			: getExpandCharResults(query);
 	const { loading, payload } = useCustomQuery(queryAction);
-	const [{ language }] = useStateValue();
-	const { DefinitionPath } = useAppPaths();
+	const [
+		{ language, canonicalHost, dictionaryTitle, siteName, basePath },
+	] = useStateValue();
+	const { DefinitionPath, HomePath } = useAppPaths();
 	const navigate = useNavigate();
+	const { pathname } = location;
+	const isHome = pathname === HomePath() || pathname === basePath;
 
 	useEffect(() => {
 		if (payload && payload.results && payload.results.length === 1) {
@@ -37,6 +49,57 @@ const TermList = ({ matchType, query, type }) => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
+
+	const trackLoad = (payload) => {
+		// this object contans all common parameters for page load for search and expand views
+		const commonParams = {
+			type: 'PageLoad',
+			title: siteName,
+			metaTitle: getMetaTitle(dictionaryTitle, siteName),
+			numberResults: payload.meta.totalResults,
+		};
+		//specific parameters for SEARCH query
+		const searchParams = {
+			event: 'GlossaryApp:Load:SearchResults',
+			name:
+				canonicalHost.replace('https://', '') +
+				'/' +
+				queryType.SEARCH +
+				'/' +
+				decodeURIComponent(query),
+			searchType: matchType === 'Begins' ? 'StartsWith' : 'Contains',
+			searchKeyword: decodeURIComponent(query),
+			...commonParams,
+		};
+		//specific parameters for EXPAND query
+		const expandParams = {
+			event: 'GlossaryApp:Load:ExpandResults',
+			name:
+				canonicalHost.replace('https://', '') +
+				'/' +
+				queryType.EXPAND +
+				'/' +
+				decodeURIComponent(query).toLocaleLowerCase(),
+			...(isHome && { name: canonicalHost.replace('https://', '') + '/' }),
+			letter: decodeURIComponent(query).toLocaleLowerCase(),
+			...commonParams,
+		};
+		// based or a query type create an object to be passed on to tracking.trackEvent({})
+		const expandOrSearch =
+			type === 'search' || type === 'buscar'
+				? { ...searchParams }
+				: { ...expandParams };
+
+		tracking.trackEvent({
+			...expandOrSearch,
+		});
+	};
+
+	useEffect(() => {
+		if (!loading && payload) {
+			trackLoad(payload);
+		}
+	}, [tracking, loading, payload]);
 
 	return (
 		<>

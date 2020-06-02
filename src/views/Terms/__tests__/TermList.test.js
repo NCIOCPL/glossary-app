@@ -8,6 +8,7 @@ import { testIds } from '../../../constants';
 import { TermList } from '../index';
 import { useStateValue } from '../../../store/store';
 import fixtures from '../../../utils/fixtures';
+import { MockAnalyticsProvider } from '../../../tracking';
 
 jest.mock('../../../store/store');
 
@@ -58,16 +59,19 @@ describe('TermList component rendered with English', () => {
 				dictionaryTitle,
 				language,
 				searchBoxTitle,
+				canonicalHost: 'https://cancer.gov',
 			},
 		]);
 
 		await act(async () => {
 			wrapper = render(
-				<MemoryRouter initialEntries={['/']}>
-					<ClientContextProvider client={client}>
-						<TermList query={query} />
-					</ClientContextProvider>
-				</MemoryRouter>
+				<MockAnalyticsProvider>
+					<MemoryRouter initialEntries={['/']}>
+						<ClientContextProvider client={client}>
+							<TermList query={query} />
+						</ClientContextProvider>
+					</MemoryRouter>
+				</MockAnalyticsProvider>
 			);
 		});
 	});
@@ -112,16 +116,19 @@ describe('TermList component rendered with English', () => {
 					dictionaryTitle,
 					language,
 					searchBoxTitle,
+					canonicalHost: 'https://cancer.gov',
 				},
 			]);
 
 			await act(async () => {
 				wrapper = render(
-					<MemoryRouter initialEntries={['/']}>
-						<ClientContextProvider client={client}>
-							<TermList query={query} />
-						</ClientContextProvider>
-					</MemoryRouter>
+					<MockAnalyticsProvider>
+						<MemoryRouter initialEntries={['/']}>
+							<ClientContextProvider client={client}>
+								<TermList query={query} />
+							</ClientContextProvider>
+						</MemoryRouter>
+					</MockAnalyticsProvider>
 				);
 			});
 			const { queryByTestId } = wrapper;
@@ -133,11 +140,13 @@ describe('TermList component rendered with English', () => {
 
 			await act(async () => {
 				render(
-					<MemoryRouter initialEntries={['/']}>
-						<ClientContextProvider client={client}>
-							<TermList query={query} />
-						</ClientContextProvider>
-					</MemoryRouter>
+					<MockAnalyticsProvider>
+						<MemoryRouter initialEntries={['/']}>
+							<ClientContextProvider client={client}>
+								<TermList query={query} />
+							</ClientContextProvider>
+						</MemoryRouter>
+					</MockAnalyticsProvider>
 				);
 			});
 			expect(window.scrollTo).toHaveBeenCalledTimes(1);
@@ -201,11 +210,13 @@ describe('TermList component rendered with English', () => {
 
 			await act(async () => {
 				wrapper = await render(
-					<MemoryRouter initialEntries={['/']}>
-						<ClientContextProvider client={client}>
-							<ComponentWithLocation RenderComponent={TermList} />
-						</ClientContextProvider>
-					</MemoryRouter>
+					<MockAnalyticsProvider>
+						<MemoryRouter initialEntries={['/']}>
+							<ClientContextProvider client={client}>
+								<ComponentWithLocation RenderComponent={TermList} />
+							</ClientContextProvider>
+						</MemoryRouter>
+					</MockAnalyticsProvider>
 				);
 			});
 			expect(location).toMatchObject(expectedLocationObject);
@@ -262,11 +273,13 @@ describe('TermList component rendered with English', () => {
 
 			await act(async () => {
 				wrapper = await render(
-					<MemoryRouter initialEntries={['/']}>
-						<ClientContextProvider client={client}>
-							<ComponentWithLocation RenderComponent={TermList} />
-						</ClientContextProvider>
-					</MemoryRouter>
+					<MockAnalyticsProvider>
+						<MemoryRouter initialEntries={['/']}>
+							<ClientContextProvider client={client}>
+								<ComponentWithLocation RenderComponent={TermList} />
+							</ClientContextProvider>
+						</MemoryRouter>
+					</MockAnalyticsProvider>
 				);
 			});
 			expect(location).toMatchObject(expectedLocationObject);
