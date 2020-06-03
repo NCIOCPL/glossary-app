@@ -7,6 +7,7 @@ import './styles/dictionaries.scss';
 
 import { useAppPaths } from './hooks';
 import Definition from './views/Definition';
+import PageNotFound from './views/ErrorBoundary/PageNotFound';
 import Home from './views/Home';
 
 const App = ({ tracking }) => {
@@ -37,6 +38,9 @@ const App = ({ tracking }) => {
 				<Route path={SearchPathNoParam()} element={<Home />} />
 				<Route path={SearchPathSpanish()} element={<Home />} />
 				<Route path={SearchPathSpanishNoParam()} element={<Home />} />
+				{window?.location?.host === 'react-app-dev.cancer.gov' &&
+					<Route path="/*" element={<PageNotFound />} />
+				}
 			</Routes>
 		</Router>
 	);

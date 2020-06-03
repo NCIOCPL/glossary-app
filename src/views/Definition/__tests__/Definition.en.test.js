@@ -5,7 +5,10 @@ import { ClientContextProvider } from 'react-fetching-library';
 
 import { testIds } from '../../../constants';
 import Definition from '../Definition';
+import ErrorBoundary from '../../ErrorBoundary'
+import { setAudience, setDictionaryName, setLanguage } from '../../../services/api/endpoints'
 import { useStateValue } from '../../../store/store.js';
+import { MockAnalyticsProvider } from '../../../tracking'
 import fixtures from '../../../utils/fixtures';
 
 jest.mock('react-router');
@@ -249,5 +252,82 @@ describe('Definition component with English', () => {
 				container.querySelectorAll('figure.image-left-medium').length
 			).toEqual(0);
 		});
+	});
+
+	describe( 'Display "Page Not Found" for pretty URLs without definitions',() => {
+
+		beforeEach( () => {
+			cleanup();
+			// Since this test throws an error which gets logged to the console
+			// Spy on console error and swap with mock implementation to prevent
+			// logging since it's an expected effect.
+			jest.spyOn(console, 'error');
+			console.error.mockImplementation(() => {});
+		});
+		afterEach( () => {
+			// Restore console error log in cleanup
+			console.error.mockRestore();
+			cleanup();
+		});
+
+		test('should display page not found for pretty URL that does not exist', async () => {
+			const dictionaryName = 'Cancer.gov';
+			const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
+			const idOrName = 'chicken';
+			const language = 'en';
+			const windowLocation = {
+				pathname: `/def/${idOrName}`,
+			};
+			setDictionaryName(dictionaryName);
+			setAudience('Patient');
+			setLanguage(language);
+			Object.defineProperty(window, 'location', { value: windowLocation, writable: true });
+
+			useLocation.mockReturnValue({
+				location: {},
+			});
+			useParams.mockReturnValue({
+				idOrName,
+			});
+			useStateValue.mockReturnValue([
+				{
+					altLanguageDictionaryBasePath: '/diccionario',
+					languageToggleSelector: '#LangList1 a',
+					appId: 'mockAppId',
+					canonicalHost: 'https://example.org',
+					basePath: '/',
+					dictionaryEndpoint: '/',
+					dictionaryName,
+					dictionaryTitle,
+					language,
+				},
+			]);
+
+			const client = {
+				query: async () => ({
+					error: true,
+					status: 404,
+					loading: false,
+					payload: {
+						Message: "No match for dictionary 'Cancer.gov', audience 'Patient', language 'en', pretty URL name 'chicken'.",
+					},
+				}),
+			};
+
+			await act(async () => {
+				render(
+						<MockAnalyticsProvider>
+							<ClientContextProvider client={client}>
+								<ErrorBoundary>
+									<Definition />
+								</ErrorBoundary>
+							</ClientContextProvider>
+						</MockAnalyticsProvider>
+				);
+			});
+
+			expect(screen.getByText("Page Not Found")).toBeInTheDocument();
+		});
+
 	});
 });

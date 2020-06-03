@@ -153,6 +153,13 @@ const getTermTotalCount = async (req, res, next) => {
 const getTermByIdOrPrettyUrl = async (req, res, next) => {
 	const { dictionary, audience, language, id_or_purl } = req.params;
 	const lookupPurl = id_or_purl.toLowerCase();
+
+	// Return a 500 specifically for an
+	// id or purl requested with foobar
+	if ( lookupPurl === 'foobar') {
+		res.status(500).end();
+	}
+
 	const searchDir = path.join(
 		__dirname,
 		'..',
