@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { useNavigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { useAppPaths } from '../../hooks';
+import { useNavigate, useParams } from 'react-router-dom';
 import track, { useTracking } from 'react-tracking';
 import {
 	FigureCgovImage,
@@ -13,7 +11,7 @@ import {
 	RelatedResourceList,
 } from '../../components';
 import { testIds } from '../../constants';
-import { useCustomQuery } from '../../hooks';
+import { useAppPaths, useCustomQuery } from '../../hooks';
 import { getTermDefinition } from '../../services/api/actions';
 import { useStateValue } from '../../store/store.js';
 import { i18n } from '../../utils';
@@ -79,27 +77,31 @@ const Definition = () => {
 			}
 
 			// redirect to URL with pretty URL name if ID is used
-			if ( payload.prettyUrlName && (idOrName.match(/^[0-9]+$/) != null)) {
-				navigate(DefinitionPath({idOrName: payload.prettyUrlName}));
+			if (payload.prettyUrlName && (idOrName.match(/^[0-9]+$/) != null)) {
+				navigate(DefinitionPath({ idOrName: payload.prettyUrlName }));
 				return;
 			}
 
-			tracking.trackEvent({
-				type: 'PageLoad',
-				event: 'GlossaryApp:Load:Definition',
-				//TODO: this is dirty and should be set internally based on the value passed in.
-				name:
-					canonicalHost.replace('https://', '') +
-					DefinitionPath({
-						idOrName: payload.prettyUrlName
-							? payload.prettyUrlName
-							: payload.termId,
-					}),
-				title: getPageTitle(payload),
-				metaTitle: getMetaTitle(payload, dictionaryTitle, siteName, language),
-				term: payload.termName,
-				id: payload.termId,
-			});
+			// Only trigger tracking event when payload has a prettyUrlName or termId
+			// For example tracking should not be triggered when payload returns a 404
+			if (payload.prettyUrlName || payload.termId) {
+				tracking.trackEvent({
+					type: 'PageLoad',
+					event: 'GlossaryApp:Load:Definition',
+					//TODO: this is dirty and should be set internally based on the value passed in.
+					name:
+						canonicalHost.replace('https://', '') +
+						DefinitionPath({
+							idOrName: payload.prettyUrlName
+								? payload.prettyUrlName
+								: payload.termId,
+						}),
+					title: getPageTitle(payload),
+					metaTitle: getMetaTitle(payload, dictionaryTitle, siteName, language),
+					term: payload.termName,
+					id: payload.termId,
+				});
+			}
 		}
 	}, [tracking, loading, payload]);
 
@@ -119,9 +121,9 @@ const Definition = () => {
 		if (definitionSplit.length >= 2) {
 			definitionSplit = definitionSplit.slice(0, 2);
 			return definitionSplit.join('');
-		} else {
-			return definitionSplit;
 		}
+
+		return definitionSplit;
 	};
 
 	const renderHelmet = () => {
@@ -271,39 +273,39 @@ const Definition = () => {
 		return (
 			<>
 				{payload.media.length > 0 &&
-					payload.media.map((mediaItem) => {
-						if (mediaItem.Type === 'Image') {
-							const imgArr = mediaItem.ImageSources;
-							const thumbUri = imgArr.find((imgItem) => imgItem.Size === '571')
-								.Src;
-							const enlargeUri = imgArr.find(
-								(imgItem) => imgItem.Size === 'original'
-							).Src;
-							return (
-								<FigureCgovImage
-									altText={mediaItem.Alt}
-									caption={mediaItem.Caption}
-									classes="image-left-medium"
-									key={mediaItem.Ref}
-									lang={language}
-									thumb_uri={thumbUri}
-									enlarge_uri={enlargeUri}
-								/>
-							);
-						} else if (mediaItem.Type === 'Video') {
-							return (
-								<FigureCgovVideo
-									classes="video center size75"
-									key={mediaItem.UniqueId}
-									videoId={mediaItem.UniqueId}
-									videoTitle={mediaItem.Title}>
-									{mediaItem.Caption}
-								</FigureCgovVideo>
-							);
-						} else {
-							return false;
-						}
-					})}
+				payload.media.map((mediaItem) => {
+					if (mediaItem.Type === 'Image') {
+						const imgArr = mediaItem.ImageSources;
+						const thumbUri = imgArr.find((imgItem) => imgItem.Size === '571')
+							.Src;
+						const enlargeUri = imgArr.find(
+							(imgItem) => imgItem.Size === 'original'
+						).Src;
+						return (
+							<FigureCgovImage
+								altText={mediaItem.Alt}
+								caption={mediaItem.Caption}
+								classes="image-left-medium"
+								key={mediaItem.Ref}
+								lang={language}
+								thumb_uri={thumbUri}
+								enlarge_uri={enlargeUri}
+							/>
+						);
+					} else if (mediaItem.Type === 'Video') {
+						return (
+							<FigureCgovVideo
+								classes="video center size75"
+								key={mediaItem.UniqueId}
+								videoId={mediaItem.UniqueId}
+								videoTitle={mediaItem.Title}>
+								{mediaItem.Caption}
+							</FigureCgovVideo>
+						);
+					} else {
+						return false;
+					}
+				})}
 			</>
 		);
 	};
@@ -331,7 +333,7 @@ const Definition = () => {
 					)}
 					{((payload.relatedResources && payload.relatedResources.length > 0) ||
 						(payload.media && payload.media.length > 0)) &&
-						renderRelatedResources()}
+					renderRelatedResources()}
 					<SearchBox showTitle />
 				</>
 			)}
