@@ -18,5 +18,6 @@ Feature: Analytics click event on A-Z list
         And the event has the following data
             | key             | value                          |
             | dictionaryTitle | NCI Dictionary of Cancer Terms |
+						| analyticsName		| CancerTerms										 |
             | page            | def                            |
             | letter          | A                              |

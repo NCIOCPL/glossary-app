@@ -28,6 +28,7 @@ Feature: Page Load Analytics
     And the event has the following additional details for the page
       | key             | value                          |
       | dictionaryTitle | NCI Dictionary of Cancer Terms |
+			| analyticsName		| CancerTerms										 |
       | page            | def                            |
       | term            | metastatic                     |
       | id              | 44058                          |

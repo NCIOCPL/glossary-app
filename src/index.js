@@ -13,6 +13,11 @@ import { ClientContextProvider } from 'react-fetching-library';
 import { getAxiosClient } from './services/api/axios-client';
 import ErrorBoundary from './views/ErrorBoundary';
 
+/**
+ * Initializes the Glossary App.
+ * @param {object} params - Configuration for the app
+ * @param {string} params.analyticsName - The name of the dictionary for analytics purposes.
+ */
 const initialize = ({
 	altLanguageDictionaryBasePath = '',
 	appId = '@@/DEFAULT_DICTIONARY',
@@ -31,6 +36,7 @@ const initialize = ({
 	dictionaryTitle = 'NCI Dictionary of Cancer Terms',
 	analyticsChannel = 'unknown',
 	analyticsPublishedDate = 'unknown',
+	analyticsName = 'CancerTerms',
 	language = 'en', // en|es (English|Spanish)
 	languageToggleSelector = '#LangList1 a',
 	rootId = 'NCI-app-root',
@@ -54,6 +60,7 @@ const initialize = ({
 		dictionaryTitle,
 		analyticsChannel,
 		analyticsPublishedDate,
+		analyticsName,
 		language,
 		languageToggleSelector,
 		searchBoxTitle,
@@ -74,7 +81,9 @@ const initialize = ({
 					pageChannel={analyticsChannel}
 					pageContentGroup={dictionaryTitle}
 					publishedDate={analyticsPublishedDate}
-					dictionaryTitle={dictionaryTitle}>
+					dictionaryTitle={dictionaryTitle}
+					analyticsName={analyticsName}
+					>
 					<ClientContextProvider client={getAxiosClient(initialState)}>
 						<ErrorBoundary>
 							<App />
