@@ -13,6 +13,13 @@
 	}
 }
 
-.term-title + .term-description {
-	margin-top: 10px;
+.term-title {
+	+ .pronunciation {
+		.pronunciation__key {
+			margin-left: 8px;
+		}
+	}
+	+ .term-description {
+		margin-top: 10px;
+	}
 }
