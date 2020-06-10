@@ -53,16 +53,29 @@ Given('user appends {string} to the URL', (location) => {
 	cy.visit(`${baseURL}${location}`);
 });
 
+When('user is searching {string} for the term {string}', (searchMode, term) => {
+   cy.visit('/');
+	const searchmode = searchMode.toLowerCase() === "startswith" || searchMode.toLowerCase() === "empiezacon" ? 'Begins' : 'Contains';
+	cy.window().then((win) => {
+		if (win.INT_TEST_APP_PARAMS) {
+			const searchLang =
+				win.INT_TEST_APP_PARAMS.language === 'en' ? queryType.SEARCH : queryType.SEARCH_SPANISH;
+				cy.visit(`/${searchLang}/${term}/?searchMode=${searchmode}`);
+		}
+	});
+});
+
 Given(
 	'the user is viewing a results page based on clicking a letter like {string} in the dictionary',
 	(letter) => {
+		cy.visit('/');
 		cy.window().then((win) => {
 			if (win.INT_TEST_APP_PARAMS) {
 				const expandBaseLocation =
 					win.INT_TEST_APP_PARAMS.language === 'es'
 						? queryType.EXPAND_SPANISH
 						: queryType.EXPAND;
-				cy.visit(`${baseURL}/${expandBaseLocation}/${letter}`);
+				cy.visit(`${expandBaseLocation}/${letter}`);
 			}
 		});
 	}
@@ -400,8 +413,8 @@ Then(
 			var row = rawTable[i];
 			cy.get(
 				`div[data-testid='${testIds.MORE_INFORMATION}'] ul li a[href='` +
-					row[0] +
-					`']`
+				row[0] +
+				`']`
 			).should('have.text', row[1]);
 		}
 	}
@@ -704,10 +717,3 @@ Then('browser waits', () => {
 	cy.wait(2000);
 });
 
-When('NCIDataLayer is being captured', () => {
-	cy.window().then((win) => {
-		while (win.NCIDataLayer.length > 0) {
-			win.NCIDataLayer.pop();
-		}
-	});
-});

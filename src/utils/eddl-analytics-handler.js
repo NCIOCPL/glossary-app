@@ -3,7 +3,7 @@
  *
  * @param {Window} window The window object.
  */
-export const EDDLAnalyticsHandler = (window) => {
+export const EDDLAnalyticsHandler = (window, isDebugging) => {
 	window.NCIDataLayer = window.NCIDataLayer || [];
 	return (payload) => {
 		if (!payload.type || !payload.event) {
@@ -33,12 +33,14 @@ export const EDDLAnalyticsHandler = (window) => {
 					// The rest should be the data.
 					...data
 				} = payload;
-				window.NCIDataLayer.push({
+				const eventData = {
 					type,
 					event,
 					linkName,
 					data: data ? data : {},
-				});
+				};
+				window.NCIDataLayer.push(eventData);
+				if (isDebugging) { console.log(eventData); }
 				break;
 			}
 			case 'PageLoad': {
@@ -55,7 +57,7 @@ export const EDDLAnalyticsHandler = (window) => {
 					publishedDate,
 					...additionalDetails
 				} = payload;
-				window.NCIDataLayer.push({
+				const eventData = {
 					type,
 					event,
 					page: {
@@ -70,7 +72,9 @@ export const EDDLAnalyticsHandler = (window) => {
 						publishedDate,
 						additionalDetails: additionalDetails ? additionalDetails : {},
 					},
-				});
+				};
+				window.NCIDataLayer.push(eventData);
+				if (isDebugging) { console.log(eventData); }
 				break;
 			}
 			default: {
