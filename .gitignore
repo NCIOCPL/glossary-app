@@ -111,6 +111,7 @@ _UpgradeReport_Files/
 /node_trace.*.log
 /cypress/video
 /cypress/screenshots
+/cypress/fixtures/example.json
 # coverage related
 /gcovr
 /build

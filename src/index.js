@@ -25,7 +25,7 @@ const initialize = ({
 	// this outside of the digital platform, and wants to hookup
 	// their own analytics. See index.html for an overly complicated
 	// configuration that handles logging to the console.
-	analyticsHandler = EDDLAnalyticsHandler(window),
+	analyticsHandler = EDDLAnalyticsHandler(window, !!window.Cypress),
 	audience = 'Patient',
 	baseHost = 'http://localhost:3000',
 	basePath = '/',
