@@ -514,6 +514,15 @@ And('the term links have the following hrefs', (dataTable) => {
 	});
 });
 
+When(
+	"user selects term {string} from the term results list",
+	(termName) => {
+		cy.get('dfn a')
+		.contains(termName)
+		.click();
+	}
+);
+
 /*
     ----------------------------------------
         A-Z List component related tests

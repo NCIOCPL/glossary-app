@@ -152,7 +152,7 @@ const getTermTotalCount = async (req, res, next) => {
  */
 const getTermByIdOrPrettyUrl = async (req, res, next) => {
 	const { dictionary, audience, language, id_or_purl } = req.params;
-
+	const lookupPurl = id_or_purl.toLowerCase();
 	const searchDir = path.join(
 		__dirname,
 		'..',
@@ -166,7 +166,7 @@ const getTermByIdOrPrettyUrl = async (req, res, next) => {
 	try {
 		const mocks = (await readDirAsync(searchDir)).reduce(
 			(filemap, mockfile) => {
-				const [term_id, purl] = mockfile.replace('.json', '').split('__');
+				const [term_id, purl] = mockfile.replace('.json', '').toLowerCase().split('__');
 				filemap[term_id] = path.join(searchDir, mockfile);
 				if (purl && purl !== 'null') {
 					// Some terms may not have a prettyurl name
@@ -178,8 +178,8 @@ const getTermByIdOrPrettyUrl = async (req, res, next) => {
 			{}
 		);
 
-		if (mocks[id_or_purl]) {
-			res.sendFile(mocks[id_or_purl]);
+		if (mocks[lookupPurl]) {
+			res.sendFile(mocks[lookupPurl]);
 		} else {
 			res.status(404).end();
 		}
