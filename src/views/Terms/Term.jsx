@@ -6,8 +6,9 @@ import { Pronunciation } from '../../components';
 import { useAppPaths } from '../../hooks';
 import { useStateValue } from '../../store/store';
 import { testIds } from '../../constants';
+import {useTracking} from "react-tracking";
 
-const Term = ({ payload }) => {
+const Term = ({ resultIndex, payload }) => {
 	const { DefinitionPath } = useAppPaths();
 	const [{ language }] = useStateValue();
 	const {
@@ -18,6 +19,21 @@ const Term = ({ payload }) => {
 		pronunciation,
 	} = payload;
 
+	const tracking = useTracking();
+
+	const handleTermLinkClick = () => {
+		const idOrName = prettyUrlName ? prettyUrlName : termId;
+
+			tracking.trackEvent({
+					type: 'Other',
+					event: 'GlossaryApp:Other:ResultClick',
+					linkName: 'TermsDictionaryResults',
+					resultIndex: resultIndex + 1,
+					resultIdOrName: idOrName,
+					resultName: termName
+			});
+	};
+
 	return (
 		<div>
 			<dt>
@@ -25,7 +41,8 @@ const Term = ({ payload }) => {
 					<Link
 						to={DefinitionPath({
 							idOrName: prettyUrlName ? prettyUrlName : termId,
-						})}>
+						})}
+						onClick={handleTermLinkClick}>
 						{termName}
 					</Link>
 				</dfn>
@@ -46,6 +63,7 @@ const Term = ({ payload }) => {
 };
 
 Term.propTypes = {
+	resultIndex: PropTypes.number,
 	payload: PropTypes.shape({
 		definition: PropTypes.object,
 		termId: PropTypes.number,

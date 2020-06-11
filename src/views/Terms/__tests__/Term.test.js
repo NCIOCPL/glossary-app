@@ -2,12 +2,15 @@ import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MemoryRouter, useLocation } from 'react-router';
+import { MockAnalyticsProvider } from '../../../tracking';
 
 import { testIds } from '../../../constants';
 import { Term } from '../index';
 import { useStateValue } from '../../../store/store';
 
 jest.mock('../../../store/store');
+
+const analyticsHandler = jest.fn(data => {});
 
 let wrapper;
 
@@ -107,9 +110,11 @@ describe('Term component rendered with English', () => {
 
 			await act(async () => {
 				wrapper = render(
-					<MemoryRouter initialEntries={['/']}>
-						<TermWithLocation term={termObject} />
-					</MemoryRouter>
+					<MockAnalyticsProvider>
+						<MemoryRouter initialEntries={['/']}>
+							<TermWithLocation term={termObject} />
+						</MemoryRouter>
+					</MockAnalyticsProvider>
 				);
 			});
 
@@ -145,9 +150,11 @@ describe('Term component rendered with English', () => {
 
 			await act(async () => {
 				wrapper = render(
-					<MemoryRouter initialEntries={['/']}>
-						<TermWithLocation term={termObject} />
-					</MemoryRouter>
+					<MockAnalyticsProvider>
+						<MemoryRouter initialEntries={['/']}>
+							<TermWithLocation term={termObject} />
+						</MemoryRouter>
+					</MockAnalyticsProvider>
 				);
 			});
 
@@ -155,4 +162,38 @@ describe('Term component rendered with English', () => {
 			expect(getByTestId(testIds.TERM_ITEM_DESCRIPTION)).toBeInTheDocument();
 		}
 	);
+
+	test.each(testTerms)(
+		'Term result click analytics event',
+		async (termType, termObject) => {
+			const dictionaryName = 'Cancer.gov';
+			const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
+
+			useStateValue.mockReturnValue([
+				{
+					appId: 'mockAppId',
+					basePath: '/',
+					dictionaryName,
+					dictionaryTitle,
+					language,
+					searchBoxTitle,
+				},
+			]);
+
+			await act(async () => {
+			  wrapper = render(
+					<MockAnalyticsProvider analyticsHandler={analyticsHandler} >
+							<MemoryRouter initialEntries={["/"]}>
+								<TermWithLocation term={termObject} />
+							</MemoryRouter>
+					</MockAnalyticsProvider>
+				);
+			});
+
+			const { container } = wrapper;
+			const termLink = container.querySelector('a');
+
+			fireEvent.click(termLink);
+			expect(analyticsHandler).toHaveBeenCalled();
+	});
 });

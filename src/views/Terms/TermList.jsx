@@ -116,7 +116,7 @@ const TermList = ({ matchType, query, type }) => {
 							</h4>
 							<dl className="dictionary-list">
 								{payload.results.map((result, index) => {
-									return <Term key={index} payload={result} />;
+									return <Term key={index} resultIndex={index} payload={result} />;
 								})}
 							</dl>
 						</>

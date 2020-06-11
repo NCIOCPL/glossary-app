@@ -1,0 +1,19 @@
+{
+	"termId": 306486,
+	"language": "en",
+	"dictionary": "Cancer.gov",
+	"audience": "Patient",
+	"termName": "agnogenic myeloid metaplasia",
+	"firstLetter": "a",
+	"prettyUrlName": null,
+	"pronunciation": {
+		"key": "(ag-noh-JEH-nik MY-eh-loyd meh-tuh-PLAY-zhuh)",
+		"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/710152.mp3"
+	},
+	"definition": {
+		"html": "A progressive, chronic disease in which the bone marrow is replaced by fibrous tissue and blood is made in organs such as the liver and the spleen, instead of in the bone marrow. This disease is marked by an enlarged spleen and progressive anemia. Also called chronic idiopathic myelofibrosis, idiopathic myelofibrosis, myelosclerosis with myeloid metaplasia,  and primary myelofibrosis.",
+		"text": "A progressive, chronic disease in which the bone marrow is replaced by fibrous tissue and blood is made in organs such as the liver and the spleen, instead of in the bone marrow. This disease is marked by an enlarged spleen and progressive anemia. Also called chronic idiopathic myelofibrosis, idiopathic myelofibrosis, myelosclerosis with myeloid metaplasia,  and primary myelofibrosis."
+	},
+	"relatedResources": [],
+	"media": []
+}
