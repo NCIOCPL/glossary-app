@@ -31,7 +31,14 @@ const TermList = ({ matchType, query, type }) => {
 	const [
 		{ language, canonicalHost, dictionaryTitle, siteName, basePath },
 	] = useStateValue();
-	const { DefinitionPath, HomePath } = useAppPaths();
+	const {
+		DefinitionPath,
+		HomePath,
+		ExpandPath,
+		ExpandPathSpanish,
+		SearchPath,
+		SearchPathSpanish
+	} = useAppPaths();
 	const navigate = useNavigate();
 	const { pathname } = location;
 	const isHome = pathname === HomePath() || pathname === basePath;
@@ -63,10 +70,14 @@ const TermList = ({ matchType, query, type }) => {
 			event: 'GlossaryApp:Load:SearchResults',
 			name:
 				canonicalHost.replace('https://', '') +
-				'/' +
-				queryType.SEARCH +
-				'/' +
-				decodeURIComponent(query),
+
+				[language === 'en' ?
+					SearchPath({
+						searchText: decodeURIComponent(query)
+					})
+					: SearchPathSpanish({
+						searchText: decodeURIComponent(query)
+					})],
 			searchType: matchType === 'Begins' ? 'StartsWith' : 'Contains',
 			searchKeyword: decodeURIComponent(query),
 			...commonParams,
@@ -76,10 +87,13 @@ const TermList = ({ matchType, query, type }) => {
 			event: 'GlossaryApp:Load:ExpandResults',
 			name:
 				canonicalHost.replace('https://', '') +
-				'/' +
-				queryType.EXPAND +
-				'/' +
-				decodeURIComponent(query).toLocaleLowerCase(),
+				[language === 'en' ?
+					ExpandPath({
+						expandChar: decodeURIComponent(query).toLowerCase()
+					})
+					: ExpandPathSpanish({
+						expandChar: decodeURIComponent(query).toLowerCase()
+					})],
 			...(isHome && { name: canonicalHost.replace('https://', '') + '/' }),
 			letter: decodeURIComponent(query).toLocaleLowerCase(),
 			...commonParams,
@@ -121,8 +135,8 @@ const TermList = ({ matchType, query, type }) => {
 							</dl>
 						</>
 					) : (
-						<NoMatchingResults />
-					)}
+							<NoMatchingResults />
+						)}
 				</div>
 			)}
 		</>
