@@ -49,6 +49,13 @@ Given(
 	}
 );
 
+Given(
+	'the user is viewing the definition with the ID {string}',
+	(a) => {
+		cy.visit('/def/' + a);
+	}
+);
+
 Given('user appends {string} to the URL', (location) => {
 	cy.visit(`${baseURL}${location}`);
 });

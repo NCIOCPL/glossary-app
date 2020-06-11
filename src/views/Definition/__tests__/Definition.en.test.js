@@ -183,7 +183,7 @@ describe('Definition component with English', () => {
 			};
 
 			useParams.mockReturnValue({
-				idOrName: unsupportedMediaFile,
+				idOrName: unsupportedMediaFile.prettyUrlName,
 			});
 
 			await act(async () => {
@@ -205,6 +205,7 @@ describe('Definition component with English', () => {
 	describe('Displaying the information for the term "hpv"', () => {
 		const idOrPurl = 'hpv';
 		beforeEach(cleanup);
+		afterEach(cleanup);
 		test('Ensure pronunciation is not displayed for a definition without one', async () => {
 			definition = getFixture(`${fixturePath}/${language}/${hpvFile}`);
 
