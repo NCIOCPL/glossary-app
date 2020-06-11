@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { useParams } from 'react-router';
 import { useAppPaths } from '../../hooks';
-import track from 'react-tracking';
+import track, { useTracking } from 'react-tracking';
 import {
 	FigureCgovImage,
 	FigureCgovVideo,
@@ -44,7 +44,7 @@ const getMetaTitle = ({ termName }, dictionaryTitle, siteName, language) => {
 	return `${i18n.definitionOf[language]} ${termName} - ${dictionaryTitle} - ${siteName}`;
 };
 
-const Definition = ({ tracking }) => {
+const Definition = () => {
 	const { DefinitionPath } = useAppPaths();
 	const { idOrName } = useParams();
 	const { loading, payload } = useCustomQuery(getTermDefinition(idOrName));
@@ -59,26 +59,31 @@ const Definition = ({ tracking }) => {
 			siteName,
 		},
 	] = useStateValue();
+	const navigate = useNavigate();
+	const tracking = useTracking();
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
 
-	useEffect(() => {
-		// check if there is an alternate language analog
-		if (
-			altLanguageDictionaryBasePath !== '' &&
-			payload &&
-			payload.otherLanguages &&
-			payload.otherLanguages.length > 0
-		) {
-			initLanguageToggle(payload.otherLanguages[0]);
-		}
-	}, [payload]);
-
-	//example tracking setup for pageload
+	// tracking setup for pageload
 	useEffect(() => {
 		if (!loading && payload) {
+			// check if there is an alternate language analog
+			if (
+				altLanguageDictionaryBasePath !== '' &&
+				payload.otherLanguages &&
+				payload.otherLanguages.length > 0
+			) {
+				initLanguageToggle(payload.otherLanguages[0]);
+			}
+
+			// redirect to URL with pretty URL name if ID is used
+			if ( payload.prettyUrlName && (idOrName.match(/^[0-9]+$/) != null)) {
+				navigate(DefinitionPath({idOrName: payload.prettyUrlName}));
+				return;
+			}
+
 			tracking.trackEvent({
 				type: 'PageLoad',
 				event: 'GlossaryApp:Load:Definition',
@@ -107,7 +112,9 @@ const Definition = ({ tracking }) => {
 
 	const renderMetaDefinition = () => {
 		const regex = new RegExp(/[^.!?]+[.!?]+/g);
-		var definitionSplit = payload.definition.text.match(regex);
+		let definitionSplit = payload.definition && payload.definition.text
+			? payload.definition.text.match(regex)
+			: [];
 
 		if (definitionSplit.length >= 2) {
 			definitionSplit = definitionSplit.slice(0, 2);
@@ -330,12 +337,6 @@ const Definition = ({ tracking }) => {
 			)}
 		</>
 	);
-};
-
-Definition.propTypes = {
-	tracking: PropTypes.shape({
-		trackEvent: PropTypes.func,
-	}),
 };
 
 export default track({
