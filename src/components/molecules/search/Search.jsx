@@ -7,6 +7,7 @@ import { searchMatchType, testIds } from '../../../constants';
 import { useAppPaths, useCustomQuery } from '../../../hooks';
 import { getAutoSuggestResults } from '../../../services/api/actions';
 import { useStateValue } from '../../../store/store';
+import { useTracking } from 'react-tracking';
 import {
 	emboldenSubstring,
 	getKeyValueFromQueryString,
@@ -19,6 +20,8 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 	const location = useLocation();
 	const { searchText: urlParamSearchText } = params;
 	const { search } = location;
+	const tracking = useTracking();
+
 	// Set matchType to value retrieved from url if it exits and default to "Begins" if not
 	const matchType =
 		search && getKeyValueFromQueryString('searchMode', search) !== null
@@ -45,6 +48,20 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 		updateSelectedOption(matchType);
 	}, [matchType]);
 
+	const trackSubmit = () => {
+		const searchType =
+			selectedOption && selectedOption === searchMatchType.contains
+				? 'Contains'
+				: 'Begins';
+		tracking.trackEvent({
+			type: 'Other',
+			event: 'GlossaryApp:Other:KeywordSearch',
+			linkName: 'TermsDictionarySearch',
+			searchTerm: searchText,
+			searchType: searchType,
+		});
+	};
+
 	const executeSearch = (e) => {
 		e.preventDefault();
 		const isContainsSearch =
@@ -55,6 +72,7 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 				? `${searchText}/?searchMode=${searchMatchType.contains}`
 				: `${searchText}/?searchMode=${searchMatchType.beginsWith}`
 			: `/`;
+		trackSubmit();
 		navigate(expandPathWithLang({ searchText: queryString }));
 	};
 
@@ -79,7 +97,10 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 	};
 
 	return (
-		<div className="dictionary-search" data-testid={testIds.SEARCH_CONTAINER}>
+		<form
+			className="dictionary-search"
+			data-testid={testIds.SEARCH_CONTAINER}
+			onSubmit={executeSearch}>
 			<div className="radio-selection">
 				<Radio
 					label={i18n.startsWithRadioLabel[language]}
@@ -155,9 +176,8 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 				id="btnSearch"
 				title={i18n.search[language]}
 				value={i18n.search[language]}
-				onClick={executeSearch}
 			/>
-		</div>
+		</form>
 	);
 };
 
