@@ -16,6 +16,9 @@ import Search from '../Search';
 import { useStateValue } from '../../../../store/store';
 import { i18n } from '../../../../utils';
 
+import { MockAnalyticsProvider } from '../../../../tracking';
+const analyticsHandler = jest.fn((data) => {});
+
 jest.mock('../../../../store/store.js');
 let client;
 let wrapper;
@@ -57,11 +60,13 @@ describe('<Search /> English', () => {
 
 		await act(async () => {
 			wrapper = await render(
-				<MemoryRouter initialEntries={['/']}>
-					<ClientContextProvider client={client}>
-						<SearchWithLocation RenderComponent={Search} />
-					</ClientContextProvider>
-				</MemoryRouter>
+				<MockAnalyticsProvider analyticsHandler={analyticsHandler}>
+					<MemoryRouter initialEntries={['/']}>
+						<ClientContextProvider client={client}>
+							<SearchWithLocation RenderComponent={Search} />
+						</ClientContextProvider>
+					</MemoryRouter>
+				</MockAnalyticsProvider>
 			);
 		});
 	});
@@ -146,6 +151,18 @@ describe('<Search /> English', () => {
 		expect(location).toMatchObject(expectedLocationObject);
 	});
 
+	test('Submitting search triggers provided analytics event', async () => {
+		const { getByPlaceholderText, getByText } = wrapper;
+		const searchText = 'metastatic';
+		const textInput = getByPlaceholderText('Enter keywords or phrases');
+		await act(async () => {
+			fireEvent.change(textInput, { target: { value: searchText } });
+		});
+		const searchButton = getByText('Search');
+		fireEvent.click(searchButton);
+		expect(analyticsHandler).toHaveBeenCalled();
+	});
+
 	describe('Autocomplete', () => {
 		beforeEach(() => {
 			cleanup();
@@ -167,11 +184,13 @@ describe('<Search /> English', () => {
 
 			await act(async () => {
 				wrapper = await render(
-					<MemoryRouter initialEntries={['/']}>
-						<ClientContextProvider client={client}>
-							<SearchWithLocation RenderComponent={Search} />
-						</ClientContextProvider>
-					</MemoryRouter>
+					<MockAnalyticsProvider>
+						<MemoryRouter initialEntries={['/']}>
+							<ClientContextProvider client={client}>
+								<SearchWithLocation RenderComponent={Search} />
+							</ClientContextProvider>
+						</MemoryRouter>
+					</MockAnalyticsProvider>
 				);
 			});
 

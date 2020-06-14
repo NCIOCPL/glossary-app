@@ -58,25 +58,28 @@ Given(
 	}
 );
 
-Given(
-	'the user is viewing the definition with the ID {string}',
-	(a) => {
-		cy.visit('/def/' + a);
-	}
-);
+Given('the user is viewing the definition with the ID {string}', (a) => {
+	cy.visit('/def/' + a);
+});
 
 Given('user appends {string} to the URL', (location) => {
 	cy.visit(`${baseURL}${location}`);
 });
 
 When('user is searching {string} for the term {string}', (searchMode, term) => {
-   cy.visit('/');
-	const searchmode = searchMode.toLowerCase() === "startswith" || searchMode.toLowerCase() === "empiezacon" ? 'Begins' : 'Contains';
+	cy.visit('/');
+	const searchmode =
+		searchMode.toLowerCase() === 'startswith' ||
+		searchMode.toLowerCase() === 'empiezacon'
+			? 'Begins'
+			: 'Contains';
 	cy.window().then((win) => {
 		if (win.INT_TEST_APP_PARAMS) {
 			const searchLang =
-				win.INT_TEST_APP_PARAMS.language === 'en' ? queryType.SEARCH : queryType.SEARCH_SPANISH;
-				cy.visit(`/${searchLang}/${term}/?searchMode=${searchmode}`);
+				win.INT_TEST_APP_PARAMS.language === 'en'
+					? queryType.SEARCH
+					: queryType.SEARCH_SPANISH;
+			cy.visit(`/${searchLang}/${term}/?searchMode=${searchmode}`);
 		}
 	});
 });
@@ -429,8 +432,8 @@ Then(
 			var row = rawTable[i];
 			cy.get(
 				`div[data-testid='${testIds.MORE_INFORMATION}'] ul li a[href='` +
-				row[0] +
-				`']`
+					row[0] +
+					`']`
 			).should('have.text', row[1]);
 		}
 	}
@@ -523,14 +526,9 @@ And('the term links have the following hrefs', (dataTable) => {
 	});
 });
 
-When(
-	"user selects term {string} from the term results list",
-	(termName) => {
-		cy.get('dfn a')
-		.contains(termName)
-		.click();
-	}
-);
+When('user selects term {string} from the term results list', (termName) => {
+	cy.get('dfn a').contains(termName).click();
+});
 
 /*
     ----------------------------------------
@@ -742,23 +740,41 @@ Then('browser waits', () => {
 	cy.wait(2000);
 });
 
+And('the following links and texts exist on the page', (dataTable) => {
+	// Split the data table into array of pairs
+	const rawTable = dataTable.rawTable.slice();
 
-And(
-	'the following links and texts exist on the page',
-	(dataTable) => {
-		// Split the data table into array of pairs
-		const rawTable = dataTable.rawTable.slice();
+	// Verify the total number of links
+	cy.document().then((doc) => {
+		let docLinkArray = doc.querySelectorAll('#main-content a');
+		expect(docLinkArray.length).to.be.eq(rawTable.length);
+	});
 
-		// Verify the total number of links
-		cy.document().then((doc) => {
-			let docLinkArray = doc.querySelectorAll('#main-content a');
-			expect(docLinkArray.length).to.be.eq(rawTable.length);
-		});
-
-		// get the link with the provided url and assert it's text
-		for (let i = 0; i < rawTable.length; i++) {
-			const row = rawTable[i];
-			cy.get(`#main-content a[href='${row[0]}']`).should('have.text', row[1]);
-		}
+	// get the link with the provided url and assert it's text
+	for (let i = 0; i < rawTable.length; i++) {
+		const row = rawTable[i];
+		cy.get(`#main-content a[href='${row[0]}']`).should('have.text', row[1]);
 	}
-);
+});
+
+// Verify the that the search box is present
+And('the search box has loaded', () => {
+	cy.get('#btnSearch').should('have.value', 'Search');
+});
+
+// Select search type (Starts with(default) | Contains)
+And('the user selects the {string} option in the search box', (searchType) => {
+	console.log(searchType);
+	const selectedOption = searchType === 'Contains' ? 'contains' : 'starts-with';
+	cy.get(`.ncids-radio__label[for="${selectedOption}"]`).click();
+});
+
+// Search for a keyword
+And('the user enters {string}', (userText) => {
+	cy.get('#keywords').type(userText);
+});
+
+//Submit keyword search
+And('the user submits the keyword search', () => {
+	cy.get('#btnSearch').click();
+});
