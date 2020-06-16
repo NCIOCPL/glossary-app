@@ -8,7 +8,7 @@ import { useStateValue } from '../../store/store';
 import { formatNumberToThousands, TokenParser } from '../../utils';
 
 const IntroText = () => {
-	const [isIntroTextReplaced, introTextReplaced] = useState(false);
+	const [isIntroTextReplaced, setIsIntroTextReplaced] = useState(false);
 	const [{ dictionaryIntroText }, dispatch] = useStateValue();
 	const termCount = useCustomQuery(getTermCount());
 
@@ -26,7 +26,7 @@ const IntroText = () => {
 					value: TokenParser.replaceTokens(dictionaryIntroText, context),
 				})
 			);
-			introTextReplaced(true);
+			setIsIntroTextReplaced(true);
 		}
 	}, [termCount.payload, dictionaryIntroText, dispatch, isIntroTextReplaced]);
 

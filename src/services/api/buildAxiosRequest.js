@@ -25,7 +25,9 @@ export const buildAxiosRequest = (axiosInstance) => async (init, options) => {
 
 	const result = await axiosInstance.request(config);
 	const responseBody =
-		typeof result.data === `object` ? JSON.stringify(result.data) : result.data;
+		typeof result.data === `object`
+			? JSON.stringify(result.data)
+			: result.data.toString();
 	const headers = new Headers();
 
 	Object.entries(result.headers).forEach(function ([key, value]) {
