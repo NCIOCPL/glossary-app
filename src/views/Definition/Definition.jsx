@@ -42,9 +42,18 @@ const getMetaTitle = ({ termName }, dictionaryTitle, siteName, language) => {
 	return `${i18n.definitionOf[language]} ${termName} - ${dictionaryTitle} - ${siteName}`;
 };
 
+/**
+ * Helper to get idOrName as lowercase so we do not have to run
+ * toLowerCase everywhere.
+ */
+const useLowerIDParams = () => {
+	const { idOrName } = useParams();
+	return { idOrName: idOrName.toLowerCase() };
+};
+
 const Definition = () => {
 	const { DefinitionPath } = useAppPaths();
-	const { idOrName } = useParams();
+	const { idOrName } = useLowerIDParams();
 	const { loading, payload } = useCustomQuery(getTermDefinition(idOrName));
 	const [
 		{
@@ -77,7 +86,7 @@ const Definition = () => {
 			}
 
 			// redirect to URL with pretty URL name if ID is used
-			if (payload.prettyUrlName && (idOrName.match(/^[0-9]+$/) != null)) {
+			if (payload.prettyUrlName && idOrName.match(/^[0-9]+$/) != null) {
 				navigate(DefinitionPath({ idOrName: payload.prettyUrlName }));
 				return;
 			}
@@ -114,9 +123,10 @@ const Definition = () => {
 
 	const renderMetaDefinition = () => {
 		const regex = new RegExp(/[^.!?]+[.!?]+/g);
-		let definitionSplit = payload.definition && payload.definition.text
-			? payload.definition.text.match(regex)
-			: [];
+		let definitionSplit =
+			payload.definition && payload.definition.text
+				? payload.definition.text.match(regex)
+				: [];
 
 		if (definitionSplit.length >= 2) {
 			definitionSplit = definitionSplit.slice(0, 2);
@@ -273,39 +283,39 @@ const Definition = () => {
 		return (
 			<>
 				{payload.media.length > 0 &&
-				payload.media.map((mediaItem) => {
-					if (mediaItem.Type === 'Image') {
-						const imgArr = mediaItem.ImageSources;
-						const thumbUri = imgArr.find((imgItem) => imgItem.Size === '571')
-							.Src;
-						const enlargeUri = imgArr.find(
-							(imgItem) => imgItem.Size === 'original'
-						).Src;
-						return (
-							<FigureCgovImage
-								altText={mediaItem.Alt}
-								caption={mediaItem.Caption}
-								classes="image-left-medium"
-								key={mediaItem.Ref}
-								lang={language}
-								thumb_uri={thumbUri}
-								enlarge_uri={enlargeUri}
-							/>
-						);
-					} else if (mediaItem.Type === 'Video') {
-						return (
-							<FigureCgovVideo
-								classes="video center size75"
-								key={mediaItem.UniqueId}
-								videoId={mediaItem.UniqueId}
-								videoTitle={mediaItem.Title}>
-								{mediaItem.Caption}
-							</FigureCgovVideo>
-						);
-					} else {
-						return false;
-					}
-				})}
+					payload.media.map((mediaItem) => {
+						if (mediaItem.Type === 'Image') {
+							const imgArr = mediaItem.ImageSources;
+							const thumbUri = imgArr.find((imgItem) => imgItem.Size === '571')
+								.Src;
+							const enlargeUri = imgArr.find(
+								(imgItem) => imgItem.Size === 'original'
+							).Src;
+							return (
+								<FigureCgovImage
+									altText={mediaItem.Alt}
+									caption={mediaItem.Caption}
+									classes="image-left-medium"
+									key={mediaItem.Ref}
+									lang={language}
+									thumb_uri={thumbUri}
+									enlarge_uri={enlargeUri}
+								/>
+							);
+						} else if (mediaItem.Type === 'Video') {
+							return (
+								<FigureCgovVideo
+									classes="video center size75"
+									key={mediaItem.UniqueId}
+									videoId={mediaItem.UniqueId}
+									videoTitle={mediaItem.Title}>
+									{mediaItem.Caption}
+								</FigureCgovVideo>
+							);
+						} else {
+							return false;
+						}
+					})}
 			</>
 		);
 	};
@@ -333,7 +343,7 @@ const Definition = () => {
 					)}
 					{((payload.relatedResources && payload.relatedResources.length > 0) ||
 						(payload.media && payload.media.length > 0)) &&
-					renderRelatedResources()}
+						renderRelatedResources()}
 					<SearchBox showTitle />
 				</>
 			)}
