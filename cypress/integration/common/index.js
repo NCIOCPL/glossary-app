@@ -570,6 +570,14 @@ And('introductory text appears below the page title', () => {
 	expect(cy.get(`div[data-testid='${testIds.INTRO_TEXT}']`)).to.exist;
 });
 
+And('the user sees {string} as the introductory text that displays below the H1', (introText) => {
+	cy.get(`div[data-testid='${testIds.INTRO_TEXT}']`).should('have.text', introText);
+});
+
+And('the term count of {string} is displayed as bolded', (termCount) => {
+	cy.get(`div[data-testid='${testIds.INTRO_TEXT}'] strong`).should('have.text', termCount);
+});
+
 And('{string} radio is selected by default', (startsWithRadio) => {
 	const startsWithRadioValue = searchMatchType.beginsWith;
 	cy.get(`input[value="${startsWithRadioValue}"]`).should('be.checked');
