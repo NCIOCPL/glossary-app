@@ -94,7 +94,7 @@ const TermList = ({ matchType, query, type }) => {
 					: ExpandPathSpanish({
 						expandChar: decodeURIComponent(query).toLowerCase()
 					})],
-			...(isHome && { name: canonicalHost.replace('https://', '') + '/' }),
+			...(isHome && { name: canonicalHost.replace('https://', '') + HomePath() }),
 			letter: decodeURIComponent(query).toLocaleLowerCase(),
 			...commonParams,
 		};
