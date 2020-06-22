@@ -33,7 +33,7 @@ const AZList = () => {
 						<li key={i} value={i + 1}>
 							<Link
 								to={expandPathWithLang({ expandChar })}
-								onClick={() => handleAZLinkClick({ expandChar })}>
+								onClick={() => handleAZLinkClick(expandChar)}>
 								{label}
 							</Link>
 						</li>
