@@ -11,6 +11,11 @@ export const searchMatchType = {
 	contains: 'Contains',
 };
 
+export const searchMatchTypeAnalyticsMap = {
+	[searchMatchType.beginsWith]: 'starts with',
+	[searchMatchType.contains]: 'contains',
+};
+
 // Test Ids
 export const testIds = {
 	AUTO_SUGGEST_OPTIONS: 'tid-auto-suggest-options',
