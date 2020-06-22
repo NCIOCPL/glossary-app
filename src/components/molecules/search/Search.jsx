@@ -3,13 +3,18 @@ import PropTypes from 'prop-types';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import { Autocomplete, Radio } from '../../atomic';
-import { searchMatchType, testIds } from '../../../constants';
+import {
+	searchMatchType,
+	searchMatchTypeAnalyticsMap,
+	testIds,
+} from '../../../constants';
 import { useAppPaths, useCustomQuery } from '../../../hooks';
 import { getAutoSuggestResults } from '../../../services/api/actions';
 import { useStateValue } from '../../../store/store';
 import { useTracking } from 'react-tracking';
 import {
 	emboldenSubstring,
+	getKeyValueFromObject,
 	getKeyValueFromQueryString,
 	i18n,
 	matchItemToTerm,
@@ -50,9 +55,10 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 
 	const trackSubmit = () => {
 		const searchType =
-			selectedOption && selectedOption === searchMatchType.contains
-				? 'Contains'
-				: 'Begins';
+			selectedOption &&
+			getKeyValueFromObject(selectedOption, searchMatchTypeAnalyticsMap)
+				? getKeyValueFromObject(selectedOption, searchMatchTypeAnalyticsMap)
+				: searchMatchTypeAnalyticsMap[searchMatchType.beginsWith];
 		tracking.trackEvent({
 			type: 'Other',
 			event: 'GlossaryApp:Other:KeywordSearch',
