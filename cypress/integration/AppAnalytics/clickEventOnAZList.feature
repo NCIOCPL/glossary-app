@@ -25,4 +25,4 @@ Feature: Analytics click event on A-Z list
       | data.dictionaryTitle   | NCI Dictionary of Cancer Terms |
       | data.analyticsName     | CancerTerms                    |
       | data.page              | def                            |
-      | data.letter.expandChar | A                              |
+      | data.letter						 | A                              |
