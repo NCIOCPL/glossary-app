@@ -1,0 +1,25 @@
+.contentzone ul.more-information-list {
+	margin-bottom: 40px;
+	li {
+		margin: 0.5em 0;
+	}
+}
+
+.related-resources {
+	margin-top: 40px;
+
+	+ h6 {
+		margin-top: 40px;
+	}
+}
+
+.term-title {
+	+ .pronunciation {
+		.pronunciation__key {
+			margin-left: 8px;
+		}
+	}
+	+ .term-description {
+		margin-top: 10px;
+	}
+}

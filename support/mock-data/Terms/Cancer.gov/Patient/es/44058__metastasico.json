@@ -1,0 +1,62 @@
+{
+	"termId": 44058,
+	"language": "es",
+	"dictionary": "Cancer.gov",
+	"audience": "Patient",
+	"termName": "metastásico",
+	"firstLetter": "m",
+	"prettyUrlName": "metastasico",
+	"pronunciation": {
+		"key": null,
+		"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704103.mp3"
+	},
+	"definition": {
+		"html": "Relacionado con la metástasis,\nque es la diseminación del cáncer desde el sitio primario\n(el lugar donde empezó) hasta otras partes del\ncuerpo.",
+		"text": "Relacionado con la metástasis,\nque es la diseminación del cáncer desde el sitio primario\n(el lugar donde empezó) hasta otras partes del\ncuerpo."
+	},
+	"otherLanguages": [
+		{
+			"language": "en",
+			"termName": "metastatic",
+			"prettyUrlName": "metastatic"
+		}
+	],
+	"relatedResources": [
+		{
+			"Url": "https://www.cancer.gov/espanol/tipos/cancer-metastatico",
+			"Type": "External",
+			"Text": "Cáncer metastático"
+		}
+	],
+	"media": [
+		{
+			"Type": "Image",
+			"ImageSources": [
+				{
+					"Size": "original",
+					"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/766321.jpg"
+				},
+				{
+					"Size": "571",
+					"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/766321-571.jpg"
+				},
+				{
+					"Size": "750",
+					"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/766321-750.jpg"
+				}
+			],
+			"Ref": "CDR0000766321",
+			"Alt": "Metástasis. En la imagen se observa un cáncer primario que se diseminó desde el colon hasta otras partes del cuerpo (hígado y pulmón). En el recuadro, se muestran células cancerosas que se diseminan desde el cáncer primario, a través de la sangre y el sistema linfático, hasta otra parte del cuerpo donde se formó un tumor metastásico.",
+			"Caption": "Metástasis. En la metástasis, las células cancerosas se separan del sitio donde se formaron originalmente (cáncer primario), viajan a través de la sangre y el sistema linfático, y forman nuevos tumores (tumores metastásicos) en otras partes del cuerpo. El tumor metastásico es el mismo tipo de cáncer que el tumor primario. "
+		},
+		{
+			"Type": "Video",
+			"Hosting": "youtube",
+			"Ref": "CDR0000787720",
+			"UniqueId": "Of5SviSphT8",
+			"Template": "Video75NoTitle",
+			"Title": "Metástasis: Cómo se disemina el cáncer",
+			"Caption": "Muchas muertes por cáncer se producen cuando el cáncer viaja desde el tumor original y se disemina a otros tejidos y órganos. Esto se llama cáncer metastásico.  En este video se muestra cómo las células cancerosas viajan desde el lugar en el cuerpo donde se formaron hasta otras partes del cuerpo."
+		}
+	]
+}

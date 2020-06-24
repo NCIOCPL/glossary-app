@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Autocomplete /> should render supplied input in props 1`] = `
+Object {
+  "aria-autocomplete": "list",
+  "aria-expanded": false,
+  "autoComplete": "off",
+  "className": "ncids-input ncids-autocomplete__input ",
+  "id": "classics",
+  "onBlur": [Function],
+  "onChange": [Function],
+  "onClick": [Function],
+  "onFocus": [Function],
+  "onKeyDown": [Function],
+  "ref": [Function],
+  "role": "combobox",
+  "type": "text",
+  "value": "",
+}
+`;
+
+exports[`<Autocomplete /> should render supplied input in props 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "aria-autocomplete": "list",
+        "aria-expanded": false,
+        "autoComplete": "off",
+        "className": "ncids-input ncids-autocomplete__input ",
+        "id": "classics",
+        "onBlur": [Function],
+        "onChange": [Function],
+        "onClick": [Function],
+        "onFocus": [Function],
+        "onKeyDown": [Function],
+        "ref": [Function],
+        "role": "combobox",
+        "type": "text",
+        "value": "",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": <input
+        aria-autocomplete="list"
+        aria-expanded={false}
+        autoComplete="on"
+        className="ncids-input ncids-autocomplete__input "
+        id="classics"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="combobox"
+        type="text"
+        value=""
+      />,
+    },
+  ],
+}
+`;

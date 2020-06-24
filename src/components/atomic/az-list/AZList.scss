@@ -1,0 +1,15 @@
+.az-list {
+	.browse {
+		float: none;
+	}
+
+	& > ul {
+		display: inline;
+
+		& > li {
+			& a {
+				color: #2b7bba;
+			}
+		}
+	}
+}

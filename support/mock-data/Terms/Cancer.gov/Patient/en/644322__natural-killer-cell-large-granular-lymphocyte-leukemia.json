@@ -1,0 +1,26 @@
+{
+	"termId": 644322,
+	"language": "en",
+	"dictionary": "Cancer.gov",
+	"audience": "Patient",
+	"termName": "natural killer-cell large granular lymphocyte leukemia",
+	"firstLetter": "n",
+	"prettyUrlName": null,
+	"pronunciation": {
+		"key": "(NA-chuh-rul KIH-ler-sel larj GRAN-yoo-lur LIM-foh-site loo-KEE-mee-uh)",
+		"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/726072.mp3"
+	},
+	"definition": {
+		"html": "A type of leukemia in which large natural killer (NK) cells (a type of white blood cell) that contain granules (small particles) are found in the blood. It is a chronic disease that may last for a long time and get worse. Also called NK-LGL leukemia and NK-LGLL.",
+		"text": "A type of leukemia in which large natural killer (NK) cells (a type of white blood cell) that contain granules (small particles) are found in the blood. It is a chronic disease that may last for a long time and get worse. Also called NK-LGL leukemia and NK-LGLL."
+	},
+	"otherLanguages": [
+		{
+			"language": "es",
+			"termName": "leucemia linfocítica granular de células citolíticas naturales grandes",
+			"prettyUrlName": "leucemia-linfocitica-granular-de-celulas-citoliticas-naturales-grandes"
+		}
+	],
+	"relatedResources": [],
+	"media": []
+}

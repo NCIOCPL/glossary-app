@@ -1,0 +1,47 @@
+{
+	"termId": 44179,
+	"language": "en",
+	"dictionary": "Cancer.gov",
+	"audience": "Patient",
+	"termName": "Philadelphia chromosome",
+	"firstLetter": "p",
+	"prettyUrlName": "philadelphia-chromosome",
+	"pronunciation": {
+		"key": "(FIH-luh-DEL-fee-uh KROH-muh-some)",
+		"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/704259.mp3"
+	},
+	"definition": {
+		"html": "An abnormality of chromosome 22 in which part of chromosome 9 is transferred to it. Bone marrow cells that contain the Philadelphia chromosome are often found in chronic myelogenous leukemia and sometimes found in acute lymphocytic leukemia.",
+		"text": "An abnormality of chromosome 22 in which part of chromosome 9 is transferred to it. Bone marrow cells that contain the Philadelphia chromosome are often found in chronic myelogenous leukemia and sometimes found in acute lymphocytic leukemia."
+	},
+	"otherLanguages": [
+		{
+			"language": "es",
+			"termName": "cromosoma Filadelfia",
+			"prettyUrlName": "cromosoma-filadelfia"
+		}
+	],
+	"relatedResources": [],
+	"media": [
+		{
+			"Type": "Image",
+			"ImageSources": [
+				{
+					"Size": "original",
+					"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/533336.jpg"
+				},
+				{
+					"Size": "571",
+					"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/533336-571.jpg"
+				},
+				{
+					"Size": "750",
+					"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/533336-750.jpg"
+				}
+			],
+			"Ref": "CDR0000533336",
+			"Alt": "Philadelphia chromosome; three-panel drawing shows a piece of chromosome 9 and a piece of chromosome 22 breaking off and trading places, creating a changed chromosome 22 called the Philadelphia chromosome. In the left panel, the drawing shows a normal chromosome 9 with the ABL gene and a normal chromosome 22 with the BCR gene. In the center panel, the drawing shows chromosome 9 breaking apart in the ABL gene and chromosome 22 breaking apart below the BCR gene. In the right panel, the drawing shows chromosome 9 with the piece from chromosome 22 attached and chromosome 22 with the piece from chromosome 9 containing part of the ABL gene attached. The changed chromosome 22 with the BCR-ABL gene is called the Philadelphia chromosome.",
+			"Caption": "Philadelphia chromosome. A piece of chromosome 9 and a piece of chromosome 22 break off and trade places. The BCR-ABL gene is formed on chromosome 22 where the piece of chromosome 9 attaches.  The changed chromosome 22 is called the Philadelphia chromosome."
+		}
+	]
+}

@@ -1,0 +1,19 @@
+// components
+@import '../components/atomic/audio-player/audio-player';
+@import '../components/atomic/az-list/AZList.scss';
+@import '../components/atomic/TextInput/TextInput.scss';
+@import '../components/atomic/youtube-video-player/youtube-video-player.scss';
+@import '../components/molecules/search/Search.scss';
+@import '../components/molecules/search-box/SearchBox.scss';
+
+// molecules
+@import '../components/molecules/pronunciation/pronunciation';
+
+//views
+@import '../views/Definition/Definition';
+@import '../views/ErrorBoundary/PageNotFound';
+@import '../views/Terms/TermList';
+
+h1 {
+	margin-bottom: 0;
+}

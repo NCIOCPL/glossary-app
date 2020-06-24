@@ -1,0 +1,53 @@
+{
+	"termId": 445043,
+	"language": "en",
+	"dictionary": "Cancer.gov",
+	"audience": "Patient",
+	"termName": "lung cancer",
+	"firstLetter": "l",
+	"prettyUrlName": "lung-cancer",
+	"pronunciation": {
+		"key": "(lung KAN-ser)",
+		"audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/714622.mp3"
+	},
+	"definition": {
+		"html": "Cancer that forms in tissues of the lung, usually in the cells lining air passages. The two main types are small cell lung cancer and non-small cell lung cancer. These types are diagnosed based on how the cells look under a microscope.",
+		"text": "Cancer that forms in tissues of the lung, usually in the cells lining air passages. The two main types are small cell lung cancer and non-small cell lung cancer. These types are diagnosed based on how the cells look under a microscope."
+	},
+	"otherLanguages": [
+		{
+			"language": "es",
+			"termName": "cáncer de pulmón",
+			"prettyUrlName": "cancer-de-pulmon"
+		}
+	],
+	"relatedResources": [
+		{
+			"Url": "https://www.cancer.gov/types/lung",
+			"Type": "External",
+			"Text": "Lung Cancer"
+		}
+	],
+	"media": [
+		{
+			"Type": "Image",
+			"ImageSources": [
+				{
+					"Size": "original",
+					"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/466533.jpg"
+				},
+				{
+					"Size": "571",
+					"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/466533-571.jpg"
+				},
+				{
+					"Size": "750",
+					"Src": "https://nci-media-dev.cancer.gov/pdq/media/images/466533-750.jpg"
+				}
+			],
+			"Ref": "CDR0000466533",
+			"Alt": "Respiratory anatomy; drawing shows right lung with upper, middle, and lower lobes; left lung with upper and lower lobes; and the trachea, bronchi, lymph nodes, and diaphragm. Inset shows bronchioles, alveoli, artery, and vein.  \n\n",
+			"Caption": "Anatomy of the respiratory system, showing the trachea and both lungs and their lobes and airways. Lymph nodes and the diaphragm are also shown. Oxygen is inhaled into the lungs and passes through the thin membranes of the alveoli and into the bloodstream (see inset)."
+		}
+	]
+}

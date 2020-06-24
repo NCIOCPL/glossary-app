@@ -12,6 +12,7 @@
 !.editorconfig
 !.eslintignore
 !.eslintrc.js
+!.prettierrc
 !.flake8
 !.gitattributes
 !.github
@@ -22,6 +23,7 @@
 !.travis.yml
 !.eslintrc.yaml
 !.cpplint
+!.npmrc
 
 # === Rules for root dir ===
 /core
@@ -107,10 +109,14 @@ _UpgradeReport_Files/
 /*.tap
 /*.xml
 /node_trace.*.log
+/cypress/video
+/cypress/screenshots
+/cypress/fixtures/example.json
 # coverage related
 /gcovr
 /build
 /coverage
+/.nyc_output
 
 # === Rules for XCode artifacts ===
 *.xcodeproj

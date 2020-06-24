@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>
+      NCI Dictionary of Cancer Terms - National Cancer Institute
+    </title>
+    <link rel="stylesheet" href="%PUBLIC_URL%/index.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/__nci-dev__common.css" />
+    <script type="text/javascript">
+      // Only setup the handler if this is not running under cypress.
+      if (!window.Cypress) {
+        // Debugging for testing out new AnalyticsHandler.
+        (function (){
+          var pusher = function() {
+            // Get all the arguments, as push takes in n number of arguments.
+            for (var i=0; i < arguments.length; i++) {
+              console.log(arguments[i]);
+            }
+          }
+          // Initialize the NCIDataLayer
+          window.NCIDataLayer = window.NCIDataLayer || [];
+          // Set our pusher if it is not already set
+          // this should avoid accidental re-initializations
+          if (window.NCIDataLayer.push === Array.prototype.push) {
+            // Process all the existing items until the queue is
+            // empty.
+            var existingItem;
+            while ((existingItem = window.NCIDataLayer.shift()) !== undefined) {
+              pusher(existingItem);
+            }
+            window.NCIDataLayer.push = pusher;
+          }
+        })();
+      }
+    </script>
+    <script type="text/javascript">
+      function getUrlVars() {
+        var vars = {};
+        var parts = window.location.href.replace(
+          /[?&]+([^=&]+)=([^&]*)/gi,
+          function(m, key, value) {
+            vars[key] = value;
+          }
+        );
+        return vars;
+      }
+      function getUrlParam(parameter, defaultvalue) {
+        var urlparameter = defaultvalue;
+        if (window.location.href.indexOf(parameter) > -1) {
+          urlparameter = getUrlVars()[parameter];
+        }
+        return urlparameter;
+      }
+      window.publicUrl = "%PUBLIC_URL%";
+      const configIndex = getUrlParam("cfg", "0");
+      window.currentConfig = configIndex;
+      const cfgs = [
+        {
+          altLanguageDictionaryBasePath: "/espanol/publicaciones/diccionario",
+          analyticsChannel: "Publications",
+          appId: "@@/TERMS_DICTIONARY",
+          audience: "Patient",
+          baseHost: "http://localhost:3000",
+          basePath: "",
+          canonicalHost: "https://www.cancer.gov",
+          dictionaryEndpoint: "https://webapis.cancer.gov/glossary/v1/",
+          dictionaryIntroText:
+            "<p>The NCI Dictionary of Cancer Terms features <strong>{{term_count}}</strong> terms related to cancer and medicine.</p>" +
+            "<p>We offer a widget that you can add to your website to let users look up cancer-related terms. <a href=\"/syndication/widgets\">Get NCI’s Dictionary of Cancer Terms Widget</a></p>",
+          dictionaryName: "Cancer.gov",
+					dictionaryTitle: "NCI Dictionary of Cancer Terms",
+					analyticsName: 'CancerTerms',
+          language: "en",
+          searchBoxTitle: "Search NCI's Dictionary of Cancer Terms",
+          siteName: "National Cancer Institute",
+        },
+        {
+          altLanguageDictionaryBasePath: "/publications/dictionaries/cancer-terms",
+          appId: "@@/TERMS_DICTIONARY_SPANISH",
+          audience: "Patient",
+          baseHost: "http://localhost:3000",
+          basePath: "",
+          canonicalHost: "https://www.cancer.gov",
+          dictionaryEndpoint: "https://webapis.cancer.gov/glossary/v1/",
+          dictionaryIntroText:
+            "<p>El diccionario de cáncer del NCI contiene <strong>{{term_count}}</strong> términos relacionados con el cáncer y la medicina.</p>" +
+            "<p>Ofrecemos un widget que usted puede añadir a su sitio web para que sus usuarios puedan buscar términos de cáncer. <a href=\"/espanol/sindicacion/widgets\">Obtenga el widget de términos de cáncer del Diccionario del NCI</a>.</p>",
+          dictionaryName: "Cancer.gov",
+					dictionaryTitle: "Diccionario de cáncer",
+					analyticsName: 'CancerTerms',
+          language: "es",
+          searchBoxTitle: "Busca diccionario de cáncer",
+          siteName: "Instituto Nacional del Cáncer"
+        },
+        {
+          appId: "@@/GENETICS_DICTIONARY",
+          audience: "HealthProfessional",
+          baseHost: "http://localhost:3000",
+          basePath: "",
+          canonicalBase: "https://www.cancer.gov/publications/dictionaries/",
+          dictionaryEndpoint: "https://webapis.cancer.gov/glossary/v1/",
+          dictionaryIntroText:
+            "<p>The NCI Dictionary of Genetics Terms contains technical definitions for <strong>{{term_count}}</strong> terms related to genetics. These definitions were developed by the PDQ® Cancer Genetics Editorial Board to support the evidence-based, peer-reviewed PDQ cancer genetics information summaries.</p>",
+					dictionaryName: "Genetics",
+					dictionaryTitle: "NCI Dictionary of Genetics Terms",
+					analyticsName: 'Genetics',
+          language: "en",
+          searchBoxTitle: "Search NCI's Dictionary of Genetics Terms",
+          siteName: "National Cancer Institute"
+        },
+        {
+          appId: "@@/GENETICS_DICTIONARY_SPANISH",
+          audience: "HealthProfessional",
+          baseHost: "http://localhost:3000",
+          basePath: "",
+          canonicalHost: "https://www.cancer.gov",
+          dictionaryEndpoint: "https://webapis.cancer.gov/glossary/v1/",
+          dictionaryIntroText:
+            "El diccionario de genética del NCI contiene mas de {{term_count}} términos relacionados con genética.",
+          dictionaryName: "Genetics",
+					dictionaryTitle: "Diccionario de genética",
+					analyticsName: 'Genetics',
+          language: "es",
+          searchBoxTitle: "Busca diccionario de genética",
+          siteName: "Instituto Nacional del Cáncer"
+        }
+      ];
+
+      window.APP_PARAMS = cfgs[configIndex];
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div class="mock-header">
+      <div>
+        <img
+          class="logo"
+          src="https://www.cancer.gov/publishedcontent/images/images/design-elements/logos/nci-logo-full.__v1.svg"
+          alt="National Cancer Institiute"
+        />
+      </div>
+      <div class="mock-language-bar">
+        <div id="LangList1">
+          <ul>
+            <li><a href="/replaceme">Language Toggle</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <main id="main-content" class="main-content">
+      <div class="general-page-body-container">
+        <div class="content-container contentzone">
+          <div id="NCI-app-root"></div>
+        </div>
+      </div>
+    </main>
+    <div class="jm-wrapper">
+      <select id="jm1" class="jumpmenu">
+        <option value="0">Cancer Terms</option>
+        <option value="1">Cancer Terms (Spanish)</option>
+        <option value="2">Genetics</option>
+        <option value="3">Genetics (Spanish)</option>
+      </select>
+    </div>
+    <script type="text/javascript">
+      document.getElementById("jm1").value = window.currentConfig;
+      function initJumpMenus() {
+        // Turns all <select> elements with the 'jumpmenu' class into jump menus
+        var selectElements = document.getElementsByTagName("select");
+        for (i = 0; i < selectElements.length; i++) {
+          // Check for the class and make sure the element has an ID
+          if (
+            selectElements[i].className == "jumpmenu" &&
+            document.getElementById(selectElements[i].id) != ""
+          ) {
+            jumpmenu = document.getElementById(selectElements[i].id);
+            jumpmenu.onchange = function() {
+              if (this.options[this.selectedIndex].value != "") {
+                // Redirect
+                location.href =
+                  window.publicUrl +
+                  "?cfg=" +
+                  this.options[this.selectedIndex].value;
+              }
+            };
+          }
+        }
+      }
+      window.onload = function() {
+        document.documentElement.setAttribute('lang', window.APP_PARAMS.language);
+        // hide language toggle if no spanish base provided
+        document.querySelector('.mock-language-bar').style.display = (window.APP_PARAMS.altLanguageDictionaryBasePath && window.APP_PARAMS.altLanguageDictionaryBasePath !== '')? 'block': 'none';
+        initJumpMenus();
+      };
+    </script>
+  </body>
+</html>
