@@ -48,8 +48,8 @@ const AudioPlayer = ({ audioSrc, lang = 'en', tracking = () => {} }) => {
 				src={audioSrc}
 				ref={playerRef}
 				onEnded={trackEnded}
-				onPause={trackPaused}></audio>
-
+				onPause={trackPaused}
+				preload="none"></audio>
 			<button
 				type="button"
 				className={`btnAudio ${playing ? 'playing' : ''}${
