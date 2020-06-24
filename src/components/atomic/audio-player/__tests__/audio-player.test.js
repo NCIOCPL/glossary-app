@@ -10,6 +10,7 @@ describe('<AudioPlayer /> component', () => {
 	it('creates an HTML5 audio element', () => {
 		const { container } = render(<AudioPlayer audioSrc="mock.mp3" />);
 		expect(container.querySelector('audio')).toBeInTheDocument();
+		expect(container.querySelector('audio')).toHaveAttribute('preload', 'none');
 	});
 
 	it('renders a button with screenreader text', () => {
