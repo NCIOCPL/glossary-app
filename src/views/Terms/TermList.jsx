@@ -49,7 +49,7 @@ const TermList = ({ matchType, query, type }) => {
 				? payload.results[0].prettyUrlName
 				: payload.results[0].termId;
 
-			navigate(DefinitionPath({ idOrName }));
+			navigate(DefinitionPath({ idOrName }), { replace: true });
 		}
 	}, [payload]);
 
