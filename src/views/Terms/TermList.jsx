@@ -44,18 +44,25 @@ const TermList = ({ matchType, query, type }) => {
 	const isHome = pathname === HomePath() || pathname === basePath;
 
 	useEffect(() => {
-		if (payload && payload.results && payload.results.length === 1) {
-			const idOrName = payload.results[0].prettyUrlName
-				? payload.results[0].prettyUrlName
-				: payload.results[0].termId;
-
-			navigate(DefinitionPath({ idOrName }));
-		}
-	}, [payload]);
-
-	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
+
+	useEffect(() => {
+		if (!loading && payload) {
+
+			if (payload.results && payload.results.length === 1) {
+				const idOrName = payload.results[0].prettyUrlName
+					? payload.results[0].prettyUrlName
+					: payload.results[0].termId;
+
+				navigate(DefinitionPath({ idOrName }), { replace: true });
+				return;
+			}
+
+			trackLoad(payload);
+		}
+
+	}, [loading, payload]);
 
 	const trackLoad = (payload) => {
 		// this object contans all common parameters for page load for search and expand views
@@ -108,12 +115,6 @@ const TermList = ({ matchType, query, type }) => {
 			...expandOrSearch,
 		});
 	};
-
-	useEffect(() => {
-		if (!loading && payload) {
-			trackLoad(payload);
-		}
-	}, [tracking, loading, payload]);
 
 	return (
 		<>
