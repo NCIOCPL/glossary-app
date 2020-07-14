@@ -25,7 +25,7 @@ function ComponentWithLocation({ RenderComponent }) {
 }
 
 ComponentWithLocation.propTypes = {
-	RenderComponent: PropTypes.node,
+	RenderComponent: PropTypes.func,
 };
 
 test('Ensure page is redirected to the definition page with a pretty URL name', async () => {
