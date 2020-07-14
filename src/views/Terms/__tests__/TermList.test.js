@@ -22,14 +22,15 @@ const queryFile = `${query}.json`;
 const { getFixture } = fixtures;
 const fixturePath = `/Terms/expand/Cancer.gov/Patient`;
 
-function ComponentWithLocation({ RenderComponent, query }) {
+// Used for search termlists
+const ComponentWithLocation = ({ RenderComponent, query, type = 'search' }) => {
 	location = useLocation();
-	return <RenderComponent query={query} />;
-}
-
+	return <RenderComponent query={query} type={type} />;
+};
 ComponentWithLocation.propTypes = {
-	RenderComponent: PropTypes.node,
+	RenderComponent: PropTypes.func,
 	query: PropTypes.string,
+	type: PropTypes.string,
 };
 
 describe('TermList component rendered with English', () => {
