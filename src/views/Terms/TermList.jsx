@@ -23,6 +23,8 @@ const getMetaTitle = (dictionaryTitle, siteName) => {
 const TermList = ({ matchType, query, type }) => {
 	const tracking = useTracking();
 	const location = useLocation();
+	const navigate = useNavigate();
+
 	const queryAction =
 		type === queryType.SEARCH
 			? getSearchResults(query, matchType)
@@ -37,9 +39,9 @@ const TermList = ({ matchType, query, type }) => {
 		ExpandPath,
 		ExpandPathSpanish,
 		SearchPath,
-		SearchPathSpanish
+		SearchPathSpanish,
 	} = useAppPaths();
-	const navigate = useNavigate();
+
 	const { pathname } = location;
 	const isHome = pathname === HomePath() || pathname === basePath;
 
@@ -49,8 +51,11 @@ const TermList = ({ matchType, query, type }) => {
 
 	useEffect(() => {
 		if (!loading && payload) {
-
-			if (payload.results && payload.results.length === 1) {
+			if (
+				(type === queryType.SEARCH || type === queryType.SEARCH_SPANISH) &&
+				payload.results &&
+				payload.results.length === 1
+			) {
 				const idOrName = payload.results[0].prettyUrlName
 					? payload.results[0].prettyUrlName
 					: payload.results[0].termId;
@@ -61,7 +66,6 @@ const TermList = ({ matchType, query, type }) => {
 
 			trackLoad(payload);
 		}
-
 	}, [loading, payload]);
 
 	const trackLoad = (payload) => {
@@ -77,14 +81,15 @@ const TermList = ({ matchType, query, type }) => {
 			event: 'GlossaryApp:Load:SearchResults',
 			name:
 				canonicalHost.replace('https://', '') +
-
-				[language === 'en' ?
-					SearchPath({
-						searchText: decodeURIComponent(query)
-					})
-					: SearchPathSpanish({
-						searchText: decodeURIComponent(query)
-					})],
+				[
+					language === 'en'
+						? SearchPath({
+							searchText: decodeURIComponent(query),
+						})
+						: SearchPathSpanish({
+							searchText: decodeURIComponent(query),
+						}),
+				],
 			searchType: matchType === 'Begins' ? 'StartsWith' : 'Contains',
 			searchKeyword: decodeURIComponent(query),
 			...commonParams,
@@ -94,14 +99,18 @@ const TermList = ({ matchType, query, type }) => {
 			event: 'GlossaryApp:Load:ExpandResults',
 			name:
 				canonicalHost.replace('https://', '') +
-				[language === 'en' ?
-					ExpandPath({
-						expandChar: decodeURIComponent(query).toLowerCase()
-					})
-					: ExpandPathSpanish({
-						expandChar: decodeURIComponent(query).toLowerCase()
-					})],
-			...(isHome && { name: canonicalHost.replace('https://', '') + HomePath() }),
+				[
+					language === 'en'
+						? ExpandPath({
+							expandChar: decodeURIComponent(query).toLowerCase(),
+						})
+						: ExpandPathSpanish({
+							expandChar: decodeURIComponent(query).toLowerCase(),
+						}),
+				],
+			...(isHome && {
+				name: canonicalHost.replace('https://', '') + HomePath(),
+			}),
 			letter: decodeURIComponent(query).toLocaleLowerCase(),
 			...commonParams,
 		};
@@ -123,15 +132,17 @@ const TermList = ({ matchType, query, type }) => {
 				<div
 					className="dictionary-list-container results"
 					data-dict-type="term">
-					{payload.results && payload.results.length > 1 ? (
+					{payload.results && payload.results.length >= 1 ? (
 						<>
 							<h4>
-								{payload.meta.totalResults} {i18n.termListTitle[language]}:{' '}
+								{payload.meta.totalResults} {payload.results.length === 1 ? i18n.termListTitleSingleResult[language] : i18n.termListTitle[language]}:{' '}
 								{decodeURIComponent(query)}{' '}
 							</h4>
 							<dl className="dictionary-list">
 								{payload.results.map((result, index) => {
-									return <Term key={index} resultIndex={index} payload={result} />;
+									return (
+										<Term key={index} resultIndex={index} payload={result} />
+									);
 								})}
 							</dl>
 						</>

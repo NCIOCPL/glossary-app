@@ -1,0 +1,29 @@
+{
+    "meta": {
+      "totalResults": 1,
+      "from": 0
+    },
+    "results": [
+      {
+        "termId": 460158,
+        "language": "en",
+        "dictionary": "Genetics",
+        "audience": "HealthProfessional",
+        "termName": "kindred",
+        "firstLetter": "k",
+        "prettyUrlName": "kindred",
+        "pronunciation": {
+          "key": "(KIN-dred)",
+          "audio": "https://nci-media-dev.cancer.gov/pdq/media/audio/736952.mp3"
+        },
+        "definition": {
+          "html": "An extended family.",
+          "text": "An extended family."
+        },
+        "otherLanguages": [],
+        "relatedResources": [],
+        "media": []
+      }
+    ],
+    "links": null
+  }

@@ -36,7 +36,7 @@ describe('<Search /> English', () => {
 	}
 
 	SearchWithLocation.propTypes = {
-		RenderComponent: PropTypes.node,
+		RenderComponent: PropTypes.func,
 	};
 
 	beforeEach(async () => {

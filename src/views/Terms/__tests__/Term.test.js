@@ -84,7 +84,7 @@ describe('Term component rendered with English', () => {
 		return <Term payload={term} />;
 	}
 	TermWithLocation.propTypes = {
-		term: PropTypes.string,
+		term: PropTypes.object,
 	};
 
 	afterEach(() => {
