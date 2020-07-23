@@ -33,9 +33,9 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 			? getKeyValueFromQueryString('searchMode', search)
 			: searchMatchType.beginsWith;
 	// Set default selected option for search match type
-	const [selectedOption, updateSelectedOption] = useState(matchType);
+	const [selectedOption, setSelectedOption] = useState(matchType);
 	// Set default search text to value retrieved from url or set to empty string if not
-	const [searchText, updateSearchText] = useState(
+	const [searchText, setSearchText] = useState(
 		urlParamSearchText ? decodeURIComponent(urlParamSearchText) : ''
 	);
 	const [shouldFetchAutoSuggest, setFetchAutoSuggest] = useState(false);
@@ -50,7 +50,7 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 
 	useEffect(() => {
 		// Set selected option value if url parameters change
-		updateSelectedOption(matchType);
+		setSelectedOption(matchType);
 	}, [matchType]);
 
 	const trackSubmit = () => {
@@ -75,8 +75,12 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 		const hasSearchText = searchText.length > 0;
 		const queryString = hasSearchText
 			? isContainsSearch
-				? `${searchText}/?searchMode=${searchMatchType.contains}`
-				: `${searchText}/?searchMode=${searchMatchType.beginsWith}`
+				? `${encodeURIComponent(searchText)}/?searchMode=${
+						searchMatchType.contains
+				  }`
+				: `${encodeURIComponent(searchText)}/?searchMode=${
+						searchMatchType.beginsWith
+				  }`
 			: `/`;
 		trackSubmit();
 		navigate(expandPathWithLang({ searchText: queryString }));
@@ -84,12 +88,12 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 
 	const toggleRadioSelection = (event) => {
 		const { value } = event.target;
-		updateSelectedOption(value);
+		setSelectedOption(value);
 	};
 
 	const onChangeHandler = (event) => {
 		const { value } = event.target;
-		updateSearchText(value);
+		setSearchText(value);
 		// Make auto suggest API call if search text length >= 3
 		if (value.length >= 3) {
 			setFetchAutoSuggest(true);
@@ -99,7 +103,7 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 	};
 
 	const onSelectHandler = (value) => {
-		updateSearchText(value);
+		setSearchText(value);
 	};
 
 	return (
