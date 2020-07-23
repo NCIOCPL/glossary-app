@@ -7,10 +7,13 @@ When('user clicks on {string} button', (searchButton) => {
 });
 
 When('user selects {string} option', (startsWithOrContains) => {
-	let locator;
-	startsWithOrContains.toLowerCase() === 'contains' || 'contiene'
-		? (locator = "label[for='contains']")
-		: (locator = "label[for='starts-with']");
+  let locator;
+  const queryType = startsWithOrContains.toLowerCase();
+	if (( queryType === 'contains') || (queryType === 'contiene')) {
+		locator = "label[for='contains']";
+	} else {
+		locator = "label[for='starts-with']";
+	}
 	cy.get(locator).click();
 });
 

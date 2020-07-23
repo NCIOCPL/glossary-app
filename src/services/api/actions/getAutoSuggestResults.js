@@ -12,6 +12,6 @@ export const getAutoSuggestResults = (
 
 	return {
 		method: 'GET',
-		endpoint: `${endpoint}/${searchText}?matchType=${matchType}&size=${autoSuggestLimit}`,
+		endpoint: `${endpoint}/${encodeURIComponent(searchText)}?matchType=${matchType}&size=${autoSuggestLimit}`,
 	};
 };

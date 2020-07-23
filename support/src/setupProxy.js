@@ -38,7 +38,7 @@ const getAutoSuggestResults = async (req, res, next) => {
 	);
 
 	try {
-		const mockFile = path.join(mockDir, `${query}.json`);
+    const mockFile = path.join(mockDir, `${encodeURIComponent(query)}.json`);
 		await fs.promises
 			.access(mockFile)
 			.then(() => {
@@ -100,7 +100,7 @@ const getResultsByQueryType = async (req, res, next) => {
 			  );
 
 	try {
-		const mockFile = path.join(mockDir, `${query}.json`);
+		const mockFile = path.join(mockDir, `${encodeURIComponent(query)}.json`);
 		await fs.promises
 			.access(mockFile)
 			.then(() => {

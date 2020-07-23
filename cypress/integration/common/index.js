@@ -79,7 +79,7 @@ When('user is searching {string} for the term {string}', (searchMode, term) => {
 				win.INT_TEST_APP_PARAMS.language === 'en'
 					? queryType.SEARCH
 					: queryType.SEARCH_SPANISH;
-			cy.visit(`/${searchLang}/${term}/?searchMode=${searchmode}`);
+			cy.visit(`/${searchLang}/${encodeURIComponent(term)}/?searchMode=${searchmode}`);
 		}
 	});
 });
@@ -463,7 +463,7 @@ When(
 Then(
 	'the system returns user to the search results page for the search term {string} URL has {string}',
 	(term, destURL) => {
-		cy.location('href').should('eq', `${baseURL}${destURL}/${term}`);
+		cy.location('href').should('eq', `${baseURL}${destURL}/${encodeURIComponent(term)}`);
 	}
 );
 
@@ -719,7 +719,9 @@ Then('URL contains selected term', () => {
 		const decoded = decodeURIComponent(win.location.pathname);
 		const lang = win.INT_TEST_APP_PARAMS.language;
 		if (lang === 'en') expect(decoded).to.eq(`/search/${Cypress.TERM_TEXT}/`);
-		else expect(decoded).to.eq(`/buscar/${Cypress.TERM_TEXT}/`);
+		else expect(decoded).to.eq(
+						`/buscar/${Cypress.TERM_TEXT}/`
+					);
 	});
 });
 
