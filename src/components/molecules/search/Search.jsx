@@ -154,9 +154,7 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 							autoSuggest.payload.length ? (
 								children
 							) : (
-								<div className="ncids-autocomplete__menu-item">
-									{i18n.autosuggestNoResultsFound[language]}
-								</div>
+								<></>
 							)
 						) : (
 							<div className="ncids-autocomplete__menu-item">
