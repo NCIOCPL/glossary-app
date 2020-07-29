@@ -30,7 +30,15 @@ Feature: As a user, I would like to have suggestions appear when I type in the s
     Then search is executed
     And URL contains selected term
 
-
+  Scenario: User is able to see autosuggested items and submit search when entering special characters
+    Given user is on landing page for the selected Dictionary
+    When user types "1-(" in the search bar
+    And Autosuggest appears after user types in 3 or more characters
+    When user selects autosuggested term
+    Then term is populated into the search bar
+    When user submits their search clicking the "Search" button
+    Then search is executed
+    And URL contains selected term
 
   Scenario: User can execute search by clicking Search button without selecting an option from autocomplete
     Given user is on landing page for the selected Dictionary

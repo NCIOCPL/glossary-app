@@ -1,8 +1,4 @@
 export const i18n = {
-	autosuggestNoResultsFound: {
-		en: 'No results found',
-		es: 'No hay resultados para su búsqueda',
-	},
 	autoSuggestThreeOrMoreChars: {
 		en: 'Please enter 3 or more characters',
 		es: 'Ingrese 3 o más caracteres',

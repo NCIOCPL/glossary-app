@@ -45,6 +45,27 @@ Feature: As a user, I would like to be able to enter keywords and have the optio
             | keyword |
             | meta    |
 
+    Scenario Outline: User executes a "contains" search with a term containing a slash.
+        Given the user is viewing the dictionary landing page
+        Then search bar contains a placeholder text "Enter keywords or phrases"
+        When user selects "Contains" option
+        When user types "<keyword>" in the search bar
+        Then placeholder text disappears
+        When user clicks on "Search" button
+        Then the URL contains "/search"
+        And search results page displays results title "# results found for: " "<keyword>"
+        And each result in the results listing appears as a link to the term's page
+        And the term links have the following hrefs
+            | term                          | href                     |
+            | cervical intraepithelial neoplasia grade 2/3            | /def/cervical-intraepithelial-neoplasia-grade-2-3  |
+            | CIN 2/3  | /def/cin-2-3             |
+        And "Contains" option is selected
+        And search bar contains the "<keyword>" that user entered
+
+        Examples:
+            | keyword |
+            | 2/3    |
+
     Scenario: Negative User enters a keyword or phrase that does not generate any matches
         Given the user is viewing the dictionary landing page
         When user types "chicken pot pie" in the search bar
