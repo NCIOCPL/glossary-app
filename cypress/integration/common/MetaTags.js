@@ -16,11 +16,16 @@ Then(
 	'the page contains meta tags with the following properties',
 	(dataTable) => {
 		for (const { property, content } of dataTable.hashes()) {
+			if(property==='robots'){
+				const locator = 'META[name=robots]';
+				cy.get(locator).should('have.attr', 'content').and('be.eq', content);
+			}else {
 			const locator = `META[property='${property}']`;
 			//find element, ensure it has attribute content
 			//compare content's value with expected one
 			cy.get(locator).should('have.attr', 'content').and('be.eq', content);
 		}
+	}
 	}
 );
 
