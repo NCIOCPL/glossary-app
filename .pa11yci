@@ -1,0 +1,19 @@
+{
+  "urls": [
+    "http://localhost:3000",
+    "http://localhost:3000?cfg=1",
+    "http://localhost:3000?cfg=2",
+    "http://localhost:3000?cfg=3",
+    "http://localhost:3000/expand/A",
+    "http://localhost:3000/expand/A?cfg=1",
+    "http://localhost:3000/expand/K?cfg=2",
+    "http://localhost:3000/expand/Y?cfg=3",
+    "http://localhost:3000/def/a33",
+    "http://localhost:3000/def/a33?cfg=1",
+    "http://localhost:3000/def/metastatic",
+    "http://localhost:3000/def/metastasico?cfg=1",
+    "http://localhost:3000/def/acrochordon?cfg=2",
+    "http://localhost:3000/def/acrochordon?cfg=3",
+    "http://localhost:3000/def/antioncogen?cfg=3"
+  ]
+}
