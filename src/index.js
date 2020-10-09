@@ -8,7 +8,7 @@ import { StateProvider } from './store/store';
 import reducer from './store/reducer';
 import { EddlAnalyticsProvider } from './tracking';
 import * as serviceWorker from './serviceWorker';
-import { getProductTestBase, EDDLAnalyticsHandler } from './utils';
+import { getProductTestBase, EDDLAnalyticsHandler, helmetizeMeta } from './utils';
 import { ClientContextProvider } from 'react-fetching-library';
 import { getAxiosClient } from './services/api/axios-client';
 import ErrorBoundary from './views/ErrorBoundary';
@@ -67,6 +67,16 @@ const initialize = ({
 		siteName,
 	};
 
+	// The app needs to initialize any metadata elements it will be
+	// manipulating with Helmet that may exist on the page already.
+	// The app should really generate ALL metadata, so this is for
+	// backwards compaibility.
+	helmetizeMeta(document, [
+		'meta[property="og:title"]',
+		'meta[property="og:url"]',
+		'meta[property="og:description"]',
+	]);
+
 	const AppBlock = () => {
 		return (
 			<StateProvider initialState={initialState} reducer={reducer}>
@@ -102,6 +112,9 @@ const initialize = ({
 };
 
 export default initialize;
+
+// expose initialization function to window
+window.GlossaryApp = initialize;
 
 // The following lets us run the app in dev not in situ as would normally be the case.
 const appParams = window.APP_PARAMS || {};
