@@ -57,7 +57,6 @@
       window.currentConfig = configIndex;
       const cfgs = [
         {
-          altLanguageDictionaryBasePath: "/espanol/publicaciones/diccionario",
           analyticsChannel: "Publications",
           appId: "@@/TERMS_DICTIONARY",
           audience: "Patient",
@@ -73,10 +72,13 @@
 					analyticsName: 'CancerTerms',
           language: "en",
           searchBoxTitle: "Search NCI's Dictionary of Cancer Terms",
-          siteName: "National Cancer Institute",
+					siteName: "National Cancer Institute",
+					alternateLanguageUrls: {
+						"en": "/publications/dictionaries/cancer-terms",
+						"es": "/espanol/publicaciones/diccionario"
+					},
         },
         {
-          altLanguageDictionaryBasePath: "/publications/dictionaries/cancer-terms",
           appId: "@@/TERMS_DICTIONARY_SPANISH",
           audience: "Patient",
           baseHost: "http://localhost:3000",
@@ -91,7 +93,11 @@
 					analyticsName: 'CancerTerms',
           language: "es",
           searchBoxTitle: "Busca diccionario de cáncer",
-          siteName: "Instituto Nacional del Cáncer"
+					siteName: "Instituto Nacional del Cáncer",
+					alternateLanguageUrls: {
+						"en": "/publications/dictionaries/cancer-terms",
+						"es": "/espanol/publicaciones/diccionario"
+					},
         },
         {
           appId: "@@/GENETICS_DICTIONARY",
@@ -191,7 +197,11 @@
       window.onload = function() {
         document.documentElement.setAttribute('lang', window.APP_PARAMS.language);
         // hide language toggle if no spanish base provided
-        document.querySelector('.mock-language-bar').style.display = (window.APP_PARAMS.altLanguageDictionaryBasePath && window.APP_PARAMS.altLanguageDictionaryBasePath !== '')? 'block': 'none';
+				document.querySelector('.mock-language-bar').style.display =
+					(window.APP_PARAMS.alternateLanguageUrls && (
+						(window.APP_PARAMS.language === 'en' && window.APP_PARAMS.alternateLanguageUrls['es'] !== '') ||
+						(window.APP_PARAMS.language === 'es' && window.APP_PARAMS.alternateLanguageUrls['en'] !== '')
+					))? 'block': 'none';
         initJumpMenus();
       };
     </script>

@@ -76,8 +76,6 @@ const PageNotFound = () => {
 		return (
 			<Helmet>
 				<title>{i18n.pageNotFoundTitle[language]}</title>
-				<meta property="dcterms.subject" content="Error Pages" />
-				<meta property="dcterms.type" content="errorpage" />
 			</Helmet>
 		);
 	};
