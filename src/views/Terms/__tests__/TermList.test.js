@@ -7,7 +7,6 @@ import { MemoryRouter, useLocation, useNavigate } from 'react-router-dom';
 import { testIds } from '../../../constants';
 import { TermList } from '../index';
 import { useStateValue } from '../../../store/store';
-import fixtures from '../../../utils/fixtures';
 import { MockAnalyticsProvider } from '../../../tracking';
 
 jest.mock('../../../store/store');
@@ -19,7 +18,6 @@ let wrapper;
 
 const query = 'A';
 const queryFile = `${query}.json`;
-const { getFixture } = fixtures;
 const fixturePath = `/Terms/expand/Cancer.gov/Patient`;
 
 // Used for search termlists

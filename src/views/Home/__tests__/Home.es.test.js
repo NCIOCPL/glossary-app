@@ -7,7 +7,7 @@ import { MockAnalyticsProvider } from '../../../tracking';
 import { testIds } from '../../../constants';
 import Home from '../Home';
 import { useStateValue } from '../../../store/store.js';
-import { i18n, fixtures } from '../../../utils';
+import { i18n } from '../../../utils';
 
 jest.mock('../../../store/store.js');
 
@@ -22,7 +22,6 @@ const language = 'es';
 
 const expandChar = 'A';
 const queryFile = `${expandChar}.json`;
-const { getFixture } = fixtures;
 const fixturePath = `/Terms/expand/Cancer.gov/Patient`;
 const termList = getFixture(`${fixturePath}/${language}/${queryFile}`);
 
