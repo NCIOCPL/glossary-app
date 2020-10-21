@@ -145,24 +145,29 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 				shouldItemRender={matchItemToTerm}
 				onChange={(event) => onChangeHandler(event)}
 				onSelect={(value, item) => onSelectHandler(value)}
-				renderMenu={(children) => (
-					<div
-						className="ncids-autocomplete__menu --terms"
-						role="listbox"
-						data-testid={testIds.AUTO_SUGGEST_OPTIONS}>
-						{searchText.length >= 3 && autoSuggest.payload ? (
-							autoSuggest.payload.length ? (
-								children
-							) : (
-								<></>
-							)
+				renderMenu={(children) =>
+					searchText.length >= 3 && autoSuggest.payload ? (
+						autoSuggest.payload.length > 0 ? (
+							<div
+								className="ncids-autocomplete__menu --terms"
+								role="listbox"
+								data-testid={testIds.AUTO_SUGGEST_OPTIONS}>
+								{children}
+							</div>
 						) : (
+							<></>
+						)
+					) : (
+						<div
+							className="ncids-autocomplete__menu --terms"
+							role="listbox"
+							data-testid={testIds.AUTO_SUGGEST_OPTIONS}>
 							<div className="ncids-autocomplete__menu-item">
 								{i18n.autoSuggestThreeOrMoreChars[language]}
 							</div>
-						)}
-					</div>
-				)}
+						</div>
+					)
+				}
 				renderItem={(item, isHighlighted) => (
 					<div
 						className={`ncids-autocomplete__menu-item ${
