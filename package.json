@@ -1,6 +1,6 @@
 {
 	"name": "@nciocpl/glossary-app",
-	"version": "1.0.4",
+	"version": "1.1.0",
 	"description": "Glossary React Application",
 	"repository": {
 		"type": "git",
@@ -43,9 +43,9 @@
 		"build": "node scripts/build.js",
 		"test": "NODE_ENV=test npm run pa11y-tests && NODE_ENV=test npm run unit-tests && NODE_ENV=test npm run cy:ci",
 		"posttest": "npm run prepare-reports",
-    "test:it": "NODE_ENV=test cypress open",
-    "test:pa11y": "./node_modules/.bin/pa11y-ci",
-    "pa11y-tests": "start-server-and-test start http://localhost:3000 pa11y",
+		"test:it": "NODE_ENV=test cypress open",
+		"test:pa11y": "./node_modules/.bin/pa11y-ci",
+		"pa11y-tests": "start-server-and-test start http://localhost:3000 pa11y",
 		"pa11y": "NODE_ENV=test pa11y-ci",
 		"cy:ci": "start-server-and-test start http://localhost:3000 integration-tests",
 		"unit-tests": "jest",
