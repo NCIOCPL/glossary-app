@@ -28,7 +28,7 @@ const Home = () => {
 		ExpandPath,
 		ExpandPathSpanish,
 		SearchPath,
-		SearchPathSpanish
+		SearchPathSpanish,
 	} = useAppPaths();
 	const location = useLocation();
 	const params = useParams();
@@ -103,29 +103,29 @@ const Home = () => {
 		if (isHome) {
 			return HomePath();
 		} else if (isExpand) {
-			return reqLang === 'es' ?
-				ExpandPathSpanish({ expandChar: query }) :
-				ExpandPath({ expandChar: query });
+			return reqLang === 'es'
+				? ExpandPathSpanish({ expandChar: query })
+				: ExpandPath({ expandChar: query });
 		} else if (isSearch) {
-			return reqLang === 'es' ?
-				SearchPathSpanish({ searchText: query }) :
-				SearchPath({ searchText: query });
+			return reqLang === 'es'
+				? SearchPathSpanish({ searchText: query })
+				: SearchPath({ searchText: query });
 		}
-	}
+	};
 
 	const getOGURLContent = (reqLang) => {
 		if (isHome) {
 			return HomePath();
 		} else if (isExpand) {
-			return reqLang === 'es' ?
-				ExpandPathSpanish({ expandChar: query }) :
-				ExpandPath({ expandChar: query });
+			return reqLang === 'es'
+				? ExpandPathSpanish({ expandChar: query })
+				: ExpandPath({ expandChar: query });
 		} else if (isSearch) {
-			return reqLang === 'es' ?
-				SearchPathSpanish({ searchText: query }) :
-				SearchPath({ searchText: query });
+			return reqLang === 'es'
+				? SearchPathSpanish({ searchText: query })
+				: SearchPath({ searchText: query });
 		}
-	}
+	};
 
 	const getCanonicalUrl = () => {
 		const path = getCanonicalPath(language);
@@ -133,65 +133,56 @@ const Home = () => {
 		if (path) {
 			return canonicalHost + path;
 		}
-	}
+	};
 
 	const getCanonicalTag = () => {
 		const canonicalUrl = getCanonicalUrl();
 
 		if (canonicalUrl) {
 			return <link rel="canonical" href={canonicalUrl} />;
-		} else {
-			return <></>;
 		}
-
-	}
+	};
 
 	const getHrefLangs = () => {
 		// There is no other language, so let's get out
 		// of here.
-		if (!altLanguageDictionaryBasePath) {
-			return <></>;
+		if (altLanguageDictionaryBasePath) {
+			return [
+				<link
+					key="1"
+					rel="alternate"
+					hrefLang={language}
+					href={getCanonicalUrl()}
+				/>,
+				<link
+					key="2"
+					rel="alternate"
+					// TODO: Fix this as it is dirty and does not
+					// support multiple languages. (Well, the alternate
+					// language dictionary base path does not either... )
+					hrefLang={language === 'es' ? 'en' : 'es'}
+					href={
+						canonicalHost +
+						altLanguageDictionaryBasePath +
+						getCanonicalPath(language === 'es' ? 'en' : 'es')
+					}
+				/>,
+			];
 		}
-
-		return [
-			<link
-				key="1"
-				rel="alternate"
-				hrefLang={language}
-				href={getCanonicalUrl()}
-			/>,
-			<link
-				key="2"
-				rel="alternate"
-				// TODO: Fix this as it is dirty and does not
-				// support multiple languages. (Well, the alternate
-				// language dictionary base path does not either... )
-				hrefLang={language === "es" ? "en" : "es"}
-				href={
-					canonicalHost +
-					altLanguageDictionaryBasePath +
-					getCanonicalPath(language === "es" ? "en" : "es")
-				}
-			/>
-		];
-	}
-
+	};
 
 	const renderHelmet = () => {
-
 		// Home is indexable, expand and search are not.
-		const robotsMeta = isHome ?
-			<meta name="robots" content="index" /> :
-			<meta name="robots" content="noindex" />;
-
+		const robotsMeta = isHome ? (
+			<meta name="robots" content="index" />
+		) : (
+			<meta name="robots" content="noindex" />
+		);
 
 		return (
 			<Helmet>
 				<title>{`${dictionaryTitle} - ${siteName}`}</title>
-				<meta
-					property="og:title"
-					content={`${dictionaryTitle}`}
-				/>
+				<meta property="og:title" content={`${dictionaryTitle}`} />
 				<meta
 					property="og:url"
 					content={baseHost + getOGURLContent(language)}
@@ -227,8 +218,8 @@ const Home = () => {
 					type={isSearch ? queryType.SEARCH : queryType.EXPAND}
 				/>
 			) : (
-					<NoMatchingResults />
-				)}
+				<NoMatchingResults />
+			)}
 		</>
 	);
 };

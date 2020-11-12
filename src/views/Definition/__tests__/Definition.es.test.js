@@ -5,8 +5,11 @@ import { ClientContextProvider } from 'react-fetching-library';
 
 import Definition from '../Definition';
 import { useStateValue } from '../../../store/store.js';
-import fixtures from '../../../utils/fixtures';
-import { setAudience, setDictionaryName, setLanguage } from '../../../services/api/endpoints';
+import {
+	setAudience,
+	setDictionaryName,
+	setLanguage,
+} from '../../../services/api/endpoints';
 import { MockAnalyticsProvider } from '../../../tracking';
 import ErrorBoundary from '../../ErrorBoundary';
 
@@ -17,7 +20,6 @@ let client;
 let definition;
 let wrapper;
 
-const { getFixture } = fixtures;
 const dictionaryName = 'Cancer.gov';
 const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
 const fixturePath = `/Terms/${dictionaryName}/Patient`;
@@ -96,9 +98,8 @@ describe('Definition component with Spanish', () => {
 		);
 	});
 
-	describe( 'Display "Page Not Found" for pretty URLs without definitions',() => {
-
-		beforeEach( () => {
+	describe('Display "Page Not Found" for pretty URLs without definitions', () => {
+		beforeEach(() => {
 			cleanup();
 			// Since this test throws an error which gets logged to the console
 			// Spy on console error and swap with mock implementation to prevent
@@ -106,7 +107,7 @@ describe('Definition component with Spanish', () => {
 			jest.spyOn(console, 'error');
 			console.error.mockImplementation(() => {});
 		});
-		afterEach( () => {
+		afterEach(() => {
 			// Restore console error log in cleanup
 			console.error.mockRestore();
 			cleanup();
@@ -123,7 +124,10 @@ describe('Definition component with Spanish', () => {
 			setDictionaryName(dictionaryName);
 			setAudience('Patient');
 			setLanguage(language);
-			Object.defineProperty(window, 'location', { value: windowLocation, writable: true });
+			Object.defineProperty(window, 'location', {
+				value: windowLocation,
+				writable: true,
+			});
 
 			useLocation.mockReturnValue({
 				location: {},
@@ -151,7 +155,8 @@ describe('Definition component with Spanish', () => {
 					status: 404,
 					loading: false,
 					payload: {
-						Message: "No match for dictionary 'Cancer.gov', audience 'Patient', language 'es', pretty URL name 'pollo'.",
+						Message:
+							"No match for dictionary 'Cancer.gov', audience 'Patient', language 'es', pretty URL name 'pollo'.",
 					},
 				}),
 			};
@@ -168,9 +173,7 @@ describe('Definition component with Spanish', () => {
 				);
 			});
 
-			expect(screen.getByText("No se encontró la página")).toBeInTheDocument();
+			expect(screen.getByText('No se encontró la página')).toBeInTheDocument();
 		});
-
 	});
-
 });

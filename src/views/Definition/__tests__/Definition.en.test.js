@@ -5,11 +5,14 @@ import { ClientContextProvider } from 'react-fetching-library';
 
 import { testIds } from '../../../constants';
 import Definition from '../Definition';
-import ErrorBoundary from '../../ErrorBoundary'
-import { setAudience, setDictionaryName, setLanguage } from '../../../services/api/endpoints'
+import ErrorBoundary from '../../ErrorBoundary';
+import {
+	setAudience,
+	setDictionaryName,
+	setLanguage,
+} from '../../../services/api/endpoints';
 import { useStateValue } from '../../../store/store.js';
-import { MockAnalyticsProvider } from '../../../tracking'
-import fixtures from '../../../utils/fixtures';
+import { MockAnalyticsProvider } from '../../../tracking';
 
 jest.mock('react-router');
 jest.mock('../../../store/store.js');
@@ -18,7 +21,6 @@ let client;
 let definition;
 let wrapper;
 
-const { getFixture } = fixtures;
 const fixturePath = `/Terms/Cancer.gov/Patient`;
 const hpvFile = '44386__hpv.json';
 const metastaticFile = '44058__metastatic.json';
@@ -254,9 +256,8 @@ describe('Definition component with English', () => {
 		});
 	});
 
-	describe( 'Display "Page Not Found" for pretty URLs without definitions',() => {
-
-		beforeEach( () => {
+	describe('Display "Page Not Found" for pretty URLs without definitions', () => {
+		beforeEach(() => {
 			cleanup();
 			// Since this test throws an error which gets logged to the console
 			// Spy on console error and swap with mock implementation to prevent
@@ -264,7 +265,7 @@ describe('Definition component with English', () => {
 			jest.spyOn(console, 'error');
 			console.error.mockImplementation(() => {});
 		});
-		afterEach( () => {
+		afterEach(() => {
 			// Restore console error log in cleanup
 			console.error.mockRestore();
 			cleanup();
@@ -281,7 +282,10 @@ describe('Definition component with English', () => {
 			setDictionaryName(dictionaryName);
 			setAudience('Patient');
 			setLanguage(language);
-			Object.defineProperty(window, 'location', { value: windowLocation, writable: true });
+			Object.defineProperty(window, 'location', {
+				value: windowLocation,
+				writable: true,
+			});
 
 			useLocation.mockReturnValue({
 				location: {},
@@ -309,25 +313,25 @@ describe('Definition component with English', () => {
 					status: 404,
 					loading: false,
 					payload: {
-						Message: "No match for dictionary 'Cancer.gov', audience 'Patient', language 'en', pretty URL name 'chicken'.",
+						Message:
+							"No match for dictionary 'Cancer.gov', audience 'Patient', language 'en', pretty URL name 'chicken'.",
 					},
 				}),
 			};
 
 			await act(async () => {
 				render(
-						<MockAnalyticsProvider>
-							<ClientContextProvider client={client}>
-								<ErrorBoundary>
-									<Definition />
-								</ErrorBoundary>
-							</ClientContextProvider>
-						</MockAnalyticsProvider>
+					<MockAnalyticsProvider>
+						<ClientContextProvider client={client}>
+							<ErrorBoundary>
+								<Definition />
+							</ErrorBoundary>
+						</ClientContextProvider>
+					</MockAnalyticsProvider>
 				);
 			});
 
-			expect(screen.getByText("Page Not Found")).toBeInTheDocument();
+			expect(screen.getByText('Page Not Found')).toBeInTheDocument();
 		});
-
 	});
 });

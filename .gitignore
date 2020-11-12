@@ -13,6 +13,7 @@
 !.eslintignore
 !.eslintrc.js
 !.prettierrc
+!.pa11yci
 !.flake8
 !.gitattributes
 !.github
