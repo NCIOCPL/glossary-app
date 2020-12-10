@@ -9,7 +9,7 @@ Feature: As a user, I would like to have suggestions appear when I type in the s
     Scenario: User is able to see autosuggested items when typing 3 or more characters into the search box and has selected "Empieza con"
         Given user is on landing page for the selected Dictionary
         Then "Empieza con" radio is selected by default
-        And search bar contains a placeholder text "Escriba frase o palabra clave"
+        And search bar contains a placeholder text "Escribir frase o palabra"
         When user types "meta" in the search bar
         Then Autosuggest appears after user types in 3 or more characters
         And highlighting of the text "meta" appears in the autosuggest field
@@ -22,7 +22,7 @@ Feature: As a user, I would like to have suggestions appear when I type in the s
     Scenario: User is able to see autosuggested items when typing 3 or more characters into the search box and has selected the Contains option in Spanish
         Given user is on landing page for the selected Dictionary
         When user selects "Contiene" option
-        And search bar contains a placeholder text "Escriba frase o palabra clave"
+        And search bar contains a placeholder text "Escribir frase o palabra"
         When user types "met" in the search bar
         Then placeholder text disappears
         And Autosuggest appears after user types in 3 or more characters
@@ -45,7 +45,7 @@ Feature: As a user, I would like to have suggestions appear when I type in the s
         Then heading "Buscar en el Diccionario de cáncer" appears
         And "keywords" search box appears
         And search button appears beside search box with "Buscar"
-        And "Ojear:" appears with A-Z List of Links beside it
+        And "Navegar por letra inicial:" appears with A-Z List of Links beside it
         When user types "meta" in the search bar
         And user selects autosuggested term
         Then term is populated into the search bar

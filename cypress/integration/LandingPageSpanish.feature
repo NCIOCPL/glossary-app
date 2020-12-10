@@ -12,7 +12,7 @@ Feature: Landing Page Spanish
     And "Empieza con" radio is selected by default
     And "keywords" search box appears
     And search button appears beside search box with "Buscar"
-    And "Ojear:" appears with A-Z List of Links beside it
+    And "Navegar por letra inicial:" appears with A-Z List of Links beside it
     And "#" appears at the end of the list
     And each option appears as a link
     And the page is showing the expand results for letter "A"

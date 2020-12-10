@@ -5,7 +5,7 @@ export const i18n = {
 	},
 	browse: {
 		en: 'Browse',
-		es: 'Ojear',
+		es: 'Navegar por letra inicial',
 	},
 	containsRadioLabel: {
 		en: 'Contains',
@@ -41,7 +41,7 @@ export const i18n = {
 	},
 	searchPlaceholderText: {
 		en: 'Enter keywords or phrases',
-		es: 'Escriba frase o palabra clave',
+		es: 'Escribir frase o palabra',
 	},
 	startsWithRadioLabel: {
 		en: 'Starts with',
