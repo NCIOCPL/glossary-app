@@ -90,7 +90,7 @@ test('Ensure page is redirected to the definition page with a pretty URL name', 
 
 	const expectedLocationObject = {
 		pathname: '/def/a33',
-		search: '',
+		search: '?redirect=true',
 		hash: '',
 		state: null,
 		key: expect.any(String),
