@@ -51,6 +51,11 @@ Given('user is on landing Genetics Terms page', () => {
 	cy.visit(baseURL);
 });
 
+And('the system appends {string} to the URL', (a) => {
+	cy.location('search').should('eq',a)
+
+});
+
 Given(
 	'the user is viewing the definition with the pretty url {string}',
 	(a) => {
@@ -788,3 +793,4 @@ And('the user enters {string}', (userText) => {
 And('the user submits the keyword search', () => {
 	cy.get('#btnSearch').click();
 });
+

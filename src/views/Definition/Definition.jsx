@@ -87,7 +87,8 @@ const Definition = () => {
 
 			// redirect to URL with pretty URL name if ID is used
 			if (payload.prettyUrlName && idOrName.match(/^[0-9]+$/) != null) {
-				navigate(DefinitionPath({ idOrName: payload.prettyUrlName }));
+				const redirectedURL = `${payload.prettyUrlName}?redirect=true`;
+				navigate(DefinitionPath({ idOrName: redirectedURL }));
 				return;
 			}
 
