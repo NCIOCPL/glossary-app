@@ -14,6 +14,10 @@
 	.dictionary-search-input {
 		display: inline-block;
 		width: 65%;
+
+		@media screen and (max-width: 640px) {
+			width: 100%;
+		}
 	}
 
 	.ncids-input {
@@ -27,9 +31,13 @@
 		margin-left: 1em;
 		top: -1px;
 
-		@media screen and (max-width: 414px) {
-			font-size: 14px;
-			width: 24%;
+		@media screen and (max-width: 640px) {
+			font-size: 1em;
+			display: inline-block;
+			width: 100%;
+			margin-right: 0;
+			margin-left: 0;
+			margin-top: 35px;
 		}
 	}
 }
