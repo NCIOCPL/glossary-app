@@ -661,14 +661,14 @@ Then('the user gets an error page that reads {string}', (errorMessage) => {
 */
 
 Then('Autosuggest appears after user types in 3 or more characters', () => {
-	cy.get(".menu-anchor div[class*='--terms']").should('be.visible');
+	cy.get(".menu-wrapper div[class*='--terms']").should('be.visible');
 });
 
 Then(
 	'highlighting of the text {string} appears in the autosuggest field',
 	(enteredText) => {
 		const regex = new RegExp(`${enteredText}`, 'i');
-		cy.get(".menu-anchor div[class*='--terms'] span strong").each(($el) => {
+		cy.get(".menu-wrapper div[class*='--terms'] span strong").each(($el) => {
 			cy.wrap($el).invoke('text').should('match', regex);
 		});
 	}
@@ -679,17 +679,17 @@ When('user clicks on the search bar', () => {
 });
 
 Then('helper text {string} appears', (helperText) => {
-	cy.get('.menu-anchor div div').should('have.text', helperText);
+	cy.get('.menu-wrapper div div').should('have.text', helperText);
 });
 
 When('user selects autosuggested term', () => {
-	cy.get(".menu-anchor div[class*='--terms'] span")
+	cy.get(".menu-wrapper div[class*='--terms'] span")
 		.first()
 		.invoke('text')
 		.then((text) => {
 			Cypress.TERM_TEXT = text;
 		});
-	cy.get(".menu-anchor div[class*='--terms'] span").first().click();
+	cy.get(".menu-wrapper div[class*='--terms'] span").first().click();
 });
 
 Then('term is populated into the search bar', () => {

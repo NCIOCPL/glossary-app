@@ -5687,7 +5687,7 @@ textarea {
 	color: #2e2e2e;
 	display: block;
 	font-size: 1em;
-	margin: 0 0 1em;
+	margin: 0 0 0;
 	padding: 0.5em;
 	height: 2.4375em;
 	width: 100%;

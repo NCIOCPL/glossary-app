@@ -1,6 +1,6 @@
 /* eslint-disable react/no-string-refs */
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { createRef } from 'react';
 
 import './Autocomplete.scss';
 
@@ -209,7 +209,8 @@ class Autocomplete extends React.Component {
 				<div className={`ncids-autocomplete__menu ${classes}`}>{items}</div>
 			);
 		},
-		autoHighlight: true,
+
+		autoHighlight: false,
 		selectOnBlur: false,
 		onMenuVisibilityChange() {},
 		labelHint: '',
@@ -226,6 +227,7 @@ class Autocomplete extends React.Component {
 			highlightedIndex: null,
 		};
 		this._debugStates = [];
+		this.checkDropdownPosition = this.checkDropdownPosition.bind(this);
 		this.ensureHighlightedIndex = this.ensureHighlightedIndex.bind(this);
 		this.exposeAPI = this.exposeAPI.bind(this);
 		this.handleInputFocus = this.handleInputFocus.bind(this);
@@ -236,6 +238,7 @@ class Autocomplete extends React.Component {
 		this.maybeAutoCompleteText = this.maybeAutoCompleteText.bind(this);
 
 		this.id = this.props.id;
+		this.dropdown = createRef();
 	}
 
 	UNSAFE_componentWillMount() {
@@ -252,26 +255,21 @@ class Autocomplete extends React.Component {
 		this._scrollTimer = null;
 	}
 
-	UNSAFE_componentWillReceiveProps(nextProps) {
+	UNSAFE_componentWillReceiveProps() {
 		if (this.state.highlightedIndex !== null) {
 			this.setState(this.ensureHighlightedIndex);
-		}
-		if (
-			nextProps.autoHighlight &&
-			(this.props.value !== nextProps.value ||
-				this.state.highlightedIndex === null)
-		) {
-			this.setState(this.maybeAutoCompleteText);
 		}
 	}
 
 	componentDidMount() {
 		if (this.isOpen()) {
 			this.setMenuPositions();
+			this.checkDropdownPosition();
 		}
 	}
 
 	componentDidUpdate(prevProps, prevState) {
+		if (this.props !== prevProps) this.checkDropdownPosition();
 		if (
 			(this.state.isOpen && !prevState.isOpen) ||
 			('open' in this.props && this.props.open && !prevProps.open)
@@ -280,6 +278,7 @@ class Autocomplete extends React.Component {
 		}
 
 		if (prevState.isOpen !== this.state.isOpen) {
+			this.checkDropdownPosition();
 			this.props.onMenuVisibilityChange(this.state.isOpen);
 		}
 	}
@@ -294,10 +293,11 @@ class Autocomplete extends React.Component {
 	handleKeyDown(event) {
 		if (Autocomplete.keyDownHandlers[event.key])
 			Autocomplete.keyDownHandlers[event.key].call(this, event);
-		else if (!this.isOpen()) {
+		else {
+			/*if (!this.isOpen()) {
 			this.setState({
 				isOpen: true,
-			});
+			});*/
 		}
 	}
 
@@ -309,7 +309,7 @@ class Autocomplete extends React.Component {
 		ArrowDown(event) {
 			event.preventDefault();
 			const items = this.getFilteredItems(this.props);
-			if (!items.length) return;
+			//if (!items.length) return;
 			const { highlightedIndex } = this.state;
 			let index = highlightedIndex === null ? -1 : highlightedIndex;
 			for (let i = 0; i < items.length; i++) {
@@ -330,7 +330,7 @@ class Autocomplete extends React.Component {
 		ArrowUp(event) {
 			event.preventDefault();
 			const items = this.getFilteredItems(this.props);
-			if (!items.length) return;
+			//if (!items.length) return;
 			const { highlightedIndex } = this.state;
 			let index = highlightedIndex === null ? items.length : highlightedIndex;
 			for (let i = 0; i < items.length; i++) {
@@ -353,10 +353,13 @@ class Autocomplete extends React.Component {
 			if (event.keyCode !== 13) return;
 			// In case the user is currently hovering over the menu
 			this.setIgnoreBlur(false);
-			if (!this.isOpen()) {
+
+			/*if (!this.isOpen()) {
 				// menu is closed so there is no selection to accept -> do nothing
 				return;
-			} else if (this.state.highlightedIndex == null) {
+			} else */ if (
+				this.state.highlightedIndex == null
+			) {
 				// input has focus but no menu item is selected + enter is hit -> close the menu, highlight whatever's in input
 				this.setState(
 					{
@@ -401,6 +404,22 @@ class Autocomplete extends React.Component {
 			this.setIgnoreBlur(false);
 		},
 	};
+
+	checkDropdownPosition() {
+		const node = this.dropdown.current;
+		const rect = node?.getBoundingClientRect() || 0;
+		const windowHeight = window.innerHeight || 0;
+		// 16(px) is the average height of a scrollbar
+		// value can be adjusted to make the dropdown
+		// flip up if its less than the value.
+		const flipUp = windowHeight - rect.bottom < 16;
+		console.log('flipped');
+		console.log('WindowHeight: ' + windowHeight);
+		console.log('rect.bottom: ' + rect.bottom);
+		this.setState({
+			flipUp,
+		});
+	}
 
 	getFilteredItems(props) {
 		let items = props.items.slice(0, props.itemsDisplayLimit);
@@ -458,6 +477,7 @@ class Autocomplete extends React.Component {
 			menuLeft: rect.left + marginLeft,
 			menuWidth: rect.width + marginLeft + marginRight,
 		});
+		this.checkDropdownPosition();
 	}
 
 	highlightItemFromMouse(index) {
@@ -678,9 +698,19 @@ class Autocomplete extends React.Component {
 							),
 							type: 'text',
 							value: this.props.value,
+							//<div className="menu-anchor">{open && this.renderMenu()}</div>
 						})}
 					</div>
-					<div className="menu-anchor">{open && this.renderMenu()}</div>
+
+					<div className="menu-anchor">
+						<div
+							ref={this.dropdown}
+							className={`menu-wrapper ${
+								this.state.flipUp ? 'showAbove' : null
+							}`}>
+							{open && this.renderMenu()}
+						</div>
+					</div>
 
 					{this.props.debug && (
 						<pre style={{ marginLeft: 300 }}>
