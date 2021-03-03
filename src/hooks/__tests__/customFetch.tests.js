@@ -4,10 +4,14 @@ import { ClientContextProvider } from 'react-fetching-library';
 
 import UseCustomQuerySample from '../samples/UseCustomQuery';
 import { useStateValue } from '../../store/store';
-import MockAnalyticsProvider from '../../tracking/mock-analytics-provider'
+import MockAnalyticsProvider from '../../tracking/mock-analytics-provider';
 import { i18n } from '../../utils';
 import ErrorBoundary from '../../views/ErrorBoundary';
-import { setAudience, setDictionaryName, setLanguage } from '../../services/api/endpoints'
+import {
+	setAudience,
+	setDictionaryName,
+	setLanguage,
+} from '../../services/api/endpoints';
 
 jest.mock('../../store/store');
 
@@ -129,7 +133,7 @@ describe('', () => {
 				dictionaryName,
 				dictionaryTitle,
 				language,
-			}
+			},
 		]);
 
 		client = {

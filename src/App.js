@@ -10,7 +10,7 @@ import Definition from './views/Definition';
 import PageNotFound from './views/ErrorBoundary/PageNotFound';
 import Home from './views/Home';
 
-const App = ({ tracking }) => {
+const App = () => {
 	// this should be a DUMB component that just displays our display(group) components
 	const {
 		HomePath,
@@ -38,9 +38,9 @@ const App = ({ tracking }) => {
 				<Route path={SearchPathNoParam()} element={<Home />} />
 				<Route path={SearchPathSpanish()} element={<Home />} />
 				<Route path={SearchPathSpanishNoParam()} element={<Home />} />
-				{window?.location?.host === 'react-app-dev.cancer.gov' &&
+				{window?.location?.host === 'react-app-dev.cancer.gov' && (
 					<Route path="/*" element={<PageNotFound />} />
-				}
+				)}
 			</Routes>
 		</Router>
 	);

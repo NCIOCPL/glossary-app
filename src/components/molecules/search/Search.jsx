@@ -144,7 +144,7 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 				getItemValue={(item) => item.termName}
 				shouldItemRender={matchItemToTerm}
 				onChange={(event) => onChangeHandler(event)}
-				onSelect={(value, item) => onSelectHandler(value)}
+				onSelect={(value) => onSelectHandler(value)}
 				renderMenu={(children) =>
 					searchText.length >= 3 && autoSuggest.payload ? (
 						autoSuggest.payload.length > 0 ? (

@@ -6,7 +6,7 @@ import { Pronunciation } from '../../components';
 import { useAppPaths } from '../../hooks';
 import { useStateValue } from '../../store/store';
 import { testIds } from '../../constants';
-import {useTracking} from "react-tracking";
+import { useTracking } from 'react-tracking';
 
 const Term = ({ resultIndex, payload }) => {
 	const { DefinitionPath } = useAppPaths();
@@ -24,14 +24,14 @@ const Term = ({ resultIndex, payload }) => {
 	const handleTermLinkClick = () => {
 		const idOrName = prettyUrlName ? prettyUrlName : termId;
 
-			tracking.trackEvent({
-					type: 'Other',
-					event: 'GlossaryApp:Other:ResultClick',
-					linkName: 'TermsDictionaryResults',
-					resultIndex: resultIndex + 1,
-					resultIdOrName: idOrName,
-					resultName: termName
-			});
+		tracking.trackEvent({
+			type: 'Other',
+			event: 'GlossaryApp:Other:ResultClick',
+			linkName: 'TermsDictionaryResults',
+			resultIndex: resultIndex + 1,
+			resultIdOrName: idOrName,
+			resultName: termName,
+		});
 	};
 
 	return (
