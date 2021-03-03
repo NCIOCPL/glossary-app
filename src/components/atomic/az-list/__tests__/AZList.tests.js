@@ -21,7 +21,7 @@ useStateValue.mockReturnValue([
 	},
 ]);
 
-const analyticsHandler = jest.fn((data) => {});
+const analyticsHandler = jest.fn(() => {});
 
 describe('AZList component', () => {
 	test('AZList renders and contains 27 items', () => {

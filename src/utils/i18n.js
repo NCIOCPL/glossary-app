@@ -32,8 +32,8 @@ export const i18n = {
 			'No hay resultados para su búsqueda. Inicie una nueva búsqueda o haga clic en otra letra del alfabeto para consultar términos que empiecen con esa letra.',
 	},
 	pageNotFoundTitle: {
-		en: "Page Not Found",
-		es: "No se encontró la página",
+		en: 'Page Not Found',
+		es: 'No se encontró la página',
 	},
 	search: {
 		en: 'Search',

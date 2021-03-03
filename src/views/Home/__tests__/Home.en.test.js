@@ -1,10 +1,10 @@
-import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import { act, cleanup, render } from '@testing-library/react';
 import React from 'react';
 import { ClientContextProvider } from 'react-fetching-library';
 import { MemoryRouter } from 'react-router';
 import { MockAnalyticsProvider } from '../../../tracking';
 
-import { searchMatchType, testIds } from '../../../constants';
+import { testIds } from '../../../constants';
 import Home from '../Home';
 import { useStateValue } from '../../../store/store.js';
 import { i18n } from '../../../utils';

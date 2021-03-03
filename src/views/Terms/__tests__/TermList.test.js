@@ -2,7 +2,7 @@ import { act, cleanup, render } from '@testing-library/react';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ClientContextProvider } from 'react-fetching-library';
-import { MemoryRouter, useLocation, useNavigate } from 'react-router-dom';
+import { MemoryRouter, useLocation } from 'react-router-dom';
 
 import { testIds } from '../../../constants';
 import { TermList } from '../index';

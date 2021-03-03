@@ -8,7 +8,11 @@ import { StateProvider } from './store/store';
 import reducer from './store/reducer';
 import { EddlAnalyticsProvider } from './tracking';
 import * as serviceWorker from './serviceWorker';
-import { getProductTestBase, EDDLAnalyticsHandler, helmetizeMeta } from './utils';
+import {
+	getProductTestBase,
+	EDDLAnalyticsHandler,
+	helmetizeMeta,
+} from './utils';
 import { ClientContextProvider } from 'react-fetching-library';
 import { getAxiosClient } from './services/api/axios-client';
 import ErrorBoundary from './views/ErrorBoundary';
@@ -31,7 +35,7 @@ const getAltLanguageBase = (currLang, alternateLangs) => {
 		default:
 			return null;
 	}
-}
+};
 
 /**
  * Initializes the Glossary App.
@@ -40,7 +44,7 @@ const getAltLanguageBase = (currLang, alternateLangs) => {
  */
 const initialize = ({
 	appId = '@@/DEFAULT_DICTIONARY',
-	alternateLanguageUrls = { },
+	alternateLanguageUrls = {},
 	// This should still be configurable in case someone is hosting
 	// this outside of the digital platform, and wants to hookup
 	// their own analytics. See index.html for an overly complicated
@@ -69,7 +73,10 @@ const initialize = ({
 	// Backwards compatibility hack for language toggle now that app will get
 	// multiple languages. This just handles the en/es toggle until the lang
 	// toggle in the app gets updated to be more.
-	const altLanguageDictionaryBasePath = getAltLanguageBase(language, alternateLanguageUrls);
+	const altLanguageDictionaryBasePath = getAltLanguageBase(
+		language,
+		alternateLanguageUrls
+	);
 
 	//populate global state with init params
 	const initialState = {

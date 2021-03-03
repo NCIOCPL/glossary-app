@@ -17,7 +17,7 @@ import { useStateValue } from '../../../../store/store';
 import { i18n } from '../../../../utils';
 
 import { MockAnalyticsProvider } from '../../../../tracking';
-const analyticsHandler = jest.fn((data) => {});
+const analyticsHandler = jest.fn(() => {});
 
 jest.mock('../../../../store/store.js');
 let client;

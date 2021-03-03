@@ -15,7 +15,6 @@ import Home from '../views/Home';
 
 jest.mock('../store/store.js');
 
-let wrapper;
 axios.defaults.adapter = require('axios/lib/adapters/http');
 
 const { EXPAND_SPANISH } = queryType;
@@ -71,7 +70,7 @@ describe('App component', () => {
 		};
 
 		await act(async () => {
-			wrapper = render(
+			render(
 				<MockAnalyticsProvider>
 					<MemoryRouter initialEntries={[DefinitionPath({ idOrName })]}>
 						<ClientContextProvider client={getAxiosClient(initialState)}>
@@ -106,7 +105,7 @@ describe('App component', () => {
 		};
 
 		await act(async () => {
-			wrapper = render(
+			render(
 				<MockAnalyticsProvider>
 					<MemoryRouter initialEntries={[ExpandPath({ expandChar })]}>
 						<ClientContextProvider client={getAxiosClient(initialState)}>
@@ -140,7 +139,7 @@ describe('App component', () => {
 		};
 
 		await act(async () => {
-			wrapper = render(
+			render(
 				<MockAnalyticsProvider>
 					<MemoryRouter initialEntries={[ExpandPathNoParam()]}>
 						<ClientContextProvider client={getAxiosClient(initialState)}>
@@ -175,7 +174,7 @@ describe('App component', () => {
 		};
 
 		await act(async () => {
-			wrapper = render(
+			render(
 				<MockAnalyticsProvider>
 					<MemoryRouter initialEntries={[ExpandPathSpanish({ expandChar })]}>
 						<ClientContextProvider client={getAxiosClient(initialState)}>
@@ -209,7 +208,7 @@ describe('App component', () => {
 		};
 
 		await act(async () => {
-			wrapper = render(
+			render(
 				<MockAnalyticsProvider>
 					<MemoryRouter initialEntries={[ExpandPathNoParamSpanish()]}>
 						<ClientContextProvider client={getAxiosClient(initialState)}>
@@ -243,7 +242,7 @@ describe('App component', () => {
 		};
 
 		await act(async () => {
-			wrapper = render(
+			render(
 				<MockAnalyticsProvider>
 					<MemoryRouter initialEntries={[HomePath()]}>
 						<ClientContextProvider client={getAxiosClient(initialState)}>

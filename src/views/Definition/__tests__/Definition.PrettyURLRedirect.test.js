@@ -1,12 +1,12 @@
-import { act, render, screen } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { MemoryRouter, useLocation } from 'react-router-dom';
 import { ClientContextProvider } from 'react-fetching-library';
 import Definition from '../Definition';
-import ErrorBoundary from '../../ErrorBoundary'
+import ErrorBoundary from '../../ErrorBoundary';
 import { useStateValue } from '../../../store/store.js';
-import { MockAnalyticsProvider } from '../../../tracking'
+import { MockAnalyticsProvider } from '../../../tracking';
 
 jest.mock('../../../store/store');
 
@@ -40,20 +40,22 @@ test('Ensure page is redirected to the definition page with a pretty URL name', 
 			status: 200,
 			payload: {
 				termId: 46722,
-				language: "en",
-				dictionary: "Cancer.gov",
-				audience: "Patient",
-				termName: "A33",
-				firstLetter: "a",
-				prettyUrlName: "a33",
+				language: 'en',
+				dictionary: 'Cancer.gov',
+				audience: 'Patient',
+				termName: 'A33',
+				firstLetter: 'a',
+				prettyUrlName: 'a33',
 				pronunciation: null,
 				definition: {
-					html: "A type of monoclonal antibody used in cancer detection or therapy. Monoclonal antibodies are laboratory-produced substances that can locate and bind to cancer cells.",
-					text: "A type of monoclonal antibody used in cancer detection or therapy. Monoclonal antibodies are laboratory-produced substances that can locate and bind to cancer cells."
+					html:
+						'A type of monoclonal antibody used in cancer detection or therapy. Monoclonal antibodies are laboratory-produced substances that can locate and bind to cancer cells.',
+					text:
+						'A type of monoclonal antibody used in cancer detection or therapy. Monoclonal antibodies are laboratory-produced substances that can locate and bind to cancer cells.',
 				},
 				otherLanguages: [],
 				relatedResources: [],
-				media: []
+				media: [],
 			},
 			loading: false,
 		}),
@@ -65,7 +67,7 @@ test('Ensure page is redirected to the definition page with a pretty URL name', 
 			languageToggleSelector: '#LangList1 a',
 			appId: 'mockAppId',
 			canonicalHost: 'https://example.org',
-			baseHost: "http://localhost:3000",
+			baseHost: 'http://localhost:3000',
 			basePath: '/',
 			dictionaryName,
 			dictionaryTitle,
