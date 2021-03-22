@@ -17,7 +17,7 @@ import { useStateValue } from '../../../../store/store';
 import { i18n } from '../../../../utils';
 
 import { MockAnalyticsProvider } from '../../../../tracking';
-const analyticsHandler = jest.fn((data) => {});
+const analyticsHandler = jest.fn(() => {});
 
 jest.mock('../../../../store/store.js');
 let client;
@@ -196,6 +196,7 @@ describe('<Search /> English', () => {
 
 			const { container } = wrapper;
 			const input = screen.getByRole('combobox');
+
 			// Focus to get autosuggest options
 			input.focus();
 			await act(async () => {
@@ -215,7 +216,18 @@ describe('<Search /> English', () => {
 			const menuOptions = screen.getAllByRole('option');
 			// Expect menu options count displayed in autosuggest to match data count
 			expect(menuOptions.length).toEqual(6);
-			// Enter key to select first item highlighted in options list (meta-analysis)
+
+			// Down key and Enter key to select first item highlighted in options list (meta-analysis)
+			fireEvent(
+				input,
+				new KeyboardEvent('keydown', {
+					key: 'ArrowDown',
+					keyCode: 13,
+					which: 13,
+					bubbles: true,
+				})
+			);
+
 			fireEvent(
 				input,
 				new KeyboardEvent('keydown', {
@@ -225,6 +237,7 @@ describe('<Search /> English', () => {
 					bubbles: true,
 				})
 			);
+
 			const searchButton = screen.getByText('Search');
 			await act(async () => {
 				fireEvent.click(searchButton);

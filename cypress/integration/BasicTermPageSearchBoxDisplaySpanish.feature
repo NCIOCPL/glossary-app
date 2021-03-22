@@ -10,7 +10,7 @@ Feature: Basic Term Page SearchBox Display Spanish
     Then search options for "Empieza con" and "Contiene" appears
     Then "keywords" search box appears
     Then search button appears beside search box with "Buscar"
-    Then "Ojear:" appears with A-Z List of Links beside it
+    Then "Navegar por letra inicial:" appears with A-Z List of Links beside it
     And user submits their search clicking the "Buscar" button
     Then the system returns users to the search results page for the search term
 
@@ -20,6 +20,6 @@ Feature: Basic Term Page SearchBox Display Spanish
     Then search options for "Empieza con" and "Contiene" appears
     Then "keywords" search box appears
     Then search button appears beside search box with "Buscar"
-    Then "Ojear:" appears with A-Z List of Links beside it
+    Then "Navegar por letra inicial:" appears with A-Z List of Links beside it
     When user clicks a letter in the A-Z list
     Then the system returns users to the search results page for the letter

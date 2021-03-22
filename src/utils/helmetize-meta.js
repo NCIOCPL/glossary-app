@@ -19,9 +19,9 @@ export const helmetizeMeta = (document, selectors) => {
 	for (const selector of selectors) {
 		const elements = document.querySelectorAll(selector);
 		for (const element of elements) {
-			if (!element.hasAttribute("data-react-helmet")) {
-				element.setAttribute("data-react-helmet", "true");
+			if (!element.hasAttribute('data-react-helmet')) {
+				element.setAttribute('data-react-helmet', 'true');
 			}
 		}
 	}
-}
+};

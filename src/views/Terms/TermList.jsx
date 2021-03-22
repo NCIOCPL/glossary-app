@@ -84,11 +84,11 @@ const TermList = ({ matchType, query, type }) => {
 				[
 					language === 'en'
 						? SearchPath({
-							searchText: decodeURIComponent(query),
-						})
+								searchText: decodeURIComponent(query),
+						  })
 						: SearchPathSpanish({
-							searchText: decodeURIComponent(query),
-						}),
+								searchText: decodeURIComponent(query),
+						  }),
 				],
 			searchType: matchType === 'Begins' ? 'StartsWith' : 'Contains',
 			searchKeyword: decodeURIComponent(query),
@@ -102,11 +102,11 @@ const TermList = ({ matchType, query, type }) => {
 				[
 					language === 'en'
 						? ExpandPath({
-							expandChar: decodeURIComponent(query).toLowerCase(),
-						})
+								expandChar: decodeURIComponent(query).toLowerCase(),
+						  })
 						: ExpandPathSpanish({
-							expandChar: decodeURIComponent(query).toLowerCase(),
-						}),
+								expandChar: decodeURIComponent(query).toLowerCase(),
+						  }),
 				],
 			...(isHome && {
 				name: canonicalHost.replace('https://', '') + HomePath(),
@@ -135,8 +135,11 @@ const TermList = ({ matchType, query, type }) => {
 					{payload.results && payload.results.length >= 1 ? (
 						<>
 							<h4>
-								{payload.meta.totalResults} {payload.results.length === 1 ? i18n.termListTitleSingleResult[language] : i18n.termListTitle[language]}:{' '}
-								{decodeURIComponent(query)}{' '}
+								{payload.meta.totalResults}{' '}
+								{payload.results.length === 1
+									? i18n.termListTitleSingleResult[language]
+									: i18n.termListTitle[language]}
+								: {decodeURIComponent(query)}{' '}
 							</h4>
 							<dl className="dictionary-list">
 								{payload.results.map((result, index) => {
@@ -147,8 +150,8 @@ const TermList = ({ matchType, query, type }) => {
 							</dl>
 						</>
 					) : (
-							<NoMatchingResults />
-						)}
+						<NoMatchingResults />
+					)}
 				</div>
 			)}
 		</>

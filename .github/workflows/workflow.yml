@@ -1,9 +1,9 @@
 name: Workflow
-on: [ push, pull_request ]
-jobs:      
+on: [push, pull_request]
+jobs:
   build:
     name: Build, Test and Upload Artifacts
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest
     steps:
       ## Setup variables for build info
       - name: Set Variables
@@ -58,7 +58,7 @@ jobs:
         env:
           CI: true
       ## Runs jest unit and cypress e2e testing and merges coverage reports
-      - name: Run Tests 
+      - name: Run Tests
         run: npm test
         env:
           CI: true
@@ -84,7 +84,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: test-results
-          path: coverage          
+          path: coverage
       ## Upload the test results artifact
       - name: Archive production artifacts
         uses: actions/upload-artifact@v1
@@ -114,18 +114,18 @@ jobs:
           REPO_NAME=$(jq -r '.repo_name' < ./build-artifact/build-info.json)
 
           ## Set Action Env
-          echo ::set-env name=BUILD_NAME::$(echo $BUILD_NAME)
-          echo ::set-env name=BRANCH_NAME::$(echo $BRANCH_NAME)
-          echo ::set-env name=COMMIT_HASH::$(echo $COMMIT_HASH)
-          echo ::set-env name=REPO_OWNER::$(echo $REPO_OWNER)
-          echo ::set-env name=REPO_NAME::$(echo $REPO_NAME)
+          echo "BUILD_NAME=${BUILD_NAME}" >> $GITHUB_ENV
+          echo "BRANCH_NAME=${BRANCH_NAME}" >> $GITHUB_ENV
+          echo "COMMIT_HASH=${COMMIT_HASH}" >> $GITHUB_ENV
+          echo "REPO_OWNER=${REPO_OWNER}" >> $GITHUB_ENV
+          echo "REPO_NAME=${REPO_NAME}" >> $GITHUB_ENV
 
           ######## ERROR IF PR FROM FORK
           if [ "$REPO_OWNER" != "NCIOCPL" ]; then
             echo "YOU SHOULD NOT SEND PR FROM FORK!!!"
             exit 1
           fi
-      ## We need to create the zip for netstorage          
+      ## We need to create the zip for netstorage
       - name: Zip Build Artifact
         run: |
           pushd build-artifact
@@ -181,7 +181,7 @@ jobs:
           artifact_filename = '{0}.zip'.format(BUILD_NAME)
           local_source = os.path.join(os.getcwd(), artifact_filename)
           netstorage_destination = '/{0}/{1}/{2}'.format(NS_CPCODE, REPO_NAME, artifact_filename)
-          
+
           ## Upload to Netstorage
           ns = Netstorage(NS_HOSTNAME, NS_KEYNAME, NS_KEY, True)
           ok, response = ns.upload(local_source, netstorage_destination, True)
@@ -190,7 +190,7 @@ jobs:
             # Error occurred
             print(response)
             exit(1)
-          
+
           ## Clear cache
           session = requests.Session()
           session.auth = EdgeGridAuth(
@@ -216,6 +216,6 @@ jobs:
 
           ## Sucessfully Completed.
           print("Uploaded {0} successfully".format(artifact_filename))
-          exit(0)            
+          exit(0)
 
 ## TODO: Post notice PR is ready for testing

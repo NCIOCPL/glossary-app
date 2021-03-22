@@ -5,7 +5,7 @@ export const i18n = {
 	},
 	browse: {
 		en: 'Browse',
-		es: 'Ojear',
+		es: 'Navegar por letra inicial',
 	},
 	containsRadioLabel: {
 		en: 'Contains',
@@ -32,8 +32,8 @@ export const i18n = {
 			'No hay resultados para su búsqueda. Inicie una nueva búsqueda o haga clic en otra letra del alfabeto para consultar términos que empiecen con esa letra.',
 	},
 	pageNotFoundTitle: {
-		en: "Page Not Found",
-		es: "No se encontró la página",
+		en: 'Page Not Found',
+		es: 'No se encontró la página',
 	},
 	search: {
 		en: 'Search',
@@ -41,7 +41,7 @@ export const i18n = {
 	},
 	searchPlaceholderText: {
 		en: 'Enter keywords or phrases',
-		es: 'Escriba frase o palabra clave',
+		es: 'Escribir frase o palabra',
 	},
 	startsWithRadioLabel: {
 		en: 'Starts with',

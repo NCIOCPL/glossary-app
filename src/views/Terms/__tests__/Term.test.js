@@ -10,7 +10,7 @@ import { useStateValue } from '../../../store/store';
 
 jest.mock('../../../store/store');
 
-const analyticsHandler = jest.fn(data => {});
+const analyticsHandler = jest.fn(() => {});
 
 let wrapper;
 
@@ -133,7 +133,7 @@ describe('Term component rendered with English', () => {
 	// Add term description test
 	test.each(testTerms)(
 		'Term description is displayed for term with %s',
-		async (termType, termObject, expectedLocationObject) => {
+		async (termType, termObject) => {
 			const dictionaryName = 'Cancer.gov';
 			const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
 
@@ -181,11 +181,11 @@ describe('Term component rendered with English', () => {
 			]);
 
 			await act(async () => {
-			  wrapper = render(
-					<MockAnalyticsProvider analyticsHandler={analyticsHandler} >
-							<MemoryRouter initialEntries={["/"]}>
-								<TermWithLocation term={termObject} />
-							</MemoryRouter>
+				wrapper = render(
+					<MockAnalyticsProvider analyticsHandler={analyticsHandler}>
+						<MemoryRouter initialEntries={['/']}>
+							<TermWithLocation term={termObject} />
+						</MemoryRouter>
 					</MockAnalyticsProvider>
 				);
 			});
@@ -195,5 +195,6 @@ describe('Term component rendered with English', () => {
 
 			fireEvent.click(termLink);
 			expect(analyticsHandler).toHaveBeenCalled();
-	});
+		}
+	);
 });

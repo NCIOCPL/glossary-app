@@ -1,8 +1,8 @@
 .ncids-autocomplete {
 	position: relative;
+	margin-bottom: 0;
 
 	&__menu {
-		position: absolute;
 		background: white;
 		border: 1px solid #ccc;
 		top: 0;
@@ -10,6 +10,8 @@
 		z-index: 10;
 		overflow: auto;
 		max-height: 280px;
+		overflow-wrap: break-word;
+		-ms-word-wrap: break-word;
 
 		&-item {
 			line-height: 1.4;
@@ -26,13 +28,22 @@
 	.menu-anchor {
 		position: relative;
 	}
+	.menu-wrapper {
+		position: absolute;
+		width: 100%;
+		z-index: 10;
+
+		&.showAbove {
+			bottom: 38px;
+		}
+	}
 
 	+ .ncids-autocomplete {
 		margin-top: 1em;
 	}
 
 	+ .ncids-input-group {
-		margin-top: 1em;
+		margin-top: 3em;
 		@media only screen and (min-width: 641px) {
 			margin-top: 0;
 		}

@@ -81,7 +81,7 @@ const Home = () => {
 		matchType,
 	]);
 
-	const renderTermListHandler = (caller) => {
+	const renderTermListHandler = () => {
 		if (
 			isHome ||
 			(isExpand && expandChar) ||

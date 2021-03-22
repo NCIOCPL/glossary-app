@@ -63,7 +63,7 @@ const PageNotFound = () => {
 
 	const searchPathWithLang = language === 'es' ? SearchPathSpanish : SearchPath;
 
-	const executeSearch = event => {
+	const executeSearch = (event) => {
 		event.preventDefault();
 		const queryString =
 			searchText.length > 1
@@ -80,7 +80,7 @@ const PageNotFound = () => {
 		);
 	};
 
-	const updateTextInput = event => {
+	const updateTextInput = (event) => {
 		const { value } = event.target;
 		updateSearchText(value);
 	};

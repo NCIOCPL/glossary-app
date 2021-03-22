@@ -7,7 +7,7 @@ Feature: As a user, I would like to be able to enter keywords on Spanish cancer 
 
     Scenario Outline: User executes a "starts with" (default) search after entering terms.
         Given the user is viewing the dictionary landing page
-        Then search bar contains a placeholder text "Escriba frase o palabra clave"
+        Then search bar contains a placeholder text "Escribir frase o palabra"
         When user types "<keyword>" in the search bar
         Then placeholder text disappears
         When user clicks on "Buscar" button
@@ -30,7 +30,7 @@ Feature: As a user, I would like to be able to enter keywords on Spanish cancer 
 
     Scenario Outline: User executes a "contains" search after entering terms with special character.
         Given the user is viewing the dictionary landing page
-        Then search bar contains a placeholder text "Escriba frase o palabra clave"
+        Then search bar contains a placeholder text "Escribir frase o palabra"
         When user selects "Contiene" option
         When user types "<keyword>" in the search bar
         Then placeholder text disappears
