@@ -413,9 +413,6 @@ class Autocomplete extends React.Component {
 		// value can be adjusted to make the dropdown
 		// flip up if its less than the value.
 		const flipUp = windowHeight - rect.bottom < 16;
-		console.log('flipped');
-		console.log('WindowHeight: ' + windowHeight);
-		console.log('rect.bottom: ' + rect.bottom);
 		this.setState({
 			flipUp,
 		});
