@@ -264,22 +264,15 @@ class Autocomplete extends React.Component {
 	componentDidMount() {
 		if (this.isOpen()) {
 			this.setMenuPositions();
-			this.checkDropdownPosition();
 		}
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		if (this.props !== prevProps) this.checkDropdownPosition();
-		if (
-			(this.state.isOpen && !prevState.isOpen) ||
-			('open' in this.props && this.props.open && !prevProps.open)
-		) {
-			this.setMenuPositions();
-		}
-
 		if (prevState.isOpen !== this.state.isOpen) {
-			this.checkDropdownPosition();
 			this.props.onMenuVisibilityChange(this.state.isOpen);
+		}
+		if (prevProps.items.length !== this.props.items.length) {
+			this.setMenuPositions();
 		}
 	}
 
@@ -293,12 +286,6 @@ class Autocomplete extends React.Component {
 	handleKeyDown(event) {
 		if (Autocomplete.keyDownHandlers[event.key])
 			Autocomplete.keyDownHandlers[event.key].call(this, event);
-		else {
-			/*if (!this.isOpen()) {
-			this.setState({
-				isOpen: true,
-			});*/
-		}
 	}
 
 	handleChange(event) {
@@ -405,19 +392,6 @@ class Autocomplete extends React.Component {
 		},
 	};
 
-	checkDropdownPosition() {
-		const node = this.dropdown.current;
-		const rect = node?.getBoundingClientRect() || 0;
-		const windowHeight = window.innerHeight || 0;
-		// 16(px) is the average height of a scrollbar
-		// value can be adjusted to make the dropdown
-		// flip up if its less than the value.
-		const flipUp = windowHeight - rect.bottom < 16;
-		this.setState({
-			flipUp,
-		});
-	}
-
 	getFilteredItems(props) {
 		let items = props.items.slice(0, props.itemsDisplayLimit);
 
@@ -475,6 +449,23 @@ class Autocomplete extends React.Component {
 			menuWidth: rect.width + marginLeft + marginRight,
 		});
 		this.checkDropdownPosition();
+	}
+
+	checkDropdownPosition() {
+		const node = this.dropdown.current;
+		const rect = node?.getBoundingClientRect() || 0;
+		const windowHeight = window.innerHeight || 0;
+		const menuHeight = rect.bottom - rect.top;
+		let shouldRenderAbove = false;
+		if (this.state.flipUp) {
+			// it was flipped up before, use the bottom and add height of the input
+			shouldRenderAbove = windowHeight - (rect.bottom + menuHeight + 40) < 0;
+		} else {
+			shouldRenderAbove = windowHeight - rect.bottom < 0;
+		}
+		this.setState({
+			flipUp: shouldRenderAbove,
+		});
 	}
 
 	highlightItemFromMouse(index) {

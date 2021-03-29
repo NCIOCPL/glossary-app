@@ -13,6 +13,11 @@ code {
 		monospace;
 }
 
+.main-content {
+    padding: 0;
+    background: #f7f8f3 url(https://cancer.gov/PublishedContent/images/images/design-elements/background-graphics/hexagon_molecular_structure_body.png) repeat-y 110% 600px;
+}
+
 .general-page-body-container,
 .mock-header {
 	position: relative;
@@ -27,7 +32,13 @@ code {
 	clear: both;
 	height: 100%;
 	min-height: 100vh;
-	overflow: auto;
+	overflow: visible;
+}
+
+.general-page-body-container::after {
+  content: '';
+  clear: both;
+  display: table;
 }
 
 @media only screen and (min-width: 1441px) {
@@ -83,6 +94,12 @@ code {
 
 .mock-header ul {
 	margin-bottom: 0;
+}
+
+.mock-footer {
+  background: #123e57 url(https://cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/background-graphics/hexagon_molecular_structure_footer.png?v=16130651) no-repeat -120% 150px;
+    padding: 1em 0;
+  height: 600px;
 }
 
 .mock-language-bar {
