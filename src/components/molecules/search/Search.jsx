@@ -140,7 +140,11 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 				inputProps={{
 					placeholder: i18n.searchPlaceholderText[language],
 				}}
-				items={autoSuggest.payload || []}
+				items={
+					autoSuggest.payload && searchText.length >= 3
+						? autoSuggest.payload
+						: []
+				}
 				getItemValue={(item) => item.termName}
 				shouldItemRender={matchItemToTerm}
 				onChange={(event) => onChangeHandler(event)}
