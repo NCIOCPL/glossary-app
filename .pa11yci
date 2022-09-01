@@ -15,5 +15,12 @@
     "http://localhost:3000/def/acrochordon?cfg=2",
     "http://localhost:3000/def/acrochordon?cfg=3",
     "http://localhost:3000/def/antioncogen?cfg=3"
-  ]
+  ],
+		"chromeLaunchConfig": {
+			"args": [
+				"--no-sandbox",
+				"--disable-setuid-sandbox",
+				"--disable-dev-shm-usage"
+			]
+		}
 }
