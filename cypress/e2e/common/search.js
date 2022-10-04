@@ -59,7 +59,8 @@ Then('search bar contains the {string} that user entered', (keyword) => {
 });
 
 Then('placeholder text disappears', () => {
-	cy.get('#keywords').should('have.attr', 'placeholder').and('not.be.visible');
+	cy.get('#keywords').should('have.attr', 'placeholder');
+	cy.get('#keywords').should('have.attr', 'value').should('not.be.eq', '');
 });
 
 Then('the page displays {string}', (noMatchFoundMessage) => {

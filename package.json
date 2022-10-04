@@ -136,7 +136,9 @@
 		]
 	},
 	"cypress-cucumber-preprocessor": {
-		"nonGlobalStepDefinitions": true
+		"nonGlobalStepDefinitions": true,
+		"stepDefinitions": "cypress/e2e",
+		"commonPath": "cypress/e2e/common"
 	},
 	"nyc": {
 		"report-dir": "coverage/cypress",
@@ -146,7 +148,7 @@
 	},
 	"devDependencies": {
 		"@babel/core": "7.9.0",
-		"@cypress/code-coverage": "^3.8.1",
+		"@cypress/code-coverage": "^3.10.0",
 		"@svgr/webpack": "4.3.3",
 		"@testing-library/jest-dom": "^4.2.4",
 		"@testing-library/react": "^9.5.0",
@@ -162,8 +164,8 @@
 		"babel-preset-react-app": "^9.1.2",
 		"case-sensitive-paths-webpack-plugin": "2.3.0",
 		"css-loader": "3.4.2",
-		"cypress": "^5.2.0",
-		"cypress-cucumber-preprocessor": "^4.0.0",
+		"cypress": "^10.9.0",
+		"cypress-cucumber-preprocessor": "^4.3.1",
 		"eslint": "^7.20.0",
 		"eslint-config-airbnb": "^18.2.1",
 		"eslint-config-prettier": "^8.1.0",
