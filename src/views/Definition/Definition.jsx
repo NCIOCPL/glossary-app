@@ -100,7 +100,7 @@ const Definition = () => {
 					event: 'GlossaryApp:Load:Definition',
 					//TODO: this is dirty and should be set internally based on the value passed in.
 					name:
-						canonicalHost.replace('https://', '') +
+						canonicalHost.replace(/https:\/\/|http:\/\//, '') +
 						DefinitionPath({
 							idOrName: payload.prettyUrlName
 								? payload.prettyUrlName
