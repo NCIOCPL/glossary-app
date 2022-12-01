@@ -80,7 +80,7 @@ const TermList = ({ matchType, query, type }) => {
 		const searchParams = {
 			event: 'GlossaryApp:Load:SearchResults',
 			name:
-				canonicalHost.replace('https://', '') +
+				canonicalHost.replace(/https:\/\/|http:\/\//, '') +
 				[
 					language === 'en'
 						? SearchPath({
@@ -98,7 +98,7 @@ const TermList = ({ matchType, query, type }) => {
 		const expandParams = {
 			event: 'GlossaryApp:Load:ExpandResults',
 			name:
-				canonicalHost.replace('https://', '') +
+				canonicalHost.replace(/https:\/\/|http:\/\//, '') +
 				[
 					language === 'en'
 						? ExpandPath({
