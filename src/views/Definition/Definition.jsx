@@ -120,6 +120,10 @@ const Definition = () => {
 		if (langToggle && langObj.prettyUrlName) {
 			langToggle.href = `${altLanguageDictionaryBasePath}/def/${langObj.prettyUrlName}`;
 		}
+
+		if (langToggle && langObj.prettyUrlName == '') {
+			langToggle.href = `${altLanguageDictionaryBasePath}/def/${payload.termId}`;
+		}
 	};
 
 	const renderMetaDefinition = () => {
