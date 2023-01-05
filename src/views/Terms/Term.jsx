@@ -11,13 +11,8 @@ import { useTracking } from 'react-tracking';
 const Term = ({ resultIndex, payload }) => {
 	const { DefinitionPath } = useAppPaths();
 	const [{ language }] = useStateValue();
-	const {
-		definition,
-		termId,
-		termName,
-		prettyUrlName,
-		pronunciation,
-	} = payload;
+	const { definition, termId, termName, prettyUrlName, pronunciation } =
+		payload;
 
 	const tracking = useTracking();
 

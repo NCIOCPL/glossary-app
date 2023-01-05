@@ -287,8 +287,9 @@ const Definition = () => {
 					payload.media.map((mediaItem) => {
 						if (mediaItem.Type === 'Image') {
 							const imgArr = mediaItem.ImageSources;
-							const thumbUri = imgArr.find((imgItem) => imgItem.Size === '571')
-								.Src;
+							const thumbUri = imgArr.find(
+								(imgItem) => imgItem.Size === '571'
+							).Src;
 							const enlargeUri = imgArr.find(
 								(imgItem) => imgItem.Size === 'original'
 							).Src;

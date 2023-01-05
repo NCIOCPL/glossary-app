@@ -183,10 +183,8 @@ describe('TermList component rendered with English', () => {
 										'https://nci-media.cancer.gov/pdq/media/audio/714622.mp3',
 								},
 								definition: {
-									html:
-										'Cancer that forms in tissues of the lung, usually in the cells lining air passages. The two main types are small cell lung cancer and non-small cell lung cancer. These types are diagnosed based on how the cells look under a microscope.',
-									text:
-										'Cancer that forms in tissues of the lung, usually in the cells lining air passages. The two main types are small cell lung cancer and non-small cell lung cancer. These types are diagnosed based on how the cells look under a microscope.',
+									html: 'Cancer that forms in tissues of the lung, usually in the cells lining air passages. The two main types are small cell lung cancer and non-small cell lung cancer. These types are diagnosed based on how the cells look under a microscope.',
+									text: 'Cancer that forms in tissues of the lung, usually in the cells lining air passages. The two main types are small cell lung cancer and non-small cell lung cancer. These types are diagnosed based on how the cells look under a microscope.',
 								},
 								otherLanguages: [],
 								relatedResources: [],
@@ -246,10 +244,8 @@ describe('TermList component rendered with English', () => {
 										'https://nci-media.cancer.gov/pdq/media/audio/714622.mp3',
 								},
 								definition: {
-									html:
-										'Cancer that forms in tissues of the lung, usually in the cells lining air passages. The two main types are small cell lung cancer and non-small cell lung cancer. These types are diagnosed based on how the cells look under a microscope.',
-									text:
-										'Cancer that forms in tissues of the lung, usually in the cells lining air passages. The two main types are small cell lung cancer and non-small cell lung cancer. These types are diagnosed based on how the cells look under a microscope.',
+									html: 'Cancer that forms in tissues of the lung, usually in the cells lining air passages. The two main types are small cell lung cancer and non-small cell lung cancer. These types are diagnosed based on how the cells look under a microscope.',
+									text: 'Cancer that forms in tissues of the lung, usually in the cells lining air passages. The two main types are small cell lung cancer and non-small cell lung cancer. These types are diagnosed based on how the cells look under a microscope.',
 								},
 								otherLanguages: [],
 								relatedResources: [],

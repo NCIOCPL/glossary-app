@@ -48,10 +48,8 @@ test('Ensure page is redirected to the definition page with a pretty URL name', 
 				prettyUrlName: 'a33',
 				pronunciation: null,
 				definition: {
-					html:
-						'A type of monoclonal antibody used in cancer detection or therapy. Monoclonal antibodies are laboratory-produced substances that can locate and bind to cancer cells.',
-					text:
-						'A type of monoclonal antibody used in cancer detection or therapy. Monoclonal antibodies are laboratory-produced substances that can locate and bind to cancer cells.',
+					html: 'A type of monoclonal antibody used in cancer detection or therapy. Monoclonal antibodies are laboratory-produced substances that can locate and bind to cancer cells.',
+					text: 'A type of monoclonal antibody used in cancer detection or therapy. Monoclonal antibodies are laboratory-produced substances that can locate and bind to cancer cells.',
 				},
 				otherLanguages: [],
 				relatedResources: [],
