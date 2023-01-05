@@ -30,9 +30,8 @@ const TermList = ({ matchType, query, type }) => {
 			? getSearchResults(query, matchType)
 			: getExpandCharResults(query);
 	const { loading, payload } = useCustomQuery(queryAction);
-	const [
-		{ language, canonicalHost, dictionaryTitle, siteName, basePath },
-	] = useStateValue();
+	const [{ language, canonicalHost, dictionaryTitle, siteName, basePath }] =
+		useStateValue();
 	const {
 		DefinitionPath,
 		HomePath,
