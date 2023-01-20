@@ -4,6 +4,7 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom/extend-expect';
 import path from 'path';
+import { TextEncoder, TextDecoder } from 'util';
 
 const basePath = path.join(__dirname, '..', 'support', 'mock-data');
 
@@ -13,4 +14,6 @@ const fixtures = {
 	},
 };
 
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder;
 global.getFixture = fixtures.getFixture;

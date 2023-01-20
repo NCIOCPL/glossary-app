@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Autocomplete /> should render supplied input in props 1`] = `
-Object {
+{
   "aria-autocomplete": "list",
   "aria-expanded": false,
   "autoComplete": "off",
@@ -21,9 +21,9 @@ Object {
 
 exports[`<Autocomplete /> should render supplied input in props 2`] = `
 [MockFunction] {
-  "calls": Array [
-    Array [
-      Object {
+  "calls": [
+    [
+      {
         "aria-autocomplete": "list",
         "aria-expanded": false,
         "autoComplete": "off",
@@ -41,8 +41,8 @@ exports[`<Autocomplete /> should render supplied input in props 2`] = `
       },
     ],
   ],
-  "results": Array [
-    Object {
+  "results": [
+    {
       "type": "return",
       "value": <input
         aria-autocomplete="list"
