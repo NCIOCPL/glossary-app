@@ -235,7 +235,6 @@ class Autocomplete extends React.Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.handleKeyDown = this.handleKeyDown.bind(this);
 		this.handleInputClick = this.handleInputClick.bind(this);
-		this.maybeAutoCompleteText = this.maybeAutoCompleteText.bind(this);
 
 		this.id = this.props.id;
 		this.dropdown = createRef();
@@ -402,30 +401,6 @@ class Autocomplete extends React.Component {
 		}
 
 		return items;
-	}
-
-	maybeAutoCompleteText(state, props) {
-		const { highlightedIndex } = state;
-		const { value, getItemValue } = props;
-		let index = highlightedIndex === null ? 0 : highlightedIndex;
-		let items = this.getFilteredItems(props);
-		for (let i = 0; i < items.length; i++) {
-			if (props.isItemSelectable(items[index])) break;
-			index = (index + 1) % items.length;
-		}
-		const matchedItem =
-			items[index] && props.isItemSelectable(items[index])
-				? items[index]
-				: null;
-		if (value !== '' && matchedItem) {
-			const itemValue = getItemValue(matchedItem);
-			const itemValueDoesMatch =
-				itemValue.toLowerCase().indexOf(value.toLowerCase()) === 0;
-			if (itemValueDoesMatch) {
-				return { highlightedIndex: index };
-			}
-		}
-		return { highlightedIndex: null };
 	}
 
 	ensureHighlightedIndex(state, props) {
