@@ -630,6 +630,16 @@ describe('<Autocomplete />', () => {
 		expect(ref.current._scrollOffset).toEqual(null);
 	});
 
+	test('should save scroll position with undefined offset', () => {
+		const ref = React.createRef();
+		window.pageXOffset = undefined;
+		window.pageYOffset = undefined;
+		render(<Autocomplete {...defaultProps} ref={ref} debug />);
+		expect(ref.current._scrollOffset).toBe(null);
+		ref.current._ignoreBlur = true;
+		ref.current.handleInputBlur();
+		expect(ref.current._scrollOffset).toEqual(null);
+	});
 	test('should open menu if it is closed when input is clicked', () => {
 		const ref = React.createRef();
 		render(<Autocomplete {...defaultProps} ref={ref} />);

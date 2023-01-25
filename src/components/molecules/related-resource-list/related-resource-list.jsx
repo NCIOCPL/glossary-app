@@ -45,10 +45,12 @@ const RelatedResourceList = ({ linksArr, lang = 'en' }) => {
 
 RelatedResourceList.propTypes = {
 	lang: PropTypes.oneOf(['en', 'es']),
-	linksArr: PropTypes.shape({
-		length: PropTypes.number,
-		map: PropTypes.func,
-	}).isRequired,
+	linksArr: PropTypes.arrayOf(
+		PropTypes.shape({
+			length: PropTypes.number,
+			map: PropTypes.func,
+		})
+	).isRequired,
 };
 
 export default RelatedResourceList;
