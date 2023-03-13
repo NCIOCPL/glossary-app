@@ -21,10 +21,13 @@ When('the user clicks the audio speaker icon', () => {
 });
 
 Then('the pronunciation for {string} should play', (def) => {
-	cy.get("div.pronunciation button[class='btnAudio playing']").should('exist');
 	cy.document().then((doc) => {
-		let current = doc.querySelector('div.pronunciation__audio audio')
-			.currentTime;
+		cy.get("div.pronunciation button[class='btnAudio playing']").should(
+			'exist'
+		);
+		let current = doc.querySelector(
+			'div.pronunciation__audio audio'
+		).currentTime;
 		expect(current).to.be.greaterThan(0);
 	});
 });
