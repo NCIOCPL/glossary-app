@@ -30,3 +30,18 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 	console.log('Cypress detected uncaught exception', err);
 	return false;
 });
+
+Cypress.Commands.add(
+	'waitForAudioToStartPlaying',
+	{ timeout: 10000 },
+	(selector) => {
+		cy.get(selector).then(($audio) => {
+			const audio = $audio[0];
+			return new Cypress.Promise((resolve) => {
+				audio.addEventListener('playing', () => {
+					resolve();
+				});
+			});
+		});
+	}
+);

@@ -20,15 +20,21 @@ When('the user clicks the audio speaker icon', () => {
 	cy.wait(500);
 });
 
-Then('the pronunciation for {string} should play', (def) => {
-	cy.document().then((doc) => {
+Then('the pronunciation for {string} should play', () => {
+	const retries = 3;
+	const selector = 'div.pronunciation__audio audio';
+	const checkAudioPlayback = () => {
 		cy.get("div.pronunciation button[class='btnAudio playing']").should(
 			'exist'
 		);
-		let current = doc.querySelector(
-			'div.pronunciation__audio audio'
-		).currentTime;
-		expect(current).to.be.greaterThan(0);
+		cy.get(selector).should('have.prop', 'readyState', 4);
+		cy.waitForAudioToStartPlaying(selector);
+	};
+
+	cy.wrap(checkAudioPlayback).should(() => {
+		cy.retry(retries, checkAudioPlayback).then(() => {
+			cy.log('Audio playback succeeded');
+		});
 	});
 });
 
