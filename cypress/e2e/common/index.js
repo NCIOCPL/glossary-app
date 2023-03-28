@@ -14,7 +14,7 @@ Then('the page title is {string}', (title) => {
 });
 
 Then('page title on error page is {string}', (title) => {
-	Cypress.on('uncaught:exception', (err, runnable) => {
+	Cypress.on('uncaught:exception', () => {
 		// returning false here to Cypress from
 		// failing the test
 		return false;
@@ -52,8 +52,7 @@ Given('user is on landing Genetics Terms page', () => {
 });
 
 And('the system appends {string} to the URL', (a) => {
-	cy.location('search').should('eq',a)
-
+	cy.location('search').should('eq', a);
 });
 
 Given(
@@ -84,7 +83,9 @@ When('user is searching {string} for the term {string}', (searchMode, term) => {
 				win.INT_TEST_APP_PARAMS.language === 'en'
 					? queryType.SEARCH
 					: queryType.SEARCH_SPANISH;
-			cy.visit(`/${searchLang}/${encodeURIComponent(term)}/?searchMode=${searchmode}`);
+			cy.visit(
+				`/${searchLang}/${encodeURIComponent(term)}/?searchMode=${searchmode}`
+			);
 		}
 	});
 });
@@ -317,7 +318,7 @@ Then(
 	}
 );
 
-Then('{string} search box appears', (keywords) => {
+Then('{string} search box appears', () => {
 	cy.get('input.dictionary-search-input');
 });
 
@@ -452,7 +453,7 @@ Then(
 
 When(
 	'user tries to go to this URL, system should return the Expand {string} page for language {string}',
-	(text, lang) => {
+	() => {
 		cy.window().then((win) => {
 			if (win.INT_TEST_APP_PARAMS) {
 				const { language } = win.INT_TEST_APP_PARAMS;
@@ -468,7 +469,10 @@ When(
 Then(
 	'the system returns user to the search results page for the search term {string} URL has {string}',
 	(term, destURL) => {
-		cy.location('href').should('eq', `${baseURL}${destURL}/${encodeURIComponent(term)}`);
+		cy.location('href').should(
+			'eq',
+			`${baseURL}${destURL}/${encodeURIComponent(term)}`
+		);
 	}
 );
 
@@ -575,15 +579,24 @@ And('introductory text appears below the page title', () => {
 	expect(cy.get(`div[data-testid='${testIds.INTRO_TEXT}']`)).to.exist;
 });
 
-And('the user sees {string} as the introductory text that displays below the H1', (introText) => {
-	cy.get(`div[data-testid='${testIds.INTRO_TEXT}']`).should('have.text', introText);
-});
+And(
+	'the user sees {string} as the introductory text that displays below the H1',
+	(introText) => {
+		cy.get(`div[data-testid='${testIds.INTRO_TEXT}']`).should(
+			'have.text',
+			introText
+		);
+	}
+);
 
 And('the term count of {string} is displayed as bolded', (termCount) => {
-	cy.get(`div[data-testid='${testIds.INTRO_TEXT}'] strong`).should('have.text', termCount);
+	cy.get(`div[data-testid='${testIds.INTRO_TEXT}'] strong`).should(
+		'have.text',
+		termCount
+	);
 });
 
-And('{string} radio is selected by default', (startsWithRadio) => {
+And('{string} radio is selected by default', () => {
 	const startsWithRadioValue = searchMatchType.beginsWith;
 	cy.get(`input[value="${startsWithRadioValue}"]`).should('be.checked');
 });
@@ -625,7 +638,7 @@ And('the URL does not include {string}', (expandURL) => {
 	cy.location('href').should('not.include', `${baseURL}/${expandURL}`);
 });
 
-Then('{string} exists in the data for the page', (noIndexDirective) => {
+Then('{string} exists in the data for the page', () => {
 	cy.get('head meta[name="robots"]').should('have.attr', 'content', 'index');
 });
 
@@ -646,7 +659,7 @@ Then('the language toggle should have the URL path {string}', (urlPath) => {
 */
 
 Then('the user gets an error page that reads {string}', (errorMessage) => {
-	Cypress.on('uncaught:exception', (err, runnable) => {
+	Cypress.on('uncaught:exception', () => {
 		// returning false here to Cypress from
 		// failing the test
 		return false;
@@ -724,9 +737,7 @@ Then('URL contains selected term', () => {
 		const decoded = decodeURIComponent(win.location.pathname);
 		const lang = win.INT_TEST_APP_PARAMS.language;
 		if (lang === 'en') expect(decoded).to.eq(`/search/${Cypress.TERM_TEXT}/`);
-		else expect(decoded).to.eq(
-						`/buscar/${Cypress.TERM_TEXT}/`
-					);
+		else expect(decoded).to.eq(`/buscar/${Cypress.TERM_TEXT}/`);
 	});
 });
 
@@ -793,4 +804,3 @@ And('the user enters {string}', (userText) => {
 And('the user submits the keyword search', () => {
 	cy.get('#btnSearch').click();
 });
-
