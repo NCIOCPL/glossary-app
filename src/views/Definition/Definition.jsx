@@ -120,6 +120,10 @@ const Definition = () => {
 		if (langToggle && langObj.prettyUrlName) {
 			langToggle.href = `${altLanguageDictionaryBasePath}/def/${langObj.prettyUrlName}`;
 		}
+
+		if (langToggle && langObj.prettyUrlName == '') {
+			langToggle.href = `${altLanguageDictionaryBasePath}/def/${payload.termId}`;
+		}
 	};
 
 	const renderMetaDefinition = () => {
@@ -287,8 +291,9 @@ const Definition = () => {
 					payload.media.map((mediaItem) => {
 						if (mediaItem.Type === 'Image') {
 							const imgArr = mediaItem.ImageSources;
-							const thumbUri = imgArr.find((imgItem) => imgItem.Size === '571')
-								.Src;
+							const thumbUri = imgArr.find(
+								(imgItem) => imgItem.Size === '571'
+							).Src;
 							const enlargeUri = imgArr.find(
 								(imgItem) => imgItem.Size === 'original'
 							).Src;

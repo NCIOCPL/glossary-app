@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
+import { When, Then } from 'cypress-cucumber-preprocessor/steps';
 import { searchMatchType, testIds } from '../../../src/constants';
 
 When('user clicks on {string} button', (searchButton) => {
@@ -7,9 +7,9 @@ When('user clicks on {string} button', (searchButton) => {
 });
 
 When('user selects {string} option', (startsWithOrContains) => {
-  let locator;
-  const queryType = startsWithOrContains.toLowerCase();
-	if (( queryType === 'contains') || (queryType === 'contiene')) {
+	let locator;
+	const queryType = startsWithOrContains.toLowerCase();
+	if (queryType === 'contains' || queryType === 'contiene') {
 		locator = "label[for='contains']";
 	} else {
 		locator = "label[for='starts-with']";

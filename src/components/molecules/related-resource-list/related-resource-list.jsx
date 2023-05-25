@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAppPaths } from '../../../hooks';
+import PropTypes from 'prop-types';
 
 const RelatedResourceList = ({ linksArr, lang = 'en' }) => {
 	const { DefinitionPath } = useAppPaths();
@@ -40,6 +41,16 @@ const RelatedResourceList = ({ linksArr, lang = 'en' }) => {
 	} else {
 		return <></>;
 	}
+};
+
+RelatedResourceList.propTypes = {
+	lang: PropTypes.oneOf(['en', 'es']),
+	linksArr: PropTypes.arrayOf(
+		PropTypes.shape({
+			length: PropTypes.number,
+			map: PropTypes.func,
+		})
+	).isRequired,
 };
 
 export default RelatedResourceList;

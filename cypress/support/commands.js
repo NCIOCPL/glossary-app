@@ -24,9 +24,24 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-Cypress.on('uncaught:exception', (err, runnable) => {
+Cypress.on('uncaught:exception', (err) => {
 	// returning false here prevents Cypress from
 	// failing the test
 	console.log('Cypress detected uncaught exception', err);
 	return false;
 });
+
+Cypress.Commands.add(
+	'waitForAudioToStartPlaying',
+	{ timeout: 10000 },
+	(selector) => {
+		cy.get(selector).then(($audio) => {
+			const audio = $audio[0];
+			return new Cypress.Promise((resolve) => {
+				audio.addEventListener('playing', () => {
+					resolve();
+				});
+			});
+		});
+	}
+);

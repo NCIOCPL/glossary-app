@@ -99,10 +99,9 @@ describe('TextInput component', function () {
 
 			const setErrorMessage = ({ event }) => {
 				const { value } = event.target;
+				errorMessage = '';
 				if (value === 'error') {
 					errorMessage = `You typed in "${value}" which generated an error`;
-				} else {
-					errorMessage = '';
 				}
 			};
 

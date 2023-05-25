@@ -19,6 +19,8 @@ function matchItemToName(item, value) {
 	return item.name.toLowerCase().indexOf(value.toLowerCase()) !== -1;
 }
 
+jest.useFakeTimers('legacy');
+
 const defaultProps = {
 	getItemValue: (item) => item.name,
 	id: 'classics',
@@ -43,8 +45,6 @@ jest.useFakeTimers();
 describe('<Autocomplete />', () => {
 	afterEach(() => {
 		jest.clearAllTimers();
-		setTimeout.mockClear();
-		clearTimeout.mockClear();
 		cleanup();
 	});
 
@@ -598,6 +598,9 @@ describe('<Autocomplete />', () => {
 
 	test('should restore scroll position on focus reset', () => {
 		jest.spyOn(window, 'scrollTo');
+		jest.spyOn(global, 'setTimeout');
+		jest.spyOn(global, 'clearTimeout');
+
 		const ref = React.createRef();
 		render(<Autocomplete {...defaultProps} ref={ref} />);
 		ref.current._ignoreFocus = true;
@@ -627,6 +630,16 @@ describe('<Autocomplete />', () => {
 		expect(ref.current._scrollOffset).toEqual(null);
 	});
 
+	test('should save scroll position with undefined offset', () => {
+		const ref = React.createRef();
+		window.pageXOffset = undefined;
+		window.pageYOffset = undefined;
+		render(<Autocomplete {...defaultProps} ref={ref} debug />);
+		expect(ref.current._scrollOffset).toBe(null);
+		ref.current._ignoreBlur = true;
+		ref.current.handleInputBlur();
+		expect(ref.current._scrollOffset).toEqual(null);
+	});
 	test('should open menu if it is closed when input is clicked', () => {
 		const ref = React.createRef();
 		render(<Autocomplete {...defaultProps} ref={ref} />);

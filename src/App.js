@@ -38,9 +38,7 @@ const App = () => {
 				<Route path={SearchPathNoParam()} element={<Home />} />
 				<Route path={SearchPathSpanish()} element={<Home />} />
 				<Route path={SearchPathSpanishNoParam()} element={<Home />} />
-				{window?.location?.host === 'react-app-dev.cancer.gov' && (
-					<Route path="/*" element={<PageNotFound />} />
-				)}
+				<Route path="/*" element={<PageNotFound />} />
 			</Routes>
 		</Router>
 	);
