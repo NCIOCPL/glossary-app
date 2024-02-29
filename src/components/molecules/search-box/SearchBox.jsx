@@ -8,9 +8,7 @@ const SearchBox = ({ showTitle = false }) => {
 	const [{ searchBoxTitle }] = useStateValue();
 	let classes = showTitle ? ' bottom' : '';
 	return (
-		<div
-			aria-label={searchBoxTitle}
-			className={`search-box-container${classes}`}>
+		<div aria-label={searchBoxTitle} className={`search-box-container${classes}`}>
 			{showTitle && <h6>{searchBoxTitle}</h6>}
 			<Search />
 			<AZList />

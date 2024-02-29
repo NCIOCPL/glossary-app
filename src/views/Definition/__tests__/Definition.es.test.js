@@ -5,11 +5,7 @@ import { ClientContextProvider } from 'react-fetching-library';
 
 import Definition from '../Definition';
 import { useStateValue } from '../../../store/store.js';
-import {
-	setAudience,
-	setDictionaryName,
-	setLanguage,
-} from '../../../services/api/endpoints';
+import { setAudience, setDictionaryName, setLanguage } from '../../../services/api/endpoints';
 import { MockAnalyticsProvider } from '../../../tracking';
 import ErrorBoundary from '../../ErrorBoundary';
 
@@ -45,8 +41,7 @@ describe('Definition component with Spanish', () => {
 	//create mock lang node
 	const mockToggleElement = document.createElement('div');
 	mockToggleElement.id = 'LangList1';
-	mockToggleElement.innerHTML =
-		'<a href="/" data-testid="mockLangToggle">Language</a>';
+	mockToggleElement.innerHTML = '<a href="/" data-testid="mockLangToggle">Language</a>';
 	document.body.appendChild(mockToggleElement);
 
 	beforeEach(async () => {
@@ -92,10 +87,7 @@ describe('Definition component with Spanish', () => {
 
 	test('Updates language toggle with link to english analog', () => {
 		const { getByTestId } = wrapper;
-		expect(getByTestId('mockLangToggle')).toHaveAttribute(
-			'href',
-			'/cancer-terms/def/metastatic'
-		);
+		expect(getByTestId('mockLangToggle')).toHaveAttribute('href', '/cancer-terms/def/metastatic');
 	});
 
 	describe('Display "Page Not Found" for pretty URLs without definitions', () => {
@@ -155,8 +147,7 @@ describe('Definition component with Spanish', () => {
 					status: 404,
 					loading: false,
 					payload: {
-						Message:
-							"No match for dictionary 'Cancer.gov', audience 'Patient', language 'es', pretty URL name 'pollo'.",
+						Message: "No match for dictionary 'Cancer.gov', audience 'Patient', language 'es', pretty URL name 'pollo'.",
 					},
 				}),
 			};

@@ -7,6 +7,7 @@ import { requestHostInterceptor } from './requestInterceptors/requestHostInterce
 
 const axiosInstance = axios.create({
 	timeout: 15000,
+	adapter: 'http',
 });
 
 export const getAxiosClient = (initialize) => {
@@ -15,10 +16,7 @@ export const getAxiosClient = (initialize) => {
 	setDictionaryName(dictionaryName);
 	setLanguage(language);
 
-	const HOST =
-		dictionaryEndpoint && dictionaryEndpoint.length > 1
-			? dictionaryEndpoint.replace(/\/$/, '')
-			: '/api';
+	const HOST = dictionaryEndpoint && dictionaryEndpoint.length > 1 ? dictionaryEndpoint.replace(/\/$/, '') : '/api';
 
 	return createClient({
 		requestInterceptors: [requestHostInterceptor(HOST)],

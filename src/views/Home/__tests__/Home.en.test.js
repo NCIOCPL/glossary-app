@@ -16,9 +16,7 @@ const dispatch = jest.fn();
 const dictionaryEndpoint = 'http://localhost:3000/api';
 const dictionaryName = 'Cancer.gov';
 const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
-const dictionaryIntroText =
-	'<p>The NCI Dictionary of Cancer Terms features <strong>{{term_count}}</strong> terms related to cancer and medicine.</p>' +
-	'<p>We offer a widget that you can add to your website to let users look up cancer-related terms. <a href="/syndication/widgets">Get NCI’s Dictionary of Cancer Terms Widget</a></p>';
+const dictionaryIntroText = '<p>The NCI Dictionary of Cancer Terms features <strong>{{term_count}}</strong> terms related to cancer and medicine.</p>' + '<p>We offer a widget that you can add to your website to let users look up cancer-related terms. <a href="/syndication/widgets">Get NCI’s Dictionary of Cancer Terms Widget</a></p>';
 const language = 'en';
 
 const expandChar = 'A';
@@ -55,8 +53,7 @@ describe('Home component(English)', () => {
 	//create mock lang node
 	const mockToggleElement = document.createElement('div');
 	mockToggleElement.id = 'LangList1';
-	mockToggleElement.innerHTML =
-		'<a href="/" data-testid="mockLangToggle">Language</a>';
+	mockToggleElement.innerHTML = '<a href="/" data-testid="mockLangToggle">Language</a>';
 	document.body.appendChild(mockToggleElement);
 
 	beforeEach(async () => {
@@ -82,18 +79,13 @@ describe('Home component(English)', () => {
 
 	test('Results for expand char "A" are displayed on home page by default', () => {
 		const { getByText, getAllByRole } = wrapper;
-		expect(
-			getByText(`${termListCount} results found for: ${expandChar}`)
-		).toBeInTheDocument();
+		expect(getByText(`${termListCount} results found for: ${expandChar}`)).toBeInTheDocument();
 		expect(getAllByRole('term').length).toEqual(termListCount);
 	});
 
 	test('Updates language toggle with link to spanish analog', () => {
 		const { getByTestId } = wrapper;
-		expect(getByTestId('mockLangToggle')).toHaveAttribute(
-			'href',
-			'/diccionario'
-		);
+		expect(getByTestId('mockLangToggle')).toHaveAttribute('href', '/diccionario');
 	});
 
 	test('Match dictionary title name for Home', () => {
@@ -103,9 +95,7 @@ describe('Home component(English)', () => {
 
 	test('Results for expand char "A" are displayed on home page by default', () => {
 		const { getByText, getAllByRole } = wrapper;
-		expect(
-			getByText(`${termListCount} results found for: ${expandChar}`)
-		).toBeInTheDocument();
+		expect(getByText(`${termListCount} results found for: ${expandChar}`)).toBeInTheDocument();
 		expect(getAllByRole('term').length).toEqual(termListCount);
 	});
 
@@ -128,9 +118,7 @@ describe('Home component(English)', () => {
 
 		test('NoMatchingResults component is rendered for expand path with no params', () => {
 			const { getByTestId } = wrapper;
-			expect(getByTestId(testIds.NO_MATCHING_RESULTS).textContent).toBe(
-				i18n.noMatchingExpand[language]
-			);
+			expect(getByTestId(testIds.NO_MATCHING_RESULTS).textContent).toBe(i18n.noMatchingExpand[language]);
 		});
 	});
 
@@ -153,9 +141,7 @@ describe('Home component(English)', () => {
 
 		test('NoMatchingResults component is rendered with no matching search text for search path with no params', () => {
 			const { getByTestId } = wrapper;
-			expect(getByTestId(testIds.NO_MATCHING_RESULTS).textContent).toBe(
-				i18n.noMatchingTextSearch[language]
-			);
+			expect(getByTestId(testIds.NO_MATCHING_RESULTS).textContent).toBe(i18n.noMatchingTextSearch[language]);
 		});
 	});
 });

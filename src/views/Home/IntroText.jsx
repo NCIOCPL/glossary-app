@@ -32,9 +32,7 @@ const IntroText = () => {
 
 	return (
 		<>
-			<div
-				data-testid={testIds.INTRO_TEXT}
-				dangerouslySetInnerHTML={{ __html: dictionaryIntroText }}></div>
+			<div data-testid={testIds.INTRO_TEXT} dangerouslySetInnerHTML={{ __html: dictionaryIntroText }}></div>
 		</>
 	);
 };

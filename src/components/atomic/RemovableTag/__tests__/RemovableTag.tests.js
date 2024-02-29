@@ -8,9 +8,7 @@ describe('RemovableTag component', () => {
 		const key = 'test-id';
 		const label = 'Mock Label';
 		const onRemove = jest.fn();
-		const { getByRole } = render(
-			<RemovableTag key={key} label={label} onRemove={onRemove} />
-		);
+		const { getByRole } = render(<RemovableTag key={key} label={label} onRemove={onRemove} />);
 		const tagButton = getByRole('button');
 		expect(tagButton.value).toEqual(label);
 		fireEvent.click(tagButton);

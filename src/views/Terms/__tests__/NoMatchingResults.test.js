@@ -25,8 +25,6 @@ describe('NoMatchingResults component', () => {
 	test('Component renders without errors', () => {
 		const { getByTestId } = wrapper;
 		expect(getByTestId(testIds.NO_MATCHING_RESULTS)).toBeTruthy();
-		expect(getByTestId(testIds.NO_MATCHING_RESULTS).textContent).toBe(
-			i18n.noMatchingTextSearch['en']
-		);
+		expect(getByTestId(testIds.NO_MATCHING_RESULTS).textContent).toBe(i18n.noMatchingTextSearch['en']);
 	});
 });

@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-	cleanup,
-	fireEvent,
-	render,
-	screen,
-	wait,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, wait } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import YoutubeVideoPlayer from '..';
 
@@ -33,9 +27,7 @@ describe('<YoutubeVideoPlayer /> component', () => {
 
 	it('creates a video preview container', () => {
 		const { container } = render(<YoutubeVideoPlayer youtubeId={yid} />);
-		expect(
-			container.querySelector('.youtube-video-player')
-		).toBeInTheDocument();
+		expect(container.querySelector('.youtube-video-player')).toBeInTheDocument();
 	});
 
 	it('loads the youtube iframe placeholder after clicking on the button', async () => {
@@ -47,9 +39,7 @@ describe('<YoutubeVideoPlayer /> component', () => {
 
 	it('calls a supplied tracking event on click', async () => {
 		const mockTrackingFn = jest.fn();
-		const { container } = render(
-			<YoutubeVideoPlayer youtubeId={yid} trackVideoLoad={mockTrackingFn} />
-		);
+		const { container } = render(<YoutubeVideoPlayer youtubeId={yid} trackVideoLoad={mockTrackingFn} />);
 		fireEvent.click(container.querySelector('button'));
 		await wait();
 		expect(mockTrackingFn).toHaveBeenCalled();
@@ -60,8 +50,6 @@ describe('<YoutubeVideoPlayer /> component', () => {
 		render(<YoutubeVideoPlayer youtubeId={yid} />);
 		fireEvent.click(screen.getByRole('button'));
 		await wait();
-		expect(
-			screen.getByText('An error occurred. Please try again later.')
-		).toBeInTheDocument();
+		expect(screen.getByText('An error occurred. Please try again later.')).toBeInTheDocument();
 	});
 });

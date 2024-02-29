@@ -5,15 +5,10 @@ Then('there is no audio player or icon', () => {
 	cy.get('div.pronunciation__audio').should('not.exist');
 });
 
-Given(
-	'there is an audio player with the url {string} before the phonetic spelling',
-	(a) => {
-		cy.get('div.pronunciation__audio').should('exist');
-		cy.get('div.pronunciation__audio audio')
-			.should('have.attr', 'src')
-			.and('to.be.eq', a);
-	}
-);
+Given('there is an audio player with the url {string} before the phonetic spelling', (a) => {
+	cy.get('div.pronunciation__audio').should('exist');
+	cy.get('div.pronunciation__audio audio').should('have.attr', 'src').and('to.be.eq', a);
+});
 
 When('the user clicks the audio speaker icon', () => {
 	cy.get('div.pronunciation button').as('playButton').click();
@@ -24,9 +19,7 @@ Then('the pronunciation for {string} should play', () => {
 	const retries = 3;
 	const selector = 'div.pronunciation__audio audio';
 	const checkAudioPlayback = () => {
-		cy.get("div.pronunciation button[class='btnAudio playing']").should(
-			'exist'
-		);
+		cy.get("div.pronunciation button[class='btnAudio playing']").should('exist');
 		cy.get(selector).should('have.prop', 'readyState', 4);
 		cy.waitForAudioToStartPlaying(selector);
 	};
@@ -86,13 +79,10 @@ Then('audio plays from where it was paused and the pause icon appears', () => {
 	});
 });
 
-When(
-	'audio has finished playing, the button returns to the audio speaker icon',
-	() => {
-		cy.get('@playButton').should('not.have.class', 'btnAudio playing');
-		cy.document().then((doc) => {
-			let finished = doc.querySelector('div.pronunciation__audio audio').ended;
-			expect(finished).to.be.true;
-		});
-	}
-);
+When('audio has finished playing, the button returns to the audio speaker icon', () => {
+	cy.get('@playButton').should('not.have.class', 'btnAudio playing');
+	cy.document().then((doc) => {
+		let finished = doc.querySelector('div.pronunciation__audio audio').ended;
+		expect(finished).to.be.true;
+	});
+});

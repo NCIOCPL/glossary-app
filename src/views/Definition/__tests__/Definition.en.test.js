@@ -6,11 +6,7 @@ import { ClientContextProvider } from 'react-fetching-library';
 import { testIds } from '../../../constants';
 import Definition from '../Definition';
 import ErrorBoundary from '../../ErrorBoundary';
-import {
-	setAudience,
-	setDictionaryName,
-	setLanguage,
-} from '../../../services/api/endpoints';
+import { setAudience, setDictionaryName, setLanguage } from '../../../services/api/endpoints';
 import { useStateValue } from '../../../store/store.js';
 import { MockAnalyticsProvider } from '../../../tracking';
 
@@ -45,8 +41,7 @@ const unsupportedMediaFile = {
 			Type: 'Zip File',
 			Ref: 'CDR0000764135',
 			Alt: 'Metastasis; drawing shows primary cancer that has spread from the colon to other parts of the body (the liver and the lung). An inset shows cancer cells spreading from the primary cancer, through the blood and lymph system, to another part of the body where a metastatic tumor has formed.',
-			Caption:
-				'Metastasis. In metastasis, cancer cells break away from where they first formed (primary cancer), travel through the blood or lymph system, and form new tumors (metastatic tumors) in other parts of the body. The metastatic tumor is the same type of cancer as the primary tumor. ',
+			Caption: 'Metastasis. In metastasis, cancer cells break away from where they first formed (primary cancer), travel through the blood or lymph system, and form new tumors (metastatic tumors) in other parts of the body. The metastatic tumor is the same type of cancer as the primary tumor. ',
 		},
 	],
 };
@@ -69,8 +64,7 @@ describe('Definition component with English', () => {
 	//create mock lang node
 	const mockToggleElement = document.createElement('div');
 	mockToggleElement.id = 'LangList1';
-	mockToggleElement.innerHTML =
-		'<a href="/" data-testid="mockLangToggle">Language</a>';
+	mockToggleElement.innerHTML = '<a href="/" data-testid="mockLangToggle">Language</a>';
 	document.body.appendChild(mockToggleElement);
 
 	beforeEach(async () => {
@@ -112,10 +106,7 @@ describe('Definition component with English', () => {
 
 	test('Updates language toggle with link to spanish analog', () => {
 		const { getByTestId } = wrapper;
-		expect(getByTestId('mockLangToggle')).toHaveAttribute(
-			'href',
-			'/diccionario/def/metastasico'
-		);
+		expect(getByTestId('mockLangToggle')).toHaveAttribute('href', '/diccionario/def/metastasico');
 	});
 
 	test('Match Term Name for Definition', () => {
@@ -125,17 +116,12 @@ describe('Definition component with English', () => {
 
 	test('Ensure attribute "data-cdr-id" exists with correct value for Definition component', () => {
 		const { getByTestId } = wrapper;
-		expect(getByTestId(testIds.TERM_DEF_TITLE)).toHaveAttribute(
-			'data-cdr-id',
-			`${definition.termId}`
-		);
+		expect(getByTestId(testIds.TERM_DEF_TITLE)).toHaveAttribute('data-cdr-id', `${definition.termId}`);
 	});
 
 	test('Pronunciation audio and phonetic keys are outputted when provided', () => {
 		const { container } = wrapper;
-		expect(
-			container.querySelector('.pronunciation__audio')
-		).toBeInTheDocument();
+		expect(container.querySelector('.pronunciation__audio')).toBeInTheDocument();
 		expect(container.querySelector('.pronunciation__key')).toBeInTheDocument();
 	});
 
@@ -147,9 +133,7 @@ describe('Definition component with English', () => {
 	// Media related tests
 	test('Images specified in media are displayed', () => {
 		const { container } = wrapper;
-		expect(
-			container.querySelectorAll('figure.image-left-medium').length
-		).toEqual(1);
+		expect(container.querySelectorAll('figure.image-left-medium').length).toEqual(1);
 	});
 
 	test('Video specified in media are displayed', () => {
@@ -198,9 +182,7 @@ describe('Definition component with English', () => {
 			const { container } = wrapper;
 
 			expect(container.querySelectorAll('figure.video').length).toEqual(0);
-			expect(
-				container.querySelectorAll('figure.image-left-medium').length
-			).toEqual(0);
+			expect(container.querySelectorAll('figure.image-left-medium').length).toEqual(0);
 		});
 	});
 
@@ -236,20 +218,14 @@ describe('Definition component with English', () => {
 
 		test('Pronunciation data should not be present', () => {
 			const { container } = wrapper;
-			expect(
-				container.querySelector('.pronunciation__audio')
-			).not.toBeInTheDocument();
-			expect(
-				container.querySelector('.pronunciation__key')
-			).not.toBeInTheDocument();
+			expect(container.querySelector('.pronunciation__audio')).not.toBeInTheDocument();
+			expect(container.querySelector('.pronunciation__key')).not.toBeInTheDocument();
 		});
 
 		test('No media should be displayed when empty', () => {
 			const { container } = wrapper;
 			expect(container.querySelectorAll('figure.video').length).toEqual(0);
-			expect(
-				container.querySelectorAll('figure.image-left-medium').length
-			).toEqual(0);
+			expect(container.querySelectorAll('figure.image-left-medium').length).toEqual(0);
 		});
 	});
 
@@ -310,8 +286,7 @@ describe('Definition component with English', () => {
 					status: 404,
 					loading: false,
 					payload: {
-						Message:
-							"No match for dictionary 'Cancer.gov', audience 'Patient', language 'en', pretty URL name 'chicken'.",
+						Message: "No match for dictionary 'Cancer.gov', audience 'Patient', language 'en', pretty URL name 'chicken'.",
 					},
 				}),
 			};

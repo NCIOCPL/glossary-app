@@ -1,10 +1,4 @@
-import {
-	act,
-	cleanup,
-	fireEvent,
-	render,
-	screen,
-} from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ClientContextProvider } from 'react-fetching-library';
@@ -202,11 +196,7 @@ describe('<Search /> English', () => {
 			await act(async () => {
 				fireEvent.change(document.activeElement, { target: { value: 'ap' } });
 			});
-			expect(
-				container.querySelector(
-					`div[data-testid='${testIds.AUTO_SUGGEST_OPTIONS}']`
-				).textContent
-			).toBe(i18n.autoSuggestThreeOrMoreChars[language]);
+			expect(container.querySelector(`div[data-testid='${testIds.AUTO_SUGGEST_OPTIONS}']`).textContent).toBe(i18n.autoSuggestThreeOrMoreChars[language]);
 			await act(async () => {
 				fireEvent.change(document.activeElement, {
 					target: { value: searchText },

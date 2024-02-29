@@ -87,110 +87,101 @@ describe('Term component rendered with English', () => {
 		cleanup();
 	});
 
-	test.each(testTerms)(
-		'Check term title exists as link, click on link and confirm correct location when term has %s',
-		async (termType, termObject, expectedLocationObject) => {
-			const dictionaryName = 'Cancer.gov';
-			const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
+	test.each(testTerms)('Check term title exists as link, click on link and confirm correct location when term has %s', async (termType, termObject, expectedLocationObject) => {
+		const dictionaryName = 'Cancer.gov';
+		const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
 
-			useStateValue.mockReturnValue([
-				{
-					appId: 'mockAppId',
-					basePath: '/',
-					dictionaryName,
-					dictionaryTitle,
-					language,
-					searchBoxTitle,
-				},
-			]);
+		useStateValue.mockReturnValue([
+			{
+				appId: 'mockAppId',
+				basePath: '/',
+				dictionaryName,
+				dictionaryTitle,
+				language,
+				searchBoxTitle,
+			},
+		]);
 
-			await act(async () => {
-				wrapper = render(
-					<MockAnalyticsProvider>
-						<MemoryRouter initialEntries={['/']}>
-							<TermWithLocation term={termObject} />
-						</MemoryRouter>
-					</MockAnalyticsProvider>
-				);
-			});
+		await act(async () => {
+			wrapper = render(
+				<MockAnalyticsProvider>
+					<MemoryRouter initialEntries={['/']}>
+						<TermWithLocation term={termObject} />
+					</MemoryRouter>
+				</MockAnalyticsProvider>
+			);
+		});
 
-			const { getByRole } = wrapper;
-			// Get term title link
-			const termTitleLink = getByRole('link');
-			// Expect term title link text to match term name
-			expect(termTitleLink.textContent).toBe(termObject.termName);
-			// Click on term title link
-			fireEvent.click(termTitleLink);
-			// Expect to navigate to definition page for term
-			expect(location).toMatchObject(expectedLocationObject);
-		}
-	);
+		const { getByRole } = wrapper;
+		// Get term title link
+		const termTitleLink = getByRole('link');
+		// Expect term title link text to match term name
+		expect(termTitleLink.textContent).toBe(termObject.termName);
+		// Click on term title link
+		fireEvent.click(termTitleLink);
+		// Expect to navigate to definition page for term
+		expect(location).toMatchObject(expectedLocationObject);
+	});
 
 	// Add term description test
-	test.each(testTerms)(
-		'Term description is displayed for term with %s',
-		async (termType, termObject) => {
-			const dictionaryName = 'Cancer.gov';
-			const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
+	test.each(testTerms)('Term description is displayed for term with %s', async (termType, termObject) => {
+		const dictionaryName = 'Cancer.gov';
+		const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
 
-			useStateValue.mockReturnValue([
-				{
-					appId: 'mockAppId',
-					basePath: '/',
-					dictionaryName,
-					dictionaryTitle,
-					language,
-					searchBoxTitle,
-				},
-			]);
+		useStateValue.mockReturnValue([
+			{
+				appId: 'mockAppId',
+				basePath: '/',
+				dictionaryName,
+				dictionaryTitle,
+				language,
+				searchBoxTitle,
+			},
+		]);
 
-			await act(async () => {
-				wrapper = render(
-					<MockAnalyticsProvider>
-						<MemoryRouter initialEntries={['/']}>
-							<TermWithLocation term={termObject} />
-						</MemoryRouter>
-					</MockAnalyticsProvider>
-				);
-			});
+		await act(async () => {
+			wrapper = render(
+				<MockAnalyticsProvider>
+					<MemoryRouter initialEntries={['/']}>
+						<TermWithLocation term={termObject} />
+					</MemoryRouter>
+				</MockAnalyticsProvider>
+			);
+		});
 
-			const { getByTestId } = wrapper;
-			expect(getByTestId(testIds.TERM_ITEM_DESCRIPTION)).toBeInTheDocument();
-		}
-	);
+		const { getByTestId } = wrapper;
+		expect(getByTestId(testIds.TERM_ITEM_DESCRIPTION)).toBeInTheDocument();
+	});
 
-	test.each(testTerms)(
-		'Term result click analytics event',
-		async (termType, termObject) => {
-			const dictionaryName = 'Cancer.gov';
-			const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
+	test.each(testTerms)('Term result click analytics event', async (termType, termObject) => {
+		const dictionaryName = 'Cancer.gov';
+		const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
 
-			useStateValue.mockReturnValue([
-				{
-					appId: 'mockAppId',
-					basePath: '/',
-					dictionaryName,
-					dictionaryTitle,
-					language,
-					searchBoxTitle,
-				},
-			]);
+		useStateValue.mockReturnValue([
+			{
+				appId: 'mockAppId',
+				basePath: '/',
+				dictionaryName,
+				dictionaryTitle,
+				language,
+				searchBoxTitle,
+			},
+		]);
 
-			await act(async () => {
-				wrapper = render(
-					<MockAnalyticsProvider analyticsHandler={analyticsHandler}>
-						<MemoryRouter initialEntries={['/']}>
-							<TermWithLocation term={termObject} />
-						</MemoryRouter>
-					</MockAnalyticsProvider>
-				);
-			});
+		await act(async () => {
+			wrapper = render(
+				<MockAnalyticsProvider analyticsHandler={analyticsHandler}>
+					<MemoryRouter initialEntries={['/']}>
+						<TermWithLocation term={termObject} />
+					</MemoryRouter>
+				</MockAnalyticsProvider>
+			);
+		});
 
-			const { container } = wrapper;
-			const termLink = container.querySelector('a');
+		const { container } = wrapper;
+		const termLink = container.querySelector('a');
 
-			fireEvent.click(termLink);
-			expect(analyticsHandler).toHaveBeenCalled();
-		}
-	);
+		fireEvent.click(termLink);
+		expect(analyticsHandler).toHaveBeenCalled();
+	});
 });

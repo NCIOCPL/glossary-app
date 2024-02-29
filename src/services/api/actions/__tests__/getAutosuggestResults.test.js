@@ -19,12 +19,8 @@ describe('getAutoSuggestResults action', () => {
 			endpoint: `/Autosuggest/${dictionaryName}/${audience}/${lang}/${searchText}?matchType=${beginsWith}&size=10`,
 		};
 		expect(getAutoSuggestResults(searchText)).toEqual(expectedAction);
-		expect(getAutoSuggestResults(searchText, beginsWith)).toEqual(
-			expectedAction
-		);
-		expect(getAutoSuggestResults(searchText, beginsWith, 25)).not.toEqual(
-			expectedAction
-		);
+		expect(getAutoSuggestResults(searchText, beginsWith)).toEqual(expectedAction);
+		expect(getAutoSuggestResults(searchText, beginsWith, 25)).not.toEqual(expectedAction);
 	});
 
 	test(`Match getAutoSuggestResults action with match type ${contains}`, () => {

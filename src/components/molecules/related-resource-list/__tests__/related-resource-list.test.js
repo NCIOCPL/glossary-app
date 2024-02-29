@@ -27,9 +27,7 @@ describe('<RelatedResourceList /> component', () => {
 				<RelatedResourceList linksArr={mockEmptyArr} />
 			</MemoryRouter>
 		);
-		expect(
-			container.querySelector('ul.more-information-list')
-		).not.toBeInTheDocument();
+		expect(container.querySelector('ul.more-information-list')).not.toBeInTheDocument();
 		expect(container.querySelectorAll('li').length).toBe(0);
 	});
 
@@ -56,9 +54,7 @@ describe('<RelatedResourceList /> component', () => {
 				<RelatedResourceList linksArr={mockResourcesArr} />
 			</MemoryRouter>
 		);
-		expect(
-			container.querySelector('ul.more-information-list')
-		).toBeInTheDocument();
+		expect(container.querySelector('ul.more-information-list')).toBeInTheDocument();
 		expect(container.querySelectorAll('li').length).toBe(3);
 	});
 
@@ -78,10 +74,7 @@ describe('<RelatedResourceList /> component', () => {
 			</MemoryRouter>
 		);
 		expect(container.querySelector('li')).toHaveTextContent(/Definition of/i);
-		expect(container.querySelector('a')).toHaveAttribute(
-			'href',
-			'/def/breast-density'
-		);
+		expect(container.querySelector('a')).toHaveAttribute('href', '/def/breast-density');
 	});
 
 	it("creates a list with spanish text when language is 'es'", () => {

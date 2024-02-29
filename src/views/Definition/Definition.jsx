@@ -2,14 +2,7 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate, useParams } from 'react-router-dom';
 import track, { useTracking } from 'react-tracking';
-import {
-	FigureCgovImage,
-	FigureCgovVideo,
-	SearchBox,
-	Spinner,
-	Pronunciation,
-	RelatedResourceList,
-} from '../../components';
+import { FigureCgovImage, FigureCgovVideo, SearchBox, Spinner, Pronunciation, RelatedResourceList } from '../../components';
 import { testIds } from '../../constants';
 import { useAppPaths, useCustomQuery } from '../../hooks';
 import { getTermDefinition } from '../../services/api/actions';
@@ -55,17 +48,7 @@ const Definition = () => {
 	const { DefinitionPath } = useAppPaths();
 	const { idOrName } = useLowerIDParams();
 	const { loading, payload } = useCustomQuery(getTermDefinition(idOrName));
-	const [
-		{
-			altLanguageDictionaryBasePath,
-			baseHost,
-			canonicalHost,
-			dictionaryTitle,
-			language,
-			languageToggleSelector,
-			siteName,
-		},
-	] = useStateValue();
+	const [{ altLanguageDictionaryBasePath, baseHost, canonicalHost, dictionaryTitle, language, languageToggleSelector, siteName }] = useStateValue();
 	const navigate = useNavigate();
 	const tracking = useTracking();
 
@@ -77,11 +60,7 @@ const Definition = () => {
 	useEffect(() => {
 		if (!loading && payload) {
 			// check if there is an alternate language analog
-			if (
-				altLanguageDictionaryBasePath !== '' &&
-				payload.otherLanguages &&
-				payload.otherLanguages.length > 0
-			) {
+			if (altLanguageDictionaryBasePath !== '' && payload.otherLanguages && payload.otherLanguages.length > 0) {
 				initLanguageToggle(payload.otherLanguages[0]);
 			}
 
@@ -102,9 +81,7 @@ const Definition = () => {
 					name:
 						canonicalHost.replace(/https:\/\/|http:\/\//, '') +
 						DefinitionPath({
-							idOrName: payload.prettyUrlName
-								? payload.prettyUrlName
-								: payload.termId,
+							idOrName: payload.prettyUrlName ? payload.prettyUrlName : payload.termId,
 						}),
 					title: getPageTitle(payload),
 					metaTitle: getMetaTitle(payload, dictionaryTitle, siteName, language),
@@ -128,10 +105,7 @@ const Definition = () => {
 
 	const renderMetaDefinition = () => {
 		const regex = new RegExp(/[^.!?]+[.!?]+/g);
-		let definitionSplit =
-			payload.definition && payload.definition.text
-				? payload.definition.text.match(regex)
-				: [];
+		let definitionSplit = payload.definition && payload.definition.text ? payload.definition.text.match(regex) : [];
 
 		if (definitionSplit.length >= 2) {
 			definitionSplit = definitionSplit.slice(0, 2);
@@ -144,28 +118,17 @@ const Definition = () => {
 	const renderHelmet = () => {
 		let definition = renderMetaDefinition();
 
-		if (
-			altLanguageDictionaryBasePath &&
-			payload.otherLanguages &&
-			payload.otherLanguages.length > 0
-		) {
+		if (altLanguageDictionaryBasePath && payload.otherLanguages && payload.otherLanguages.length > 0) {
 			return (
 				<Helmet>
-					<title>
-						{getMetaTitle(payload, dictionaryTitle, siteName, language)}
-					</title>
-					<meta
-						property="og:title"
-						content={`${i18n.definitionOf[language]} ${payload.termName} - ${dictionaryTitle}`}
-					/>
+					<title>{getMetaTitle(payload, dictionaryTitle, siteName, language)}</title>
+					<meta property="og:title" content={`${i18n.definitionOf[language]} ${payload.termName} - ${dictionaryTitle}`} />
 					<meta
 						property="og:url"
 						content={
 							baseHost +
 							DefinitionPath({
-								idOrName: payload.prettyUrlName
-									? payload.prettyUrlName
-									: payload.termId,
+								idOrName: payload.prettyUrlName ? payload.prettyUrlName : payload.termId,
 							})
 						}
 					/>
@@ -176,9 +139,7 @@ const Definition = () => {
 						href={
 							canonicalHost +
 							DefinitionPath({
-								idOrName: payload.prettyUrlName
-									? payload.prettyUrlName
-									: payload.termId,
+								idOrName: payload.prettyUrlName ? payload.prettyUrlName : payload.termId,
 							})
 						}
 					/>
@@ -188,42 +149,24 @@ const Definition = () => {
 						href={
 							baseHost +
 							DefinitionPath({
-								idOrName: payload.prettyUrlName
-									? payload.prettyUrlName
-									: payload.termId,
+								idOrName: payload.prettyUrlName ? payload.prettyUrlName : payload.termId,
 							})
 						}
 					/>
-					<link
-						rel="alternate"
-						hrefLang={payload.otherLanguages[0].language}
-						href={
-							baseHost +
-							altLanguageDictionaryBasePath +
-							'/def/' +
-							payload.otherLanguages[0].prettyUrlName
-						}
-					/>
+					<link rel="alternate" hrefLang={payload.otherLanguages[0].language} href={baseHost + altLanguageDictionaryBasePath + '/def/' + payload.otherLanguages[0].prettyUrlName} />
 				</Helmet>
 			);
 		} else {
 			return (
 				<Helmet>
-					<title>
-						{getMetaTitle(payload, dictionaryTitle, siteName, language)}
-					</title>
-					<meta
-						property="og:title"
-						content={`${i18n.definitionOf[language]} ${payload.termName} - ${dictionaryTitle}`}
-					/>
+					<title>{getMetaTitle(payload, dictionaryTitle, siteName, language)}</title>
+					<meta property="og:title" content={`${i18n.definitionOf[language]} ${payload.termName} - ${dictionaryTitle}`} />
 					<meta
 						property="og:url"
 						content={
 							baseHost +
 							DefinitionPath({
-								idOrName: payload.prettyUrlName
-									? payload.prettyUrlName
-									: payload.termId,
+								idOrName: payload.prettyUrlName ? payload.prettyUrlName : payload.termId,
 							})
 						}
 					/>
@@ -234,9 +177,7 @@ const Definition = () => {
 						href={
 							canonicalHost +
 							DefinitionPath({
-								idOrName: payload.prettyUrlName
-									? payload.prettyUrlName
-									: payload.termId,
+								idOrName: payload.prettyUrlName ? payload.prettyUrlName : payload.termId,
 							})
 						}
 					/>
@@ -246,16 +187,7 @@ const Definition = () => {
 	};
 
 	const renderPronunciation = () => {
-		return (
-			<>
-				{payload.pronunciation && (
-					<Pronunciation
-						lang={language}
-						pronunciationObj={payload.pronunciation}
-					/>
-				)}
-			</>
-		);
+		return <>{payload.pronunciation && <Pronunciation lang={language} pronunciationObj={payload.pronunciation} />}</>;
 	};
 
 	const renderRelatedResources = () => {
@@ -273,10 +205,7 @@ const Definition = () => {
 			return (
 				<>
 					<h6>{headerText}</h6>
-					<RelatedResourceList
-						linksArr={payload.relatedResources}
-						lang={language}
-					/>
+					<RelatedResourceList linksArr={payload.relatedResources} lang={language} />
 				</>
 			);
 		} else {
@@ -291,30 +220,12 @@ const Definition = () => {
 					payload.media.map((mediaItem) => {
 						if (mediaItem.Type === 'Image') {
 							const imgArr = mediaItem.ImageSources;
-							const thumbUri = imgArr.find(
-								(imgItem) => imgItem.Size === '571'
-							).Src;
-							const enlargeUri = imgArr.find(
-								(imgItem) => imgItem.Size === 'original'
-							).Src;
-							return (
-								<FigureCgovImage
-									altText={mediaItem.Alt}
-									caption={mediaItem.Caption}
-									classes="image-left-medium"
-									key={mediaItem.Ref}
-									lang={language}
-									thumb_uri={thumbUri}
-									enlarge_uri={enlargeUri}
-								/>
-							);
+							const thumbUri = imgArr.find((imgItem) => imgItem.Size === '571').Src;
+							const enlargeUri = imgArr.find((imgItem) => imgItem.Size === 'original').Src;
+							return <FigureCgovImage altText={mediaItem.Alt} caption={mediaItem.Caption} classes="image-left-medium" key={mediaItem.Ref} lang={language} thumb_uri={thumbUri} enlarge_uri={enlargeUri} />;
 						} else if (mediaItem.Type === 'Video') {
 							return (
-								<FigureCgovVideo
-									classes="video center size75"
-									key={mediaItem.UniqueId}
-									videoId={mediaItem.UniqueId}
-									videoTitle={mediaItem.Title}>
+								<FigureCgovVideo classes="video center size75" key={mediaItem.UniqueId} videoId={mediaItem.UniqueId} videoTitle={mediaItem.Title}>
 									{mediaItem.Caption}
 								</FigureCgovVideo>
 							);
@@ -332,10 +243,7 @@ const Definition = () => {
 			{!loading && payload && (
 				<>
 					{renderHelmet()}
-					<h1
-						className="term-title"
-						data-testid={testIds.TERM_DEF_TITLE}
-						data-cdr-id={payload.termId}>
+					<h1 className="term-title" data-testid={testIds.TERM_DEF_TITLE} data-cdr-id={payload.termId}>
 						{getPageTitle(payload)}
 					</h1>
 					{renderPronunciation()}
@@ -347,9 +255,7 @@ const Definition = () => {
 								__html: payload.definition.html,
 							}}></div>
 					)}
-					{((payload.relatedResources && payload.relatedResources.length > 0) ||
-						(payload.media && payload.media.length > 0)) &&
-						renderRelatedResources()}
+					{((payload.relatedResources && payload.relatedResources.length > 0) || (payload.media && payload.media.length > 0)) && renderRelatedResources()}
 					<SearchBox showTitle />
 				</>
 			)}

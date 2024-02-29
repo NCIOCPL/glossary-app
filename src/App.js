@@ -12,18 +12,7 @@ import Home from './views/Home';
 
 const App = () => {
 	// this should be a DUMB component that just displays our display(group) components
-	const {
-		HomePath,
-		DefinitionPath,
-		ExpandPath,
-		ExpandPathNoParam,
-		ExpandPathSpanish,
-		ExpandPathNoParamSpanish,
-		SearchPath,
-		SearchPathNoParam,
-		SearchPathSpanish,
-		SearchPathSpanishNoParam,
-	} = useAppPaths();
+	const { HomePath, DefinitionPath, ExpandPath, ExpandPathNoParam, ExpandPathSpanish, ExpandPathNoParamSpanish, SearchPath, SearchPathNoParam, SearchPathSpanish, SearchPathSpanishNoParam } = useAppPaths();
 
 	return (
 		<Router>
