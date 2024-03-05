@@ -60,8 +60,7 @@ describe('TextInput component', function () {
 				retMockActionObject = {
 					...mockActionObject,
 					isExecuted: true,
-					hasCorrectTargetEventValue:
-						value === mockActionEvent.event.target.value,
+					hasCorrectTargetEventValue: value === mockActionEvent.event.target.value,
 				};
 			};
 
@@ -106,9 +105,7 @@ describe('TextInput component', function () {
 			};
 
 			setErrorMessage(mockEvent);
-			wrapper = render(
-				<TextInput errorMessage={errorMessage} {...mockTextInput} />
-			);
+			wrapper = render(<TextInput errorMessage={errorMessage} {...mockTextInput} />);
 			const { getByTestId, getByPlaceholderText, getByText } = wrapper;
 			const textInput = getByPlaceholderText(placeholderText);
 			fireEvent.change(textInput, { target: { value: 'error' } });

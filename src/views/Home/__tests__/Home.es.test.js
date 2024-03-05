@@ -15,9 +15,7 @@ let wrapper;
 const dispatch = jest.fn();
 const dictionaryName = 'Cancer.gov';
 const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
-const dictionaryIntroText =
-	'<p>El diccionario de cáncer del NCI contiene <strong>{{term_count}}</strong> términos relacionados con el cáncer y la medicina.</p>' +
-	'<p>Ofrecemos un widget que usted puede añadir a su sitio web para que sus usuarios puedan buscar términos de cáncer. <a href="/espanol/sindicacion/widgets">Obtenga el widget de términos de cáncer del Diccionario del NCI</a>.</p>';
+const dictionaryIntroText = '<p>El diccionario de cáncer del NCI contiene <strong>{{term_count}}</strong> términos relacionados con el cáncer y la medicina.</p>' + '<p>Ofrecemos un widget que usted puede añadir a su sitio web para que sus usuarios puedan buscar términos de cáncer. <a href="/espanol/sindicacion/widgets">Obtenga el widget de términos de cáncer del Diccionario del NCI</a>.</p>';
 const language = 'es';
 
 const expandChar = 'A';
@@ -52,8 +50,7 @@ describe('Home component(Spanish)', () => {
 	//create mock lang node
 	const mockToggleElement = document.createElement('div');
 	mockToggleElement.id = 'LangList1';
-	mockToggleElement.innerHTML =
-		'<a href="/" data-testid="mockLangToggle">Language</a>';
+	mockToggleElement.innerHTML = '<a href="/" data-testid="mockLangToggle">Language</a>';
 	document.body.appendChild(mockToggleElement);
 
 	beforeEach(async () => {
@@ -74,10 +71,7 @@ describe('Home component(Spanish)', () => {
 
 	test('Updates language toggle with link to english analog ', () => {
 		const { getByTestId } = wrapper;
-		expect(getByTestId('mockLangToggle')).toHaveAttribute(
-			'href',
-			'/cancer-terms'
-		);
+		expect(getByTestId('mockLangToggle')).toHaveAttribute('href', '/cancer-terms');
 	});
 
 	describe('Load Spanish Home component using expand path with no params', () => {
@@ -99,9 +93,7 @@ describe('Home component(Spanish)', () => {
 
 		test('NoMatchingResults component is rendered for ampliar path with no params', () => {
 			const { getByTestId } = wrapper;
-			expect(getByTestId(testIds.NO_MATCHING_RESULTS).textContent).toBe(
-				i18n.noMatchingExpand[language]
-			);
+			expect(getByTestId(testIds.NO_MATCHING_RESULTS).textContent).toBe(i18n.noMatchingExpand[language]);
 		});
 	});
 
@@ -124,9 +116,7 @@ describe('Home component(Spanish)', () => {
 
 		test('NoMatchingResults component is rendered with no matching search text for buscar path with no params', () => {
 			const { getByTestId } = wrapper;
-			expect(getByTestId(testIds.NO_MATCHING_RESULTS).textContent).toBe(
-				i18n.noMatchingTextSearch[language]
-			);
+			expect(getByTestId(testIds.NO_MATCHING_RESULTS).textContent).toBe(i18n.noMatchingTextSearch[language]);
 		});
 	});
 });

@@ -12,12 +12,8 @@ describe('<Pronunciation /> component', () => {
 			key: null,
 			audio: 'http://fakelink.com/mock.mp3',
 		};
-		const { container } = render(
-			<Pronunciation pronunciationObj={payload} language="en" />
-		);
-		expect(
-			container.querySelector('.pronunciation__audio')
-		).toBeInTheDocument();
+		const { container } = render(<Pronunciation pronunciationObj={payload} language="en" />);
+		expect(container.querySelector('.pronunciation__audio')).toBeInTheDocument();
 	});
 
 	test('renders the phonetic spelling when pronunciation.key is supplied', () => {
@@ -26,12 +22,8 @@ describe('<Pronunciation /> component', () => {
 			audio: null,
 		};
 
-		const { getByTestId } = render(
-			<Pronunciation pronunciationObj={payload} language="en" />
-		);
+		const { getByTestId } = render(<Pronunciation pronunciationObj={payload} language="en" />);
 		expect(getByTestId(testIds.TERM_DEF_PRONUNCIATION)).toBeInTheDocument();
-		expect(getByTestId(testIds.TERM_DEF_PRONUNCIATION)).toHaveTextContent(
-			'(mock phonetic spelling)'
-		);
+		expect(getByTestId(testIds.TERM_DEF_PRONUNCIATION)).toHaveTextContent('(mock phonetic spelling)');
 	});
 });

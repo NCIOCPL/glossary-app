@@ -27,11 +27,7 @@ const defaultProps = {
 	items: options,
 	label,
 	renderItem: (item, isHighlighted) => (
-		<div
-			key={item.name}
-			className={isHighlighted ? 'highlighted' : 'none'}
-			aria-selected={isHighlighted}
-			role="option">
+		<div key={item.name} className={isHighlighted ? 'highlighted' : 'none'} aria-selected={isHighlighted} role="option">
 			{item.name}
 		</div>
 	),
@@ -74,24 +70,12 @@ describe('<Autocomplete />', () => {
 		const onChangeHandler = jest.fn();
 		const onSelectHandler = jest.fn();
 		const onSortItemsHandler = jest.fn();
-		const { rerender } = render(
-			<Autocomplete
-				{...defaultProps}
-				onChange={onChangeHandler}
-				onSelect={onSelectHandler}
-			/>
-		);
+		const { rerender } = render(<Autocomplete {...defaultProps} onChange={onChangeHandler} onSelect={onSelectHandler} />);
 		const input = screen.getByRole('combobox');
 		fireEvent.focus(input);
 		fireEvent.change(input, { target: { value: 's' } });
 		// Since there's no state maintenance, rerender component instance with updated props
-		rerender(
-			<Autocomplete
-				{...defaultProps}
-				value={onChangeHandler.mock.calls[0][1]}
-				sortItems={onSortItemsHandler}
-			/>
-		);
+		rerender(<Autocomplete {...defaultProps} value={onChangeHandler.mock.calls[0][1]} sortItems={onSortItemsHandler} />);
 		const partialList = screen.getAllByRole('option');
 		// Using "s" should yield 5 results from options list
 		expect(partialList.length).toEqual(5);
@@ -113,13 +97,7 @@ describe('<Autocomplete />', () => {
 	test('should select item with keyboard `ArrowDown`, `ArrowUp`, and `Enter` from suggested options', () => {
 		const onChangeHandler = jest.fn();
 		const onSelectHandler = jest.fn();
-		render(
-			<Autocomplete
-				{...defaultProps}
-				onChange={onChangeHandler}
-				onSelect={onSelectHandler}
-			/>
-		);
+		render(<Autocomplete {...defaultProps} onChange={onChangeHandler} onSelect={onSelectHandler} />);
 		const input = screen.getByRole('combobox');
 		// Use arrow down twice to navigate second item in options list (metabolic)
 		fireEvent(
@@ -168,15 +146,7 @@ describe('<Autocomplete />', () => {
 		const updatedChipList = [];
 		const onChipRemoveHandler = jest.fn();
 		const onSelectHandler = jest.fn();
-		const { rerender } = render(
-			<Autocomplete
-				{...defaultProps}
-				chipList={[]}
-				onSelect={onSelectHandler}
-				multiselect={true}
-				onChipRemove={onChipRemoveHandler}
-			/>
-		);
+		const { rerender } = render(<Autocomplete {...defaultProps} chipList={[]} onSelect={onSelectHandler} multiselect={true} onChipRemove={onChipRemoveHandler} />);
 		const input = screen.getByRole('combobox');
 		fireEvent.focus(input);
 		// ArrowDown key press once to highlight "meta-analysis"
@@ -193,15 +163,7 @@ describe('<Autocomplete />', () => {
 		);
 		expect(onSelectHandler).toHaveBeenCalled();
 		updatedChipList.push(onSelectHandler.mock.calls[0][1]);
-		rerender(
-			<Autocomplete
-				{...defaultProps}
-				chipList={updatedChipList}
-				onSelect={onSelectHandler}
-				multiselect={true}
-				onChipRemove={onChipRemoveHandler}
-			/>
-		);
+		rerender(<Autocomplete {...defaultProps} chipList={updatedChipList} onSelect={onSelectHandler} multiselect={true} onChipRemove={onChipRemoveHandler} />);
 		const metaAnalysis = options[0].name; // meta-analysis
 		// meta-analysis selected chip
 		expect(screen.getByText(metaAnalysis)).toBeInTheDocument();
@@ -216,9 +178,7 @@ describe('<Autocomplete />', () => {
 
 	test('should select highlighted option on blur when `selectOnBlur=true` using keyboard', () => {
 		const onSelectHandler = jest.fn();
-		render(
-			<Autocomplete {...defaultProps} onSelect={onSelectHandler} selectOnBlur />
-		);
+		render(<Autocomplete {...defaultProps} onSelect={onSelectHandler} selectOnBlur />);
 		const input = screen.getByRole('combobox');
 		fireEvent.focus(input);
 		// ArrowDown key press thrice to highlight "metabolic acidosis"
@@ -233,13 +193,7 @@ describe('<Autocomplete />', () => {
 
 	test('should not select highlighted option on blur when `selectOnBlur=false`', () => {
 		const onSelectHandler = jest.fn();
-		render(
-			<Autocomplete
-				{...defaultProps}
-				onSelect={onSelectHandler}
-				selectOnBlur={false}
-			/>
-		);
+		render(<Autocomplete {...defaultProps} onSelect={onSelectHandler} selectOnBlur={false} />);
 		const input = screen.getByRole('combobox');
 		fireEvent.focus(input);
 		fireEvent.keyDown(input, { key: 'ArrowDown' });
@@ -281,13 +235,7 @@ describe('<Autocomplete />', () => {
 		);
 		expect(menuOptions[1].className).toEqual('none');
 
-		rerender(
-			<Autocomplete
-				{...defaultProps}
-				open={true}
-				isItemSelectable={() => false}
-			/>
-		);
+		rerender(<Autocomplete {...defaultProps} open={true} isItemSelectable={() => false} />);
 
 		const reRenderedMenuOptions = screen.getAllByRole('option');
 		fireEvent.mouseEnter(reRenderedMenuOptions[1], { key: 'MouseEnter' });
@@ -297,13 +245,7 @@ describe('<Autocomplete />', () => {
 	test('should select menu option on touchEvent', () => {
 		const onChangeHandler = jest.fn();
 		const onSelectHandler = jest.fn();
-		render(
-			<Autocomplete
-				{...defaultProps}
-				onChange={onChangeHandler}
-				onSelect={onSelectHandler}
-			/>
-		);
+		render(<Autocomplete {...defaultProps} onChange={onChangeHandler} onSelect={onSelectHandler} />);
 		const input = screen.getByRole('combobox');
 		// fireEvent.touchStart(input, { key: 'TouchEvent' });
 		fireEvent.focus(input);
@@ -326,9 +268,7 @@ describe('<Autocomplete />', () => {
 		};
 		const spies = [];
 		const inputProps = {};
-		handlers.forEach(
-			(handler, i) => (inputProps[`on${handler}`] = spies[i] = jest.fn())
-		);
+		handlers.forEach((handler, i) => (inputProps[`on${handler}`] = spies[i] = jest.fn()));
 		render(<Autocomplete {...defaultProps} inputProps={inputProps} />);
 		const input = screen.getByRole('combobox');
 		handlers.forEach((handler, i) => {
@@ -340,9 +280,7 @@ describe('<Autocomplete />', () => {
 
 	test('should set menu positions on render when menu is open', () => {
 		const onRenderMenuHandler = jest.fn(() => <div />);
-		render(
-			<Autocomplete {...defaultProps} open renderMenu={onRenderMenuHandler} />
-		);
+		render(<Autocomplete {...defaultProps} open renderMenu={onRenderMenuHandler} />);
 		expect(onRenderMenuHandler).toHaveBeenCalledTimes(2);
 		// Initial render
 		expect(onRenderMenuHandler.mock.calls[0][2]).toEqual({
@@ -362,11 +300,7 @@ describe('<Autocomplete />', () => {
 		const onKeyDownHandler = jest.fn((e) => e.persist());
 		const onRenderItemHandler = jest.fn((item, isHighlighted) => {
 			return (
-				<div
-					key={item.name}
-					className={isHighlighted ? 'highlighted' : 'none'}
-					aria-selected={isHighlighted}
-					role="option">
+				<div key={item.name} className={isHighlighted ? 'highlighted' : 'none'} aria-selected={isHighlighted} role="option">
 					{item.name}
 				</div>
 			);
@@ -394,11 +328,7 @@ describe('<Autocomplete />', () => {
 		const onKeyDownHandler = jest.fn((e) => e.persist());
 		const onRenderItemHandler = jest.fn((item, isHighlighted) => {
 			return (
-				<div
-					key={item.name}
-					className={isHighlighted ? 'highlighted' : 'none'}
-					aria-selected={isHighlighted}
-					role="option">
+				<div key={item.name} className={isHighlighted ? 'highlighted' : 'none'} aria-selected={isHighlighted} role="option">
 					{item.name}
 				</div>
 			);
@@ -530,11 +460,7 @@ describe('<Autocomplete />', () => {
 	test('should not highlight top match when `autoHighlight=false`', () => {
 		const onRenderItemHandler = jest.fn((item, isHighlighted) => {
 			return (
-				<div
-					key={item.name}
-					className={isHighlighted ? 'highlighted' : 'none'}
-					aria-selected={isHighlighted}
-					role="option">
+				<div key={item.name} className={isHighlighted ? 'highlighted' : 'none'} aria-selected={isHighlighted} role="option">
 					{item.name}
 				</div>
 			);
@@ -542,16 +468,7 @@ describe('<Autocomplete />', () => {
 
 		const { rerender } = render(<Autocomplete {...defaultProps} open />);
 		// Rerender component instance with updated value
-		rerender(
-			<Autocomplete
-				{...defaultProps}
-				autoHighlight={false}
-				open
-				renderItem={onRenderItemHandler}
-				value="metabolic"
-				debug
-			/>
-		);
+		rerender(<Autocomplete {...defaultProps} autoHighlight={false} open renderItem={onRenderItemHandler} value="metabolic" debug />);
 		// const input = screen.getByRole("combobox");
 		fireEvent.focus(screen.getByRole('combobox'));
 		/*
@@ -651,9 +568,7 @@ describe('<Autocomplete />', () => {
 
 	test('should preserve `state.highlightedIndex` when it is within `props.items` range and `props.value` is unchanged`', () => {
 		const ref = React.createRef();
-		const { rerender } = render(
-			<Autocomplete {...defaultProps} ref={ref} value="m" />
-		);
+		const { rerender } = render(<Autocomplete {...defaultProps} ref={ref} value="m" />);
 
 		ref.current.setState({ highlightedIndex: 0 });
 		rerender(<Autocomplete {...defaultProps} ref={ref} value="m" debug />);
@@ -665,9 +580,7 @@ describe('<Autocomplete />', () => {
 
 	test('should set `highlightedIndex` when hovering over items in the menu and ignoreBlur should be false when leave the element ', () => {
 		const ref = React.createRef();
-		const { rerender } = render(
-			<Autocomplete {...defaultProps} ref={ref} value="m" />
-		);
+		const { rerender } = render(<Autocomplete {...defaultProps} ref={ref} value="m" />);
 		ref.current.setState({ highlightedIndex: 0 });
 		rerender(<Autocomplete {...defaultProps} ref={ref} value="m" debug />);
 		ref.current.setState({ highlightedIndex: 0 });
@@ -684,9 +597,7 @@ describe('<Autocomplete />', () => {
 
 	test('should set `highlightedIndex` to null when select an element and close the dropdown', () => {
 		const ref = React.createRef();
-		const { rerender } = render(
-			<Autocomplete {...defaultProps} ref={ref} value="m" />
-		);
+		const { rerender } = render(<Autocomplete {...defaultProps} ref={ref} value="m" />);
 		ref.current.setState({ highlightedIndex: 0 });
 		rerender(<Autocomplete {...defaultProps} ref={ref} value="m" debug />);
 		ref.current.setState({ highlightedIndex: 0 });

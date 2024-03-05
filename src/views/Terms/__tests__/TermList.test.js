@@ -80,9 +80,7 @@ describe('TermList component rendered with English', () => {
 	});
 	test(`"${termListCount} results found for: ${query}" should be present `, () => {
 		const { getByText } = wrapper;
-		expect(
-			getByText(`${termListCount} results found for: ${query}`)
-		).toBeInTheDocument();
+		expect(getByText(`${termListCount} results found for: ${query}`)).toBeInTheDocument();
 	});
 
 	describe(`Tests using "${query}" as query parameter for term`, () => {
@@ -179,8 +177,7 @@ describe('TermList component rendered with English', () => {
 								prettyUrlName: 'lung-cancer',
 								pronunciation: {
 									key: '(lung KAN-ser)',
-									audio:
-										'https://nci-media.cancer.gov/pdq/media/audio/714622.mp3',
+									audio: 'https://nci-media.cancer.gov/pdq/media/audio/714622.mp3',
 								},
 								definition: {
 									html: 'Cancer that forms in tissues of the lung, usually in the cells lining air passages. The two main types are small cell lung cancer and non-small cell lung cancer. These types are diagnosed based on how the cells look under a microscope.',
@@ -240,8 +237,7 @@ describe('TermList component rendered with English', () => {
 								prettyUrlName: null,
 								pronunciation: {
 									key: '(lung KAN-ser)',
-									audio:
-										'https://nci-media.cancer.gov/pdq/media/audio/714622.mp3',
+									audio: 'https://nci-media.cancer.gov/pdq/media/audio/714622.mp3',
 								},
 								definition: {
 									html: 'Cancer that forms in tissues of the lung, usually in the cells lining air passages. The two main types are small cell lung cancer and non-small cell lung cancer. These types are diagnosed based on how the cells look under a microscope.',

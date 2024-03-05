@@ -14,9 +14,10 @@ describe('buildAxiosRequest', () => {
 			onabort: jest.fn(),
 		},
 	};
-	axios.defaults.adapter = require('axios/lib/adapters/http');
+
 	const axiosInstance = axios.create({
 		timeout: 10000,
+		adapter: 'http',
 	});
 
 	beforeAll(() => {
@@ -69,9 +70,7 @@ describe('buildAxiosRequest', () => {
 			results: [],
 			links: null,
 		};
-		const scope = nock(baseURL)
-			.get(`${endpoint}${query}`)
-			.reply(200, expectedResponseBody);
+		const scope = nock(baseURL).get(`${endpoint}${query}`).reply(200, expectedResponseBody);
 		return buildAxiosRequest(axiosInstance)(init, options).then((actual) => {
 			const { _bodyText, status } = actual;
 			expect(status).toEqual(200);

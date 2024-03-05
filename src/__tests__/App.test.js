@@ -1,5 +1,4 @@
 import { act, cleanup, render } from '@testing-library/react';
-import axios from 'axios';
 import nock from 'nock';
 import React from 'react';
 import { ClientContextProvider } from 'react-fetching-library';
@@ -14,8 +13,6 @@ import Definition from '../views/Definition';
 import Home from '../views/Home';
 
 jest.mock('../store/store.js');
-
-axios.defaults.adapter = require('axios/lib/adapters/http');
 
 const { EXPAND_SPANISH } = queryType;
 

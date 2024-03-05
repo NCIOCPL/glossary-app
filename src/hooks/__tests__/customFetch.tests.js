@@ -7,11 +7,7 @@ import { useStateValue } from '../../store/store';
 import MockAnalyticsProvider from '../../tracking/mock-analytics-provider';
 import { i18n } from '../../utils';
 import ErrorBoundary from '../../views/ErrorBoundary';
-import {
-	setAudience,
-	setDictionaryName,
-	setLanguage,
-} from '../../services/api/endpoints';
+import { setAudience, setDictionaryName, setLanguage } from '../../services/api/endpoints';
 
 jest.mock('../../store/store');
 
