@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import track, { useTracking } from 'react-tracking';
 import {
 	FigureCgovImage,
@@ -68,6 +69,7 @@ const Definition = () => {
 	] = useStateValue();
 	const navigate = useNavigate();
 	const tracking = useTracking();
+	const location = useLocation();
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -141,8 +143,27 @@ const Definition = () => {
 		return definitionSplit;
 	};
 
+	const preRenderHandler = () => {
+		const preRenderObj = {};
+
+		if (location.search === '?redirect=true') {
+			preRenderObj.statusCode = (
+				<meta name="prerender-status-code" content="301" />
+			);
+			preRenderObj.headerLocation = (
+				<meta
+					name="prerender-header"
+					content={'Location: ' + baseHost + window.location.pathname}
+				/>
+			);
+		}
+
+		return preRenderObj;
+	};
+
 	const renderHelmet = () => {
 		let definition = renderMetaDefinition();
+		const preRender = preRenderHandler();
 
 		if (
 			altLanguageDictionaryBasePath &&
@@ -171,6 +192,8 @@ const Definition = () => {
 					/>
 					<meta name="description" content={definition} />
 					<meta property="og:description" content={definition} />
+					{preRender.statusCode}
+					{preRender.headerLocation}
 					<link
 						rel="canonical"
 						href={
@@ -229,6 +252,8 @@ const Definition = () => {
 					/>
 					<meta name="description" content={definition} />
 					<meta property="og:description" content={definition} />
+					{preRender.statusCode}
+					{preRender.headerLocation}
 					<link
 						rel="canonical"
 						href={

@@ -7,3 +7,6 @@ Feature: Page Not Found Error
 				|	https://www.cancer.gov | homepage	|
 				| https://www.cancer.gov/types | cancer type	|
 				|	https://www.cancer.gov/contact | Get in touch	|
+		And the page contains meta tags with the following names
+            | name                  | content |
+            | prerender-status-code | 404     |
