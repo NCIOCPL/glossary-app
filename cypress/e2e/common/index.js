@@ -35,6 +35,13 @@ Given('the user visits the home page', () => {
 	cy.visit('/');
 });
 
+// Used when we don't want to automatically fail the test when non-200 responses are encountered.
+Given('the user navigates to {string} with error handling', (destURL) => {
+	cy.visit(destURL, {
+		failOnStatusCode: false,
+	});
+});
+
 Given('user is on the dictionary landing page or results page', () => {
 	cy.visit(baseURL);
 });
@@ -665,6 +672,25 @@ Then('the user gets an error page that reads {string}', (errorMessage) => {
 		return false;
 	});
 	cy.get('.error-container h1').should('have.text', errorMessage);
+});
+
+// Intercepts CTS API Calls
+Cypress.Commands.add('triggerServerError', () => {
+	cy.intercept('/cts/mock-api/v2/*', {
+		statusCode: 500,
+	}).as('mockApiError');
+
+	cy.intercept('/cts/proxy-api/v2/*', {
+		statusCode: 500,
+	}).as('proxyApiError');
+
+	cy.intercept('https://clinicaltrialsapi.cancer.gov/api/v2/*', {
+		statusCode: 500,
+	}).as('ctsApiError');
+});
+
+And('the CTS API is responding with a server error', () => {
+	cy.triggerServerError();
 });
 
 /*
