@@ -1,6 +1,6 @@
 {
 	"name": "@nciocpl/glossary-app",
-	"version": "1.4.0",
+	"version": "1.5.0",
 	"description": "Glossary React Application",
 	"repository": {
 		"type": "git",
@@ -112,7 +112,6 @@
 		"testMatch": [
 			"<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
 			"<rootDir>/src/**/*.test.{js,jsx,ts,tsx}"
-
 		],
 		"testEnvironment": "jest-environment-jsdom-global",
 		"transform": {
@@ -151,7 +150,6 @@
 		"stepDefinitions": "cypress/e2e",
 		"commonPath": "cypress/e2e/common"
 	},
-
 	"devDependencies": {
 		"@babel/core": "7.9.0",
 		"@cypress/code-coverage": "^3.10.0",
