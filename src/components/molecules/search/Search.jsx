@@ -63,7 +63,7 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 			type: 'Other',
 			event: 'GlossaryApp:Other:KeywordSearch',
 			linkName: 'TermsDictionarySearch',
-			searchTerm: searchText,
+			searchTerm: searchText.trim(),
 			searchType: searchType,
 		});
 	};
@@ -75,10 +75,10 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 		const hasSearchText = searchText.length > 0;
 		const queryString = hasSearchText
 			? isContainsSearch
-				? `${encodeURIComponent(searchText)}/?searchMode=${
+				? `${encodeURIComponent(searchText.trim())}/?searchMode=${
 						searchMatchType.contains
 				  }`
-				: `${encodeURIComponent(searchText)}/?searchMode=${
+				: `${encodeURIComponent(searchText.trim())}/?searchMode=${
 						searchMatchType.beginsWith
 				  }`
 			: `/`;

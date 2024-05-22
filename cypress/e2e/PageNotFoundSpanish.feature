@@ -10,3 +10,6 @@ Feature: Page Not Found Error Spanish
 				|	https://www.cancer.gov/espanol | página principal	|
 				| https://www.cancer.gov/espanol/tipos | tipo de cáncer	|
 				|	https://www.cancer.gov/espanol/contactenos | Contáctenos	|
+		And the page contains meta tags with the following names
+            | name                  | content |
+            | prerender-status-code | 404     |
