@@ -6,11 +6,7 @@ const FigureCgovVideo = ({ videoId, videoTitle, children, classes }) => {
 	return (
 		<figure className={classes}>
 			<YoutubeVideoPlayer youtubeId={videoId} videoTitle={videoTitle} />
-			{children && (
-				<figcaption className="caption-container no-resize">
-					{children}
-				</figcaption>
-			)}
+			{children && <figcaption className="caption-container no-resize">{children}</figcaption>}
 		</figure>
 	);
 };

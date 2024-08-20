@@ -1,15 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const FigureCgovImage = ({
-	altText,
-	caption,
-	classes = '',
-	credit,
-	enlarge_uri,
-	lang = 'en',
-	thumb_uri,
-}) => {
+const FigureCgovImage = ({ altText, caption, classes = '', credit, enlarge_uri, lang = 'en', thumb_uri }) => {
 	// set up text for spanish
 	const t = {};
 	t.linkText =
@@ -29,11 +21,7 @@ const FigureCgovImage = ({
 			<div className="centered-element">
 				<img src={thumb_uri} alt={altText} />
 				{enlarge_uri && (
-					<a
-						href={enlarge_uri}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="article-image-enlarge no-resize">
+					<a href={enlarge_uri} target="_blank" rel="noopener noreferrer" className="article-image-enlarge no-resize">
 						{t.linkText}
 					</a>
 				)}

@@ -9,7 +9,7 @@ describe('getTermCount', () => {
 	setDictionaryName(dictionaryName);
 	setLanguage(lang);
 
-	test('Match return number for getTermCount action', () => {
+	it('Match return number for getTermCount action', () => {
 		const retAction = {
 			method: 'GET',
 			endpoint: `/Terms/count/${dictionaryName}/${audience}/${lang}`,

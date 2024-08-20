@@ -10,7 +10,7 @@ describe('getExpandCharResults action', () => {
 	setDictionaryName(dictionaryName);
 	setLanguage(lang);
 
-	test('Match return result for getExpandCharResults action', () => {
+	it('Match return result for getExpandCharResults action', () => {
 		const chr = 'M';
 		const retAction = {
 			method: 'GET',
