@@ -11,8 +11,7 @@ import { useTracking } from 'react-tracking';
 const Term = ({ resultIndex, payload }) => {
 	const { DefinitionPath } = useAppPaths();
 	const [{ language }] = useStateValue();
-	const { definition, termId, termName, prettyUrlName, pronunciation } =
-		payload;
+	const { definition, termId, termName, prettyUrlName, pronunciation } = payload;
 
 	const tracking = useTracking();
 
@@ -43,16 +42,11 @@ const Term = ({ resultIndex, payload }) => {
 				</dfn>
 			</dt>
 			{pronunciation && (
-				<dd
-					className="pronunciation"
-					data-testid={testIds.TERM_ITEM_PRONUNCIATION}>
+				<dd className="pronunciation" data-testid={testIds.TERM_ITEM_PRONUNCIATION}>
 					<Pronunciation lang={language} pronunciationObj={pronunciation} />
 				</dd>
 			)}
-			<dd
-				className="definition"
-				data-testid={testIds.TERM_ITEM_DESCRIPTION}
-				dangerouslySetInnerHTML={{ __html: definition.html }}></dd>
+			<dd className="definition" data-testid={testIds.TERM_ITEM_DESCRIPTION} dangerouslySetInnerHTML={{ __html: definition.html }}></dd>
 		</div>
 	);
 };

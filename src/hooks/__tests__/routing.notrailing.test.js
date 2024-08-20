@@ -1,7 +1,7 @@
 import { useAppPaths } from '../routing';
 
-import { useStateValue } from '../../store/store.js';
-jest.mock('../../store/store.js');
+import { useStateValue } from '../../store/store.jsx';
+jest.mock('../../store/store.jsx');
 
 describe('when base path missing trailing slash', () => {
 	useStateValue.mockReturnValue([
@@ -13,14 +13,14 @@ describe('when base path missing trailing slash', () => {
 	it('will produce paths without params', () => {
 		const { HomePath, DefinitionPath } = useAppPaths();
 
-		expect(HomePath()).toEqual('/my/path/');
-		expect(DefinitionPath()).toEqual('/my/path/def/:idOrName');
+		expect(HomePath()).toBe('/my/path/');
+		expect(DefinitionPath()).toBe('/my/path/def/:idOrName');
 	});
 
 	it('will replace paths with params', () => {
 		const { HomePath, DefinitionPath } = useAppPaths();
 
-		expect(HomePath({ foo: 'bar' })).toEqual('/my/path/');
-		expect(DefinitionPath({ idOrName: '12345' })).toEqual('/my/path/def/12345');
+		expect(HomePath({ foo: 'bar' })).toBe('/my/path/');
+		expect(DefinitionPath({ idOrName: '12345' })).toBe('/my/path/def/12345');
 	});
 });

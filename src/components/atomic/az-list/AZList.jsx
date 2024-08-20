@@ -31,9 +31,7 @@ const AZList = () => {
 					const label = item.toUpperCase();
 					return (
 						<li key={i} value={i + 1}>
-							<Link
-								to={expandPathWithLang({ expandChar })}
-								onClick={() => handleAZLinkClick(expandChar)}>
+							<Link to={expandPathWithLang({ expandChar })} onClick={() => handleAZLinkClick(expandChar)}>
 								{label}
 							</Link>
 						</li>

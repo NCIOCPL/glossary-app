@@ -13,9 +13,7 @@ beforeEach(() => {
 			basePath: '',
 			canonicalHost: 'https://www.cancer.gov',
 			dictionaryEndpoint: '/api',
-			dictionaryIntroText:
-				'<p>The NCI Dictionary of Cancer Terms features <strong>{{term_count}}</strong> terms related to cancer and medicine.</p>' +
-				'<p>We offer a widget that you can add to your website to let users look up cancer-related terms. <a href="/syndication/widgets">Get NCI’s Dictionary of Cancer Terms Widget</a></p>',
+			dictionaryIntroText: '<p>The NCI Dictionary of Cancer Terms features <strong>{{term_count}}</strong> terms related to cancer and medicine.</p>' + '<p>We offer a widget that you can add to your website to let users look up cancer-related terms. <a href="/syndication/widgets">Get NCI’s Dictionary of Cancer Terms Widget</a></p>',
 			dictionaryName: 'Cancer.gov',
 			dictionaryTitle: 'NCI Dictionary of Cancer Terms',
 			language: 'en',

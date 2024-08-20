@@ -1,11 +1,11 @@
 import React from 'react';
-import { render, cleanup } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { MemoryRouter } from 'react-router';
 import { useStateValue } from '../../../../store/store';
 import RelatedResourceList from '../';
 
-jest.mock('../../../../store/store.js');
+jest.mock('../../../../store/store.jsx');
 
 useStateValue.mockReturnValue([
 	{
@@ -18,22 +18,18 @@ useStateValue.mockReturnValue([
 ]);
 
 describe('<RelatedResourceList /> component', () => {
-	afterEach(cleanup);
-
-	test('empty relatedResources array does not output a list', () => {
+	it('empty relatedResources array does not output a list', () => {
 		const mockEmptyArr = [];
-		const { container } = render(
+		render(
 			<MemoryRouter initialEntries={['/']}>
 				<RelatedResourceList linksArr={mockEmptyArr} />
 			</MemoryRouter>
 		);
-		expect(
-			container.querySelector('ul.more-information-list')
-		).not.toBeInTheDocument();
-		expect(container.querySelectorAll('li').length).toBe(0);
+		expect(screen.queryByRole('list')).not.toBeInTheDocument();
+		expect(screen.queryAllByRole('listitem')).toHaveLength(0);
 	});
 
-	test('creates a list of links', () => {
+	it('creates a list of links', () => {
 		const mockResourcesArr = [
 			{
 				Url: 'https://mock.com',
@@ -51,15 +47,13 @@ describe('<RelatedResourceList /> component', () => {
 				Text: 'Mock Term',
 			},
 		];
-		const { container } = render(
+		render(
 			<MemoryRouter initialEntries={['/']}>
 				<RelatedResourceList linksArr={mockResourcesArr} />
 			</MemoryRouter>
 		);
-		expect(
-			container.querySelector('ul.more-information-list')
-		).toBeInTheDocument();
-		expect(container.querySelectorAll('li').length).toBe(3);
+		expect(screen.getByRole('list')).toHaveClass('more-information-list');
+		expect(screen.getAllByRole('listitem')).toHaveLength(3);
 	});
 
 	it('creates GlossaryTerm links, using prettyUrls when provided', () => {
@@ -72,16 +66,13 @@ describe('<RelatedResourceList /> component', () => {
 				PrettyUrlName: 'breast-density',
 			},
 		];
-		const { container } = render(
+		render(
 			<MemoryRouter initialEntries={['/']}>
 				<RelatedResourceList linksArr={mockGlossaryTermResource} />
 			</MemoryRouter>
 		);
-		expect(container.querySelector('li')).toHaveTextContent(/Definition of/i);
-		expect(container.querySelector('a')).toHaveAttribute(
-			'href',
-			'/def/breast-density'
-		);
+		expect(screen.getByRole('listitem')).toHaveTextContent(/Definition of/i);
+		expect(screen.getByRole('link')).toHaveAttribute('href', '/def/breast-density');
 	});
 
 	it("creates a list with spanish text when language is 'es'", () => {
@@ -94,30 +85,30 @@ describe('<RelatedResourceList /> component', () => {
 				PrettyUrlName: 'densidad-de-la-mama',
 			},
 		];
-		const { container } = render(
+		render(
 			<MemoryRouter initialEntries={['/']}>
 				<RelatedResourceList linksArr={mockSpanishGlossaryTerm} lang="es" />
 			</MemoryRouter>
 		);
-		expect(container.querySelector('li')).toHaveTextContent(/Definición de/i);
+		expect(screen.getByRole('listitem')).toHaveTextContent(/Definición de/i);
 	});
-});
 
-it('creates GlossaryTerm links, using termId when no prettyUrls provided', () => {
-	const mockGlossaryTermResource = [
-		{
-			Type: 'GlossaryTerm',
-			Text: 'breast density',
-			TermId: 335487,
-			Audience: 'Patient',
-			PrettyUrlName: null,
-		},
-	];
-	const { container } = render(
-		<MemoryRouter initialEntries={['/']}>
-			<RelatedResourceList linksArr={mockGlossaryTermResource} />
-		</MemoryRouter>
-	);
-	expect(container.querySelector('li')).toHaveTextContent(/Definition of/i);
-	expect(container.querySelector('a')).toHaveAttribute('href', '/def/335487');
+	it('creates GlossaryTerm links, using termId when no prettyUrls provided', () => {
+		const mockGlossaryTermResource = [
+			{
+				Type: 'GlossaryTerm',
+				Text: 'breast density',
+				TermId: 335487,
+				Audience: 'Patient',
+				PrettyUrlName: null,
+			},
+		];
+		render(
+			<MemoryRouter initialEntries={['/']}>
+				<RelatedResourceList linksArr={mockGlossaryTermResource} />
+			</MemoryRouter>
+		);
+		expect(screen.getByRole('listitem')).toHaveTextContent(/Definition of/i);
+		expect(screen.getByRole('link')).toHaveAttribute('href', '/def/335487');
+	});
 });

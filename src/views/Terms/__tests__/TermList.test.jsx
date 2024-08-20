@@ -1,4 +1,4 @@
-import { act, cleanup, render } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ClientContextProvider } from 'react-fetching-library';
@@ -14,7 +14,6 @@ jest.mock('../../../store/store');
 let client;
 let location;
 let termList;
-let wrapper;
 
 const query = 'A';
 const queryFile = `${query}.json`;
@@ -25,6 +24,7 @@ const ComponentWithLocation = ({ RenderComponent, query, type = 'search' }) => {
 	location = useLocation();
 	return <RenderComponent query={query} type={type} />;
 };
+
 ComponentWithLocation.propTypes = {
 	RenderComponent: PropTypes.func,
 	query: PropTypes.string,
@@ -46,7 +46,7 @@ describe('TermList component rendered with English', () => {
 		}),
 	};
 
-	beforeEach(async () => {
+	beforeEach(() => {
 		const dictionaryName = 'Cancer.gov';
 		const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
 
@@ -61,37 +61,28 @@ describe('TermList component rendered with English', () => {
 				canonicalHost: 'https://cancer.gov',
 			},
 		]);
+	});
 
-		await act(async () => {
-			wrapper = render(
-				<MockAnalyticsProvider>
-					<MemoryRouter initialEntries={['/']}>
-						<ClientContextProvider client={client}>
-							<TermList query={query} />
-						</ClientContextProvider>
-					</MemoryRouter>
-				</MockAnalyticsProvider>
-			);
+	it(`"${termListCount} results found for: ${query}" should be present`, async () => {
+		render(
+			<MockAnalyticsProvider>
+				<MemoryRouter initialEntries={['/']}>
+					<ClientContextProvider client={client}>
+						<TermList query={query} />
+					</ClientContextProvider>
+				</MemoryRouter>
+			</MockAnalyticsProvider>
+		);
+		await waitFor(() => {
+			expect(screen.getByText(`${termListCount} results found for: ${query}`)).toBeInTheDocument();
 		});
 	});
 
-	afterEach(() => {
-		cleanup();
-	});
-	test(`"${termListCount} results found for: ${query}" should be present `, () => {
-		const { getByText } = wrapper;
-		expect(
-			getByText(`${termListCount} results found for: ${query}`)
-		).toBeInTheDocument();
-	});
-
-	describe(`Tests using "${query}" as query parameter for term`, () => {
-		beforeEach(cleanup);
-		afterEach(cleanup);
+	describe(`Tests using "5" as query parameter for term`, () => {
 		const query = '5';
 
-		test(`NoMatchingResults component is rendered for query "${query}" without results`, async () => {
-			const client = {
+		it(`NoMatchingResults component is rendered for query "${query}" without results`, async () => {
+			const clientWithoutResults = {
 				query: async () => ({
 					error: false,
 					status: 200,
@@ -105,61 +96,48 @@ describe('TermList component rendered with English', () => {
 					},
 				}),
 			};
-			const dictionaryName = 'Cancer.gov';
-			const dictionaryTitle = 'NCI Dictionary of Cancer Terms';
-			useStateValue.mockReturnValue([
-				{
-					appId: 'mockAppId',
-					basePath: '/',
-					dictionaryName,
-					dictionaryTitle,
-					language,
-					searchBoxTitle,
-					canonicalHost: 'https://cancer.gov',
-				},
-			]);
 
-			await act(async () => {
-				wrapper = render(
-					<MockAnalyticsProvider>
-						<MemoryRouter initialEntries={['/']}>
-							<ClientContextProvider client={client}>
-								<TermList query={query} />
-							</ClientContextProvider>
-						</MemoryRouter>
-					</MockAnalyticsProvider>
-				);
+			render(
+				<MockAnalyticsProvider>
+					<MemoryRouter initialEntries={['/']}>
+						<ClientContextProvider client={clientWithoutResults}>
+							<TermList query={query} />
+						</ClientContextProvider>
+					</MemoryRouter>
+				</MockAnalyticsProvider>
+			);
+			await waitFor(() => {
+				expect(screen.getByTestId(testIds.NO_MATCHING_RESULTS)).toBeInTheDocument();
 			});
-			const { queryByTestId } = wrapper;
-			expect(queryByTestId(testIds.NO_MATCHING_RESULTS)).toBeTruthy();
 		});
 
-		test('should check scroll position is at top of page', async () => {
-			jest.spyOn(window, 'scrollTo');
+		it('should check scroll position is at top of page', async () => {
+			const scrollToSpy = jest.spyOn(window, 'scrollTo');
 
-			await act(async () => {
-				render(
-					<MockAnalyticsProvider>
-						<MemoryRouter initialEntries={['/']}>
-							<ClientContextProvider client={client}>
-								<TermList query={query} />
-							</ClientContextProvider>
-						</MemoryRouter>
-					</MockAnalyticsProvider>
-				);
+			render(
+				<MockAnalyticsProvider>
+					<MemoryRouter initialEntries={['/']}>
+						<ClientContextProvider client={client}>
+							<TermList query={query} />
+						</ClientContextProvider>
+					</MemoryRouter>
+				</MockAnalyticsProvider>
+			);
+
+			await waitFor(() => {
+				expect(scrollToSpy).toHaveBeenCalledTimes(1);
 			});
-			expect(window.scrollTo).toHaveBeenCalledTimes(1);
-			expect(window.scrollTo).toHaveBeenLastCalledWith(0, 0);
+			expect(scrollToSpy).toHaveBeenLastCalledWith(0, 0);
+
+			scrollToSpy.mockRestore();
 		});
 	});
 
 	describe(`Tests using lung cancer as query parameter for term`, () => {
-		beforeEach(cleanup);
-		afterEach(cleanup);
 		const query = 'lung cancer';
 
-		test(`Redirected to definition page with pretty URL name for query "${query}" with one term result`, async () => {
-			const client = {
+		it(`Redirected to definition page with pretty URL name for query "${query}" with one term result`, async () => {
+			const clientWithOneResult = {
 				query: async () => ({
 					error: false,
 					status: 200,
@@ -179,8 +157,7 @@ describe('TermList component rendered with English', () => {
 								prettyUrlName: 'lung-cancer',
 								pronunciation: {
 									key: '(lung KAN-ser)',
-									audio:
-										'https://nci-media.cancer.gov/pdq/media/audio/714622.mp3',
+									audio: 'https://nci-media.cancer.gov/pdq/media/audio/714622.mp3',
 								},
 								definition: {
 									html: 'Cancer that forms in tissues of the lung, usually in the cells lining air passages. The two main types are small cell lung cancer and non-small cell lung cancer. These types are diagnosed based on how the cells look under a microscope.',
@@ -197,30 +174,35 @@ describe('TermList component rendered with English', () => {
 				}),
 			};
 
-			const expectedLocationObject = {
-				pathname: '/def/lung-cancer',
-				search: '',
-				hash: '',
-				state: null,
-				key: expect.any(String),
-			};
+			render(
+				<MockAnalyticsProvider>
+					<MemoryRouter initialEntries={['/']}>
+						<ClientContextProvider client={clientWithOneResult}>
+							<ComponentWithLocation
+								RenderComponent={(props) => {
+									location = useLocation();
+									return <TermList {...props} />;
+								}}
+								query={query}
+							/>
+						</ClientContextProvider>
+					</MemoryRouter>
+				</MockAnalyticsProvider>
+			);
 
-			await act(async () => {
-				wrapper = await render(
-					<MockAnalyticsProvider>
-						<MemoryRouter initialEntries={['/']}>
-							<ClientContextProvider client={client}>
-								<ComponentWithLocation RenderComponent={TermList} />
-							</ClientContextProvider>
-						</MemoryRouter>
-					</MockAnalyticsProvider>
-				);
+			await waitFor(() => {
+				expect(location).toMatchObject({
+					pathname: '/def/lung-cancer',
+					search: '',
+					hash: '',
+					state: null,
+					key: expect.any(String),
+				});
 			});
-			expect(location).toMatchObject(expectedLocationObject);
 		});
 
-		test(`Redirected to definition page with term ID for query "${query}" with one term result`, async () => {
-			const client = {
+		it(`Redirected to definition page with term ID for query "${query}" with one term result without pretty URL`, async () => {
+			const clientWithOneResultNoUrl = {
 				query: async () => ({
 					error: false,
 					status: 200,
@@ -240,8 +222,7 @@ describe('TermList component rendered with English', () => {
 								prettyUrlName: null,
 								pronunciation: {
 									key: '(lung KAN-ser)',
-									audio:
-										'https://nci-media.cancer.gov/pdq/media/audio/714622.mp3',
+									audio: 'https://nci-media.cancer.gov/pdq/media/audio/714622.mp3',
 								},
 								definition: {
 									html: 'Cancer that forms in tissues of the lung, usually in the cells lining air passages. The two main types are small cell lung cancer and non-small cell lung cancer. These types are diagnosed based on how the cells look under a microscope.',
@@ -258,26 +239,31 @@ describe('TermList component rendered with English', () => {
 				}),
 			};
 
-			const expectedLocationObject = {
-				pathname: '/def/445043',
-				search: '',
-				hash: '',
-				state: null,
-				key: expect.any(String),
-			};
-
-			await act(async () => {
-				wrapper = await render(
-					<MockAnalyticsProvider>
-						<MemoryRouter initialEntries={['/']}>
-							<ClientContextProvider client={client}>
-								<ComponentWithLocation RenderComponent={TermList} />
-							</ClientContextProvider>
-						</MemoryRouter>
-					</MockAnalyticsProvider>
-				);
+			let location;
+			render(
+				<MockAnalyticsProvider>
+					<MemoryRouter initialEntries={['/']}>
+						<ClientContextProvider client={clientWithOneResultNoUrl}>
+							<ComponentWithLocation
+								RenderComponent={(props) => {
+									location = useLocation();
+									return <TermList {...props} />;
+								}}
+								query={query}
+							/>
+						</ClientContextProvider>
+					</MemoryRouter>
+				</MockAnalyticsProvider>
+			);
+			await waitFor(() => {
+				expect(location).toMatchObject({
+					pathname: '/def/445043',
+					search: '',
+					hash: '',
+					state: null,
+					key: expect.any(String),
+				});
 			});
-			expect(location).toMatchObject(expectedLocationObject);
 		});
 	});
 });

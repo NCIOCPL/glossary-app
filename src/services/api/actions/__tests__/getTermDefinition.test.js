@@ -9,7 +9,7 @@ describe('getTermDefinition', () => {
 	setDictionaryName(dictionaryName);
 	setLanguage(lang);
 
-	test('Match return result for getTermDefinition action', () => {
+	it('Match return result for getTermDefinition action', () => {
 		const idOrPurl = 'metastatic';
 		const retAction = {
 			method: 'GET',
