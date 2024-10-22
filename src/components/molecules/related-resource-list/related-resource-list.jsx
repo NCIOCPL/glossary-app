@@ -12,16 +12,13 @@ const RelatedResourceList = ({ linksArr, lang = 'en' }) => {
 				{linksArr.map((linkItem, idx) => {
 					switch (linkItem.Type) {
 						case 'GlossaryTerm': {
-							let labelText =
-								lang === 'en' ? `Definition of: ` : `Definición de: `;
+							let labelText = lang === 'en' ? `Definition of: ` : `Definición de: `;
 							return (
 								<li key={`${linkItem.termId}-${idx}`}>
 									{labelText}
 									<Link
 										to={DefinitionPath({
-											idOrName: linkItem.PrettyUrlName
-												? linkItem.PrettyUrlName
-												: linkItem.TermId,
+											idOrName: linkItem.PrettyUrlName ? linkItem.PrettyUrlName : linkItem.TermId,
 										})}>
 										{linkItem.Text}
 									</Link>

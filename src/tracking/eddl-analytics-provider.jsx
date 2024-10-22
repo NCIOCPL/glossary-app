@@ -14,19 +14,7 @@ import WrapperComponent from './wrapper-component';
  * @param {function} props.analyticsHandler - The function for handling tracking dispatches
  * TODO: Document page object override
  */
-const EddlAnalyticsProvider = ({
-	children,
-	analyticsHandler,
-	pageName,
-	pageTitle,
-	pageMetaTitle,
-	pageLanguage,
-	pageAudience,
-	pageChannel,
-	pageContentGroup,
-	pagePublishedDate,
-	...pageAdditionalDetails
-}) => {
+const EddlAnalyticsProvider = ({ children, analyticsHandler, pageName, pageTitle, pageMetaTitle, pageLanguage, pageAudience, pageChannel, pageContentGroup, pagePublishedDate, ...pageAdditionalDetails }) => {
 	const TrackingWrapper = track(
 		{
 			name: pageName,

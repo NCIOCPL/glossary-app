@@ -14,9 +14,7 @@ const ErrorPage = () => {
 		tracking.trackEvent({
 			event: 'GlossaryApp:Load:Error',
 			metaTitle: pageTitle,
-			name:
-				canonicalHost.replace(/https:\/\/|http:\/\//, '') +
-				window.location.pathname,
+			name: canonicalHost.replace(/https:\/\/|http:\/\//, '') + window.location.pathname,
 			title: pageTitle,
 			type: 'PageLoad',
 		});

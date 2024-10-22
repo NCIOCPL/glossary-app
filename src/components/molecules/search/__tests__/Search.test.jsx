@@ -1,3 +1,5 @@
+/* eslint-disable */
+// To reconcile with shared Search component
 import {
 	act,
 	cleanup,
@@ -19,7 +21,7 @@ import { i18n } from '../../../../utils';
 import { MockAnalyticsProvider } from '../../../../tracking';
 const analyticsHandler = jest.fn(() => {});
 
-jest.mock('../../../../store/store.js');
+jest.mock('../../../../store/store.jsx');
 let client;
 let wrapper;
 const { beginsWith, contains } = searchMatchType;

@@ -3,22 +3,12 @@ import PropTypes from 'prop-types';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import { Autocomplete, Radio } from '../../atomic';
-import {
-	searchMatchType,
-	searchMatchTypeAnalyticsMap,
-	testIds,
-} from '../../../constants';
+import { searchMatchType, searchMatchTypeAnalyticsMap, testIds } from '../../../constants';
 import { useAppPaths, useCustomQuery } from '../../../hooks';
 import { getAutoSuggestResults } from '../../../services/api/actions';
 import { useStateValue } from '../../../store/store';
 import { useTracking } from 'react-tracking';
-import {
-	emboldenSubstring,
-	getKeyValueFromObject,
-	getKeyValueFromQueryString,
-	i18n,
-	matchItemToTerm,
-} from '../../../utils';
+import { emboldenSubstring, getKeyValueFromObject, getKeyValueFromQueryString, i18n, matchItemToTerm } from '../../../utils';
 
 const Search = ({ autoSuggestLimit = 10 }) => {
 	const params = useParams();
@@ -28,24 +18,16 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 	const tracking = useTracking();
 
 	// Set matchType to value retrieved from url if it exits and default to "Begins" if not
-	const matchType =
-		search && getKeyValueFromQueryString('searchMode', search) !== null
-			? getKeyValueFromQueryString('searchMode', search)
-			: searchMatchType.beginsWith;
+	const matchType = search && getKeyValueFromQueryString('searchMode', search) !== null ? getKeyValueFromQueryString('searchMode', search) : searchMatchType.beginsWith;
 	// Set default selected option for search match type
 	const [selectedOption, setSelectedOption] = useState(matchType);
 	// Set default search text to value retrieved from url or set to empty string if not
-	const [searchText, setSearchText] = useState(
-		urlParamSearchText ? decodeURIComponent(urlParamSearchText) : ''
-	);
+	const [searchText, setSearchText] = useState(urlParamSearchText ? decodeURIComponent(urlParamSearchText) : '');
 	const [shouldFetchAutoSuggest, setFetchAutoSuggest] = useState(false);
 	const navigate = useNavigate();
 	const [{ language }] = useStateValue();
 	const { SearchPath, SearchPathSpanish } = useAppPaths();
-	const autoSuggest = useCustomQuery(
-		getAutoSuggestResults(searchText, selectedOption, autoSuggestLimit),
-		shouldFetchAutoSuggest
-	);
+	const autoSuggest = useCustomQuery(getAutoSuggestResults(searchText, selectedOption, autoSuggestLimit), shouldFetchAutoSuggest);
 	const expandPathWithLang = language === 'es' ? SearchPathSpanish : SearchPath;
 
 	useEffect(() => {
@@ -54,11 +36,7 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 	}, [matchType]);
 
 	const trackSubmit = () => {
-		const searchType =
-			selectedOption &&
-			getKeyValueFromObject(selectedOption, searchMatchTypeAnalyticsMap)
-				? getKeyValueFromObject(selectedOption, searchMatchTypeAnalyticsMap)
-				: searchMatchTypeAnalyticsMap[searchMatchType.beginsWith];
+		const searchType = selectedOption && getKeyValueFromObject(selectedOption, searchMatchTypeAnalyticsMap) ? getKeyValueFromObject(selectedOption, searchMatchTypeAnalyticsMap) : searchMatchTypeAnalyticsMap[searchMatchType.beginsWith];
 		tracking.trackEvent({
 			type: 'Other',
 			event: 'GlossaryApp:Other:KeywordSearch',
@@ -70,18 +48,9 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 
 	const executeSearch = (e) => {
 		e.preventDefault();
-		const isContainsSearch =
-			selectedOption && selectedOption === searchMatchType.contains;
+		const isContainsSearch = selectedOption && selectedOption === searchMatchType.contains;
 		const hasSearchText = searchText.length > 0;
-		const queryString = hasSearchText
-			? isContainsSearch
-				? `${encodeURIComponent(searchText.trim())}/?searchMode=${
-						searchMatchType.contains
-				  }`
-				: `${encodeURIComponent(searchText.trim())}/?searchMode=${
-						searchMatchType.beginsWith
-				  }`
-			: `/`;
+		const queryString = hasSearchText ? (isContainsSearch ? `${encodeURIComponent(searchText.trim())}/?searchMode=${searchMatchType.contains}` : `${encodeURIComponent(searchText.trim())}/?searchMode=${searchMatchType.beginsWith}`) : `/`;
 		trackSubmit();
 		navigate(expandPathWithLang({ searchText: queryString }));
 	};
@@ -107,27 +76,10 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 	};
 
 	return (
-		<form
-			className="dictionary-search"
-			data-testid={testIds.SEARCH_CONTAINER}
-			onSubmit={executeSearch}>
+		<form className="dictionary-search" data-testid={testIds.SEARCH_CONTAINER} onSubmit={executeSearch}>
 			<div className="radio-selection">
-				<Radio
-					label={i18n.startsWithRadioLabel[language]}
-					id="starts-with"
-					className="inline"
-					value={searchMatchType.beginsWith}
-					defaultChecked={selectedOption === searchMatchType.beginsWith}
-					onChange={toggleRadioSelection}
-				/>
-				<Radio
-					label={i18n.containsRadioLabel[language]}
-					id="contains"
-					className="inline"
-					value={searchMatchType.contains}
-					defaultChecked={selectedOption === searchMatchType.contains}
-					onChange={toggleRadioSelection}
-				/>
+				<Radio label={i18n.startsWithRadioLabel[language]} id="starts-with" className="inline" value={searchMatchType.beginsWith} defaultChecked={selectedOption === searchMatchType.beginsWith} onChange={toggleRadioSelection} />
+				<Radio label={i18n.containsRadioLabel[language]} id="contains" className="inline" value={searchMatchType.contains} defaultChecked={selectedOption === searchMatchType.contains} onChange={toggleRadioSelection} />
 			</div>
 
 			<Autocomplete
@@ -140,11 +92,7 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 				inputProps={{
 					placeholder: i18n.searchPlaceholderText[language],
 				}}
-				items={
-					autoSuggest.payload && searchText.length >= 3
-						? autoSuggest.payload
-						: []
-				}
+				items={autoSuggest.payload && searchText.length >= 3 ? autoSuggest.payload : []}
 				getItemValue={(item) => item.termName}
 				shouldItemRender={matchItemToTerm}
 				onChange={(event) => onChangeHandler(event)}
@@ -152,34 +100,20 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 				renderMenu={(children) =>
 					searchText.length >= 3 && autoSuggest.payload ? (
 						autoSuggest.payload.length > 0 ? (
-							<div
-								className="ncids-autocomplete__menu --terms"
-								role="listbox"
-								data-testid={testIds.AUTO_SUGGEST_OPTIONS}>
+							<div className="ncids-autocomplete__menu --terms" role="listbox" data-testid={testIds.AUTO_SUGGEST_OPTIONS}>
 								{children}
 							</div>
 						) : (
 							<></>
 						)
 					) : (
-						<div
-							className="ncids-autocomplete__menu --terms"
-							role="listbox"
-							data-testid={testIds.AUTO_SUGGEST_OPTIONS}>
-							<div className="ncids-autocomplete__menu-item">
-								{i18n.autoSuggestThreeOrMoreChars[language]}
-							</div>
+						<div className="ncids-autocomplete__menu --terms" role="listbox" data-testid={testIds.AUTO_SUGGEST_OPTIONS}>
+							<div className="ncids-autocomplete__menu-item">{i18n.autoSuggestThreeOrMoreChars[language]}</div>
 						</div>
 					)
 				}
 				renderItem={(item, isHighlighted) => (
-					<div
-						className={`ncids-autocomplete__menu-item ${
-							isHighlighted ? 'highlighted' : ''
-						}`}
-						role="option"
-						aria-selected={isHighlighted}
-						key={item.termId}>
+					<div className={`ncids-autocomplete__menu-item ${isHighlighted ? 'highlighted' : ''}`} role="option" aria-selected={isHighlighted} key={item.termId}>
 						<span
 							dangerouslySetInnerHTML={{
 								__html: emboldenSubstring(item.termName, searchText),
@@ -187,13 +121,7 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 					</div>
 				)}
 			/>
-			<input
-				type="submit"
-				className="submit button postfix"
-				id="btnSearch"
-				title={i18n.search[language]}
-				value={i18n.search[language]}
-			/>
+			<input type="submit" className="submit button postfix" id="btnSearch" title={i18n.search[language]} value={i18n.search[language]} />
 		</form>
 	);
 };

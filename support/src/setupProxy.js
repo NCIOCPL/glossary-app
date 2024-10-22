@@ -38,7 +38,7 @@ const getAutoSuggestResults = async (req, res, next) => {
 	);
 
 	try {
-    const mockFile = path.join(mockDir, `${encodeURIComponent(query)}.json`);
+		const mockFile = path.join(mockDir, `${encodeURIComponent(query)}.json`);
 		await fs.promises
 			.access(mockFile)
 			.then(() => {
@@ -156,7 +156,7 @@ const getTermByIdOrPrettyUrl = async (req, res, next) => {
 
 	// Return a 500 specifically for an
 	// id or purl requested with foobar
-	if ( lookupPurl === 'foobar') {
+	if (lookupPurl === 'foobar') {
 		res.status(500).end();
 	}
 
@@ -173,7 +173,10 @@ const getTermByIdOrPrettyUrl = async (req, res, next) => {
 	try {
 		const mocks = (await readDirAsync(searchDir)).reduce(
 			(filemap, mockfile) => {
-				const [term_id, purl] = mockfile.replace('.json', '').toLowerCase().split('__');
+				const [term_id, purl] = mockfile
+					.replace('.json', '')
+					.toLowerCase()
+					.split('__');
 				filemap[term_id] = path.join(searchDir, mockfile);
 				if (purl && purl !== 'null') {
 					// Some terms may not have a prettyurl name

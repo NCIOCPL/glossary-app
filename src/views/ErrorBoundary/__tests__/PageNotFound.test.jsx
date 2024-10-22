@@ -1,10 +1,4 @@
-import {
-	act,
-	cleanup,
-	fireEvent,
-	render,
-	screen,
-} from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
 import PageNotFound from '../PageNotFound';
@@ -14,13 +8,9 @@ import { MockAnalyticsProvider } from '../../../tracking';
 jest.mock('../../../store/store');
 
 describe('PageNotFound component', () => {
-	beforeEach(cleanup);
-	afterEach(cleanup);
-
-	test('should show error page title ( English )', async () => {
+	const renderPageNotFound = (language) => {
 		const basePath = '/';
 		const canonicalHost = 'https://www.example.gov';
-		const language = 'en';
 
 		useStateValue.mockReturnValue([
 			{
@@ -31,45 +21,30 @@ describe('PageNotFound component', () => {
 			},
 		]);
 
-		await act(async () => {
-			render(
-				<MockAnalyticsProvider>
-					<PageNotFound />
-				</MockAnalyticsProvider>
-			);
-		});
+		render(
+			<MockAnalyticsProvider>
+				<PageNotFound />
+			</MockAnalyticsProvider>
+		);
+	};
+
+	it('should show error page title and handle search (English)', async () => {
+		renderPageNotFound('en');
 
 		const expectedPageTitle = 'Page Not Found';
 		expect(screen.getByText(expectedPageTitle)).toBeInTheDocument();
+
 		const inputBox = screen.getByLabelText('Search');
 		fireEvent.change(inputBox, { target: { value: 'chicken' } });
 		fireEvent.click(screen.getByText('Search'));
 	});
 
-	test('should show error page title ( English )', async () => {
-		const basePath = '/';
-		const canonicalHost = 'https://www.example.gov';
-		const language = 'es';
-
-		useStateValue.mockReturnValue([
-			{
-				appId: 'mockAppId',
-				basePath,
-				canonicalHost,
-				language,
-			},
-		]);
-
-		await act(async () => {
-			render(
-				<MockAnalyticsProvider>
-					<PageNotFound />
-				</MockAnalyticsProvider>
-			);
-		});
+	it('should show error page title and handle search (Spanish)', async () => {
+		renderPageNotFound('es');
 
 		const expectedPageTitle = 'No se encontró la página';
 		expect(screen.getByText(expectedPageTitle)).toBeInTheDocument();
+
 		const inputBox = screen.getByLabelText('Buscar');
 		fireEvent.change(inputBox, { target: { value: 'pollo' } });
 		fireEvent.click(screen.getByText('Buscar'));

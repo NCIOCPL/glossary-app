@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router';
 
@@ -17,16 +17,15 @@ describe('NoMatchingResults component', () => {
 			language: 'en',
 		},
 	]);
-	const wrapper = render(
-		<MemoryRouter initialEntries={['/']}>
-			<NoMatchingResults />
-		</MemoryRouter>
-	);
-	test('Component renders without errors', () => {
-		const { getByTestId } = wrapper;
-		expect(getByTestId(testIds.NO_MATCHING_RESULTS)).toBeTruthy();
-		expect(getByTestId(testIds.NO_MATCHING_RESULTS).textContent).toBe(
-			i18n.noMatchingTextSearch['en']
+
+	it('Component renders without errors', () => {
+		render(
+			<MemoryRouter initialEntries={['/']}>
+				<NoMatchingResults />
+			</MemoryRouter>
 		);
+
+		expect(screen.getByTestId(testIds.NO_MATCHING_RESULTS)).toBeInTheDocument();
+		expect(screen.getByTestId(testIds.NO_MATCHING_RESULTS)).toHaveTextContent(i18n.noMatchingTextSearch['en']);
 	});
 });

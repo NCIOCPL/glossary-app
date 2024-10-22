@@ -6,35 +6,12 @@ import './Autocomplete.scss';
 
 import { InputLabel, RemovableTag } from '../../atomic';
 
-const IMPERATIVE_API = [
-	'blur',
-	'checkValidity',
-	'click',
-	'focus',
-	'select',
-	'setCustomValidity',
-	'setSelectionRange',
-	'setRangeText',
-];
+const IMPERATIVE_API = ['blur', 'checkValidity', 'click', 'focus', 'select', 'setCustomValidity', 'setSelectionRange', 'setRangeText'];
 
 function getScrollOffset() {
 	return {
-		x:
-			window.pageXOffset !== undefined
-				? window.pageXOffset
-				: (
-						document.documentElement ||
-						document.body.parentNode ||
-						document.body
-				  ).scrollLeft,
-		y:
-			window.pageYOffset !== undefined
-				? window.pageYOffset
-				: (
-						document.documentElement ||
-						document.body.parentNode ||
-						document.body
-				  ).scrollTop,
+		x: window.pageXOffset !== undefined ? window.pageXOffset : (document.documentElement || document.body.parentNode || document.body).scrollLeft,
+		y: window.pageYOffset !== undefined ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop,
 	};
 }
 
@@ -205,9 +182,7 @@ class Autocomplete extends React.Component {
 			return true;
 		},
 		renderMenu(items, classes) {
-			return (
-				<div className={`ncids-autocomplete__menu ${classes}`}>{items}</div>
-			);
+			return <div className={`ncids-autocomplete__menu ${classes}`}>{items}</div>;
 		},
 
 		autoHighlight: false,
@@ -277,14 +252,11 @@ class Autocomplete extends React.Component {
 
 	exposeAPI(el) {
 		this.refs.input = el;
-		IMPERATIVE_API.forEach(
-			(ev) => (this[ev] = el && el[ev] && el[ev].bind(el))
-		);
+		IMPERATIVE_API.forEach((ev) => (this[ev] = el && el[ev] && el[ev].bind(el)));
 	}
 
 	handleKeyDown(event) {
-		if (Autocomplete.keyDownHandlers[event.key])
-			Autocomplete.keyDownHandlers[event.key].call(this, event);
+		if (Autocomplete.keyDownHandlers[event.key]) Autocomplete.keyDownHandlers[event.key].call(this, event);
 	}
 
 	handleChange(event) {
@@ -356,9 +328,7 @@ class Autocomplete extends React.Component {
 			} else {
 				// text entered + menu item has been highlighted + enter is hit -> update value to that of selected menu item, close the menu
 				event.preventDefault();
-				const item = this.getFilteredItems(this.props)[
-					this.state.highlightedIndex
-				];
+				const item = this.getFilteredItems(this.props)[this.state.highlightedIndex];
 				const value = this.props.getItemValue(item);
 				this.setState(
 					{
@@ -469,11 +439,7 @@ class Autocomplete extends React.Component {
 		return (
 			<>
 				{this.props.chipList.map((chip, idx) => (
-					<RemovableTag
-						key={idx}
-						label={chip.name}
-						onRemove={this.props.onChipRemove}
-					/>
+					<RemovableTag key={idx} label={chip.name} onRemove={this.props.onChipRemove} />
 				))}
 			</>
 		);
@@ -481,18 +447,10 @@ class Autocomplete extends React.Component {
 
 	renderMenu() {
 		const items = this.getFilteredItems(this.props).map((item, index) => {
-			const element = this.props.renderItem(
-				item,
-				this.state.highlightedIndex === index,
-				{ cursor: 'default' }
-			);
+			const element = this.props.renderItem(item, this.state.highlightedIndex === index, { cursor: 'default' });
 			return React.cloneElement(element, {
-				onMouseEnter: this.props.isItemSelectable(item)
-					? () => this.highlightItemFromMouse(index)
-					: null,
-				onClick: this.props.isItemSelectable(item)
-					? () => this.selectItemFromMouse(item)
-					: null,
+				onMouseEnter: this.props.isItemSelectable(item) ? () => this.highlightItemFromMouse(index) : null,
+				onClick: this.props.isItemSelectable(item) ? () => this.selectItemFromMouse(item) : null,
 				ref: (e) => (this.refs[`item-${index}`] = e),
 			});
 		});
@@ -501,12 +459,7 @@ class Autocomplete extends React.Component {
 			top: this.state.menuTop,
 			minWidth: this.state.menuWidth,
 		};
-		const menu = this.props.renderMenu(
-			items,
-			this.props.value,
-			style,
-			this.props.menuClass
-		);
+		const menu = this.props.renderMenu(items, this.props.value, style, this.props.menuClass);
 		return React.cloneElement(menu, {
 			ref: (e) => (this.refs.menu = e),
 			// Ignore blur to prevent menu from de-rendering before we can process click
@@ -612,27 +565,13 @@ class Autocomplete extends React.Component {
 		const { inputProps } = this.props;
 		const open = this.isOpen();
 
-		const ariaLabel = this.props.labelHidden
-			? { 'aria-label': this.props.label }
-			: {};
+		const ariaLabel = this.props.labelHidden ? { 'aria-label': this.props.label } : {};
 
 		return (
 			<>
-				<div
-					id={this.id + '-autocomplete-wrapper'}
-					className={`ncids-autocomplete ${this.props.wrapperClasses}`}
-					{...this.props.wrapperProps}>
-					{this.props.labelHidden ? null : (
-						<InputLabel
-							label={this.props.label}
-							labelHint={this.props.labelHint}
-							htmlFor={this.id}
-						/>
-					)}
-					<div
-						className={`${this.props.multiselect ? 'ncids-chip-list' : ''} ${
-							this.props.modified ? 'ncids-chip-list--modified' : ''
-						}`}>
+				<div id={this.id + '-autocomplete-wrapper'} className={`ncids-autocomplete ${this.props.wrapperClasses}`} {...this.props.wrapperProps}>
+					{this.props.labelHidden ? null : <InputLabel label={this.props.label} labelHint={this.props.labelHint} htmlFor={this.id} />}
+					<div className={`${this.props.multiselect ? 'ncids-chip-list' : ''} ${this.props.modified ? 'ncids-chip-list--modified' : ''}`}>
 						{this.props.multiselect && this.renderChips()}
 						{this.props.renderInput({
 							...inputProps,
@@ -643,20 +582,12 @@ class Autocomplete extends React.Component {
 							'aria-expanded': open,
 							autoComplete: 'off',
 							ref: this.exposeAPI,
-							className:
-								'ncids-input ncids-autocomplete__input ' +
-								this.props.inputClasses,
+							className: 'ncids-input ncids-autocomplete__input ' + this.props.inputClasses,
 							onFocus: this.handleInputFocus,
 							onBlur: this.handleInputBlur,
 							onChange: this.handleChange.bind(this),
-							onKeyDown: this.composeEventHandlers(
-								this.handleKeyDown,
-								inputProps.onKeyDown
-							),
-							onClick: this.composeEventHandlers(
-								this.handleInputClick,
-								inputProps.onClick
-							),
+							onKeyDown: this.composeEventHandlers(this.handleKeyDown, inputProps.onKeyDown),
+							onClick: this.composeEventHandlers(this.handleInputClick, inputProps.onClick),
 							type: 'text',
 							value: this.props.value,
 							//<div className="menu-anchor">{open && this.renderMenu()}</div>
@@ -664,32 +595,13 @@ class Autocomplete extends React.Component {
 					</div>
 
 					<div className="menu-anchor">
-						<div
-							ref={this.dropdown}
-							className={`menu-wrapper ${
-								this.state.flipUp ? 'showAbove' : null
-							}`}>
+						<div ref={this.dropdown} className={`menu-wrapper ${this.state.flipUp ? 'showAbove' : null}`}>
 							{open && this.renderMenu()}
 						</div>
 					</div>
 
-					{this.props.debug && (
-						<pre style={{ marginLeft: 300 }}>
-							{JSON.stringify(
-								this._debugStates.slice(
-									Math.max(0, this._debugStates.length - 5),
-									this._debugStates.length
-								),
-								null,
-								2
-							)}
-						</pre>
-					)}
-					{this.props.inputHelpText && (
-						<span className="ncids-input__help-text">
-							{this.props.inputHelpText}
-						</span>
-					)}
+					{this.props.debug && <pre style={{ marginLeft: 300 }}>{JSON.stringify(this._debugStates.slice(Math.max(0, this._debugStates.length - 5), this._debugStates.length), null, 2)}</pre>}
+					{this.props.inputHelpText && <span className="ncids-input__help-text">{this.props.inputHelpText}</span>}
 				</div>
 			</>
 		);

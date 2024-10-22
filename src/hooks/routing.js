@@ -44,10 +44,7 @@ export const useAppPaths = () => {
 	const [{ basePath }] = useStateValue();
 
 	const paths = Object.entries(appPaths).reduce((obj, path) => {
-		const fullPath =
-			(basePath.endsWith('/')
-				? basePath.substring(0, basePath.length - 1)
-				: basePath) + path[1];
+		const fullPath = (basePath.endsWith('/') ? basePath.substring(0, basePath.length - 1) : basePath) + path[1];
 		const replacer = (params) => replacePath(fullPath, params);
 
 		return {
