@@ -562,7 +562,8 @@ module.exports = function (webpackEnv) {
 			// Otherwise React will be compiled in the very slow development mode.
 			new webpack.DefinePlugin(env.stringified),
 			// This is necessary to emit hot updates (currently CSS only):
-			isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
+			// Disable HMR in CI to prevent WebSocket issues
+			isEnvDevelopment && !process.env.CI && new webpack.HotModuleReplacementPlugin(),
 			// Watcher doesn't work well if you mistype casing in a path so we use
 			// a plugin that prints an error when you attempt to do this.
 			// See https://github.com/facebook/create-react-app/issues/240
@@ -611,24 +612,6 @@ module.exports = function (webpackEnv) {
 				resourceRegExp: /^\.\/locale$/,
 				contextRegExp: /moment$/, // Optional: contextRegExp is used to further restrict which contexts to ignore
 			}),
-			// Generate a service worker script that will precache, and keep up to date,
-			// the HTML & assets that are part of the webpack build.
-			isEnvProduction &&
-				new WorkboxWebpackPlugin.GenerateSW({
-					clientsClaim: true,
-					exclude: [/\.map$/, /asset-manifest\.json$/],
-					importWorkboxFrom: 'cdn',
-					navigateFallback: paths.publicUrlOrPath + 'index.html',
-					navigateFallbackBlacklist: [
-						// Exclude URLs starting with /_, as they're likely an API call
-						new RegExp('^/_'),
-						// Exclude any URLs whose last part seems to be a file extension
-						// as they're likely a resource and not a SPA route.
-						// URLs containing a "?" character won't be blacklisted as they're likely
-						// a route with query params (e.g. auth callbacks).
-						new RegExp('/[^/?]+\\.[^/]+$'),
-					],
-				}),
 			// TypeScript type checking
 			useTypeScript &&
 				new ForkTsCheckerWebpackPlugin({
