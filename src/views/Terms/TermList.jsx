@@ -6,10 +6,7 @@ import Spinner from '../../components/atomic/spinner';
 import { queryType } from '../../constants';
 import { useAppPaths, useCustomQuery } from '../../hooks';
 import NoMatchingResults from './NoMatchingResults';
-import {
-	getExpandCharResults,
-	getSearchResults,
-} from '../../services/api/actions';
+import { getExpandCharResults, getSearchResults } from '../../services/api/actions';
 import { useStateValue } from '../../store/store';
 import Term from './Term';
 import { i18n } from '../../utils';
@@ -25,21 +22,10 @@ const TermList = ({ matchType, query, type }) => {
 	const location = useLocation();
 	const navigate = useNavigate();
 
-	const queryAction =
-		type === queryType.SEARCH
-			? getSearchResults(query, matchType)
-			: getExpandCharResults(query);
+	const queryAction = type === queryType.SEARCH ? getSearchResults(query, matchType) : getExpandCharResults(query);
 	const { loading, payload } = useCustomQuery(queryAction);
-	const [{ language, canonicalHost, dictionaryTitle, siteName, basePath }] =
-		useStateValue();
-	const {
-		DefinitionPath,
-		HomePath,
-		ExpandPath,
-		ExpandPathSpanish,
-		SearchPath,
-		SearchPathSpanish,
-	} = useAppPaths();
+	const [{ language, canonicalHost, dictionaryTitle, siteName, basePath }] = useStateValue();
+	const { DefinitionPath, HomePath, ExpandPath, ExpandPathSpanish, SearchPath, SearchPathSpanish } = useAppPaths();
 
 	const { pathname } = location;
 	const isHome = pathname === HomePath() || pathname === basePath;
@@ -50,14 +36,8 @@ const TermList = ({ matchType, query, type }) => {
 
 	useEffect(() => {
 		if (!loading && payload) {
-			if (
-				(type === queryType.SEARCH || type === queryType.SEARCH_SPANISH) &&
-				payload.results &&
-				payload.results.length === 1
-			) {
-				const idOrName = payload.results[0].prettyUrlName
-					? payload.results[0].prettyUrlName
-					: payload.results[0].termId;
+			if ((type === queryType.SEARCH || type === queryType.SEARCH_SPANISH) && payload.results && payload.results.length === 1) {
+				const idOrName = payload.results[0].prettyUrlName ? payload.results[0].prettyUrlName : payload.results[0].termId;
 
 				navigate(DefinitionPath({ idOrName }), { replace: true });
 				return;
@@ -114,10 +94,7 @@ const TermList = ({ matchType, query, type }) => {
 			...commonParams,
 		};
 		// based or a query type create an object to be passed on to tracking.trackEvent({})
-		const expandOrSearch =
-			type === 'search' || type === 'buscar'
-				? { ...searchParams }
-				: { ...expandParams };
+		const expandOrSearch = type === 'search' || type === 'buscar' ? { ...searchParams } : { ...expandParams };
 
 		tracking.trackEvent({
 			...expandOrSearch,
@@ -128,23 +105,15 @@ const TermList = ({ matchType, query, type }) => {
 		<>
 			{loading && <Spinner />}
 			{!loading && payload && (
-				<div
-					className="dictionary-list-container results"
-					data-dict-type="term">
+				<div className="dictionary-list-container results" data-dict-type="term">
 					{payload.results && payload.results.length >= 1 ? (
 						<>
 							<h4>
-								{payload.meta.totalResults}{' '}
-								{payload.results.length === 1
-									? i18n.termListTitleSingleResult[language]
-									: i18n.termListTitle[language]}
-								: {decodeURIComponent(query)}{' '}
+								{payload.meta.totalResults} {payload.results.length === 1 ? i18n.termListTitleSingleResult[language] : i18n.termListTitle[language]}: {decodeURIComponent(query)}{' '}
 							</h4>
 							<dl className="dictionary-list">
 								{payload.results.map((result, index) => {
-									return (
-										<Term key={index} resultIndex={index} payload={result} />
-									);
+									return <Term key={index} resultIndex={index} payload={result} />;
 								})}
 							</dl>
 						</>

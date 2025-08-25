@@ -8,11 +8,7 @@ import { StateProvider } from './store/store';
 import reducer from './store/reducer';
 import { EddlAnalyticsProvider } from './tracking';
 import * as serviceWorker from './serviceWorker';
-import {
-	getProductTestBase,
-	EDDLAnalyticsHandler,
-	helmetizeMeta,
-} from './utils';
+import { getProductTestBase, EDDLAnalyticsHandler, helmetizeMeta } from './utils';
 import { ClientContextProvider } from 'react-fetching-library';
 import { getAxiosClient } from './services/api/axios-client';
 import ErrorBoundary from './views/ErrorBoundary';
@@ -73,10 +69,7 @@ const initialize = ({
 	// Backwards compatibility hack for language toggle now that app will get
 	// multiple languages. This just handles the en/es toggle until the lang
 	// toggle in the app gets updated to be more.
-	const altLanguageDictionaryBasePath = getAltLanguageBase(
-		language,
-		alternateLanguageUrls
-	);
+	const altLanguageDictionaryBasePath = getAltLanguageBase(language, alternateLanguageUrls);
 
 	//populate global state with init params
 	const initialState = {
@@ -103,28 +96,12 @@ const initialize = ({
 	// manipulating with Helmet that may exist on the page already.
 	// The app should really generate ALL metadata, so this is for
 	// backwards compaibility.
-	helmetizeMeta(document, [
-		'meta[property="og:title"]',
-		'meta[property="og:url"]',
-		'meta[property="og:description"]',
-	]);
+	helmetizeMeta(document, ['meta[property="og:title"]', 'meta[property="og:url"]', 'meta[property="og:description"]']);
 
 	const AppBlock = () => {
 		return (
 			<StateProvider initialState={initialState} reducer={reducer}>
-				<EddlAnalyticsProvider
-					analyticsHandler={analyticsHandler}
-					pageLanguage={language === 'es' ? 'spanish' : 'english'}
-					pageAudience={
-						audience === 'HealthProfessional'
-							? 'Health professional'
-							: 'Patient'
-					}
-					pageChannel={analyticsChannel}
-					pageContentGroup={dictionaryTitle}
-					publishedDate={analyticsPublishedDate}
-					dictionaryTitle={dictionaryTitle}
-					analyticsName={analyticsName}>
+				<EddlAnalyticsProvider analyticsHandler={analyticsHandler} pageLanguage={language === 'es' ? 'spanish' : 'english'} pageAudience={audience === 'HealthProfessional' ? 'Health professional' : 'Patient'} pageChannel={analyticsChannel} pageContentGroup={dictionaryTitle} publishedDate={analyticsPublishedDate} dictionaryTitle={dictionaryTitle} analyticsName={analyticsName}>
 					<ClientContextProvider client={getAxiosClient(initialState)}>
 						<ErrorBoundary>
 							<App />

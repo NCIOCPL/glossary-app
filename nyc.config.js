@@ -5,6 +5,7 @@
  */
 module.exports = {
 	'report-dir': 'coverage/cypress',
+	// 'check-coverage': false,
 	reporter: ['html', 'json', 'lcov'],
 	exclude: [
 		'cypress/**/*.js',

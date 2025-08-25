@@ -21,30 +21,16 @@ When('user types {string} in the search bar', (keyword) => {
 	cy.get('#keywords').type(keyword);
 });
 
-Then(
-	'search results page displays results title {string} {string}',
-	(searchResultsTitle, keyword) => {
-		cy.get('h4', { timeout: 20000 })
-			.invoke('text')
-			.should('include', searchResultsTitle.substring(1))
-			.and('include', keyword);
-	}
-);
+Then('search results page displays results title {string} {string}', (searchResultsTitle, keyword) => {
+	cy.get('h4', { timeout: 20000 }).invoke('text').should('include', searchResultsTitle.substring(1)).and('include', keyword);
+});
 
-Then(
-	'search bar contains a placeholder text {string}',
-	(searchBarPlaceholder) => {
-		cy.get('#keywords')
-			.should('have.attr', 'placeholder')
-			.and('be.eq', searchBarPlaceholder);
-	}
-);
+Then('search bar contains a placeholder text {string}', (searchBarPlaceholder) => {
+	cy.get('#keywords').should('have.attr', 'placeholder').and('be.eq', searchBarPlaceholder);
+});
 
 Then('{string} option is selected', (startsWithOrContains) => {
-	let radioButtonValue =
-		startsWithOrContains === 'Contains'
-			? searchMatchType.contains
-			: searchMatchType.beginsWith;
+	let radioButtonValue = startsWithOrContains === 'Contains' ? searchMatchType.contains : searchMatchType.beginsWith;
 	if (startsWithOrContains === 'Contiene') {
 		radioButtonValue = searchMatchType.contains;
 	} else if (startsWithOrContains === 'Empieza con') {
@@ -65,9 +51,7 @@ Then('placeholder text disappears', () => {
 
 Then('the page displays {string}', (noMatchFoundMessage) => {
 	const locator = `p[data-testid='${testIds.NO_MATCHING_RESULTS}']`;
-	cy.get(locator, { timeout: 10000 })
-		.invoke('text')
-		.should('be.eq', noMatchFoundMessage);
+	cy.get(locator, { timeout: 10000 }).invoke('text').should('be.eq', noMatchFoundMessage);
 });
 
 Then('the URL contains {string}', (urlPart) => {

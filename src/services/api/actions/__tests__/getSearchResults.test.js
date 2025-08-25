@@ -12,7 +12,7 @@ describe('getSearchResults action', () => {
 	setDictionaryName(dictionaryName);
 	setLanguage(lang);
 
-	test(`Match getSearchResults action with default match type and match type ${beginsWith}`, () => {
+	it(`Match getSearchResults action with default match type and match type ${beginsWith}`, () => {
 		const searchText = 'meta';
 		const retAction = {
 			method: 'GET',
@@ -22,7 +22,7 @@ describe('getSearchResults action', () => {
 		expect(getSearchResults(searchText, beginsWith)).toEqual(retAction);
 	});
 
-	test(`Match getSearchResults action with match type ${contains}`, () => {
+	it(`Match getSearchResults action with match type ${contains}`, () => {
 		const searchText = 'meta';
 		const retAction = {
 			method: 'GET',

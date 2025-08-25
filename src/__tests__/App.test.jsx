@@ -1,5 +1,4 @@
-import { act, cleanup, render } from '@testing-library/react';
-import axios from 'axios';
+import { render } from '@testing-library/react';
 import nock from 'nock';
 import React from 'react';
 import { ClientContextProvider } from 'react-fetching-library';
@@ -9,13 +8,11 @@ import { MockAnalyticsProvider } from '../tracking';
 import { queryType } from '../constants';
 import { useAppPaths } from '../hooks';
 import { getAxiosClient } from '../services/api/axios-client';
-import { useStateValue } from '../store/store.js';
+import { useStateValue } from '../store/store.jsx';
 import Definition from '../views/Definition';
 import Home from '../views/Home';
 
-jest.mock('../store/store.js');
-
-axios.defaults.adapter = require('axios/lib/adapters/http');
+jest.mock('../store/store.jsx');
 
 const { EXPAND_SPANISH } = queryType;
 
@@ -55,9 +52,7 @@ describe('App component', () => {
 		nock.enableNetConnect();
 	});
 
-	afterEach(cleanup);
-
-	test('DefinitionPath route exists and matches expected route', async () => {
+	it('DefinitionPath route exists and matches expected route', async () => {
 		const { DefinitionPath } = useAppPaths();
 		const idOrName = 'metastatic';
 		const initialState = {
@@ -69,17 +64,15 @@ describe('App component', () => {
 			searchBoxTitle,
 		};
 
-		await act(async () => {
-			render(
-				<MockAnalyticsProvider>
-					<MemoryRouter initialEntries={[DefinitionPath({ idOrName })]}>
-						<ClientContextProvider client={getAxiosClient(initialState)}>
-							<ComponentWithLocation RenderComponent={Definition} />
-						</ClientContextProvider>
-					</MemoryRouter>
-				</MockAnalyticsProvider>
-			);
-		});
+		await render(
+			<MockAnalyticsProvider>
+				<MemoryRouter initialEntries={[DefinitionPath({ idOrName })]}>
+					<ClientContextProvider client={getAxiosClient(initialState)}>
+						<ComponentWithLocation RenderComponent={Definition} />
+					</ClientContextProvider>
+				</MemoryRouter>
+			</MockAnalyticsProvider>
+		);
 
 		const expectedLocationObject = {
 			pathname: `/def/${idOrName}`,
@@ -92,7 +85,7 @@ describe('App component', () => {
 		expect(location).toMatchObject(expectedLocationObject);
 	});
 
-	test('ExpandPath route exists and matches expected route', async () => {
+	it('ExpandPath route exists and matches expected route', async () => {
 		const { ExpandPath } = useAppPaths();
 		const expandChar = 'A';
 		const initialState = {
@@ -104,17 +97,15 @@ describe('App component', () => {
 			searchBoxTitle,
 		};
 
-		await act(async () => {
-			render(
-				<MockAnalyticsProvider>
-					<MemoryRouter initialEntries={[ExpandPath({ expandChar })]}>
-						<ClientContextProvider client={getAxiosClient(initialState)}>
-							<ComponentWithLocation RenderComponent={Home} />
-						</ClientContextProvider>
-					</MemoryRouter>
-				</MockAnalyticsProvider>
-			);
-		});
+		await render(
+			<MockAnalyticsProvider>
+				<MemoryRouter initialEntries={[ExpandPath({ expandChar })]}>
+					<ClientContextProvider client={getAxiosClient(initialState)}>
+						<ComponentWithLocation RenderComponent={Home} />
+					</ClientContextProvider>
+				</MemoryRouter>
+			</MockAnalyticsProvider>
+		);
 
 		const expectedLocationObject = {
 			pathname: `/expand/${expandChar}`,
@@ -127,7 +118,7 @@ describe('App component', () => {
 		expect(location).toMatchObject(expectedLocationObject);
 	});
 
-	test('ExpandPathNoParam route exists and matches expected route', async () => {
+	it('ExpandPathNoParam route exists and matches expected route', async () => {
 		const { ExpandPathNoParam } = useAppPaths();
 		const initialState = {
 			audience,
@@ -138,17 +129,15 @@ describe('App component', () => {
 			searchBoxTitle,
 		};
 
-		await act(async () => {
-			render(
-				<MockAnalyticsProvider>
-					<MemoryRouter initialEntries={[ExpandPathNoParam()]}>
-						<ClientContextProvider client={getAxiosClient(initialState)}>
-							<ComponentWithLocation RenderComponent={Home} />
-						</ClientContextProvider>
-					</MemoryRouter>
-				</MockAnalyticsProvider>
-			);
-		});
+		await render(
+			<MockAnalyticsProvider>
+				<MemoryRouter initialEntries={[ExpandPathNoParam()]}>
+					<ClientContextProvider client={getAxiosClient(initialState)}>
+						<ComponentWithLocation RenderComponent={Home} />
+					</ClientContextProvider>
+				</MemoryRouter>
+			</MockAnalyticsProvider>
+		);
 
 		const expectedLocationObject = {
 			pathname: '/expand',
@@ -161,7 +150,7 @@ describe('App component', () => {
 		expect(location).toMatchObject(expectedLocationObject);
 	});
 
-	test('ExpandPathSpanish route exists and matches expected route', async () => {
+	it('ExpandPathSpanish route exists and matches expected route', async () => {
 		const { ExpandPathSpanish } = useAppPaths();
 		const expandChar = 'A';
 		const initialState = {
@@ -173,17 +162,15 @@ describe('App component', () => {
 			searchBoxTitle,
 		};
 
-		await act(async () => {
-			render(
-				<MockAnalyticsProvider>
-					<MemoryRouter initialEntries={[ExpandPathSpanish({ expandChar })]}>
-						<ClientContextProvider client={getAxiosClient(initialState)}>
-							<ComponentWithLocation RenderComponent={Home} />
-						</ClientContextProvider>
-					</MemoryRouter>
-				</MockAnalyticsProvider>
-			);
-		});
+		await render(
+			<MockAnalyticsProvider>
+				<MemoryRouter initialEntries={[ExpandPathSpanish({ expandChar })]}>
+					<ClientContextProvider client={getAxiosClient(initialState)}>
+						<ComponentWithLocation RenderComponent={Home} />
+					</ClientContextProvider>
+				</MemoryRouter>
+			</MockAnalyticsProvider>
+		);
 
 		const expectedLocationObject = {
 			pathname: `/${EXPAND_SPANISH}/${expandChar}`,
@@ -196,7 +183,7 @@ describe('App component', () => {
 		expect(location).toMatchObject(expectedLocationObject);
 	});
 
-	test('ExpandPathNoParamSpanish route exists and matches expected route', async () => {
+	it('ExpandPathNoParamSpanish route exists and matches expected route', async () => {
 		const { ExpandPathNoParamSpanish } = useAppPaths();
 		const initialState = {
 			audience,
@@ -207,17 +194,15 @@ describe('App component', () => {
 			searchBoxTitle,
 		};
 
-		await act(async () => {
-			render(
-				<MockAnalyticsProvider>
-					<MemoryRouter initialEntries={[ExpandPathNoParamSpanish()]}>
-						<ClientContextProvider client={getAxiosClient(initialState)}>
-							<ComponentWithLocation RenderComponent={Home} />
-						</ClientContextProvider>
-					</MemoryRouter>
-				</MockAnalyticsProvider>
-			);
-		});
+		await render(
+			<MockAnalyticsProvider>
+				<MemoryRouter initialEntries={[ExpandPathNoParamSpanish()]}>
+					<ClientContextProvider client={getAxiosClient(initialState)}>
+						<ComponentWithLocation RenderComponent={Home} />
+					</ClientContextProvider>
+				</MemoryRouter>
+			</MockAnalyticsProvider>
+		);
 
 		const expectedLocationObject = {
 			pathname: `/${EXPAND_SPANISH}`,
@@ -230,7 +215,7 @@ describe('App component', () => {
 		expect(location).toMatchObject(expectedLocationObject);
 	});
 
-	test('HomePath route exists and matches expected route', async () => {
+	it('HomePath route exists and matches expected route', async () => {
 		const { HomePath } = useAppPaths();
 		const initialState = {
 			audience,
@@ -241,17 +226,15 @@ describe('App component', () => {
 			searchBoxTitle,
 		};
 
-		await act(async () => {
-			render(
-				<MockAnalyticsProvider>
-					<MemoryRouter initialEntries={[HomePath()]}>
-						<ClientContextProvider client={getAxiosClient(initialState)}>
-							<ComponentWithLocation RenderComponent={Home} />
-						</ClientContextProvider>
-					</MemoryRouter>
-				</MockAnalyticsProvider>
-			);
-		});
+		await render(
+			<MockAnalyticsProvider>
+				<MemoryRouter initialEntries={[HomePath()]}>
+					<ClientContextProvider client={getAxiosClient(initialState)}>
+						<ComponentWithLocation RenderComponent={Home} />
+					</ClientContextProvider>
+				</MemoryRouter>
+			</MockAnalyticsProvider>
+		);
 
 		const expectedLocationObject = {
 			pathname: '/',
