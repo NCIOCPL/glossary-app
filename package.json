@@ -1,6 +1,6 @@
 {
 	"name": "@nciocpl/glossary-app",
-	"version": "1.6.0",
+	"version": "1.6.1",
 	"description": "Glossary React Application",
 	"repository": {
 		"type": "git",
