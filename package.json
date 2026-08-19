@@ -38,8 +38,8 @@
 		"resolve": "1.15.0"
 	},
 	"engines": {
-		"node": ">=20.9.0 <21.0.0",
-		"npm": ">=10.0.0 <12.0.0"
+		"node": ">=26.0.0 <27.0.0",
+		"npm": ">=11.0.0 <13.0.0"
 	},
 	"scripts": {
 		"start": "node scripts/start.js",
@@ -47,7 +47,8 @@
 		"build:cgdp-legacy": "node scripts/generate-cgdp-legacy.js",
 		"build:cra": "node scripts/build.js",
 		"build": "npm run build:cra && npm run build:cgdp-legacy",
-		"test": " npm run pa11y-tests && npm run unit-tests && npm run cy:ci && npm run merge-coverage",
+		"test": "npm run ensure-browsers && npm run pa11y-tests && npm run unit-tests && npm run cy:ci && npm run merge-coverage",
+		"ensure-browsers": "node scripts/ensure-browsers.js",
 		"test:it": "NODE_ENV=test cypress open",
 		"test:pa11y": "npm run pa11y-ci",
 		"pa11y-tests": "start-server-and-test start http://localhost:3000 pa11y",
@@ -150,5 +151,13 @@
 		"webpack-dev-server": "^5.2.2",
 		"webpack-manifest-plugin": "3.0.0",
 		"workbox-webpack-plugin": "^7.3.0"
+	},
+	"overrides": {
+		"crypto-browserify": "^3.12.1"
+	},
+	"allowScripts": {
+		"cypress@14.5.4": true,
+		"puppeteer@24.43.1": true,
+		"fsevents@2.3.3": true
 	}
 }
