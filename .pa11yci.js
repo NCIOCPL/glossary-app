@@ -1,8 +1,11 @@
-// Starting with Ubuntu 22.04, pa11y-ci requires us to tell it the Chrome binary's path
-// Fortunately, GitHub Actions has an environment variable for that.
-// The rest of this is so we don't break local development on Macs.
-// According to the (current) docs, this can all go away once we upgrade pa11y-ci to 4.0 .
-const defaultChromeLaunchConfig = {
+// pa11y-ci launches Chrome through puppeteer, which looks for its own download
+// in a cache outside the workspace. Rather than depend on that cache being
+// populated, point pa11y at whichever browser is actually on the machine - the
+// one CHROME_BIN names on CI, or a locally installed Chrome. Falling through to
+// undefined leaves puppeteer to resolve the browser itself.
+const { resolveChrome } = require('./scripts/resolve-chrome');
+
+const chromeLaunchConfig = {
 	args: [
 		'--no-sandbox', 
 		'--disable-setuid-sandbox', 
@@ -15,11 +18,8 @@ const defaultChromeLaunchConfig = {
 		'--disable-software-rasterizer'
 	],
 	ignoreHTTPSErrors: true,
+	executablePath: resolveChrome() || undefined,
 };
-const chromeLaunchConfig = process.env.CHROME_BIN
-	? { executablePath: process.env.CHROME_BIN, ...defaultChromeLaunchConfig }
-	: defaultChromeLaunchConfig;
-
 
 module.exports = {
   urls: [
@@ -39,8 +39,10 @@ module.exports = {
     "http://localhost:3000/def/acrochordon?cfg=3",
     "http://localhost:3000/def/antioncogen?cfg=3"
   ],
-	"chromeLaunchConfig": chromeLaunchConfig,
+	// pa11y-ci only forwards options to pa11y from `defaults`; a chromeLaunchConfig
+	// at the top level of this file is read by nothing.
 	"defaults": {
+		"chromeLaunchConfig": chromeLaunchConfig,
 		"timeout": 60000,
 		"wait": 2000,
 		"viewport": {
