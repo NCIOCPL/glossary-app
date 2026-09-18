@@ -29,24 +29,28 @@ const Term = ({ resultIndex, payload }) => {
 	};
 
 	return (
-		<div>
-			<dt>
-				<dfn data-cdr-id={termId}>
-					<Link
-						to={DefinitionPath({
-							idOrName: prettyUrlName ? prettyUrlName : termId,
-						})}
-						onClick={handleTermLinkClick}>
-						{termName}
-					</Link>
-				</dfn>
-			</dt>
+		<div className="dictionary__term grid-container">
+			<div className="grid-row">
+				<dt className="dictionary__term-name grid-col">
+					<dfn data-cdr-id={termId}>
+						<Link
+							to={DefinitionPath({
+								idOrName: prettyUrlName ? prettyUrlName : termId,
+							})}
+							onClick={handleTermLinkClick}>
+							{termName}
+						</Link>
+					</dfn>
+				</dt>
+			</div>
 			{pronunciation && (
-				<dd className="pronunciation" data-testid={testIds.TERM_ITEM_PRONUNCIATION}>
+				<dd className="dictionary__term-pronunciation pronunciation grid-col" data-testid={testIds.TERM_ITEM_PRONUNCIATION}>
 					<Pronunciation lang={language} pronunciationObj={pronunciation} />
 				</dd>
 			)}
-			<dd className="definition" data-testid={testIds.TERM_ITEM_DESCRIPTION} dangerouslySetInnerHTML={{ __html: definition.html }}></dd>
+			<div className="grid-row">
+				<dd className="dictionary__term-definition definition grid-col" data-testid={testIds.TERM_ITEM_DESCRIPTION} dangerouslySetInnerHTML={{ __html: definition.html }}></dd>
+			</div>
 		</div>
 	);
 };

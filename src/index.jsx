@@ -13,6 +13,11 @@ import { ClientContextProvider } from 'react-fetching-library';
 import { getAxiosClient } from './services/api/axios-client';
 import ErrorBoundary from './views/ErrorBoundary';
 
+// /**
+//  * Imports the NCI Big Footer component auto initializer.
+//  */
+import '@nciocpl/ncids-js/usa-footer/nci-big/auto-init';
+
 /**
  * Gets the alternate language base, if available from the translations
  * of this page.
