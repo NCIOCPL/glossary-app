@@ -62,7 +62,7 @@ describe('Definition component with English', () => {
 		};
 
 		const mockToggleElement = document.createElement('div');
-		mockToggleElement.id = 'LangList1';
+		mockToggleElement.id = 'lang-toggle';
 		mockToggleElement.innerHTML = '<a href="/" data-testid="mockLangToggle">Language</a>';
 		document.body.appendChild(mockToggleElement);
 	});
@@ -80,7 +80,7 @@ describe('Definition component with English', () => {
 		useStateValue.mockReturnValue([
 			{
 				altLanguageDictionaryBasePath: '/diccionario',
-				languageToggleSelector: '#LangList1 a',
+				languageToggleSelector: '#lang-toggle a',
 				appId: 'mockAppId',
 				canonicalHost: 'https://example.org',
 				basePath: '/',
@@ -277,7 +277,7 @@ describe('Definition component with English', () => {
 			useStateValue.mockReturnValue([
 				{
 					altLanguageDictionaryBasePath: '/diccionario',
-					languageToggleSelector: '#LangList1 a',
+					languageToggleSelector: '#lang-toggle a',
 					appId: 'mockAppId',
 					canonicalHost: 'https://example.org',
 					basePath: '/',
