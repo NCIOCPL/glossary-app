@@ -32,7 +32,7 @@ describe('Definition component with Spanish', () => {
 	const setupTest = () => {
 		// Create mock lang node
 		const mockToggleElement = document.createElement('div');
-		mockToggleElement.id = 'LangList1';
+		mockToggleElement.id = 'lang-toggle';
 		mockToggleElement.innerHTML = '<a href="/" data-testid="mockLangToggle">Language</a>';
 		document.body.appendChild(mockToggleElement);
 
@@ -44,7 +44,7 @@ describe('Definition component with Spanish', () => {
 		useStateValue.mockReturnValue([
 			{
 				altLanguageDictionaryBasePath: '/cancer-terms',
-				languageToggleSelector: '#LangList1 a',
+				languageToggleSelector: '#lang-toggle a',
 				appId: 'mockAppId',
 				basePath: '/',
 				canonicalHost: 'https://example.org',
@@ -100,7 +100,7 @@ describe('Definition component with Spanish', () => {
 			useStateValue.mockReturnValue([
 				{
 					altLanguageDictionaryBasePath: '/cancer-terms',
-					languageToggleSelector: '#LangList1 a',
+					languageToggleSelector: '#lang-toggle a',
 					appId: 'mockAppId',
 					canonicalHost: 'https://example.org',
 					basePath: '/',
