@@ -63,7 +63,7 @@ describe('Definition component', () => {
 		useStateValue.mockReturnValue([
 			{
 				altLanguageDictionaryBasePath: '/diccionario',
-				languageToggleSelector: '#LangList1 a',
+				languageToggleSelector: '#lang-toggle a',
 				appId: 'mockAppId',
 				canonicalHost: 'https://example.org',
 				baseHost: 'http://localhost:3000',
