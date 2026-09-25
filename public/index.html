@@ -189,7 +189,7 @@
                 location.href =
                   window.publicUrl +
                   "?cfg=" +
-                  this.options[this.selectedIndex].value;
+                  encodeURIComponent(this.options[this.selectedIndex].value);
               }
             };
           }
