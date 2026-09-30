@@ -1,14 +1,44 @@
+@use "uswds-core" as *;
+
 .az-list {
+	padding-top: 16px;
+
 	.browse {
 		float: none;
+		margin-right: 5px;
 	}
 
 	& > ul {
 		display: inline;
 
 		& > li {
+			display: inline-block;
+			margin-left: 0;
+			margin-right: .5em;
+			line-height: 21.6px;
+
+			/* Bar between letters in az list */
+			// + li::before{
+			// 	content: "|";
+			// 	color: #F0F0F0;
+			// 	padding-right: .5em;
+			// }
+
+			&:not(:last-child) a {
+				border-right: 1px solid #F0F0F0;
+				padding-right: .5em;
+			}
+
 			& a {
-				color: #2b7bba;
+				color: #01679D;
+				font-weight: 400;
+				font-style: normal;
+				line-height: 21.6px;
+				@include u-font(sans, 'xs');
+
+				&:hover {
+					color: #004971
+				}
 			}
 		}
 	}
