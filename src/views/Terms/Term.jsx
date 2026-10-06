@@ -42,12 +42,12 @@ const Term = ({ resultIndex, payload }) => {
 						</Link>
 					</dfn>
 				</dt>
+				{pronunciation && (
+					<dd className="dictionary__term-pronunciation pronunciation grid-col" data-testid={testIds.TERM_ITEM_PRONUNCIATION}>
+						<Pronunciation lang={language} pronunciationObj={pronunciation} />
+					</dd>
+				)}
 			</div>
-			{pronunciation && (
-				<dd className="dictionary__term-pronunciation pronunciation grid-col" data-testid={testIds.TERM_ITEM_PRONUNCIATION}>
-					<Pronunciation lang={language} pronunciationObj={pronunciation} />
-				</dd>
-			)}
 			<div className="grid-row">
 				<dd className="dictionary__term-definition definition grid-col" data-testid={testIds.TERM_ITEM_DESCRIPTION} dangerouslySetInnerHTML={{ __html: definition.html }}></dd>
 			</div>
