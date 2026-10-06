@@ -29,9 +29,9 @@ const Term = ({ resultIndex, payload }) => {
 	};
 
 	return (
-		<div className="dictionary__term grid-container">
-			<div className="grid-row">
-				<dt className="dictionary__term-name grid-col">
+		<div className="dictionary__term">
+			<div className="dictionary__term-header">
+				<dt className="dictionary__term-name">
 					<dfn data-cdr-id={termId}>
 						<Link
 							to={DefinitionPath({
@@ -42,15 +42,13 @@ const Term = ({ resultIndex, payload }) => {
 						</Link>
 					</dfn>
 				</dt>
+				{pronunciation && (
+					<dd className="dictionary__term-pronunciation pronunciation" data-testid={testIds.TERM_ITEM_PRONUNCIATION}>
+						<Pronunciation lang={language} pronunciationObj={pronunciation} />
+					</dd>
+				)}
 			</div>
-			{pronunciation && (
-				<dd className="dictionary__term-pronunciation pronunciation grid-col" data-testid={testIds.TERM_ITEM_PRONUNCIATION}>
-					<Pronunciation lang={language} pronunciationObj={pronunciation} />
-				</dd>
-			)}
-			<div className="grid-row">
-				<dd className="dictionary__term-definition definition grid-col" data-testid={testIds.TERM_ITEM_DESCRIPTION} dangerouslySetInnerHTML={{ __html: definition.html }}></dd>
-			</div>
+			<dd className="dictionary__term-definition definition" data-testid={testIds.TERM_ITEM_DESCRIPTION} dangerouslySetInnerHTML={{ __html: definition.html }}></dd>
 		</div>
 	);
 };

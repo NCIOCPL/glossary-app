@@ -29,6 +29,17 @@
 		padding: 0;
 		height: initial;
 		width: 30px;
+
+		.show-for-sr {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+		}
 	}
 
 	.pronunciation {
@@ -37,12 +48,12 @@
     }
 		.pronunciation__term {
 			@include u-font-family('body');
-			margin-right: 5px;
+			// margin-right: 5px;
 		}
 
 		.pronunciation__key {
 			@include u-font-family('body');
-			margin-left: 10px;
+			// margin-left: 10px;
 			padding-top: 4px;
       padding-bottom: 4px;
 		}
@@ -54,33 +65,35 @@
 			dt {
 				margin: 0;
 			}
-			a {
-				margin-right: 5px;
-			}
+			// a {
+			// 	margin-right: 5px;
+			// }
 
-			.pronunciation {
-				.pronunciation__key {
-					margin-left: 5px;
-				}
-			}
+			// .pronunciation {
+			// 	.pronunciation__key {
+			// 		margin-left: 5px;
+			// 	}
+			// }
 		}
 
 		// Setting to 24px inline with line-height
 		.btnAudio {
-			&:before {
+			&:before,
+			&.paused,
+			&.playing {
 				width: 24px;
 				height: 24px;
 			}
-			&.paused,
-			&.playing {
-				&:before {
-					width: 14px;
-					height: 14px;
-				}
-			}
+			// &.paused,
+			// &.playing {
+			// 	&:before {
+			// 		width: 14px;
+			// 		height: 14px;
+			// 	}
+			// }
 			padding: 0;
-			height: initial;
-			width: 30px;
+			height: 24px;
+			width: 24px;
 		}
 	}
 }

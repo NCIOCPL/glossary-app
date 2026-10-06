@@ -7,14 +7,14 @@ import { testIds } from '../../../constants';
 const Pronunciation = ({ pronunciationObj, language = 'en' }) => {
 	return (
 		<div className="pronunciation">
-			{pronunciationObj.audio && (
-				<div className="pronunciation__audio">
-					<AudioPlayer audioSrc={pronunciationObj.audio} lang={language} />
-				</div>
-			)}
 			{pronunciationObj.key && (
 				<div className="pronunciation__key" data-testid={testIds.TERM_DEF_PRONUNCIATION}>
 					{pronunciationObj.key}
+				</div>
+			)}
+			{pronunciationObj.audio && (
+				<div className="pronunciation__audio">
+					<AudioPlayer audioSrc={pronunciationObj.audio} lang={language} />
 				</div>
 			)}
 		</div>

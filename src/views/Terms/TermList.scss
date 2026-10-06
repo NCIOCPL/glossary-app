@@ -1,19 +1,43 @@
+@use "uswds-core" as *;
+
 .dictionary-list-container {
 	h4 {
 		color: #2e2e2e;
 		font-size: 1.25em;
 		font-style: normal;
 	}
+	
+	dd {
+		margin-left: 0;
+	}
 
 	dt {
+		padding-right: 12px;
 		margin-bottom: 0;
-		display: inline-block;
+		display: inline;
+
+		a {
+			color: #01679D;
+			font-weight: 700;
+			line-height: 24px;
+			text-decoration-line: underline;
+			text-decoration-style: solid;
+			text-decoration-skip-ink: none;
+			text-decoration-thickness: auto;
+			text-underline-offset: auto;
+			text-underline-position: from-font;
+		}
 
 		+ .pronunciation {
 			.pronunciation__key {
-				margin-left: 8px;
+				line-height: 24px;
+				padding-right: 12px;
 			}
 		}
+	}
+
+	.dictionary-list-container dt a, .pronunciation__key {
+		@include u-font(sans, 'xs');
 	}
 
 	dd.dictionary__term-pronunciation {
