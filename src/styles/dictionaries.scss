@@ -10,6 +10,7 @@
 @use '../components/molecules/pronunciation/pronunciation';
 
 //views
+@use '../views/Home/IntroText';
 @use '../views/Definition/Definition';
 @use '../views/ErrorBoundary/PageNotFound';
 @use '../views/Terms/TermList';
