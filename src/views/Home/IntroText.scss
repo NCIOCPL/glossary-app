@@ -1,0 +1,17 @@
+@use "uswds-core" as *;
+
+// Matches the NCIDS "Prose/body" type spec (Open Sans 16px / 24px)
+.usa-prose.intro-text {
+	@include u-margin-bottom(4);
+	font-size: 1rem;
+	line-height: 1.5;
+
+	> p {
+		@include u-margin-y(0);
+		line-height: inherit;
+	}
+
+	> p + p {
+		@include u-margin-top(2);
+	}
+}
