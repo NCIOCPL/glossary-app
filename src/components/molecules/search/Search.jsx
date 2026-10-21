@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
-import { Autocomplete, Radio } from '../../atomic';
+import { Autocomplete } from '../../atomic';
 import { searchMatchType, searchMatchTypeAnalyticsMap, testIds } from '../../../constants';
 import { useAppPaths, useCustomQuery } from '../../../hooks';
 import { getAutoSuggestResults } from '../../../services/api/actions';
 import { useStateValue } from '../../../store/store';
 import { useTracking } from 'react-tracking';
 import { emboldenSubstring, getKeyValueFromObject, getKeyValueFromQueryString, i18n, matchItemToTerm } from '../../../utils';
+import { Radio } from '@nciocpl/react-components';
 
 const Search = ({ autoSuggestLimit = 10 }) => {
 	const params = useParams();
@@ -78,8 +79,8 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 	return (
 		<form className="dictionary-search" data-testid={testIds.SEARCH_CONTAINER} onSubmit={executeSearch}>
 			<div className="radio-selection">
-				<Radio label={i18n.startsWithRadioLabel[language]} id="starts-with" className="inline" value={searchMatchType.beginsWith} defaultChecked={selectedOption === searchMatchType.beginsWith} onChange={toggleRadioSelection} />
-				<Radio label={i18n.containsRadioLabel[language]} id="contains" className="inline" value={searchMatchType.contains} defaultChecked={selectedOption === searchMatchType.contains} onChange={toggleRadioSelection} />
+				<Radio label={i18n.startsWithRadioLabel[language]} id="starts-with" name="search-type" className="inline" value={searchMatchType.beginsWith} checked={selectedOption === searchMatchType.beginsWith} onChange={toggleRadioSelection} />
+				<Radio label={i18n.containsRadioLabel[language]} id="contains" name="search-type" className="inline" value={searchMatchType.contains} checked={selectedOption === searchMatchType.contains} onChange={toggleRadioSelection} />
 			</div>
 
 			<Autocomplete

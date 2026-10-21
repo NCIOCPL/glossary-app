@@ -91,7 +91,7 @@ describe('<Search /> English', () => {
 	test('Starts with radio is checked by default', () => {
 		const { getByDisplayValue } = wrapper;
 		const startsWithRadio = getByDisplayValue(searchMatchType.beginsWith);
-		expect(startsWithRadio.defaultChecked).toBe(true);
+		expect(startsWithRadio).toBeChecked();
 	});
 
 	test('Ensure correct location is set on router when Search button is clicked without search box text input', () => {
@@ -144,6 +144,8 @@ describe('<Search /> English', () => {
 		};
 		const containsRadio = getByDisplayValue(searchMatchType.contains);
 		fireEvent.click(containsRadio);
+		expect(containsRadio).toBeChecked();
+		expect(getByDisplayValue(searchMatchType.beginsWith)).not.toBeChecked();
 		const textInput = getByPlaceholderText('Enter keywords or phrases');
 		await act(async () => {
 			fireEvent.change(textInput, { target: { value: searchText } });
