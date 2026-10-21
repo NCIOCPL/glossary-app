@@ -19,6 +19,7 @@
 	"dependencies": {
 		"@nciocpl/ncids-css": "^3.6.1",
 		"@nciocpl/ncids-js": "^3.6.1",
+		"@nciocpl/react-components": "^0.5.1",
 		"autoprefixer": "^10.5.4",
 		"axios": "^1.6.7",
 		"camelcase": "^5.3.1",
@@ -31,7 +32,7 @@
 		"identity-obj-proxy": "3.0.0",
 		"postcss": "^8.5.26",
 		"prop-types": "^15.7.2",
-		"react": "^16.13.1",
+		"react": "^17.0.2",
 		"react-app-polyfill": "^1.0.6",
 		"react-dom": "^16.13.1",
 		"react-fetching-library": "^1.5.14",
