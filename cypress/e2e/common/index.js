@@ -638,7 +638,7 @@ And('the search box has loaded', () => {
 And('the user selects the {string} option in the search box', (searchType) => {
 	console.log(searchType);
 	const selectedOption = searchType === 'Contains' ? 'contains' : 'starts-with';
-	cy.get(`.ncids-radio__label[for="${selectedOption}"]`).click();
+	cy.get(`.usa-radio__label[for="${selectedOption}"]`).click();
 });
 
 // Search for a keyword
