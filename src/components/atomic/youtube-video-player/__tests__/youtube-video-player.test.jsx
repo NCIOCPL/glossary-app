@@ -30,6 +30,14 @@ describe('<YoutubeVideoPlayer /> component', () => {
 		expect(container.querySelector('.youtube-video-player')).toBeInTheDocument();
 	});
 
+	it('overlays the video title on the preview, with screen-reader-only context', () => {
+		render(<YoutubeVideoPlayer youtubeId={yid} videoTitle="Mock Title" />);
+		const button = screen.getByRole('button', { name: 'click to view video titled Mock Title' });
+		const title = button.querySelector('.cgdp-video__title');
+		expect(title).toHaveTextContent('click to view video titled Mock Title');
+		expect(screen.getByText('click to view video titled')).toHaveClass('usa-sr-only');
+	});
+
 	it('loads the youtube iframe placeholder after clicking on the button', async () => {
 		const { container } = render(<YoutubeVideoPlayer youtubeId={yid} />);
 		fireEvent.click(container.querySelector('button'));

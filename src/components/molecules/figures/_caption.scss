@@ -1,0 +1,12 @@
+@use 'uswds-core' as *;
+
+// cancer.gov NCIDS media caption (cgdp-image / cgdp-video): teal left border,
+// Open Sans 0.89rem / 1.6, and 0.5rem x 1rem padding.
+@mixin cgdp-caption {
+	border-left: units(0.5) solid color('teal-50');
+	padding: units(1) units(2);
+	color: color('ink');
+	font-family: family('sans');
+	font-size: 0.89rem;
+	line-height: 1.6;
+}

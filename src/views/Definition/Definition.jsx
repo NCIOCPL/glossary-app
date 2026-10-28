@@ -243,7 +243,7 @@ const Definition = () => {
 							return <FigureCgovImage altText={mediaItem.Alt} caption={mediaItem.Caption} key={mediaItem.Ref} lang={language} thumb_uri={thumbUri} enlarge_uri={enlargeUri} />;
 						} else if (mediaItem.Type === 'Video') {
 							return (
-								<FigureCgovVideo classes="video center size75" key={mediaItem.UniqueId} videoId={mediaItem.UniqueId} videoTitle={mediaItem.Title}>
+								<FigureCgovVideo key={mediaItem.UniqueId} videoId={mediaItem.UniqueId} videoTitle={mediaItem.Title}>
 									{mediaItem.Caption}
 								</FigureCgovVideo>
 							);

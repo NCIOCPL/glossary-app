@@ -1,4 +1,5 @@
 @use 'uswds-core' as *;
+@use 'caption';
 
 // Matches the cancer.gov NCIDS image component (cgdp-image): the caption and the
 // "Enlarge image" row below it each have a teal left border, Open Sans
@@ -20,12 +21,7 @@
 
 	&__caption,
 	&__enlarge {
-		border-left: units(0.5) solid color('teal-50');
-		padding: units(1) units(2);
-		color: color('ink');
-		font-family: family('sans');
-		font-size: 0.89rem;
-		line-height: 1.6;
+		@include caption.cgdp-caption;
 	}
 
 	&__caption-text {
