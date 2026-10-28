@@ -1,5 +1,7 @@
+/* eslint-disable testing-library/no-node-access */
+/* eslint-disable testing-library/no-container */
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { FigureCgovImage } from '..';
 
@@ -9,48 +11,62 @@ describe('<FigureCgovImage /> component', () => {
 		thumb_uri: 'http://mock.png',
 	};
 
-	it('creates a figure containing an image and does not create a figcaption when both credit and caption are absent', async () => {
-		render(<FigureCgovImage {...mockFig} />);
-		await waitFor(() => {
-			expect(screen.getByRole('figure')).toBeInTheDocument();
-		});
-		expect(screen.queryByRole('figure')).not.toHaveTextContent('figcaption');
+	it('creates a cgdp-image figure containing the image and no figcaption when both credit and caption are absent', () => {
+		const { container } = render(<FigureCgovImage {...mockFig} />);
+		const figure = screen.getByRole('figure');
+		expect(figure).toHaveClass('cgdp-image');
+		expect(screen.getByRole('img', { name: 'mock alt text' })).toHaveAttribute('src', 'http://mock.png');
+		expect(container.querySelector('figcaption')).not.toBeInTheDocument();
 	});
 
-	it('creates a figure with classes when supplied with classes list', async () => {
+	it('adds classes when supplied with classes list', () => {
 		render(<FigureCgovImage classes="mockstyle" {...mockFig} />);
-		await waitFor(() => {
-			expect(screen.getByRole('figure')).toHaveClass('mockstyle');
-		});
-		expect(screen.queryByRole('figure')).not.toHaveTextContent('figcaption');
+		expect(screen.getByRole('figure')).toHaveClass('cgdp-image', 'mockstyle');
 	});
 
-	it('creates a figcaption containing caption text when caption is supplied', async () => {
+	it('creates a cgdp-image caption containing caption text when caption is supplied', () => {
 		render(<FigureCgovImage caption="mock caption describing chickens" {...mockFig} />);
-		await waitFor(() => {
-			expect(screen.getByText(/chickens/i)).toBeInTheDocument();
-		});
+		const caption = screen.getByText(/chickens/i);
+		expect(caption).toHaveClass('cgdp-image__caption-text');
+		expect(caption.closest('figcaption')).toHaveClass('cgdp-image__caption');
 	});
 
-	it('creates a figcaption containing a credit when a credit is supplied', async () => {
+	it('creates a figcaption containing a credit when a credit is supplied', () => {
 		render(<FigureCgovImage credit="mock credit" {...mockFig} />);
-		await waitFor(() => {
-			expect(screen.getByText(/mock credit/i)).toHaveClass('image-photo-credit');
-		});
+		expect(screen.getByText('Credit: mock credit')).toHaveClass('cgdp-image__credit');
 	});
 
-	it('includes an enlarge button when an enlarge_uri is supplied', async () => {
+	it('includes an "Enlarge image" link opening the enlarge_uri in a new tab when an enlarge_uri is supplied', () => {
 		render(<FigureCgovImage enlarge_uri="http://mock.jpg" {...mockFig} />);
-		await waitFor(() => {
-			expect(screen.getByRole('link', { name: /enlarge/i })).toHaveClass('article-image-enlarge');
-		});
+		const link = screen.getByRole('link', { name: /enlarge image/i });
+		expect(link).toHaveAttribute('href', 'http://mock.jpg');
+		expect(link).toHaveAttribute('target', '_blank');
+		expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+		expect(link).toHaveClass('usa-link');
+		expect(link).toHaveTextContent('Enlarge image in new window');
 	});
 
-	it("displays spanish text when language='es' is supplied", async () => {
+	it('renders the enlarge icon and link in a row below the caption', () => {
+		const { container } = render(<FigureCgovImage caption="mock caption" enlarge_uri="http://mock.jpg" {...mockFig} />);
+		const enlarge = container.querySelector('.cgdp-image__enlarge');
+		expect(enlarge).toBeInTheDocument();
+		// order inside the figure: image, caption, then the enlarge row
+		expect([...screen.getByRole('figure').children].map((el) => el.tagName.toLowerCase())).toEqual(['img', 'figcaption', 'div']);
+		const icon = enlarge.querySelector('svg.usa-icon');
+		expect(icon).toHaveAttribute('aria-hidden', 'true');
+		expect(icon).toHaveAttribute('focusable', 'false');
+		expect(enlarge).toContainElement(screen.getByRole('link', { name: /enlarge image/i }));
+	});
+
+	it('does not render the enlarge row when there is no enlarge_uri', () => {
+		const { container } = render(<FigureCgovImage caption="mock caption" {...mockFig} />);
+		expect(container.querySelector('.cgdp-image__enlarge')).not.toBeInTheDocument();
+		expect(screen.queryByRole('link')).not.toBeInTheDocument();
+	});
+
+	it("displays spanish text when lang='es' is supplied", () => {
 		render(<FigureCgovImage lang="es" enlarge_uri="http://mock.jpg" credit="mock credit" {...mockFig} />);
-		await waitFor(() => {
-			expect(screen.getByRole('link', { name: /ampliar/i })).toHaveTextContent('Ampliar - abre en nueva ventana');
-		});
-		expect(screen.getByText(/Crédito/i)).toBeInTheDocument();
+		expect(screen.getByRole('link', { name: /ampliar/i })).toHaveTextContent('Ampliar - abre en nueva ventana');
+		expect(screen.getByText('Crédito: mock credit')).toBeInTheDocument();
 	});
 });

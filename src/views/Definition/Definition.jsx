@@ -240,10 +240,10 @@ const Definition = () => {
 							const imgArr = mediaItem.ImageSources;
 							const thumbUri = imgArr.find((imgItem) => imgItem.Size === '571').Src;
 							const enlargeUri = imgArr.find((imgItem) => imgItem.Size === 'original').Src;
-							return <FigureCgovImage altText={mediaItem.Alt} caption={mediaItem.Caption} classes="image-left-medium" key={mediaItem.Ref} lang={language} thumb_uri={thumbUri} enlarge_uri={enlargeUri} />;
+							return <FigureCgovImage altText={mediaItem.Alt} caption={mediaItem.Caption} key={mediaItem.Ref} lang={language} thumb_uri={thumbUri} enlarge_uri={enlargeUri} />;
 						} else if (mediaItem.Type === 'Video') {
 							return (
-								<FigureCgovVideo classes="video center size75" key={mediaItem.UniqueId} videoId={mediaItem.UniqueId} videoTitle={mediaItem.Title}>
+								<FigureCgovVideo key={mediaItem.UniqueId} videoId={mediaItem.UniqueId} videoTitle={mediaItem.Title}>
 									{mediaItem.Caption}
 								</FigureCgovVideo>
 							);

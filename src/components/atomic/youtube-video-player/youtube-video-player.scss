@@ -1,14 +1,115 @@
-.video-preview--container {
-	p {
-		left: 0;
-		text-align: left;
+@use 'uswds-core' as *;
+
+// The player fills its container, which sets the aspect ratio (see
+// .cgdp-video__media). Preview styling matches the cancer.gov video component:
+// the title overlaid at the top over a dark gradient, and a play button that
+// turns red on hover and focus.
+.youtube-video-player {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	iframe,
+	#nci-video-player {
+		position: absolute;
 		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 	}
 }
 
 #nci-video-player {
 	display: flex;
-	height: 315px;
 	align-items: center;
 	justify-content: center;
+	color: color('white');
+}
+
+.video-preview--container {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	overflow: hidden;
+	text-align: left;
+	cursor: pointer;
+
+	// darkens the top of the thumbnail so the title overlay stays readable
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		width: 100%;
+		height: 40px;
+		background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2) 60%, transparent);
+	}
+
+	// crop the 4:3 YouTube thumbnail to the 16:9 box
+	> img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: auto;
+		margin-top: -9.4%;
+	}
+
+	.cgdp-video__title {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 10;
+		width: 95%;
+		margin: 0.5em 0;
+		padding: 0 15px;
+		overflow: hidden;
+		color: color('white');
+		font-family: family('sans');
+		font-size: 1.01rem;
+		line-height: 1.6;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.usa-sr-only {
+		@include sr-only;
+	}
+
+	&:hover,
+	&:focus {
+		.play-button--bg {
+			fill: red;
+			fill-opacity: 1;
+			transition: 0.1s cubic-bezier(0, 0, 0.2, 1);
+		}
+	}
+
+	&:focus {
+		outline: none;
+
+		.video-preview--play-button {
+			outline: units(0.5) solid color('cerulean-40');
+			outline-offset: 2px;
+		}
+	}
+}
+
+.video-preview--play-button {
+	position: absolute;
+	top: calc(50% - 24px);
+	left: calc(50% - 34px);
+	z-index: 2;
+	width: 68px;
+	height: 48px;
 }
