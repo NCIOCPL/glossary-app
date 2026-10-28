@@ -1,0 +1,35 @@
+@use 'uswds-core' as *;
+@use 'caption';
+
+// Matches the cancer.gov NCIDS video component (cgdp-video): a 16:9 media box
+// with the title overlaid at the top of the thumbnail, then the caption.
+//
+// Width: 100% of the container up to 695px, so the video is 695px wide where
+// the content column allows and fills the container on smaller screens.
+.cgdp-video {
+	display: block;
+	width: 100%;
+	max-width: 43.4375rem; // 695px
+	margin: 0 0 units(3);
+
+	&__media {
+		position: relative;
+		width: 100%;
+		height: 0;
+		padding-bottom: 56.25%; // 16:9
+		overflow: hidden;
+		background-color: color('navy-90');
+	}
+
+	&__caption {
+		@include caption.cgdp-caption;
+
+		> :first-child {
+			margin-top: 0;
+		}
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+	}
+}

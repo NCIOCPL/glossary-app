@@ -2,11 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { YoutubeVideoPlayer } from '../..';
 
-const FigureCgovVideo = ({ videoId, videoTitle, children, classes }) => {
+// Markup and class names follow the cancer.gov NCIDS video component (cgdp-video):
+// a 16:9 media box holding the YouTube player, then the caption.
+const FigureCgovVideo = ({ videoId, videoTitle, children, classes = '' }) => {
 	return (
-		<figure className={classes}>
-			<YoutubeVideoPlayer youtubeId={videoId} videoTitle={videoTitle} />
-			{children && <figcaption className="caption-container no-resize">{children}</figcaption>}
+		<figure className={`cgdp-video${classes ? ` ${classes}` : ''}`}>
+			<div className="cgdp-video__media">
+				<YoutubeVideoPlayer youtubeId={videoId} videoTitle={videoTitle} />
+			</div>
+			{children && <figcaption className="cgdp-video__caption">{children}</figcaption>}
 		</figure>
 	);
 };
