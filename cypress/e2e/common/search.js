@@ -3,7 +3,7 @@ import { When, Then } from 'cypress-cucumber-preprocessor/steps';
 import { searchMatchType, testIds } from '../../../src/constants';
 
 When('user clicks on {string} button', (searchButton) => {
-	cy.get(`#btnSearch[value='${searchButton}']`).click();
+	cy.get(`button.nci-autocomplete__submit[value="${searchButton}"]`).click();
 });
 
 When('user selects {string} option', (startsWithOrContains) => {

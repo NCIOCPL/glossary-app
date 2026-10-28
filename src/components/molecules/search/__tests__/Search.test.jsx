@@ -6,6 +6,7 @@ import {
 	fireEvent,
 	render,
 	screen,
+	waitFor,
 } from '@testing-library/react';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -91,11 +92,16 @@ describe('<Search /> English', () => {
 	test('Starts with radio is checked by default', () => {
 		const { getByDisplayValue } = wrapper;
 		const startsWithRadio = getByDisplayValue(searchMatchType.beginsWith);
-		expect(startsWithRadio.defaultChecked).toBe(true);
+		expect(startsWithRadio).toBeChecked();
+	});
+
+	test('Search button value matches its accessible label', () => {
+		const searchButton = wrapper.getByRole('button', { name: 'Search' });
+		expect(searchButton).toHaveAttribute('value', searchButton.getAttribute('aria-label'));
 	});
 
 	test('Ensure correct location is set on router when Search button is clicked without search box text input', () => {
-		const { getByText } = wrapper;
+		const { getByRole } = wrapper;
 		// Expected router location object when "Starts with" radio button is checked by default
 		const expectedLocationObject = {
 			pathname: '/search/',
@@ -104,13 +110,13 @@ describe('<Search /> English', () => {
 			state: null,
 			key: expect.any(String),
 		};
-		const searchButton = getByText('Search');
+		const searchButton = getByRole('button', { name: 'Search' });
 		fireEvent.click(searchButton);
 		expect(location).toMatchObject(expectedLocationObject);
 	});
 
 	test('Ensure location is set on router when Search button is clicked with text input', async () => {
-		const { getByPlaceholderText, getByText } = wrapper;
+		const { getByPlaceholderText, getByRole } = wrapper;
 		const searchText = 'meta';
 		// Expected router location object when "Starts with" radio button is checked by default
 		// and text input entered is "meta"
@@ -122,7 +128,7 @@ describe('<Search /> English', () => {
 			key: expect.any(String),
 		};
 		const textInput = getByPlaceholderText('Enter keywords or phrases');
-		const searchButton = getByText('Search');
+		const searchButton = getByRole('button', { name: 'Search' });
 		await act(async () => {
 			fireEvent.change(textInput, { target: { value: searchText } });
 		});
@@ -131,7 +137,7 @@ describe('<Search /> English', () => {
 	});
 
 	test('Ensure location is set on router when Search button is clicked with "Contains" radio button checked and text input entered', async () => {
-		const { getByDisplayValue, getByPlaceholderText, getByText } = wrapper;
+		const { getByDisplayValue, getByPlaceholderText, getByRole } = wrapper;
 		const searchText = 'cancer';
 		// Expected router location object when "Contains" radio button is checked
 		// and the text input entered is "cancer"
@@ -144,33 +150,44 @@ describe('<Search /> English', () => {
 		};
 		const containsRadio = getByDisplayValue(searchMatchType.contains);
 		fireEvent.click(containsRadio);
+		expect(containsRadio).toBeChecked();
+		expect(getByDisplayValue(searchMatchType.beginsWith)).not.toBeChecked();
 		const textInput = getByPlaceholderText('Enter keywords or phrases');
 		await act(async () => {
 			fireEvent.change(textInput, { target: { value: searchText } });
 		});
-		const searchButton = getByText('Search');
+		const searchButton = getByRole('button', { name: 'Search' });
 		fireEvent.click(searchButton);
 		expect(location).toMatchObject(expectedLocationObject);
 	});
 
 	test('Submitting search triggers provided analytics event', async () => {
-		const { getByPlaceholderText, getByText } = wrapper;
+		const { getByPlaceholderText, getByRole } = wrapper;
 		const searchText = 'metastatic';
 		const textInput = getByPlaceholderText('Enter keywords or phrases');
 		await act(async () => {
 			fireEvent.change(textInput, { target: { value: searchText } });
 		});
-		const searchButton = getByText('Search');
+		const searchButton = getByRole('button', { name: 'Search' });
 		fireEvent.click(searchButton);
 		expect(analyticsHandler).toHaveBeenCalled();
 	});
 
 	describe('Autocomplete', () => {
+		let scrollIntoViewDescriptor;
+
 		beforeEach(() => {
 			cleanup();
+			scrollIntoViewDescriptor = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollIntoView');
+			HTMLElement.prototype.scrollIntoView = jest.fn();
 		});
 		afterEach(() => {
 			cleanup();
+			if (scrollIntoViewDescriptor) {
+				Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', scrollIntoViewDescriptor);
+			} else {
+				delete HTMLElement.prototype.scrollIntoView;
+			}
 		});
 
 		test('should take search input, select highlighted option, execute search, and confirm expected location', async () => {
@@ -205,9 +222,7 @@ describe('<Search /> English', () => {
 				fireEvent.change(document.activeElement, { target: { value: 'ap' } });
 			});
 			expect(
-				container.querySelector(
-					`div[data-testid='${testIds.AUTO_SUGGEST_OPTIONS}']`
-				).textContent
+				container.querySelector(`#keywords-listbox`).textContent
 			).toBe(i18n.autoSuggestThreeOrMoreChars[language]);
 			await act(async () => {
 				fireEvent.change(document.activeElement, {
@@ -215,6 +230,7 @@ describe('<Search /> English', () => {
 				});
 			});
 			fireEvent.focus(input);
+			await waitFor(() => expect(screen.getAllByRole('option')).toHaveLength(6));
 			const menuOptions = screen.getAllByRole('option');
 			// Expect menu options count displayed in autosuggest to match data count
 			expect(menuOptions.length).toEqual(6);
@@ -240,7 +256,7 @@ describe('<Search /> English', () => {
 				})
 			);
 
-			const searchButton = screen.getByText('Search');
+			const searchButton = screen.getByRole('button', { name: 'Search' });
 			await act(async () => {
 				fireEvent.click(searchButton);
 			});
