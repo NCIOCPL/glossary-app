@@ -2,6 +2,8 @@
 
 .dictionary-list-container {
 	h4 {
+		@include u-margin-bottom(2);
+		margin-top: 0;
 		color: #2e2e2e;
 		font-size: 1.25em;
 		font-style: normal;
@@ -26,6 +28,10 @@
 			text-decoration-thickness: auto;
 			text-underline-offset: auto;
 			text-underline-position: from-font;
+
+			&:hover {
+				color: #004971
+			}
 		}
 
 		+ .pronunciation {
@@ -52,7 +58,8 @@
 	}
 
 	dd.dictionary__term-definition {
-		margin-bottom: 15px;
+		@include u-margin-top('105');
+		@include u-margin-bottom(2);
 	}
 
 	.btnAudio {
