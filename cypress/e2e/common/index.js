@@ -306,7 +306,7 @@ Then('the system returns users to the search results page for the letter', () =>
 // *************************MORE INFORMATION LINKS************************//
 
 Then('there is a heading on the page with {string}', (moreInfoHeader) => {
-	cy.get(`div[data-testid='${testIds.MORE_INFORMATION}'] h6`).should('have.text', moreInfoHeader);
+	cy.get(`div[data-testid='${testIds.MORE_INFORMATION}'] h2`).should('have.text', moreInfoHeader);
 });
 
 Then('there is a link to a definition with the pretty url {string} and the text {string} following the text {string}', (prettyUrl, definitionTitle, definitionOf) => {
@@ -319,7 +319,7 @@ Then('there is a link to a definition with the pretty url {string} and the text 
 });
 
 Then('More Information does not appear as a label', () => {
-	cy.get(`div[data-testid='${testIds.MORE_INFORMATION}'] h6`).should('not.exist');
+	cy.get(`div[data-testid='${testIds.MORE_INFORMATION}'] h2`).should('not.exist');
 });
 
 Then('media is displayed', () => {

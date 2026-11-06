@@ -222,7 +222,7 @@ const Definition = () => {
 		if (payload.relatedResources && payload.relatedResources.length > 0) {
 			return (
 				<>
-					<h6>{headerText}</h6>
+					<h2>{headerText}</h2>
 					<RelatedResourceList linksArr={payload.relatedResources} lang={language} />
 				</>
 			);
