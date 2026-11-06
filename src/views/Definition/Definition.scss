@@ -1,14 +1,19 @@
+$theme-set-automatic-external-links-on: true;
+
 .contentzone ul.more-information-list {
 	margin-bottom: 40px;
 	li {
 		margin: 0.5em 0;
+		a.usa-link--external::after{
+			mask-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%3E%0A%3Cpath%20d%3D%22M15.8333%2015.8333H4.16667V4.16667H10V2.5H4.16667C3.24167%202.5%202.5%203.25%202.5%204.16667V15.8333C2.5%2016.75%203.24167%2017.5%204.16667%2017.5H15.8333C16.75%2017.5%2017.5%2016.75%2017.5%2015.8333V10H15.8333V15.8333ZM11.6667%202.5V4.16667H14.6583L6.46667%2012.3583L7.64167%2013.5333L15.8333%205.34167V8.33333H17.5V2.5H11.6667Z%22%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20fill%3D%22%2301679D%22%2F%3E%0A%3C%2Fsvg%3E), linear-gradient(transparent, transparent);
+		}
 	}
 }
 
 .related-resources {
 	margin-top: 40px;
 
-	+ h6 {
+	+ h2 {
 		margin-top: 40px;
 	}
 }
