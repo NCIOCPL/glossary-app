@@ -16,19 +16,21 @@ const App = () => {
 
 	return (
 		<Router>
-			<Routes>
-				<Route path={HomePath()} element={<Home />} />
-				<Route path={DefinitionPath()} element={<Definition />} />
-				<Route path={ExpandPath()} element={<Home />} />
-				<Route path={ExpandPathNoParam()} element={<Home />} />
-				<Route path={ExpandPathSpanish()} element={<Home />} />
-				<Route path={ExpandPathNoParamSpanish()} element={<Home />} />
-				<Route path={SearchPath()} element={<Home />} />
-				<Route path={SearchPathNoParam()} element={<Home />} />
-				<Route path={SearchPathSpanish()} element={<Home />} />
-				<Route path={SearchPathSpanishNoParam()} element={<Home />} />
-				<Route path="/*" element={<PageNotFound />} />
-			</Routes>
+			<div className="glossary-app">
+				<Routes>
+					<Route path={HomePath()} element={<Home />} />
+					<Route path={DefinitionPath()} element={<Definition />} />
+					<Route path={ExpandPath()} element={<Home />} />
+					<Route path={ExpandPathNoParam()} element={<Home />} />
+					<Route path={ExpandPathSpanish()} element={<Home />} />
+					<Route path={ExpandPathNoParamSpanish()} element={<Home />} />
+					<Route path={SearchPath()} element={<Home />} />
+					<Route path={SearchPathNoParam()} element={<Home />} />
+					<Route path={SearchPathSpanish()} element={<Home />} />
+					<Route path={SearchPathSpanishNoParam()} element={<Home />} />
+					<Route path="/*" element={<PageNotFound />} />
+				</Routes>
+			</div>
 		</Router>
 	);
 };
