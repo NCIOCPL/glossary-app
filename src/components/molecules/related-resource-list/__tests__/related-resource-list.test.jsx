@@ -56,6 +56,23 @@ describe('<RelatedResourceList /> component', () => {
 		expect(screen.getAllByRole('listitem')).toHaveLength(3);
 	});
 
+	it('marks .gov and .mil links as internal', () => {
+		const mockResourcesArr = [
+			{ Url: 'https://agency.gov/resource', Type: 'Internal', Text: 'Government link' },
+			{ Url: 'https://agency.mil/resource', Type: 'Internal', Text: 'Military link' },
+			{ Url: 'https://example.com/resource', Type: 'External', Text: 'Other link' },
+		];
+		render(
+			<MemoryRouter initialEntries={['/']}>
+				<RelatedResourceList linksArr={mockResourcesArr} />
+			</MemoryRouter>
+		);
+
+		expect(screen.getByRole('link', { name: 'Government link' })).not.toHaveClass('usa-link--external');
+		expect(screen.getByRole('link', { name: 'Military link' })).not.toHaveClass('usa-link--external');
+		expect(screen.getByRole('link', { name: 'Other link' })).toHaveClass('usa-link--external');
+	});
+
 	it('creates GlossaryTerm links, using prettyUrls when provided', () => {
 		const mockGlossaryTermResource = [
 			{

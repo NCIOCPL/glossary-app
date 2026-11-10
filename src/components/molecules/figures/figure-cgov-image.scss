@@ -1,0 +1,79 @@
+@use 'uswds-core' as *;
+@use 'caption';
+
+// Matches the cancer.gov NCIDS image component (cgdp-image): the caption and the
+// "Enlarge image" row below it each have a teal left border, Open Sans
+// 0.89rem / 1.6, and 0.5rem x 1rem padding.
+//
+// Width: 100% of the container up to 481px, so the image is 481px wide from
+// the tablet breakpoint up and fills the container on mobile.
+.cgdp-image {
+	display: block;
+	width: 100%;
+	max-width: 30.0625rem; // 481px
+	margin: 0 0 units(3);
+
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	&__caption,
+	&__enlarge {
+		@include caption.cgdp-caption;
+	}
+
+	&__caption-text {
+		> :first-child {
+			margin-top: 0;
+		}
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__credit {
+		margin: units(1) 0 0;
+		font-size: 0.82rem;
+
+		&:only-child {
+			margin-top: 0;
+		}
+	}
+
+	&__enlarge {
+		display: flex;
+		align-items: center;
+
+		.usa-icon {
+			flex: 0 0 auto;
+			width: 1.52rem;
+			height: 1.52rem;
+			margin-right: units(1);
+			fill: currentColor;
+		}
+
+		.usa-link {
+			color: color($theme-link-color);
+			text-decoration: underline;
+
+			&:visited {
+				color: color($theme-link-visited-color);
+			}
+
+			&:hover {
+				color: color($theme-link-hover-color);
+			}
+
+			&:active {
+				color: color($theme-link-active-color);
+			}
+		}
+
+		.usa-sr-only {
+			@include sr-only;
+		}
+	}
+}

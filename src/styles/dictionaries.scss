@@ -8,6 +8,8 @@
 
 // molecules
 @use '../components/molecules/pronunciation/pronunciation';
+@use '../components/molecules/figures/figure-cgov-image';
+@use '../components/molecules/figures/figure-cgov-video';
 
 //views
 @use '../views/Home/IntroText';
@@ -42,6 +44,12 @@ p {
 }
 
 
+
+// Constrain page content to the NCIDS text measure (88ex, ~761px at widescreen).
+// Content shrinks with the viewport below that width.
+.glossary-app {
+	@include u-measure($theme-text-measure);
+}
 
 // Global styles
 h1 {

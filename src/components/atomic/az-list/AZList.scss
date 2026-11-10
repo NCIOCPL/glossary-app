@@ -3,6 +3,11 @@
 .az-list {
 	padding-top: 16px;
 
+	@media screen and (max-width: 480px) {
+		@include u-margin-bottom(3);
+	}
+	@include u-margin-bottom(4);
+
 	.browse {
 		float: none;
 		margin-right: 12px;

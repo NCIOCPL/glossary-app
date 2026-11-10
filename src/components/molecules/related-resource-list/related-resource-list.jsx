@@ -6,6 +6,10 @@ import PropTypes from 'prop-types';
 const RelatedResourceList = ({ linksArr, lang = 'en' }) => {
 	const { DefinitionPath } = useAppPaths();
 
+	const isInternalLink = (linkItem) => {
+		return linkItem.Url.includes('.gov') || linkItem.Url.includes('.mil');
+	};
+
 	if (linksArr.length > 0) {
 		return (
 			<ul className="more-information-list no-bullets">
@@ -28,7 +32,9 @@ const RelatedResourceList = ({ linksArr, lang = 'en' }) => {
 						default:
 							return (
 								<li key={`${linkItem.Type}-${idx}`}>
-									<a href={linkItem.Url}>{linkItem.Text}</a>
+									<a className={`usa-link${isInternalLink(linkItem) ? '' : ' usa-link--external'}`} href={linkItem.Url}>
+										{linkItem.Text}
+									</a>
 								</li>
 							);
 					}

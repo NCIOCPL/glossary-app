@@ -157,7 +157,7 @@ describe('Definition component with English', () => {
 
 		await expect(screen.findByTestId(testIds.TERM_DEF_TITLE)).resolves.toBeInTheDocument();
 		const figures = screen.getAllByRole('figure');
-		expect(figures.filter((fig) => fig.classList.contains('image-left-medium'))).toHaveLength(1);
+		expect(figures.filter((fig) => fig.classList.contains('cgdp-image'))).toHaveLength(1);
 	});
 
 	it('Video specified in media are displayed', async () => {
@@ -169,7 +169,7 @@ describe('Definition component with English', () => {
 
 		await expect(screen.findByTestId(testIds.TERM_DEF_TITLE)).resolves.toBeInTheDocument();
 		const figures = screen.getAllByRole('figure');
-		expect(figures.filter((fig) => fig.classList.contains('video'))).toHaveLength(1);
+		expect(figures.filter((fig) => fig.classList.contains('cgdp-video'))).toHaveLength(1);
 	});
 
 	it('should check scroll position is at top of page', async () => {
@@ -210,8 +210,8 @@ describe('Definition component with English', () => {
 
 			await expect(screen.findByTestId(testIds.TERM_DEF_TITLE)).resolves.toBeInTheDocument();
 			const figures = screen.queryAllByRole('figure');
-			expect(figures.filter((fig) => fig.classList.contains('video'))).toHaveLength(0);
-			expect(figures.filter((fig) => fig.classList.contains('image-left-medium'))).toHaveLength(0);
+			expect(figures.filter((fig) => fig.classList.contains('cgdp-video'))).toHaveLength(0);
+			expect(figures.filter((fig) => fig.classList.contains('cgdp-image'))).toHaveLength(0);
 		});
 	});
 
