@@ -10,6 +10,9 @@ const convertValue = (val) => {
 		if (val.indexOf('(int)') === 0) {
 			return parseInt(val.replace('(int)', ''));
 		}
+		if (val === '(undefined)') {
+			return undefined;
+		}
 	}
 	return val;
 };
@@ -36,13 +39,15 @@ const convertAnalyticsDatatableObject = (obj) => {
 				return {
 					first,
 					value: obj[first],
+					hasValue: true,
 				};
 			}
 		})
 		.reduce((ac, curr) => {
 			const newKey = curr.first;
 
-			if (curr.value) {
+			// Allow falsy values like (int)0 and (undefined), but skip empty cells.
+			if (curr.hasValue && curr.value !== '') {
 				if (ac[newKey]) {
 					throw new Error(`Key, ${newKey}, is already defined.`);
 				}

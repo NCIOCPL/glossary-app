@@ -652,3 +652,18 @@ And('the user enters {string}', (userText) => {
 And('the user submits the keyword search', () => {
 	cy.get('button.nci-autocomplete__submit').click();
 });
+
+// Clear the search box
+And('the user clears the search box', () => {
+	cy.get('#keywords').clear();
+});
+
+// Submit keyword search with the Enter key
+And('the user presses Enter in the search box', () => {
+	cy.get('#keywords').type('{enter}');
+});
+
+// Wait for autosuggest options to be displayed
+And('the autosuggest options have loaded', () => {
+	cy.get('#keywords-listbox .nci-autocomplete__option').should('have.length.greaterThan', 0);
+});
