@@ -23,6 +23,7 @@
 
 	&__caption {
 		@include caption.cgdp-caption;
+		@include u-font('sans', '3xs');
 
 		> :first-child {
 			margin-top: 0;

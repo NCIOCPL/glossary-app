@@ -6,9 +6,9 @@
 		width: 100%;
 	}
 
-	// .radio-selection {
-	// 	margin-bottom: 1em;
-	// }
+	.radio-selection {
+		@include u-margin-top(2);
+	}
 
 	.usa-radio {
 		display: inline-block;

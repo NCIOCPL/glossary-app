@@ -134,7 +134,7 @@ const Home = () => {
 	return (
 		<>
 			{renderHelmet()}
-			<h1>{dictionaryTitle}</h1>
+			<h1 className="dictionary-title">{dictionaryTitle}</h1>
 			{/*
       --------------------------------------------------------------------
           Intro-text component goes here. Only rendered on home page

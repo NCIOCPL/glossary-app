@@ -2,7 +2,7 @@
 
 // Matches the NCIDS "Prose/body" type spec (Open Sans 16px / 24px)
 .usa-prose.intro-text {
-	@include u-margin-bottom(2);
+	@include u-margin-y(2);
 	font-size: 1rem;
 	line-height: 1.5;
 
