@@ -9,6 +9,9 @@
 	> p {
 		@include u-margin-y(0);
 		line-height: inherit;
+		// usa-prose caps paragraphs at 88ex (753.5px in Open Sans); match the
+		// .glossary-app constraint instead.
+		max-width: 47.564453125rem; // 761.03125px at a 16px root font size (renders as 761.03; Chrome lays out in 1/64px steps)
 	}
 
 	> p + p {

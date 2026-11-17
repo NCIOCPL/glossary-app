@@ -45,10 +45,12 @@ p {
 
 
 
-// Constrain page content to the NCIDS text measure (88ex, ~761px at widescreen).
+// Constrain page content to the NCIDS text measure (~761px at widescreen).
+// Uses rem rather than u-measure's 88ex, since ex depends on the font's
+// x-height and rendered narrower (753.5px) than the intended 761.03px.
 // Content shrinks with the viewport below that width.
 .glossary-app {
-	@include u-measure($theme-text-measure);
+	max-width: 47.564453125rem; // 761.03125px at a 16px root font size (renders as 761.03; Chrome lays out in 1/64px steps)
 }
 
 // Global styles
