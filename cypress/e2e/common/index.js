@@ -253,7 +253,7 @@ Then('a youtube video is displayed with the video id {string}', (video_id) => {
   ------------------------------
 */
 Then('heading {string} appears', (searchBoxTitle) => {
-	cy.get('h6').contains(searchBoxTitle);
+	cy.get('h2').contains(searchBoxTitle);
 });
 
 Then('search options for {string} and {string} appears', (startsWithRadioLabel, containsRadioLabel) => {

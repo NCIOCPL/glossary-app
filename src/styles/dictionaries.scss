@@ -175,6 +175,10 @@ select {
 //   }
 }
 
+.dictionary-title {
+	@include u-margin(0);
+}
+
 .app-content .grid-row {
 	@include u-display('flex');
 	@include u-flex('wrap');
@@ -225,6 +229,10 @@ select {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.term-description, .dictionary__term-definition {
+	line-height: 24px;
 }
 
 // h1 {

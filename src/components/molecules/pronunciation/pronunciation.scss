@@ -1,6 +1,7 @@
 @use 'uswds-core' as *;
 
 .pronunciation {
+	@include u-margin-top(2);
 	display: flex;
 	font-family: Noto Sans;
 	&__audio {
