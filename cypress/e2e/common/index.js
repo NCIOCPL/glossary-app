@@ -253,7 +253,7 @@ Then('a youtube video is displayed with the video id {string}', (video_id) => {
   ------------------------------
 */
 Then('heading {string} appears', (searchBoxTitle) => {
-	cy.get('h6').contains(searchBoxTitle);
+	cy.get('h2').contains(searchBoxTitle);
 });
 
 Then('search options for {string} and {string} appears', (startsWithRadioLabel, containsRadioLabel) => {
@@ -266,7 +266,7 @@ Then('{string} search box appears', () => {
 });
 
 Then('search button appears beside search box with {string}', (searchButtonText) => {
-	cy.get(`input[value="${searchButtonText}"]`);
+	cy.get(`button.nci-autocomplete__submit[aria-label="${searchButtonText}"]`);
 });
 
 Then('{string} appears with A-Z List of Links beside it', (browseLabel) => {
@@ -277,7 +277,7 @@ Then('{string} appears with A-Z List of Links beside it', (browseLabel) => {
 });
 
 And('user submits their search clicking the {string} button', (searchButtonText) => {
-	cy.get(`input[value="${searchButtonText}"]`).click();
+	cy.get(`button.nci-autocomplete__submit[value="${searchButtonText}"]`).click();
 });
 
 Then('the system returns users to the search results page for the search term', () => {
@@ -306,7 +306,7 @@ Then('the system returns users to the search results page for the letter', () =>
 // *************************MORE INFORMATION LINKS************************//
 
 Then('there is a heading on the page with {string}', (moreInfoHeader) => {
-	cy.get(`div[data-testid='${testIds.MORE_INFORMATION}'] h6`).should('have.text', moreInfoHeader);
+	cy.get(`div[data-testid='${testIds.MORE_INFORMATION}'] h2`).should('have.text', moreInfoHeader);
 });
 
 Then('there is a link to a definition with the pretty url {string} and the text {string} following the text {string}', (prettyUrl, definitionTitle, definitionOf) => {
@@ -319,7 +319,7 @@ Then('there is a link to a definition with the pretty url {string} and the text 
 });
 
 Then('More Information does not appear as a label', () => {
-	cy.get(`div[data-testid='${testIds.MORE_INFORMATION}'] h6`).should('not.exist');
+	cy.get(`div[data-testid='${testIds.MORE_INFORMATION}'] h2`).should('not.exist');
 });
 
 Then('media is displayed', () => {
@@ -482,7 +482,7 @@ Then('{string} exists in the data for the page', () => {
 */
 
 Then('the language toggle should have the URL path {string}', (urlPath) => {
-	cy.get('#LangList1 a').should('have.attr', 'href').and('to.be.eq', urlPath);
+	cy.get('#lang-toggle a').should('have.attr', 'href').and('to.be.eq', urlPath);
 });
 
 /*
@@ -526,12 +526,12 @@ And('the CTS API is responding with a server error', () => {
 */
 
 Then('Autosuggest appears after user types in 3 or more characters', () => {
-	cy.get(".menu-wrapper div[class*='--terms']").should('be.visible');
+	cy.get('#keywords-listbox').should('be.visible');
 });
 
 Then('highlighting of the text {string} appears in the autosuggest field', (enteredText) => {
 	const regex = new RegExp(`${enteredText}`, 'i');
-	cy.get(".menu-wrapper div[class*='--terms'] span strong").each(($el) => {
+	cy.get('#keywords-listbox strong').each(($el) => {
 		cy.wrap($el).invoke('text').should('match', regex);
 	});
 });
@@ -541,17 +541,19 @@ When('user clicks on the search bar', () => {
 });
 
 Then('helper text {string} appears', (helperText) => {
-	cy.get('.menu-wrapper div div').should('have.text', helperText);
+	cy.get('#keywords').type('a');
+	cy.get('#keywords-listbox .nci-autocomplete__status').should('have.text', helperText);
+	cy.get('#keywords').clear();
 });
 
 When('user selects autosuggested term', () => {
-	cy.get(".menu-wrapper div[class*='--terms'] span")
+	cy.get('#keywords-listbox .nci-autocomplete__option')
 		.first()
 		.invoke('text')
 		.then((text) => {
 			Cypress.TERM_TEXT = text;
 		});
-	cy.get(".menu-wrapper div[class*='--terms'] span").first().click();
+	cy.get('#keywords-listbox .nci-autocomplete__option').first().click();
 });
 
 Then('term is populated into the search bar', () => {
@@ -631,14 +633,14 @@ And('the following links and texts exist on the page', (dataTable) => {
 
 // Verify the that the search box is present
 And('the search box has loaded', () => {
-	cy.get('#btnSearch').should('have.value', 'Search');
+	cy.get('button.nci-autocomplete__submit').should('have.value', 'Search');
 });
 
 // Select search type (Starts with(default) | Contains)
 And('the user selects the {string} option in the search box', (searchType) => {
 	console.log(searchType);
 	const selectedOption = searchType === 'Contains' ? 'contains' : 'starts-with';
-	cy.get(`.ncids-radio__label[for="${selectedOption}"]`).click();
+	cy.get(`.usa-radio__label[for="${selectedOption}"]`).click();
 });
 
 // Search for a keyword
@@ -648,5 +650,20 @@ And('the user enters {string}', (userText) => {
 
 //Submit keyword search
 And('the user submits the keyword search', () => {
-	cy.get('#btnSearch').click();
+	cy.get('button.nci-autocomplete__submit').click();
+});
+
+// Clear the search box
+And('the user clears the search box', () => {
+	cy.get('#keywords').clear();
+});
+
+// Submit keyword search with the Enter key
+And('the user presses Enter in the search box', () => {
+	cy.get('#keywords').type('{enter}');
+});
+
+// Wait for autosuggest options to be displayed
+And('the autosuggest options have loaded', () => {
+	cy.get('#keywords-listbox .nci-autocomplete__option').should('have.length.greaterThan', 0);
 });

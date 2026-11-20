@@ -1,22 +1,53 @@
+@use "uswds-core" as *;
+
 .dictionary-list-container {
 	h4 {
-		color: #2e2e2e;
-		font-size: 1.25em;
+		@include u-margin-bottom(2);
+		@include u-margin-top(0);
+		@include u-font('serif', 'xl');
+		@include u-color('base-darkest');
+		@include u-text(bold);
 		font-style: normal;
+		line-height: 28.8px; /* 120% */
+	}
+	
+	dd {
+		margin-left: 0;
 	}
 
 	dt {
+		padding-right: 12px;
 		margin-bottom: 0;
-		display: inline-block;
+		display: inline;
+
+		a {
+			color: #01679D;
+			font-weight: 700;
+			line-height: 24px;
+			text-decoration-line: underline;
+			text-decoration-style: solid;
+			text-decoration-skip-ink: none;
+			text-decoration-thickness: auto;
+			text-underline-offset: auto;
+			text-underline-position: from-font;
+
+			&:hover {
+				color: #004971
+			}
+		}
 
 		+ .pronunciation {
 			.pronunciation__key {
-				margin-left: 8px;
+				line-height: 24px;
 			}
 		}
 	}
 
-	dd.pronunciation {
+	.dictionary-list-container dt a, .pronunciation__key {
+		@include u-font(sans, 'xs');
+	}
+
+	dd.dictionary__term-pronunciation {
 		margin-bottom: 0;
 		display: inline;
 
@@ -27,8 +58,9 @@
 		}
 	}
 
-	dd.definition {
-		margin-bottom: 15px;
+	dd.dictionary__term-definition {
+		@include u-margin-top('105');
+		@include u-margin-bottom(2);
 	}
 
 	.btnAudio {

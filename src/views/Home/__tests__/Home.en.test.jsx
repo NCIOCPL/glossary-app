@@ -42,7 +42,7 @@ describe('Home component(English)', () => {
 		useStateValue.mockReturnValue([
 			{
 				altLanguageDictionaryBasePath: '/diccionario',
-				languageToggleSelector: '#LangList1 a',
+				languageToggleSelector: '#lang-toggle a',
 				appId: 'mockAppId',
 				basePath: '/',
 				dictionaryEndpoint,
@@ -56,13 +56,13 @@ describe('Home component(English)', () => {
 		]);
 
 		const mockToggleElement = document.createElement('div');
-		mockToggleElement.id = 'LangList1';
+		mockToggleElement.id = 'lang-toggle';
 		mockToggleElement.innerHTML = '<a href="/" data-testid="mockLangToggle">Language</a>';
 		document.body.appendChild(mockToggleElement);
 	});
 
 	afterEach(() => {
-		document.body.removeChild(document.getElementById('LangList1'));
+		document.body.removeChild(document.getElementById('lang-toggle'));
 	});
 
 	it('Match dictionary title name for Home', async () => {

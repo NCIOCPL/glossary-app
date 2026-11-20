@@ -29,24 +29,26 @@ const Term = ({ resultIndex, payload }) => {
 	};
 
 	return (
-		<div>
-			<dt>
-				<dfn data-cdr-id={termId}>
-					<Link
-						to={DefinitionPath({
-							idOrName: prettyUrlName ? prettyUrlName : termId,
-						})}
-						onClick={handleTermLinkClick}>
-						{termName}
-					</Link>
-				</dfn>
-			</dt>
-			{pronunciation && (
-				<dd className="pronunciation" data-testid={testIds.TERM_ITEM_PRONUNCIATION}>
-					<Pronunciation lang={language} pronunciationObj={pronunciation} />
-				</dd>
-			)}
-			<dd className="definition" data-testid={testIds.TERM_ITEM_DESCRIPTION} dangerouslySetInnerHTML={{ __html: definition.html }}></dd>
+		<div className="dictionary__term">
+			<div className="dictionary__term-header">
+				<dt className="dictionary__term-name">
+					<dfn data-cdr-id={termId}>
+						<Link
+							to={DefinitionPath({
+								idOrName: prettyUrlName ? prettyUrlName : termId,
+							})}
+							onClick={handleTermLinkClick}>
+							{termName}
+						</Link>
+					</dfn>
+				</dt>
+				{pronunciation && (
+					<dd className="dictionary__term-pronunciation pronunciation" data-testid={testIds.TERM_ITEM_PRONUNCIATION}>
+						<Pronunciation lang={language} pronunciationObj={pronunciation} />
+					</dd>
+				)}
+			</div>
+			<dd className="dictionary__term-definition definition" data-testid={testIds.TERM_ITEM_DESCRIPTION} dangerouslySetInnerHTML={{ __html: definition.html }}></dd>
 		</div>
 	);
 };

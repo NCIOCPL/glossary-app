@@ -31,7 +31,7 @@ const client = {
 };
 
 const MockLangToggle = () => (
-	<div id="LangList1">
+	<div id="lang-toggle">
 		<a href="/" data-testid="mockLangToggle">
 			Language
 		</a>
@@ -56,7 +56,7 @@ describe('Home component(Spanish)', () => {
 		useStateValue.mockReturnValue([
 			{
 				altLanguageDictionaryBasePath: '/cancer-terms',
-				languageToggleSelector: '#LangList1 a',
+				languageToggleSelector: '#lang-toggle a',
 				appId: 'mockAppId',
 				basePath: '/',
 				dictionaryIntroText,

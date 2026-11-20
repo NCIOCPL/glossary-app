@@ -29,7 +29,7 @@ describe('UseCustomQuery component', () => {
 		useStateValue.mockReturnValue([
 			{
 				altLanguageDictionaryBasePath: language === 'en' ? '/diccionario' : '/cancer-terms',
-				languageToggleSelector: '#LangList1 a',
+				languageToggleSelector: '#lang-toggle a',
 				appId: 'mockAppId',
 				canonicalHost: 'https://example.org',
 				basePath: '/',
