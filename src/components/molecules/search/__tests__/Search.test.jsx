@@ -11,7 +11,7 @@ import {
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ClientContextProvider } from 'react-fetching-library';
-import { MemoryRouter, useLocation } from 'react-router-dom';
+import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
 
 import autoSuggestionsEnglish from './autoSuggestions';
 import { searchMatchType, testIds } from '../../../../constants';
@@ -170,7 +170,70 @@ describe('<Search /> English', () => {
 		});
 		const searchButton = getByRole('button', { name: 'Search' });
 		fireEvent.click(searchButton);
-		expect(analyticsHandler).toHaveBeenCalled();
+		expect(analyticsHandler).toHaveBeenCalledWith({
+			type: 'Other',
+			event: 'GlossaryApp:SearchBox:Submit',
+			linkName: 'GlossaryApp:SearchBox:Submit',
+			formType: 'Glossary Search Box',
+			searchType: 'starts with',
+			searchTerm: 'metastatic',
+			previousTerm: undefined,
+			autoSuggestUsage: 'None',
+			charactersTyped: undefined,
+			numCharacters: undefined,
+			numSuggestsSelected: undefined,
+			suggestItems: 0,
+		});
+		// Autosuggest fields are sent as undefined, not left off the event.
+		const [payload] = analyticsHandler.mock.calls[analyticsHandler.mock.calls.length - 1];
+		['previousTerm', 'charactersTyped', 'numCharacters', 'numSuggestsSelected'].forEach((key) => {
+			expect(payload).toHaveProperty(key, undefined);
+		});
+	});
+
+	test('Submitting an edited search from a search results page sends previous term and offered suggestions', async () => {
+		cleanup();
+		const resultsAnalyticsHandler = jest.fn(() => {});
+		await act(async () => {
+			render(
+				<MockAnalyticsProvider analyticsHandler={resultsAnalyticsHandler}>
+					<MemoryRouter initialEntries={['/search/breast%20cancer']}>
+						<ClientContextProvider client={client}>
+							<Routes>
+								<Route path="/search/:searchText" element={<Search />} />
+							</Routes>
+						</ClientContextProvider>
+					</MemoryRouter>
+				</MockAnalyticsProvider>
+			);
+		});
+		const input = screen.getByRole('combobox');
+		expect(input).toHaveValue('breast cancer');
+		await act(async () => {
+			fireEvent.change(input, { target: { value: 'lung cancer' } });
+		});
+		await waitFor(() => expect(screen.getAllByRole('option')).toHaveLength(6));
+		await act(async () => {
+			fireEvent.keyDown(input, { key: 'Enter' });
+		});
+		expect(resultsAnalyticsHandler).toHaveBeenCalledWith({
+			type: 'Other',
+			event: 'GlossaryApp:SearchBox:Submit',
+			linkName: 'GlossaryApp:SearchBox:Submit',
+			formType: 'Glossary Search Box',
+			searchType: 'starts with',
+			searchTerm: 'lung cancer',
+			previousTerm: 'breast cancer',
+			autoSuggestUsage: 'Offered',
+			charactersTyped: undefined,
+			numCharacters: undefined,
+			numSuggestsSelected: undefined,
+			suggestItems: 6,
+		});
+		const [payload] = resultsAnalyticsHandler.mock.calls[resultsAnalyticsHandler.mock.calls.length - 1];
+		['charactersTyped', 'numCharacters', 'numSuggestsSelected'].forEach((key) => {
+			expect(payload).toHaveProperty(key, undefined);
+		});
 	});
 
 	describe('Autocomplete', () => {
@@ -201,9 +264,10 @@ describe('<Search /> English', () => {
 				}),
 			};
 
+			const autocompleteAnalyticsHandler = jest.fn(() => {});
 			await act(async () => {
 				wrapper = await render(
-					<MockAnalyticsProvider>
+					<MockAnalyticsProvider analyticsHandler={autocompleteAnalyticsHandler}>
 						<MemoryRouter initialEntries={['/']}>
 							<ClientContextProvider client={client}>
 								<SearchWithLocation RenderComponent={Search} />
@@ -259,6 +323,20 @@ describe('<Search /> English', () => {
 			const searchButton = screen.getByRole('button', { name: 'Search' });
 			await act(async () => {
 				fireEvent.click(searchButton);
+			});
+			expect(autocompleteAnalyticsHandler).toHaveBeenCalledWith({
+				type: 'Other',
+				event: 'GlossaryApp:SearchBox:Submit',
+				linkName: 'GlossaryApp:SearchBox:Submit',
+				formType: 'Glossary Search Box',
+				searchType: 'starts with',
+				searchTerm: 'meta-analysis',
+				previousTerm: undefined,
+				autoSuggestUsage: 'Selected',
+				charactersTyped: searchText,
+				numCharacters: searchText.length,
+				numSuggestsSelected: 1,
+				suggestItems: 6,
 			});
 			const expectedLocationObject = {
 				pathname: `/search/meta-analysis/`,

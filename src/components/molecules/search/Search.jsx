@@ -19,6 +19,11 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 	const tracking = useTracking();
 	const client = useClient();
 	const autocompleteContainerRef = useRef(null);
+	// Autosuggest details captured for the search submit analytics event.
+	// The most recent set of suggestions loaded (what was typed and the results).
+	const lastSuggestionsRef = useRef({ query: '', results: [] });
+	// Details of the autosuggest option the user picked, if any.
+	const selectedSuggestionRef = useRef(null);
 
 	// Set matchType to value retrieved from url if it exits and default to "Begins" if not
 	const matchType = search && getKeyValueFromQueryString('searchMode', search) !== null ? getKeyValueFromQueryString('searchMode', search) : searchMatchType.beginsWith;
@@ -53,7 +58,9 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 				setAutoSuggestError(response.errorObject || new Error(`Auto-suggest request failed with status ${response.status || 'unknown'}`));
 				return [];
 			}
-			return response.payload || [];
+			const results = response.payload || [];
+			lastSuggestionsRef.current = { query: inputValue, results };
+			return results;
 		},
 		[autoSuggestLimit, client, selectedOption]
 	);
@@ -64,13 +71,33 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 
 	const trackSubmit = (value) => {
 		const searchType = selectedOption && getKeyValueFromObject(selectedOption, searchMatchTypeAnalyticsMap) ? getKeyValueFromObject(selectedOption, searchMatchTypeAnalyticsMap) : searchMatchTypeAnalyticsMap[searchMatchType.beginsWith];
+		const searchTerm = value.trim();
+		const previousTerm = urlParamSearchText ? decodeURIComponent(urlParamSearchText) : undefined;
+		const selectedSuggestion = selectedSuggestionRef.current;
+		// A selection only counts if the submitted text is still the selected option.
+		const hasSelected = selectedSuggestion !== null && selectedSuggestion.termName === searchTerm;
+		const suggestItems = hasSelected ? selectedSuggestion.suggestItems : lastSuggestionsRef.current.results.length;
+		const autoSuggestUsage = hasSelected ? 'Selected' : suggestItems > 0 ? 'Offered' : 'None';
+
 		tracking.trackEvent({
 			type: 'Other',
-			event: 'GlossaryApp:Other:KeywordSearch',
-			linkName: 'TermsDictionarySearch',
-			searchTerm: value.trim(),
-			searchType: searchType,
+			event: 'GlossaryApp:SearchBox:Submit',
+			linkName: 'GlossaryApp:SearchBox:Submit',
+			formType: 'Glossary Search Box',
+			searchType,
+			searchTerm,
+			previousTerm,
+			autoSuggestUsage,
+			// Undefined if no autosuggest option is selected.
+			charactersTyped: hasSelected ? selectedSuggestion.charactersTyped : undefined,
+			numCharacters: hasSelected ? selectedSuggestion.charactersTyped.length : undefined,
+			numSuggestsSelected: hasSelected ? selectedSuggestion.index : undefined,
+			suggestItems,
 		});
+
+		// Reset so the next search starts fresh.
+		selectedSuggestionRef.current = null;
+		lastSuggestionsRef.current = { query: '', results: [] };
 	};
 
 	const executeSearch = (value) => {
@@ -94,7 +121,18 @@ const Search = ({ autoSuggestLimit = 10 }) => {
 
 	const handleOptionChange = (option) => {
 		if (option) {
+			const { query, results } = lastSuggestionsRef.current;
+			const index = results.findIndex((item) => String(item.termId) === String(option.termId));
+			selectedSuggestionRef.current = {
+				termName: option.termName,
+				charactersTyped: query,
+				// 1-based position of the selected option in the list shown.
+				index: index + 1,
+				suggestItems: results.length,
+			};
 			setSearchText(option.termName);
+		} else {
+			selectedSuggestionRef.current = null;
 		}
 	};
 

@@ -2,13 +2,16 @@
 
 // Matches the NCIDS "Prose/body" type spec (Open Sans 16px / 24px)
 .usa-prose.intro-text {
-	@include u-margin-bottom(2);
+	@include u-margin-y(2);
 	font-size: 1rem;
 	line-height: 1.5;
 
 	> p {
 		@include u-margin-y(0);
 		line-height: inherit;
+		// usa-prose caps paragraphs at 88ex (753.5px in Open Sans); match the
+		// .glossary-app constraint instead.
+		max-width: 47.564453125rem; // 761.03125px at a 16px root font size (renders as 761.03; Chrome lays out in 1/64px steps)
 	}
 
 	> p + p {

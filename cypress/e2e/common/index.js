@@ -253,7 +253,7 @@ Then('a youtube video is displayed with the video id {string}', (video_id) => {
   ------------------------------
 */
 Then('heading {string} appears', (searchBoxTitle) => {
-	cy.get('h6').contains(searchBoxTitle);
+	cy.get('h2').contains(searchBoxTitle);
 });
 
 Then('search options for {string} and {string} appears', (startsWithRadioLabel, containsRadioLabel) => {
@@ -306,7 +306,7 @@ Then('the system returns users to the search results page for the letter', () =>
 // *************************MORE INFORMATION LINKS************************//
 
 Then('there is a heading on the page with {string}', (moreInfoHeader) => {
-	cy.get(`div[data-testid='${testIds.MORE_INFORMATION}'] h6`).should('have.text', moreInfoHeader);
+	cy.get(`div[data-testid='${testIds.MORE_INFORMATION}'] h2`).should('have.text', moreInfoHeader);
 });
 
 Then('there is a link to a definition with the pretty url {string} and the text {string} following the text {string}', (prettyUrl, definitionTitle, definitionOf) => {
@@ -319,7 +319,7 @@ Then('there is a link to a definition with the pretty url {string} and the text 
 });
 
 Then('More Information does not appear as a label', () => {
-	cy.get(`div[data-testid='${testIds.MORE_INFORMATION}'] h6`).should('not.exist');
+	cy.get(`div[data-testid='${testIds.MORE_INFORMATION}'] h2`).should('not.exist');
 });
 
 Then('media is displayed', () => {
@@ -651,4 +651,19 @@ And('the user enters {string}', (userText) => {
 //Submit keyword search
 And('the user submits the keyword search', () => {
 	cy.get('button.nci-autocomplete__submit').click();
+});
+
+// Clear the search box
+And('the user clears the search box', () => {
+	cy.get('#keywords').clear();
+});
+
+// Submit keyword search with the Enter key
+And('the user presses Enter in the search box', () => {
+	cy.get('#keywords').type('{enter}');
+});
+
+// Wait for autosuggest options to be displayed
+And('the autosuggest options have loaded', () => {
+	cy.get('#keywords-listbox .nci-autocomplete__option').should('have.length.greaterThan', 0);
 });

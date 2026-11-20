@@ -1,4 +1,7 @@
+@use 'uswds-core' as *;
+
 .pronunciation {
+	@include u-margin-top(2);
 	display: flex;
 	font-family: Noto Sans;
 	&__audio {
@@ -6,8 +9,10 @@
 		width: 42px;
 	}
 	&__key {
-		flex: 1 1 auto;
+		@include u-font('sans', 'xs');
+		@include u-margin-bottom(2);
+		@include u-margin-right('105');
 		line-height: 1.4;
-		padding-top: 8px;
+		padding-top: 2px;
 	}
 }

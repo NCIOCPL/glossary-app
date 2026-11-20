@@ -9,7 +9,7 @@ const SearchBox = ({ showTitle = false }) => {
 	let classes = showTitle ? ' bottom' : '';
 	return (
 		<div aria-label={searchBoxTitle} className={`search-box-container${classes}`}>
-			{showTitle && <h6>{searchBoxTitle}</h6>}
+			{showTitle && <h2>{searchBoxTitle}</h2>}
 			<Search />
 			<AZList />
 		</div>

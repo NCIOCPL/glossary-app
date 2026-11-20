@@ -8,6 +8,8 @@
 
 // molecules
 @use '../components/molecules/pronunciation/pronunciation';
+@use '../components/molecules/figures/figure-cgov-image';
+@use '../components/molecules/figures/figure-cgov-video';
 
 //views
 @use '../views/Home/IntroText';
@@ -42,6 +44,14 @@ p {
 }
 
 
+
+// Constrain page content to the NCIDS text measure (~761px at widescreen).
+// Uses rem rather than u-measure's 88ex, since ex depends on the font's
+// x-height and rendered narrower (753.5px) than the intended 761.03px.
+// Content shrinks with the viewport below that width.
+.glossary-app {
+	max-width: 47.564453125rem; // 761.03125px at a 16px root font size (renders as 761.03; Chrome lays out in 1/64px steps)
+}
 
 // Global styles
 h1 {
@@ -167,6 +177,10 @@ select {
 //   }
 }
 
+.dictionary-title {
+	@include u-margin(0);
+}
+
 .app-content .grid-row {
 	@include u-display('flex');
 	@include u-flex('wrap');
@@ -217,6 +231,10 @@ select {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.term-description, .dictionary__term-definition {
+	line-height: 24px;
 }
 
 // h1 {
